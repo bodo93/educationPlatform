@@ -16,11 +16,11 @@ use router\Router;
 session_start();
 
 $authFunction = function () {
-    if (isset($_SESSION["instituteLogin"])) {
+    /*if (isset($_SESSION["instituteLogin"])) {
         return true;
     }
     Router::redirect("/login");
-    return false;
+    return false;*/
 };
 
 $errorFunction = function () {
@@ -51,24 +51,57 @@ Router::route("GET", "/logout", function () {
     Router::redirect("/login");
 });
 
+/* IM EINSATZ
 Router::route_auth("GET", "/", $authFunction, function () {
-    layoutSetContent("home.php");
+    require_once("view/home.php");
 });
+
+Router::route_auth("GET", "/search", $authFunction, function () {
+    require_once("view/search.php");
+});
+
 
 Router::route_auth("GET", "/institute/edit", $authFunction, function () {
     require_once("view/instituteEdit.php");
 });
 
 Router::route_auth("GET", "/course/overview", $authFunction, function () {
-    layoutSetContent("courseOverview.php");
+    require_once("view/courseOverview.php");
 });
 
 Router::route_auth("GET", "/course/create", $authFunction, function () {
-    layoutSetContent("courseCreate.php");
+    require_once("view/courseCreate.php");
 });
 
 Router::route_auth("GET", "/course/edit", $authFunction, function () {
-    layoutSetContent("customerEdit.php");
+    require_once("view/courseEdit.php");
+});
+*/
+
+// JUST 4 TESTING
+Router::route("GET", "/",  function () {
+    require_once("view/home.php");
+});
+
+Router::route("GET", "/search", function () {
+    require_once("view/search.php");
+});
+
+
+Router::route("GET", "/institute/edit", function () {
+    require_once("view/instituteEdit.php");
+});
+
+Router::route("GET", "/course/overview", function () {
+    require_once("view/courseOverview.php");
+});
+
+Router::route("GET", "/course/create", function () {
+    require_once("view/courseCreate.php");
+});
+
+Router::route("GET", "/course/edit", function () {
+    require_once("view/courseEdit.php");
 });
 
 
