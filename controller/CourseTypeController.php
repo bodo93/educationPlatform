@@ -7,10 +7,10 @@
  */
 
 /**
- * Description of Department
+ * Description of CourseTypeController
  *
  * @author bodog
  */
-class Department {
+class CourseTypeController {
     //put your code here
 }
