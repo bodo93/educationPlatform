@@ -33,4 +33,8 @@ class InstituteController {
         //set foreignKey
         $institute->setInvoiceAddressId($invoiceAddress->getId());
     }
+    
+    public static function login(){
+        
+    }
 }
