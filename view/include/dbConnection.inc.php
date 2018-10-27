@@ -1,8 +1,17 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+<!-- 
+Author: Philipp Lehmann
 -->
 <?php
+    $dbHost = "127.0.0.1";		//Location Of Database
+    $dbUser = "root";			//Database User Name 
+    $dbPass = "";				//Database Password 
+    $dbDatabase = "db_educationPlatform";		//Database Name
 
+    // Create connection
+    $conn = new mysqli($dbHost, $dbUser, $dbPass, $dbDatabase);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+?>
