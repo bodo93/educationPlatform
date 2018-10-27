@@ -7,7 +7,7 @@ namespace model;
  *
  * @author bodog
  */
-class EducationalInstitute {
+class Institute {
     private $id;
     private $name;
     private $street;
