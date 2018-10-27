@@ -6,7 +6,12 @@ and open the template in the editor.
 -->
 <?php
 
+
+
+require_once("config/Autoloader.php");
 require_once("view/layout.php");
+
+use router\Router;
 
 session_start();
 
