@@ -3,18 +3,18 @@
 author: René Schwab
 -->
 <?php 
-include 'includes/translator.inc.php';
+include 'view/includes/translator.inc.php';
 include("includes/DBconnection.inc.php");
-include 'includes/header.inc.php';
-include 'includes/footer.inc.php';
+include 'view/includes/header.inc.php';
+include 'view/includes/footer.inc.php';
 ?>
 
 <html>
     <head>
         <meta charset="UTF-8">
         <!--<link rel="stylesheet" type="text/css" href="userprofile.css">-->
-        <link rel="stylesheet" type="text/css" href="all_1.css">
-        <!--<title><?php echo $lang['editCourse'] ?></title>-->
+        <link rel="stylesheet" type="text/css" href="assets/css/all_1.css">
+        
     </head>
     
     
@@ -24,10 +24,11 @@ include 'includes/footer.inc.php';
         </header>
         
         <nav>
+            
         </nav>
         
         <article>
-            <!--<h3><?php echo $lang['editCourse'] ?></h3>-->
+
             <section>
             </section>
         </article>
