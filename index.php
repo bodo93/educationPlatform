@@ -11,7 +11,7 @@ and open the template in the editor.
 require_once("config/Autoloader.php");
 require_once("view/layout.php");
 
-use router\Router;
+use routing\Router;
 
 session_start();
 

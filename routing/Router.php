@@ -1,16 +1,17 @@
 <?php
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- * 
  */
 
-
-//reference: we-crm by Andreas Martin
-
-namespace router;
+/**
+ * Description of Router
+ *
+ * @author bodog
+ */
+namespace routing;
 
 class Router
 {
