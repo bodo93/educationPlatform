@@ -16,11 +16,11 @@ use routing\Router;
 session_start();
 
 $authFunction = function () {
-    /*if (isset($_SESSION["instituteLogin"])) {
+    if (isset($_SESSION["instituteLogin"])) {
         return true;
     }
     Router::redirect("/login");
-    return false;*/
+    return false;
 };
 
 $errorFunction = function () {
@@ -102,6 +102,14 @@ Router::route("GET", "/course/create", function () {
 
 Router::route("GET", "/course/edit", function () {
     require_once("view/courseEdit.php");
+});
+
+Router::route("GET", "/course/delete", function () {
+    require_once("view/courseDelete.php");
+});
+
+Router::route("GET", "/search", function () {
+    require_once("view/search.php");
 });
 
 

@@ -3,18 +3,18 @@
 author: Bodo Grütter
 -->
 <?php
-include 'includes/translator.inc.php';
-include("includes/DBconnection.inc.php");
+include 'view/includes/translator.inc.php';
+include("view/includes/DBconnection.inc.php");
 ?>
 <html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="userprofile.css">
         <link rel="stylesheet" type="text/css" href="all.css">
-        <title><?php echo $lang['editCourse']?></title>
+        <title><?php echo $lang['editCourse'] ?></title>
     </head>
     <body>
-        <h3><?php echo $lang['editCourse']?></h3>
+        <h3><?php echo $lang['editCourse'] ?></h3>
         <form action="coursesUpdate.php" method="post">
             <table>
                 <?php
@@ -24,76 +24,109 @@ include("includes/DBconnection.inc.php");
                     $id = $_GET['id'];
                 } else if ($_POST) {
                     $id = $_POST['id'];
-                    $update = "Update bildungsangebot set `Bezeichnung` = '" . $_POST['bezeichnung'] . "', `Kosten` = '" . $_POST['kosten'] . "', `Max_Teilnehmerzahl` = '" . $_POST['max_teilnehmerzahl'] . "', `Startdatum` = '" . $_POST['startdatum'] . "', `Enddatum` = '" . $_POST['enddatum'] . "', `Ort` = '" . $_POST['ort'] . "', `FK_Bildungsinstitut` = '" . $_POST['bildungsinstitut'] . "', `FK_Fachbereich`= '" . $_POST['fachbereich'] . "', `FK_Abschluss` = '" . $_POST['abschluss'] . "' where `ID` = '" . $_POST['id'] . "'"; //Just 4 Tests
+                    $update = "Update course set `Name` = '" . $_POST['name'] . "', `"
+                            . "PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
+                            . "`Start` = '" . $_POST['start'] . "', `End` = '" . $_POST['end'] . "', "
+                            . "`Link` = '" . $_POST['link'] . "', `InstituteID` = '" . $_POST['institute'] . "', "
+                            . "`DepartmentID`= '" . $_POST['department'] . "', `AreaID` = '" . $_POST['area'] . "', `CourseTypeID` = '" . $_POST['courseType'] . "' "
+                            . "where `ID` = '" . $_POST['id'] . "'";
                     if (mysqli_query($conn, $update)) {
-                        header("Location:courses.php");
+                        header("Location:courseOverview.php");
                     } else {
                         echo "Error: " . $update . "<br>" . mysqli_error($conn);
                     }
                     mysqli_close($conn);
                 }
                 //Query
-                $select = "Select ID, Bezeichnung, Kosten, Max_Teilnehmerzahl, Startdatum, Enddatum, Ort, FK_Bildungsinstitut, FK_Fachbereich, FK_Abschluss from bildungsangebot where ID = '$id'"; //Just 4 Tests
-               
+                $select = "Select * from course where ID = '$id'";
+
                 //Ausführen
                 $result = mysqli_query($conn, $select);
                 $row = mysqli_fetch_array($result);
                 $id = $row['ID'];
-                $bezeichnung = $row['Bezeichnung'];
-                $kosten = $row['Kosten'];
-                $teilnehmerzahl = $row['Max_Teilnehmerzahl'];
-                $startdatum = $row['Startdatum'];
-                $enddatum = $row['Enddatum'];
-                $ort = $row['Ort'];
-                $bildungsinstitut = $row['FK_Bildungsinstitut'];
-                $fachbereich = $row['FK_Fachbereich'];
-                $abschluss = $row['FK_Abschluss'];
+                $name = $row['Name'];
+                $postCode = $row['PostCode'];
+                $place = $row['Place'];
+                $costs = $row['Costs'];
+                $start = $row['Start'];
+                $end = $row['End'];
+                $link = $row['Link'];
+                $institute = $row['InstituteID'];
+                $department = $row['DepartmentID'];
+                $area = $row['AreaID'];
+                $courseType = $row['CourseTypeID'];
 
                 //Formular anzeigen und mit Daten füllen
                 echo "<tr><td>ID</td><td><input type='text' name='id' value='" . $id . "' /></td></tr>"
-                . "<tr><td>"; echo $lang['label'] . "</td><td><input type='text' name='bezeichnung' value='" . $bezeichnung . "' /></td></tr>"
-                . "<tr><td>"; echo $lang['costs'] . "</td><td><input type='text' name='kosten' value='" . $kosten . "' /></td></tr>"
-                . "<tr><td>"; echo $lang['attendance'] . "</td><td><input type='text' name='max_teilnehmerzahl' value='" . $teilnehmerzahl . "' /></td></tr>"
-                . "<tr><td>"; echo $lang['startingDate'] . "</td><td><input type='date' name='startdatum' value='" . $startdatum . "' /></td></tr>"
-                . "<tr><td>"; echo $lang['endDate'] . "</td><td><input type='date' name='enddatum' value='" . $enddatum . "' /></td></tr>"
-                . "<tr><td>"; echo $lang['place'] . "</td><td><input type='text' name='ort' value='" . $ort . "' /></td></tr>"
-                . "<tr><td>"; echo $lang['educationalInstitute'] . "</td><td><select name='bildungsinstitut' maxlength='40'>"
-                            ."<option selected value='".$bildungsinstitut."'>".$bildungsinstitut."</option>";
-                            $select = "Select DISTINCT ID, Name from bildungsinstitut";
-                            if(mysqli_query($conn, $select)){
-                                $result = mysqli_query($conn, $select);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $id = $row["ID"];
-                                    $name = $row["Name"];
-                                    echo '<option value="'.$id.'">'.$name.'</option>';
-                                }
-                            }
+                . "<tr><td>";
+                echo $lang['name'] . "</td><td><input type='text' name='name' value='" . $name . "' /></td></tr>"
+                . "<tr><td>";
+                echo $lang['postCode'] . "</td><td><input type='text' name='postCode' value='" . $postCode . "' /></td></tr>"
+                . "<tr><td>";
+                echo $lang['place'] . "</td><td><input type='text' name='place' value='" . $place . "' /></td></tr>"
+                . "<tr><td>";
+                echo $lang['costs'] . "</td><td><input type='text' name='costs' value='" . $costs . "' /></td></tr>"
+                . "<tr><td>";
+                echo $lang['startDate'] . "</td><td><input type='date' name='start' value='" . $start . "' /></td></tr>"
+                . "<tr><td>";
+                echo $lang['endDate'] . "</td><td><input type='date' name='end' value='" . $end . "' /></td></tr>"
+                . "<tr><td>";
+                echo $lang['link'] . "</td><td><input type='text' name='link' value='" . $link . "' /></td></tr>"
+                . "<tr><td>";
+                echo $lang['institute'] . "</td><td><select name='institute' maxlength='40'>"
+                . "<option selected value='" . $institute . "'>" . $institute . "</option>";
+                $select = "Select DISTINCT ID, Name from Institute";
+                if (mysqli_query($conn, $select)) {
+                    $result = mysqli_query($conn, $select);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id = $row["ID"];
+                        $name = $row["Name"];
+                        echo '<option value="' . $id . '">' . $name . '</option>';
+                    }
+                }
                 echo "</select></td></tr>"
-                . "<tr><td>"; echo $lang['areaOfStudies'] . "</td><td><select name='fachbereich' maxlength='40'>"
-                        ."<option selected value='".$fachbereich."'>".$fachbereich."</option>";
-                            $select = "Select DISTINCT ID, Bezeichnung from Fachbereich";
-                            if(mysqli_query($conn, $select)){
-                                $result = mysqli_query($conn, $select);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $id = $row["ID"];
-                                    $name = $row["Bezeichnung"];
-                                    echo '<option value="'.$id.'">'.$name.'</option>';
-                                }
-                            }
+                . "<tr><td>";
+                echo $lang['department'] . "</td><td><select name='department' maxlength='40'>"
+                . "<option selected value='" . $department . "'>" . $department . "</option>";
+                $select = "Select DISTINCT ID, Name from Department";
+                if (mysqli_query($conn, $select)) {
+                    $result = mysqli_query($conn, $select);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id = $row["ID"];
+                        $name = $row["Name"];
+                        echo '<option value="' . $id . '">' . $name . '</option>';
+                    }
+                }
                 echo "</select></td></tr>"
-                . "<tr><td>"; echo $lang['graduation'] . "</td><td><select name='abschluss' maxlength='40'>"
-                            ."<option selected value='".$abschluss."'>".$abschluss."</option>";
-                            $select = "Select DISTINCT ID, Bezeichnung from abschluss";
-                            if(mysqli_query($conn, $select)){
-                                $result = mysqli_query($conn, $select);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $id = $row["ID"];
-                                    $name = $row["Bezeichnung"];
-                                    echo '<option value="'.$id.'">'.$name.'</option>';
-                                }
-                            }
+                . "<tr><td>";
+                echo $lang['area'] . "</td><td><select name='area' maxlength='40'>"
+                . "<option selected value='" . $area . "'>" . $area . "</option>";
+                $select = "Select DISTINCT ID, Name from Area";
+                if (mysqli_query($conn, $select)) {
+                    $result = mysqli_query($conn, $select);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id = $row["ID"];
+                        $name = $row["Name"];
+                        echo '<option value="' . $id . '">' . $name . '</option>';
+                    }
+                }
                 echo "</select></td></tr>"
-                . "<tr><td><input type='submit' name'save' value='"; echo $lang['save'] . "'></td><td><input type='button' name'cancel' value='"; echo $lang['cancel'] . "' onclick='location.href='courses.php''></td></tr>";
+                . "<tr><td>";
+                echo $lang['courseType'] . "</td><td><select name='courseType' maxlength='40'>"
+                . "<option selected value='" . $courseType . "'>" . $courseType . "</option>";
+                $select = "Select DISTINCT ID, Name from CourseType";
+                if (mysqli_query($conn, $select)) {
+                    $result = mysqli_query($conn, $select);
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id = $row["ID"];
+                        $name = $row["Name"];
+                        echo '<option value="' . $id . '">' . $name . '</option>';
+                    }
+                }
+                echo "</select></td></tr>"
+                . "<tr><td><input type='submit' name'save' value='";
+                echo $lang['save'] . "'></td><td><input type='button' name'cancel' value='";
+                echo $lang['cancel'] . "' onclick='window.location.href='/educationPlatform/course/overview''></td></tr>";
                 ?>
             </table>
         </form>
