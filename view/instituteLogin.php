@@ -5,7 +5,7 @@ Author: Philipp Lehmann
 <html>
 	<head>
 		<title>Login</title>
-                <link rel="stylesheet" type="text/css" href="stylesheet/all.css">
+                <link rel="stylesheet" type="text/css" href="view/assets/css/all.css">
 	</head>
 	<body>
 		<div id="login_box">
