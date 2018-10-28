@@ -32,6 +32,10 @@ Router::route("GET", "/login", function(){
     require_once("view/instituteLogin.php");
 });
 
+Router::route("GET", "/login/forgotPassword", function(){
+    require_once("view/instituteForgotPassword.php");
+});
+
 Router::route("GET", "/register", function(){
     require_once("view/instituteRegistration.php");
 });

@@ -2,29 +2,29 @@
 Author: Philipp Lehmann
 -->
 <?php
-    include("includes/dbConnection.inc.php");
+    include("view/includes/dbConnection.inc.php");
     session_start();
 
     // get user data from login area
-    $myusername = $_REQUEST['email'];
-    $mypassword = $_REQUEST['password'];
-    $encrypt = md5($mypassword);
+    $email = $_REQUEST['email'];
+    $password = $_REQUEST['password'];
+    $encrypt = md5($password);
 
     // get database user
-    $sql = "SELECT email, password FROM institute WHERE email = '$myusername' AND passwort = '$encrypt'";
-    $result = $conn->query($sql);
+    $select = "SELECT email, password FROM institute WHERE email = '$email' AND passwort = '$encrypt'";
+    $result = $conn->query($select);
 
     $count = mysqli_num_rows($result);
 
     if($count == 1) {
-        $_SESSION['login_user'] = $myusername;
+        $_SESSION['login_user'] = $email;
 
         header("location: instituteEdit.php");
     }else {
         echo "
             <script type=\"text/javascript\">
             alert('Username or Password invalid');
-            window.location.replace('login.php');
+            window.location.replace('instituteLogin.php');
             </script>
         ";
     }
