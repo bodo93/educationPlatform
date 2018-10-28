@@ -8,10 +8,22 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <style>
+        ul#menu li {
+        display:inline;
+        }
+        </style>
+        
     </head>
+    
     <body>
-        <?php
-        // put your code here
-        ?>
+        <ul id="menu">
+            <li><a href="#"><div class="nav-link"><?php echo $lang['home']?></div></a></li>
+            <li><a href="courses.php"><div class="nav-link"><?php echo $lang['profile']?></div></a></li>
+            <li><a href="userprofile.php"><div class="nav-link"><?php echo $lang['profile']?></div></a></li>
+            <li><a href="logout.php"><div class="nav-link"><?php echo $lang['logout']?></div></a></li>
+            <li><a href="index.php?lang=en"><?php echo $lang['english']?></a></li>
+            <li><a href="index.php?lang=de"><?php echo $lang['german']?></a></li>
+        </ul>    
     </body>
 </html>
