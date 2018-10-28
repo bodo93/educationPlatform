@@ -2,10 +2,12 @@
 <!--
 author: René Schwab
 -->
-<?php /*
+<?php 
 include 'includes/translator.inc.php';
 include("includes/DBconnection.inc.php");
-*/?>
+include 'includes/header.inc.php';
+include 'includes/footer.inc.php';
+?>
 
 <html>
     <head>
