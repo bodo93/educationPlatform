@@ -4,9 +4,8 @@ Source: https://www.w3schools.com/howto/howto_js_filter_table.asp
 -->
 <!DOCTYPE html>
 <?php 
-    include 'includes/translator.inc.php';
-    include 'includes/DBconnection.inc.php';
-    include 'search.php';
+include 'view/includes/translator.inc.php';
+include("view/includes/DBconnection.inc.php");
 ?>
 <html lang="en">
     <head>

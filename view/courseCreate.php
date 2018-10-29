@@ -25,7 +25,6 @@ include("view/includes/DBconnection.inc.php");
             $department = $_POST['department'];
             $area = $_POST['area'];
             $courseType = $_POST['courseType'];
-
             $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
 
             if (mysqli_query($conn, $insert)) {

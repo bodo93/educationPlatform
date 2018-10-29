@@ -7,8 +7,11 @@ namespace model;
  *
  * @author bodog
  */
-class Course {    
-    
+include 'includes/translator.inc.php';
+include("includes/DBconnection.inc.php");
+
+class Course {
+
     private $id;
     private $name;
     private $postCode;
@@ -21,7 +24,27 @@ class Course {
     private $departmentId;
     private $areaId;
     private $courseTypeId;
-    
+
+    public function create($newCourse) {
+        
+        $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`)"
+                . "VALUES (NULL, '$newCourse->name', '$newCourse->postCode', '$newCourse->place', '$newCourse->costs', '$newCourse->start', '$newCourse->end', '$newCourse->link',"
+                . "'$newCourse->instituteId', '$newCourse->departmentId', '$newCourse->areaId', '$newCourse->courseTypeId')";
+        
+        $result = $mysqli->query($query);
+    }
+
+    public function read() {
+        
+    }
+
+    public function update() {
+        
+    }
+
+    public function delete() {
+        
+    }
 
     function getId() {
         return $this->id;
@@ -71,7 +94,7 @@ class Course {
         return $this->courseTypeId;
     }
 
-        function setId($id) {
+    function setId($id) {
         $this->id = $id;
     }
 
@@ -119,5 +142,4 @@ class Course {
         $this->courseTypeId = $courseTypeId;
     }
 
-    
 }
