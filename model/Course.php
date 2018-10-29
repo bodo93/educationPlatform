@@ -25,27 +25,6 @@ class Course {
     private $areaId;
     private $courseTypeId;
 
-    public function create($newCourse) {
-        
-        $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`)"
-                . "VALUES (NULL, '$newCourse->name', '$newCourse->postCode', '$newCourse->place', '$newCourse->costs', '$newCourse->start', '$newCourse->end', '$newCourse->link',"
-                . "'$newCourse->instituteId', '$newCourse->departmentId', '$newCourse->areaId', '$newCourse->courseTypeId')";
-        
-        $result = $mysqli->query($query);
-    }
-
-    public function read() {
-        
-    }
-
-    public function update() {
-        
-    }
-
-    public function delete() {
-        
-    }
-
     function getId() {
         return $this->id;
     }
