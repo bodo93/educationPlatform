@@ -15,7 +15,7 @@ include("view/includes/DBconnection.inc.php");
     </head>
     <body>
         <h3><?php echo $lang['editCourse'] ?></h3>
-        <form action="coursesUpdate.php" method="post">
+        <form action="" method="post">
             <table>
                 <?php
                 $id = 0;
@@ -31,7 +31,7 @@ include("view/includes/DBconnection.inc.php");
                             . "`DepartmentID`= '" . $_POST['department'] . "', `AreaID` = '" . $_POST['area'] . "', `CourseTypeID` = '" . $_POST['courseType'] . "' "
                             . "where `ID` = '" . $_POST['id'] . "'";
                     if (mysqli_query($conn, $update)) {
-                        header("Location:courseOverview.php");
+                        header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
                     } else {
                         echo "Error: " . $update . "<br>" . mysqli_error($conn);
                     }

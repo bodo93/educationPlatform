@@ -14,10 +14,7 @@
         mysqli_query($conn, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
         $delete = "DELETE FROM course WHERE ID = ".$id;
         mysqli_query($conn, $delete);
-        $host  = $_SERVER['HTTP_HOST'];
-        $uri   = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        $extra = 'educationPlatform/course/overview/';
-        header("Location: http://$host$uri/$extra");
+        header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
     }
     
 ?>
@@ -37,7 +34,7 @@
                         <h3><?php echo $lang['deleteCourse']?></h3>
                     </div>
                      
-                    <form class="form-horizontal" action="educationPlatform/view/courseDelete.php" method="post">
+                    <form class="form-horizontal" action="" method="post">
                       <input type="hidden" name="id" value="<?php echo $id;?>"/>
                       <p class="alert alert-error"><?php echo $lang['sureDelete']?></p>
                       <div class="form-actions">

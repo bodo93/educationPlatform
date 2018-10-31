@@ -43,24 +43,6 @@ class CourseController {
     }
 
     public static function editCourse() {
-        $select = "Select * from course where ID = '" . $_POST['id'] . "'";
-
-        if ($result = mysqli_query(DBConnection::getConnection(), $select)) {
-            while ($course = $result->fetch_object()) {
-                $course->setName($course->name);
-                $course->setPostCode($course->postCode);
-                $course->setPlace($course->place);
-                $course->setCosts($course->costs);
-                $course->setStart($course->start);
-                $course->setEnd($course->end);
-                $course->setLink($course->link);
-                $course->setInstituteId($course->instituteId);
-                $course->setDepartmentId($course->departmentId);
-                $course->setAreaId($course->areaId);
-                $course->setCourseTypeId($course->courseId);
-            }
-        }
-
         $update = "Update course set `Name` = '" . $_POST['name'] . "', `"
                             . "PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
                             . "`Start` = '" . $_POST['start'] . "', `End` = '" . $_POST['end'] . "', "
@@ -71,6 +53,14 @@ class CourseController {
         if (mysqli_query(DBConnection::getConnection(), $update)) {
             //do something
         }
+    }
+    
+    public static function readCourse(){
+        $select = "Select * from course where ID = '" . $_POST['id'] . "'";
+        if ($result = mysqli_query(DBConnection::getConnection(), $select)){
+            $course = $result->fetch_object();
+        }
+        return $course;
     }
 
 }

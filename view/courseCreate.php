@@ -28,7 +28,7 @@ include("view/includes/DBconnection.inc.php");
             $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
 
             if (mysqli_query($conn, $insert)) {
-                //header("Location: /educationPlatform/course/overview'");
+                header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
                 echo "Daten eingefügt!";
             } else {
                 echo "Error: " . $insert . "<br>" . mysqli_error($conn);
@@ -39,7 +39,7 @@ include("view/includes/DBconnection.inc.php");
         ?>
 
         <h3><?php echo $lang['addCourse'] ?> </h3>
-        <form action="coursesInsert.php" method="post">
+        <form action="" method="post">
 
             <table border="0">
                 <tr>

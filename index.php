@@ -100,7 +100,15 @@ Router::route("GET", "/course/overview", function () {
     require_once("view/courseOverview.php");
 });
 
+Router::route("POST", "/course/overview", function () {
+    require_once("view/courseOverview.php");
+});
+
 Router::route("GET", "/course/create", function () {
+    require_once("view/courseCreate.php");
+});
+
+Router::route("POST", "/course/create", function () {
     require_once("view/courseCreate.php");
 });
 
@@ -108,7 +116,15 @@ Router::route("GET", "/course/edit", function () {
     require_once("view/courseEdit.php");
 });
 
+Router::route("POST", "/course/edit", function () {
+    require_once("view/courseEdit.php");
+});
+
 Router::route("GET", "/course/delete", function () {
+    require_once("view/courseDelete.php");
+});
+
+Router::route("POST", "/course/delete", function () {
     require_once("view/courseDelete.php");
 });
 

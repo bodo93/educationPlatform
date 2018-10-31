@@ -7,10 +7,10 @@
  */
 
 /**
- * Description of CourseTypeController
+ * Description of InstituteDAO
  *
  * @author bodog
  */
-class CourseTypeController {
+class InstituteDAO extends BasicDAO {
     //put your code here
 }
