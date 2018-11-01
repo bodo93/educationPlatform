@@ -63,4 +63,11 @@ class CourseDAO extends BasicDAO {
         
         return false;
     }
+    
+    public function findByInstitute($instituteId){
+        $stmt = $this->mysqli->prepare("SELECT * FROM course WHERE ID = ? ORDER BY ID;");
+        $stmt->bind_param("i", $instituteId);
+        $stmt->execute();
+        return $stmt->fetch_all($mysqli::fetch_object)[0];
+    }
 }

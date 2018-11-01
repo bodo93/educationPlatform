@@ -6,7 +6,10 @@
  * and open the template in the editor.
  */
 
-use database\DBConnection;
+use view\TemplateView;
+use view\LayoutRendering;
+use model\Course;
+use database\courseDAO;
 
 /**
  * Description of CourseController
@@ -17,50 +20,49 @@ class CourseController {
 
     //put your code here
 
-    public static function createCourse() {
+    public static function create() {
+        $contentView = new TemplateView("courseCreate.php");
+        LayoutRendering::basicLayout($contentView);
+    }
+
+    public static function readAll() {
+        $contentView = new TemplateView("courseOverview.php");
+        $courseDAO = new CourseDAO();
+        $contentView->courses = $customerDAO->findByInstitute(/* current Institute ID */);
+        LayoutRendering::basicLayout($contentView);
+    }
+
+    public static function edit($courseId) {
+        $contentView = new TemplateView("courseEdit.php");
+        $courseDAO = new CourseDAO();
+        $contentView->customer = $courseDAO->read($courseID);
+        LayoutRendering::basicLayout($contentView);
+    }
+
+    public static function update() {
         $course = new Course();
-        $course->setName($_POST["name"]);
-        $course->setPostCode($_POST["postCode"]);
-        $course->setPlace($_POST["place"]);
-        $course->setCosts($_POST["costs"]);
-        $course->setStart($_POST["start"]);
-        $course->setEnd($_POST["end"]);
-        $course->setLink($_POST["link"]);
-        $course->setInstituteId($_POST["institute"]);
-        $course->setDepartmentId($_POST["department"]);
-        $course->setAreaId($_POST["area"]);
-        $course->setCourseTypeId($_POST["course"]);
-
-        $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`)"
-                . "VALUES (NULL, '$course->getName()', '$course->getPostCode()', '$course->getPlace()', '$course->getCosts()', '$course->getStart()', '$course->getEnd()', '$course->getLink()',"
-                . "'$course->getInstituteId()', '$course->getDepartmentId()', '$course->getAreaId()', '$course->getCourseTypeId()')";
-
-        if (mysqli_query(DBConnection::getConnection(), $insert)) {
-            //do something
-        }
+        $course->setId($_POST["id"]);
+        $course->setId($_POST["name"]);
+        $course->setId($_POST["postCode"]);
+        $course->setId($_POST["place"]);
+        $course->setId($_POST["costs"]);
+        $course->setId($_POST["start"]);
+        $course->setId($_POST["end"]);
+        $course->setId($_POST["link"]);
+        $course->setId($_POST["instituteId"]);
+        $course->setId($_POST["departmentId"]);
+        $course->setId($_POST["areaId"]);
+        $course->setId($_POST["courseTypeId"]);
         
-        DBConnection::getConnection().close();
+        $courseDAO = new CourseDAO();
+        $courseDAO->update($course);
     }
 
-    public static function editCourse() {
-        $update = "Update course set `Name` = '" . $_POST['name'] . "', `"
-                            . "PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
-                            . "`Start` = '" . $_POST['start'] . "', `End` = '" . $_POST['end'] . "', "
-                            . "`Link` = '" . $_POST['link'] . "', `InstituteID` = '" . $_POST['institute'] . "', "
-                            . "`DepartmentID`= '" . $_POST['department'] . "', `AreaID` = '" . $_POST['area'] . "', `CourseTypeID` = '" . $_POST['courseType'] . "' "
-                            . "where `ID` = '" . $_POST['id'] . "'";
-
-        if (mysqli_query(DBConnection::getConnection(), $update)) {
-            //do something
-        }
-    }
-    
-    public static function readCourse(){
-        $select = "Select * from course where ID = '" . $_POST['id'] . "'";
-        if ($result = mysqli_query(DBConnection::getConnection(), $select)){
-            $course = $result->fetch_object();
-        }
-        return $course;
+    public static function delete($courseId) {
+        $courseDAO = new CourseDAO();
+        $course = new Course();
+        $course->setId($courseId);
+        $courseDAO->delete($course);
     }
 
 }
