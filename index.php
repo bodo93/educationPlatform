@@ -128,6 +128,10 @@ Router::route("POST", "/course/delete", function () {
     require_once("view/courseDelete.php");
 });
 
+Router::route("POST", "/course/delete", function () {
+    require_once("view/courseDelete.php");
+});
+
 Router::route("GET", "/search", function () {
     require_once("view/search.php");
 });

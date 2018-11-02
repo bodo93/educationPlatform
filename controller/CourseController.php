@@ -42,7 +42,7 @@ class CourseController {
     public static function update() {
         $course = new Course();
         $course->setId($_POST["id"]);
-        $course->setId($_POST["name"]);
+        $course->setName($_POST["name"]);
         $course->setId($_POST["postCode"]);
         $course->setId($_POST["place"]);
         $course->setId($_POST["costs"]);
