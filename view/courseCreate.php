@@ -2,6 +2,35 @@
 <?php
 include 'includes/translator.inc.php';
 include("database/DBConnection.php");
+
+$db = dbConnection::getConnection();
+$mysqli = $db->getConnection();
+
+if (!empty($_POST)) {
+
+    // Formularinhalte in Variablen schreiben
+    $name = $_POST['name'];
+    $postCode = $_POST['postCode'];
+    $place = $_POST['place'];
+    $costs = $_POST['costs'];
+    $start = $_POST['start'];
+    $end = $_POST['end'];
+    $link = $_POST['link'];
+    $institute = $_POST['institute'];
+    $department = $_POST['department'];
+    $area = $_POST['area'];
+    $courseType = $_POST['courseType'];
+    $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
+
+    if (mysqli_query($mysqli, $insert)) {
+        header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
+        echo "Daten eingefügt!";
+    } else {
+        echo "Error: " . $insert . "<br>" . mysqli_error($conn);
+    }
+    echo "<meta http-equiv='refresh' content='0'>";
+    mysqli_close($conn);
+}
 ?>
 <html>
     <head>
@@ -10,37 +39,6 @@ include("database/DBConnection.php");
         <link rel="stylesheet" type="text/css" href="css.inc.css">
     </head>
     <body>
-        <?php
-        $db = dbConnection::getConnection();
-        $mysqli = $db->getConnection();
-        
-        if (!empty($_POST)) {
-
-            // Formularinhalte in Variablen schreiben
-            $name = $_POST['name'];
-            $postCode = $_POST['postCode'];
-            $place = $_POST['place'];
-            $costs = $_POST['costs'];
-            $start = $_POST['start'];
-            $end = $_POST['end'];
-            $link = $_POST['link'];
-            $institute = $_POST['institute'];
-            $department = $_POST['department'];
-            $area = $_POST['area'];
-            $courseType = $_POST['courseType'];
-            $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
-
-            if (mysqli_query($mysqli, $insert)) {
-                header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
-                echo "Daten eingefügt!";
-            } else {
-                echo "Error: " . $insert . "<br>" . mysqli_error($conn);
-            }
-            echo "<meta http-equiv='refresh' content='0'>";
-            mysqli_close($conn);
-        }
-        ?>
-
         <h3><?php echo $lang['addCourse'] ?> </h3>
         <form action="" method="post">
 

@@ -1,7 +1,10 @@
 <?php  
     include 'includes/translator.inc.php';
-    include("includes/DBconnection.inc.php");
+    include("database/DBconnection.php");
     
+    $db = dbConnection::getConnection();
+    $mysqli = $db->getConnection();
+
     if ( !empty($_GET['id'])) {
         $id = $_REQUEST['id'];
     }
@@ -11,9 +14,9 @@
         $id = $_POST['id'];
          
         // delete data
-        mysqli_query($conn, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
+        mysqli_query($mysqli, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
         $delete = "DELETE FROM course WHERE ID = ".$id;
-        mysqli_query($conn, $delete);
+        mysqli_query($mysqli, $delete);
         header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
     }
     
