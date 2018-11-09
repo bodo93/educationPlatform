@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include 'includes/translator.inc.php';
-include("../database/DBConnection.php");
+include("database/DBConnection.php");
 ?>
 <html>
     <head>
@@ -11,6 +11,9 @@ include("../database/DBConnection.php");
     </head>
     <body>
         <?php
+        $db = dbConnection::getConnection();
+        $mysqli = $db->getConnection();
+        
         if (!empty($_POST)) {
 
             // Formularinhalte in Variablen schreiben
@@ -27,7 +30,7 @@ include("../database/DBConnection.php");
             $courseType = $_POST['courseType'];
             $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
 
-            if (mysqli_query($conn, $insert)) {
+            if (mysqli_query($mysqli, $insert)) {
                 header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
                 echo "Daten eingefügt!";
             } else {
@@ -45,7 +48,7 @@ include("../database/DBConnection.php");
                 <tr>
                     <td>ID </td>
                     <td><input type="text" name="id" size="30" maxlength="40" value="<?php
-                        $result = mysqli_query($conn, "
+                        $result = mysqli_query($mysqli, "
                         SHOW TABLE STATUS LIKE 'course'");
                         $data = mysqli_fetch_assoc($result);
                         echo $data['Auto_increment'];
@@ -53,7 +56,7 @@ include("../database/DBConnection.php");
                 </tr>
                 <tr>
                     <td><?php echo $lang['name'] ?> </td>
-                    <td><input type="text" name="bezeichnung" size="30" maxlength="40"></td>
+                    <td><input type="text" name="name" size="30" maxlength="40"></td>
                 </tr>
                 <tr>
                     <td><?php echo $lang['postCode'] ?> </td>
@@ -84,8 +87,8 @@ include("../database/DBConnection.php");
                     <td><select name="institute" maxlength="40">
                             <option disabled selected value></option><?php
                             $select = "Select ID, Name from Institute";
-                            if (mysqli_query($conn, $select)) {
-                                $result = mysqli_query($conn, $select);
+                            if (mysqli_query($mysqli, $select)) {
+                                $result = mysqli_query($mysqli, $select);
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     $id = $row["ID"];
                                     $name = $row["Name"];
@@ -99,8 +102,8 @@ include("../database/DBConnection.php");
                     <td><select name="department" maxlength="40">
                             <option disabled selected value></option><?php
                             $select = "Select ID, Name from department";
-                            if (mysqli_query($conn, $select)) {
-                                $result = mysqli_query($conn, $select);
+                            if (mysqli_query($mysqli, $select)) {
+                                $result = mysqli_query($mysqli, $select);
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     $id = $row["ID"];
                                     $name = $row["Name"];
@@ -114,8 +117,8 @@ include("../database/DBConnection.php");
                     <td><select name="area" maxlength="40">
                             <option disabled selected value></option><?php
                             $select = "Select ID, Name from area";
-                            if (mysqli_query($conn, $select)) {
-                                $result = mysqli_query($conn, $select);
+                            if (mysqli_query($mysqli, $select)) {
+                                $result = mysqli_query($mysqli, $select);
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     $id = $row["ID"];
                                     $name = $row["Name"];
@@ -129,8 +132,8 @@ include("../database/DBConnection.php");
                     <td><select name="courseType" maxlength="40">
                             <option disabled selected value></option><?php
                             $select = "Select ID, Name from coursetype";
-                            if (mysqli_query($conn, $select)) {
-                                $result = mysqli_query($conn, $select);
+                            if (mysqli_query($mysqli, $select)) {
+                                $result = mysqli_query($mysqli, $select);
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     $id = $row["ID"];
                                     $name = $row["Name"];
