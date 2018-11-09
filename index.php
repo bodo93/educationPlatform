@@ -97,6 +97,13 @@ Router::route("GET", "/search", function () {
     require_once("view/search.php");
 });
 
+Router::route("POST", "/search", function () {
+    require_once("view/search.php");
+});
+
+Router::route("POST", "/searchResult", function () {
+    require_once("view/searchResult.php");
+});
 
 Router::route("GET", "/institute/edit", function () {
     require_once("view/instituteEdit.php");

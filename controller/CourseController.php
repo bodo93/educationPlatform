@@ -64,4 +64,8 @@ class CourseController {
         $course->setId($courseId);
         $courseDAO->delete($course);
     }
+    
+    public static function search($search, $department, $area) {
+        
+    }
 }
