@@ -4,7 +4,7 @@ author: Bodo Grütter
 -->
 <?php
 include 'includes/translator.inc.php';
-include("database/DBConnection.php");
+include 'database/DBConnection.php';
 ?>
 <html>
     <head>
