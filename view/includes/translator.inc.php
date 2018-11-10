@@ -19,5 +19,5 @@ Source 2: https://www.w3schools.com/php/func_http_setcookie.asp
         }
     }
 
-    require_once "view/assets/language/" . $_COOKIE[$cookie_name] . ".php";
+    require_once "view/assets_2/language/" . $_COOKIE[$cookie_name] . ".php";
 ?>
