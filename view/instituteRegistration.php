@@ -1,8 +1,15 @@
+<!--
+author: Philipp Lehmann
+-->
+
+<?php 
+    include 'includes/translator.inc.php';
+?>
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Registration</title>
+        <title><?php echo $lang['title']?></title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
         <link rel="stylesheet" href="assets/css/Data-Table.css">
@@ -18,11 +25,11 @@
                 <div
                     class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="myCourses.html" style="font-size: 14px;font-weight: bold;">Meine Kurse</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="showAccount.html" style="font-size: 14px;font-weight: bold;">Benutzerprofil</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="myCourses.html" style="font-size: 14px;font-weight: bold;"><title><?php echo $lang['myCourses']?></title></a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="showAccount.html" style="font-size: 14px;font-weight: bold;"><title><?php echo $lang['userProfile']?></title></a></li>
                         <li class="nav-item" role="presentation" style="padding-right: 90px;"><a class="nav-link" href="logout.php" style="font-size: 14px;font-weight: bold;">Abmelden</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="about-us.html" style="font-size: 14px;font-weight: bold;">de</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="about-us.html" style="padding-left: 0px;font-size: 14px;font-weight: bold;">EN</a></li>
+                        <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="register?lang=de" style="font-size: 14px;font-weight: bold;"><?php echo $lang['german']?></a></li>
+                        <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="register?lang=en" style="padding-left: 0px;font-size: 14px;font-weight: bold;"><?php echo $lang['english']?></a></li>
                     </ul>
                 </div>
             </div>
@@ -31,39 +38,39 @@
             <section class="clean-block clean-form dark">
                 <div class="container">
                     <div class="block-heading">
-                        <h2 class="text-info" style="margin-bottom: 15px;">Benutzerkonto erstellen</h2>
+                        <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['addUser']?></h2>
                     </div>
                     <form action="/educationPlatform/dbregister" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;">Benutzername (E-Mail)</label><input class="form-control" type="email" name="email" required autofocus></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['userName']?></label><input class="form-control" type="email" name="email" required autofocus></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;">Strasse</label><input class="form-control item" type="text" name="street" style="min-width: 170px;font-size: 14px;" required autofocus></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['street']?></label><input class="form-control item" type="text" name="street" style="min-width: 170px;font-size: 14px;" required autofocus></div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;">Passwort</label><input class="form-control" type="password" name="password" required></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['password']?></label><input class="form-control" type="password" name="password" required></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;">Strassennummer</label><input class="form-control item" type="text" name="houseNumber" style="min-width: 170px;font-size: 14px;" required autofocus></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['streetNr']?></label><input class="form-control item" type="text" name="houseNumber" style="min-width: 170px;font-size: 14px;" required autofocus></div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;">Passwort wiederholen</label><input class="form-control" type="password" name="password2" required></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['passwordRepeat']?></label><input class="form-control" type="password" name="password2" required></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;">PLZ</label><input class="form-control" type="text" name="postCode" required autofocus></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['postCode']?></label><input class="form-control" type="text" name="postCode" required autofocus></div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;">Schule</label><input class="form-control item" type="text" name="name" style="min-width: 160px;font-size: 14px;" required autofocus></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['institute']?></label><input class="form-control item" type="text" name="name" style="min-width: 160px;font-size: 14px;" required autofocus></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;">Ort</label><input class="form-control" type="text" name="place" required autofocus></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['place']?></label><input class="form-control" type="text" name="place" required autofocus></div>
                             </div>
                         </div>
                         <div class="form-row">
