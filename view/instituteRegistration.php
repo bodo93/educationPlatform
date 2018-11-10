@@ -115,27 +115,6 @@
         <script src="assets/js/theme.js"></script>
         <script src="assets/js/createMyCoursesTable.js"></script>
         <script src="assets/js/Table-With-Search.js"></script>
-        
-        <!--
-                <form action="/educationPlatform/dbregister" method="post">
-                            <input type="text" class="textboxes textboxes_right" name="name" placeholder="name" required autofocus>
-                            <input type="text" class="textboxes textboxes_right" name="street" placeholder="street" required autofocus>                       
-                            <input type="text" id="textbox_ort" class="textboxes textboxes_right" name="houseNumber" placeholder="houseNumber" required autofocus>
-                            <input type="text" id="textbox_ort" class="textboxes textboxes_right" name="postCode" placeholder="postCode" required autofocus>
-                            <input type="text" class="textboxes textboxes_right" name="place" placeholder="place" required autofocus>
-                            <input type="email" class="textboxes textboxes_left" name="email" placeholder="email" required autofocus>
-                            <input type="text" class="textboxes textboxes_right" name="invStreet" placeholder="Invoice Street" required autofocus>                       
-                            <input type="text" id="textbox_ort" class="textboxes textboxes_right" name="invHouseNumber" placeholder="Invoice HouseNumber" required autofocus>
-                            <input type="text" class="textboxes textboxes_right" name="invPostCode" placeholder="Invoice PostCode" required autofocus>                       
-                            <input type="text" id="textbox_ort" class="textboxes textboxes_right" name="invPlace" placeholder="invoice Place" required autofocus>
-                            <input type="password" class="textboxes textboxes_left" name="password" placeholder="password" required>
-                            <input type="password" class="textboxes textboxes_left" name="password2" placeholder="repeat password" required>				
-                            <div id="container_buttons">
-                                <button type="submit" class="buttons" id="btn_login" name="Login" onclick="">Login</button>
-                                <button type="reset" class="buttons" id="btn_reset" name="Register">Reset</button>
-                            </div>
-                    </form>
-        !-->
     </body>
 </html>
 <!DOCTYPE html>
