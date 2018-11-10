@@ -99,10 +99,6 @@ function filterTable($query){
             </table>
             
         </div>
-        <footer>
-            <div class="footer lang"><a href="index.php?lang=en"><?php echo $lang['english']?></a></div>
-            <div class="footer lang"><a href="index.php?lang=de"><?php echo $lang['german']?></a></div>
-        </footer>
         
         
         

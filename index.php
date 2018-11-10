@@ -42,6 +42,10 @@ Router::route("GET", "/register", function(){
     require_once("view/instituteRegistration.php");
 });
 
+Router::route("GET", "/ourterms", function(){
+    require_once("view/terms.php");
+});
+
 Router::route("POST", "/dbregister", function(){
     require_once("view/dbRegistration.php");
 });

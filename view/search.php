@@ -21,7 +21,7 @@ author: Philipp Lehmann
         <link rel="stylesheet" href="assets/css/Table-With-Search.css">
     </head>
 
-    <body>
+    <body style="background-color:#252628;">
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
             <div class="container">
                 <a class="navbar-brand logo" href="index.html" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a>
@@ -29,9 +29,7 @@ author: Philipp Lehmann
                 <div
                     class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="myCourses.html" style="font-size: 14px;font-weight: bold;">Meine Kurse</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="editAccount.html" style="font-size: 14px;font-weight: bold;">Benutzerprofil</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 90px;"><a class="nav-link" href="logout.php" style="font-size: 14px;font-weight: bold;">Abmelden</a></li>
+                        <li class="nav-item" role="presentation" style="padding-right: 90px;"><a class="nav-link" href="login" style="font-size: 14px;font-weight: bold;">Anmelden</a></li>
                         <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="search?lang=de" style="font-size: 14px;font-weight: bold;"><?php echo $lang['german']?></a></li>
                         <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="search?lang=en" style="padding-left: 0px;font-size: 14px;font-weight: bold;"><?php echo $lang['english']?></a></li>
                     </ul>
@@ -100,8 +98,8 @@ author: Philipp Lehmann
                         <h5>Leistungen&nbsp;</h5>
                         <ul>
                             <li><a href="#"></a></li>
-                            <li><a href="ourOffer.html">Angebot</a></li>
-                            <li><a href="login.html">Login</a></li>
+                            <li><a href="ourOffer">Angebot</a></li>
+                            <li><a href="/educationplatform/login">Login</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-3" style="min-width: 240px;">
@@ -111,7 +109,7 @@ author: Philipp Lehmann
                     <div class="col-sm-3" style="min-width: 240px;">
                         <h5>Legal</h5>
                         <ul>
-                            <li><a href="terms.html" style="min-width: 160px;">Terms</a></li>
+                            <li><a href="ourterms" style="min-width: 160px;">Terms</a></li>
                         </ul>
                     </div>
                 </div>
