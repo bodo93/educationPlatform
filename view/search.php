@@ -39,7 +39,7 @@ Source: https://www.w3schools.com/howto/howto_js_filter_table.asp
         <main class="page landing-page">
             <section class="portfolio-block hire-me" style="background-image: url(&quot;assets/img/classroom3.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-color: transparent;color: #000000;padding-top: 80px;height: 660px;">
                 <div class="container" style="max-width: 420px;margin-top: 50px;">
-                    <div class="heading" style="width: 450px;">
+                    <div class="heading">
                         <h2 style="margin-bottom: 20px;font-weight: bold;color: rgb(255,255,255);">Kurs Suche&nbsp;</h2>
                     </div>
                     <form action="searchResult" style="margin-right: 200;" method="post">
