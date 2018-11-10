@@ -8,6 +8,12 @@
 
 namespace controller;
 
+use view\TemplateView;
+use view\LayoutRendering;
+use model\Institute;
+use model\InvoiceAddress;
+use database\courseDAO;
+
 /**
  * Description of EducationalInstitute
  *
@@ -15,28 +21,7 @@ namespace controller;
  */
 class InstituteController {
     
-    public static function register($view = null){
-        //register institute
-        /*$institute = new \model\Institute();
-        //$institute->setId($_POST("id"));
-        $institute->setName($_POST["name"]);
-        $institute->setStreet($_POST["street"]);
-        $institute->setHouseNumber($_POST["houseNumber"]);
-        $institute->setPostCode($_POST["postCode"]);
-        $institute->setPlace($_POST["place"]);
-        $institute->setEmail($_POST["email"]);
-        $institute->setPassword($_POST["password"]);
-        //register invoiceAddress for this institute
-        $invoiceAddress = new \model\InvoiceAddress();
-        $invoiceAddress->setStreet($_POST["invStreet"]);
-        $invoiceAddress->setHouseNumber($_POST["invHouseNumber"]);
-        $invoiceAddress->setPostCode($_POST["invPostCode"]);
-        $invoiceAddress->setPlace($_POST["invPlace"]);
-        //set foreignKey
-        $institute->setInvoiceAddressId($invoiceAddress->getId());
-         * 
-         */
-        
+    public static function register($view = null){     
         $myschool = $_POST['name'];
         $myaddress = $_POST['street'];
         $myHouseNumber = $_POST['houseNumber'];
@@ -120,5 +105,34 @@ class InstituteController {
                 ";
             }
         }
+    }
+    
+    public static function edit($instituteId) {
+        $contentView = new TemplateView(instituteEdit.php);
+        $instituteDAO = new InstituteDAO();
+        $contentView->institute = $instituteDAO->readInstitute($instituteId);
+        $LayoutRendering::basicLayout($contentView);
+    }
+    
+    public static function update(){
+        $institute = new Institute();
+        $institute->setId($_POST["instituteId"]);
+        $institute->setName($_POST["name"]);
+        $institute->setStreet($_POST["street"]);
+        $institute->setHouseNumber($_POST["houseNumber"]);
+        $institute->setPostCode($_POST["postCode"]);
+        $institute->setPlace($_POST["place"]);
+        $institute->setEmail($_POST["email"]);
+        $institute->setPassword($_POST["password"]);
+        $institute->setInvoiceAddressId($_POST["invoiceAddress"]);
+        $invoiceAddress = new InvoiceAddress();
+        $invoiceAddress->setId($_POST["invoiceAddressId"]);
+        $invoiceAddress->setStreet($_POST["invoiceAddressStreet"]);
+        $invoiceAddress->setHouseNumber($_POST["invoiceAddressHouseNumber"]);
+        $invoiceAddress->setPostCode($_POST["invoiceAddressPostCode"]);
+        $invoiceAddress->setPlace($_POST["invoiceAddressPlace"]);
+        
+        $instituteDAO = new InstituteDAO();
+        $instituteDAO->update($institute, $invoiceAddress);
     }
 }

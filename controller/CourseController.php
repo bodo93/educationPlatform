@@ -5,6 +5,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+namespace controller;
 
 use view\TemplateView;
 use view\LayoutRendering;
@@ -35,7 +36,7 @@ class CourseController {
     public static function edit($courseId) {
         $contentView = new TemplateView("courseEdit.php");
         $courseDAO = new CourseDAO();
-        $contentView->customer = $courseDAO->read($courseID);
+        $contentView->course = $courseDAO->read($courseID);
         LayoutRendering::basicLayout($contentView);
     }
 
@@ -43,16 +44,16 @@ class CourseController {
         $course = new Course();
         $course->setId($_POST["id"]);
         $course->setName($_POST["name"]);
-        $course->setId($_POST["postCode"]);
-        $course->setId($_POST["place"]);
-        $course->setId($_POST["costs"]);
-        $course->setId($_POST["start"]);
-        $course->setId($_POST["end"]);
-        $course->setId($_POST["link"]);
-        $course->setId($_POST["instituteId"]);
-        $course->setId($_POST["departmentId"]);
-        $course->setId($_POST["areaId"]);
-        $course->setId($_POST["courseTypeId"]);
+        $course->setPostCode($_POST["postCode"]);
+        $course->setPlace($_POST["place"]);
+        $course->setCosts($_POST["costs"]);
+        $course->setStart($_POST["start"]);
+        $course->setEnd($_POST["end"]);
+        $course->setLink($_POST["link"]);
+        $course->setInstituteId($_POST["instituteId"]);
+        $course->setDepartmentId($_POST["departmentId"]);
+        $course->setAreaId($_POST["areaId"]);
+        $course->setCourseTypeId($_POST["courseTypeId"]);
         
         $courseDAO = new CourseDAO();
         $courseDAO->update($course);
