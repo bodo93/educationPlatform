@@ -10,6 +10,8 @@ require_once("config/Autoloader.php");
 require_once("view/layout.php");
 
 use routing\Router;
+use controller\InstituteController;
+use controller\CourseController;
 
 session_start();
 
@@ -157,5 +159,20 @@ Router::route("GET", "", function () {
     require_once("view/search.php");
 });
 
+//Funktionsaufrufe
+Router::route("POST", "/course/edit", function () {
+    CourseController::update();
+    Router::redirect("/course/overview");
+});
+
+Router::route("POST", "/register", function () {
+    InstituteController::register();
+    Router::redirect("/search");
+});
+
+Router::route("POST", "/login", function () {
+    InstituteController::login();
+    Router::redirect("/search");
+});
 
 Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'], $errorFunction);

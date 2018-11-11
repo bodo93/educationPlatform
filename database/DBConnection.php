@@ -12,8 +12,7 @@
  * @author bodog
  */
 
-
-class dbConnection {
+class DBConnection {
     
     private static $connection = null;
     

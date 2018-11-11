@@ -50,10 +50,10 @@ class CourseController {
         $course->setStart($_POST["start"]);
         $course->setEnd($_POST["end"]);
         $course->setLink($_POST["link"]);
-        $course->setInstituteId($_POST["instituteId"]);
-        $course->setDepartmentId($_POST["departmentId"]);
-        $course->setAreaId($_POST["areaId"]);
-        $course->setCourseTypeId($_POST["courseTypeId"]);
+        $course->setInstituteId($_POST["institute"]);
+        $course->setDepartmentId($_POST["department"]);
+        $course->setAreaId($_POST["area"]);
+        $course->setCourseTypeId($_POST["courseType"]);
         
         $courseDAO = new CourseDAO();
         $courseDAO->update($course);
