@@ -77,7 +77,7 @@ class InstituteController {
     
     public static function login(){
         include("database/DBConnection.php");
-        // session_start();    
+        session_regenerate_id(true);    
 
         // get user data from login area
 
@@ -105,6 +105,10 @@ class InstituteController {
                 ";
             }
         }
+    }
+    
+    public static function logout(){
+        session_destroy();
     }
     
     public static function edit($instituteId) {
