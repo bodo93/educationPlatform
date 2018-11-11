@@ -32,10 +32,6 @@ Router::route("GET", "/login", function(){
     require_once("view/instituteLogin.php");
 });
 
-Router::route("POST", "/dbaccess", function(){
-    require_once("view/dbAccess.php");
-});
-
 Router::route("GET", "/login/forgotPassword", function(){
     require_once("view/instituteForgotPassword.php");
 });
@@ -46,10 +42,6 @@ Router::route("GET", "/register", function(){
 
 Router::route("GET", "/ourterms", function(){
     require_once("view/terms.php");
-});
-
-Router::route("POST", "/dbregister", function(){
-    require_once("view/dbRegistration.php");
 });
 
 Router::route("POST", "/register", function(){
