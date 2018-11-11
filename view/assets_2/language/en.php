@@ -36,6 +36,8 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "email" => "Email",
         "courseType" => "CourseType",
         "area" => "Area",
-        "link" => "Link"
+        "link" => "Link",
+        "edit" => "edit",
+        "delete" => "delete"
     );  
 ?>
