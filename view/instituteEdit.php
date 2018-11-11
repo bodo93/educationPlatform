@@ -13,7 +13,7 @@ include("database/DBConnection.php");
         <link rel="stylesheet" type="text/css" href="all.css">
         <title><?php echo $lang['userprofile']?></title>
     </head>
-    <body>
+    <body style="background-color: rgb(34,36,37);">
         <h3><?php echo $lang['userprofile']?></h3>
         <form action="userprofile.php" method="post">
             <table>

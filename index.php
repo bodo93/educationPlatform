@@ -94,7 +94,7 @@ Router::route_auth("GET", "/course/edit", $authFunction, function () {
 
 // JUST 4 TESTING
 Router::route("GET", "/",  function () {
-    require_once("view/home.php");
+    require_once("view/search.php");
 });
 
 Router::route("GET", "/search", function () {
@@ -154,7 +154,7 @@ Router::route("GET", "/search", function () {
 });
 
 Router::route("GET", "", function () {
-    require_once("view/home.php");
+    require_once("view/search.php");
 });
 
 

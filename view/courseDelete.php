@@ -29,7 +29,7 @@
      <link rel="stylesheet" type="text/css" href="stylesheet/courses.css">
 </head>
  
-<body>
+<body style="background-color: rgb(34,36,37);">
     <div class="container">
      
                 <div class="span10 offset1">

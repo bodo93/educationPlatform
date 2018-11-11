@@ -13,7 +13,7 @@ include 'database/DBConnection.php';
         <link rel="stylesheet" type="text/css" href="all.css">
         <title><?php echo $lang['editCourse'] ?></title>
     </head>
-    <body>
+    <body style="background-color: rgb(34,36,37);">
         <h3><?php echo $lang['editCourse'] ?></h3>
         <form action="" method="post">
             <table>

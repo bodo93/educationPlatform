@@ -21,7 +21,7 @@ author: Philipp Lehmann
         <link rel="stylesheet" href="assets/css/Table-With-Search.css">
     </head>
 
-    <body>
+    <body style="background-color: rgb(34,36,37);">
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
             <div class="container">
                 <a class="navbar-brand logo" href="index.html" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a>

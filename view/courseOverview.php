@@ -13,7 +13,7 @@ include("database/DBConnection.php");
 </script>
 </head>
 
-<body>
+<body style="background-color: rgb(34,36,37);">
     <h3><?php echo $lang['myCourses']?></h3>
     <form method="post">
     <!--creates tableheaders for the crud-table -->

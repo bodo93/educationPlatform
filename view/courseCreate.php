@@ -38,7 +38,7 @@ if (!empty($_POST)) {
         <title><?php echo $lang['addCourse'] ?></title>
         <link rel="stylesheet" type="text/css" href="css.inc.css">
     </head>
-    <body>
+    <body style="background-color: rgb(34,36,37);">
         <h3><?php echo $lang['addCourse'] ?> </h3>
         <form action="" method="post">
 
