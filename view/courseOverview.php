@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+
 include ("includes/translator.inc.php");
 include("database/DBConnection.php");
 ?>
@@ -13,7 +14,7 @@ include("database/DBConnection.php");
 </script>
 </head>
 
-<body style="background-color: rgb(34,36,37);">
+<body>
     <h3><?php echo $lang['myCourses']?></h3>
     <form method="post">
     <!--creates tableheaders for the crud-table -->

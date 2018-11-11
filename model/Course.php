@@ -7,8 +7,6 @@ namespace model;
  *
  * @author bodog
  */
-include 'includes/translator.inc.php';
-include("includes/DBconnection.inc.php");
 
 class Course {
 

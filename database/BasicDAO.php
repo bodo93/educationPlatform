@@ -11,6 +11,11 @@
  *
  * @author bodog
  */
+
+namespace database;
+
+use database\DBConnection;
+
 class BasicDAO {
 
     private static $mysqli;
