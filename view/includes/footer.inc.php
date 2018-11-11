@@ -7,54 +7,40 @@ include 'view/includes/translator.inc.php';
 <html>
     <head>
         <meta charset="UTF-8">
-        <style>
-body {
-margin: 0;
-font-family: Arial, Helvetica, sans-serif;
-}
-
-#footerR {
-overflow: hidden;
-background-color: #333;
-}
-
-#footerR a {
-color: #f2f2f2;
-text-align: center;
-padding: 20px 16px;
-text-decoration: none;
-font-size: 17px;
-}
-        </style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     </head>
-    
-    <body>
-        <?php
-        // put your code here
-        ?>
-        
-        <footer id="footer">
-            <div class="container flex-column">
-                <div class="column">
-                    <strong class="title">Kontakt</strong>
-                    <ul>
-                        <li><a>Swissedu AG</a></li>
-                        <li><a>Wängirain 53</a></li>
-                        <li><a>8704 Herrliberg</a></li>
-                        <li><a>+41 84 882 10 11</a></li>
-                        <li><a href="mailto:info@swissedu.ch">info@swissedu.ch</a></li>
-                    </ul>
-                </div>
-              
-                </div>
-                <div class="column">
-                    <strong class="title">© 2018 | FHNW Schweiz</strong>
-                    <ul>
-                        <!--<li><a href="/Shared/Impressum.htm">AGB und Datenschutzerklärung</a></li>-->
-                    </ul>
+    <body>       
+        <footer class="page-footer dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3" style="min-width: 240px;">
+                        <h5>Adresse</h5>
+                        <p style="color: rgb(251,251,251);">Swissedu AG<br>Wängirain 53<br>8704 Herrliberg<br></p>
+                    </div>
+                    <div class="col-sm-3">
+                        <h5>Kontakt&nbsp;</h5>
+                        <ul>
+                            <li><a href="mailto:name@email.com">info@swissedu.ch</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3" style="min-width: 240px;">
+                        <h5>Leistungen</h5>
+                        <ul>
+                            <li><a href="ourOffer.html">Angebot</a></li>
+                            <li><a href="login.html">Login</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-3" style="min-width: 240px;">
+                        <h5>Legal</h5>
+                        <ul>
+                            <li><a href="terms.html" style="min-width: 160px;">Terms</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+            <div class="footer-copyright" style="margin-top: 0px;">
+                <p>© 2018 Copyright SWISSEDU</p>
+            </div>
         </footer>
-        
     </body>
 </html>
