@@ -28,6 +28,14 @@ $errorFunction = function () {
     require_once("view/404.php");
 };
 
+
+// JUST FOR TESTING
+// ################
+Router::route("GET", "/testPDF", function(){
+    require_once("Testing/createPDFtest.php");
+});
+
+
 Router::route("GET", "/login", function(){
     require_once("view/instituteLogin.php");
 });
