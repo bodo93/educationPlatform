@@ -60,20 +60,14 @@ function filterTable($query){
     
 //controller\CourseController::search($_POST['search'], $_POST['department'], $_POST['area']);
 ?>
+<?php
+include 'includes/header.inc.php';
+?>
 <html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title><?php echo $lang['title']?></title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-        <link rel="stylesheet" href="assets/css/Data-Table.css">
-        <link rel="stylesheet" href="assets/css/dh-row-titile-text-image-right-1.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-        <link rel="stylesheet" href="assets/css/smoothproducts.css">
-        <link rel="stylesheet" href="assets/css/Table-With-Search.css">
-        <link rel="stylesheet" href="assets/css/searchResult.css"> 
     </head>
     <body style="background-color: rgb(34,36,37);">
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
@@ -128,45 +122,8 @@ function filterTable($query){
                 </div>
             </section>
         </main>
-        <footer class="page-footer dark">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-3" style="min-width: 240px;">
-                        <h5>Kontakt</h5>
-                        <p style="color: rgb(251,251,251);">Swissedu AG<br>Wängirain 53<br>8704 Herrliberg<br>info@swissedu.ch</p>
-                    </div>
-                    <div class="col-sm-3">
-                        <h5>Leistungen&nbsp;</h5>
-                        <ul>
-                            <li><a href="#"></a></li>
-                            <li><a href="ourOffer.html">Angebot</a></li>
-                            <li><a href="login.html">Login</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-3" style="min-width: 240px;">
-                        <h5>Preise</h5>
-                        <p style="color: rgb(251,251,251);">3 &nbsp;Monate &nbsp; &nbsp;60 CHF<br>6 &nbsp;Monate &nbsp;100 CHF<br>12 Monate &nbsp;160 CHF</p>
-                    </div>
-                    <div class="col-sm-3" style="min-width: 240px;">
-                        <h5>Legal</h5>
-                        <ul>
-                            <li><a href="terms.html" style="min-width: 160px;">Terms</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-copyright" style="margin-top: 0px;">
-                <p>© 2018 Copyright SWISSEDU</p>
-            </div>
-        </footer>
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
-        <script src="assets/js/smoothproducts.min.js"></script>
-        <script src="assets/js/theme.js"></script>
-        <script src="assets/js/createMyCoursesTable.js"></script>
-        <script src="assets/js/Table-With-Search.js"></script>
+        <?php
+        include 'includes/footer.inc.php';
+        ?>
     </body>
 </html>
