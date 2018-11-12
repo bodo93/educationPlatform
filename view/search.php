@@ -24,7 +24,7 @@ author: Philipp Lehmann
     <body style="background-color: rgb(34,36,37);">
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
             <div class="container">
-                <a class="navbar-brand logo" href="index.html" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a>
+                <a class="navbar-brand logo" href="" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a>
                 <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div
                     class="collapse navbar-collapse" id="navcol-1">
@@ -98,7 +98,7 @@ author: Philipp Lehmann
                         <h5>Leistungen&nbsp;</h5>
                         <ul>
                             <li><a href="#"></a></li>
-                            <li><a href="ourOffer">Angebot</a></li>
+                            <li><a href="/view/ourOffer">Angebot</a></li>
                             <li><a href="/educationplatform/login">Login</a></li>
                         </ul>
                     </div>
@@ -109,7 +109,7 @@ author: Philipp Lehmann
                     <div class="col-sm-3" style="min-width: 240px;">
                         <h5>Legal</h5>
                         <ul>
-                            <li><a href="ourterms" style="min-width: 160px;">Terms</a></li>
+                            <li><a href="/view/terms" style="min-width: 160px;">Terms</a></li>
                         </ul>
                     </div>
                 </div>
