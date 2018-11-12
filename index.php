@@ -36,8 +36,16 @@ Router::route("GET", "/login/forgotPassword", function(){
     require_once("view/instituteForgotPassword.php");
 });
 
+Router::route("GET", "/login/newPassword", function(){
+    require_once("view/instituteNewPassword.php");
+});
+
 Router::route("GET", "/register", function(){
     require_once("view/instituteRegistration.php");
+});
+
+Router::route("GET", "/ourOffer", function(){
+    require_once("view/ourOffer.php");
 });
 
 Router::route("GET", "/ourterms", function(){

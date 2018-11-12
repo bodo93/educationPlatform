@@ -17,7 +17,7 @@
 
     <body style="color: rgb(34,36,37);background-color: rgb(34,36,37);">
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-            <div class="container"><a class="navbar-brand logo" href="search.html" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="container"><a class="navbar-brand logo" href="" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div
                     class="collapse navbar-collapse" id="navcol-1">
                     <ul class="nav navbar-nav ml-auto">
@@ -46,7 +46,7 @@
                         <h1 style="font-size: 30px;margin-bottom: 15px;">Lorem ipsum<br></h1>
                         <p style="min-height: 370px;">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
                             no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et
-                            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br><br><br><br><br><br><a class="btn btn-primary btn-block" role="button" href="search.html" style="margin-top: 6px;min-width: 160px;max-width: 200px;">Schliessen</a></p>
+                            accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.<br><br><br><br><br><br><a class="btn btn-primary btn-block" role="button" href="" style="margin-top: 6px;min-width: 160px;max-width: 200px;">Schliessen</a></p>
                     </div>
                     <div class="col-sm-6 col-md-5 col-lg-5"><img src="assets/img/law-document.jpeg"></div>
                 </div>
