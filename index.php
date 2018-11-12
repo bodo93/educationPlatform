@@ -123,6 +123,14 @@ Router::route("POST", "/course/create", function () {
     require_once("view/courseCreate.php");
 });
 
+Router::route("GET", "/course/cost", function () {
+    require_once("view/courseCost.php");
+});
+
+Router::route("POST", "/course/cost", function () {
+    require_once("view/courseCost.php");
+});
+
 Router::route("GET", "/course/edit", function () {
     require_once("view/courseEdit.php");
 });

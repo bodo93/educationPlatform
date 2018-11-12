@@ -51,7 +51,6 @@ author: Philipp Lehmann
                                 <option value="Recht">Recht</option>
                                 <option value="Psychologie">Psychologie </option>
                                 <option value="Sprachen">Sprachen</option>
-                                <option value="Sonstiges">Sonstiges</option>
                             </select>
                         </div>
                         <div
