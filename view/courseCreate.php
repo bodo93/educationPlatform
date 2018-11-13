@@ -23,7 +23,7 @@ if (!empty($_POST)) {
     $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
 
     if (mysqli_query($mysqli, $insert)) {
-        header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
+        header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
         echo "Daten eingefügt!";
     } else {
         echo "Error: " . $insert . "<br>" . mysqli_error($conn);
@@ -42,20 +42,9 @@ include 'includes/header.inc.php';
         <link rel="stylesheet" type="text/css" href="css.inc.css">
     </head>
     <body style="background-color: rgb(34,36,37);">
-        <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-            <div class="container"><a class="navbar-brand logo" href="search.html" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div
-                    class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="myCourses.html" style="font-size: 14px;font-weight: bold;">Meine Kurse</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="showAccount.html" style="font-size: 14px;font-weight: bold;">Benutzerprofil</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 90px;"><a class="nav-link" href="logout.php" style="font-size: 14px;font-weight: bold;">Abmelden</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="about-us.html" style="font-size: 14px;font-weight: bold;">de</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="about-us.html" style="padding-left: 0px;font-size: 14px;font-weight: bold;">EN</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+        include 'includes/header.inc.php';
+        ?>
         <main class="page login-page">
             <section class="clean-block clean-form dark">
                 <div class="container">
@@ -123,7 +112,6 @@ include 'includes/header.inc.php';
         ?>
     </body>   
 </html>
-
 <!--
     
     <body style="background-color: rgb(34,36,37);">

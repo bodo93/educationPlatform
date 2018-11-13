@@ -62,7 +62,7 @@ Router::route("GET", "/ourOffer", function(){
     require_once("view/ourOffer.php");
 });
 
-Router::route("GET", "/ourterms", function(){
+Router::route("GET", "/terms", function(){
     require_once("view/terms.php");
 });
 
@@ -109,9 +109,9 @@ Router::route_auth("GET", "/course/edit", $authFunction, function () {
 */
 
 // JUST 4 TESTING
-Router::route("GET", "/",  function () {
+/*Router::route("GET", "/",  function () {
     require_once("view/search.php");
-});
+}); */
 
 Router::route("GET", "/search", function () {
     require_once("view/search.php");

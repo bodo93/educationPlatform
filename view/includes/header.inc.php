@@ -19,11 +19,11 @@ include 'view/includes/translator.inc.php';
         <link rel="stylesheet" href="assets/css/smoothproducts.css">
         <link rel="stylesheet" href="assets/css/Table-With-Search.css">
     </head>
-    
+
     <body>
         <header>
             <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-                <div class="container"><a class="navbar-brand logo" href="" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="container"><a class="navbar-brand logo" href="search" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div
                         class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav ml-auto">
@@ -37,7 +37,7 @@ include 'view/includes/translator.inc.php';
                 </div>
             </nav>
         </header>
-        
+
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
