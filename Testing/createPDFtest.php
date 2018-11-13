@@ -43,7 +43,7 @@
     
     $pdf->addDetails($dateToday, "Wirtschaftsinformatik", 2000);
     
-    
+    $pdf->Image('../images/'.$image, 0, 0, $size[0], $size[1]);
     
     
     $num_page = 5;
