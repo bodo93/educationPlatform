@@ -19,7 +19,7 @@ $authFunction = function () {
     if (isset($_SESSION["instituteLogin"])) {
         return true;
     }
-    Router::redirect("/login");
+    Router::redirect("/search");
     return false;
 };
 
