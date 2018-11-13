@@ -7,15 +7,17 @@ Source 2: https://www.w3schools.com/php/func_http_setcookie.asp
 <?php
     $cookie_name = "lang";
     
-    if(!isset($_COOKIE[$cookie_name]))
+    if(!isset($_COOKIE[$cookie_name])){
          setcookie($cookie_name, 'en', time() + (86400 * 30), '/');
-    else if(isset($_GET['lang']) && $_COOKIE[$cookie_name] != $_GET['lang'] && !empty($_GET['lang'])){
-        if($_GET['lang'] == "en"){
+         $_COOKIE[$cookie_name] = 'en';      
+    }
+    else if($getCookie && $cookie != $getCookie && !empty($getCookie)){
+        if($getCookie == "en"){
             setcookie($cookie_name, 'en', time() + (86400 * 30), '/');
-        header("Refresh:0");
-        }else if($_GET['lang'] == "de"){
+            $_COOKIE[$cookie_name] = 'en';
+        }else if($getCookie == "de"){
             setcookie($cookie_name, 'de', time() + (86400 * 30), '/');
-            header("Refresh:0");
+            $_COOKIE[$cookie_name] = 'de';
         }
     }
 
