@@ -19,8 +19,8 @@ include 'includes/header.inc.php';
                         <li class="nav-item" role="presentation"><a class="nav-link" href="myCourses.html" style="font-size: 14px;font-weight: bold;">Meine Kurse</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" href="showAccount.html" style="font-size: 14px;font-weight: bold;">Benutzerprofil</a></li>
                         <li class="nav-item" role="presentation" style="padding-right: 90px;"><a class="nav-link" href="logout.php" style="font-size: 14px;font-weight: bold;">Abmelden</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="about-us.html" style="font-size: 14px;font-weight: bold;">de</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="about-us.html" style="padding-left: 0px;font-size: 14px;font-weight: bold;">EN</a></li>
+                        <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="" style="font-size: 14px;font-weight: bold;">de</a></li>
+                        <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="" style="padding-left: 0px;font-size: 14px;font-weight: bold;">EN</a></li>
                     </ul>
                 </div>
             </div>
