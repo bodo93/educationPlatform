@@ -8,60 +8,54 @@
 
     require('PDF_Invoice.php');
     
-    // le mettre au debut car plante si on declare $mysqli avant !
-    $pdf = new PDF_Invoice( 'P', 'mm', 'A4' );
-    $pdf->AddPage();
-    $pdf->addCompany( "SWISSEDU",
-                      "Cards Services / CS" .
+    //get all infos
+    $priceToPay = 2000;
+    $dateToday = date("d.m.Y");
+    $dateToPay = date('d.m.Y', strtotime($dateToday. ' + 14 days'));
+    
+    $companyAddress = ( "SWISSEDU\n" .
+                      "Cards Services / CS\n" .
                       "Postfach\n".
                       "8048 Zurich\n" .
                       "Tel.: 044 439 40 20\n" .
                       "www.google.ch"
             );
     
-    $pdf->addRecipient( "Philipp Lehmann",
+    $recipientAddress = ( "Philipp Lehmann\n" .
                       "Aecherligasse 19-H\n" .
                       "4665 Oftringen"
             );
+    
+    // le mettre au debut car plante si on declare $mysqli avant !
+    $pdf = new PDF_Invoice( 'P', 'mm', 'A4' );
+    $pdf->AddPage();
+    
+    // add Logo to Invoice
+    $pdf->addLogo('view/assets/img/Logo2.png');
         
-        // logo : 80 de largeur et 55 de hauteur
-    
-    $pdf->addLogo('C:\Users\Phil\Dropbox\Web Engineering\BootstrapExport\old\09.11.2018\assets\img\Logo2.png');
-
-    $dateToday = date("d.m.Y");
-    
+    // add addresses to Invoice
+    $pdf->addCompany( $companyAddress );
+    $pdf->addRecipient( $recipientAddress );
+        
     $pdf->addDate( 'Zurich, ', $dateToday );
-    
     $pdf->addPP("P.P 8040 Zurich");
-    
-    $pdf->addTotal(2000, $dateToday, "14.12.2018");
-    
+    $pdf->addTotal($priceToPay, $dateToday, $dateToPay);
     $pdf->addTitle();
-    
     $pdf->addNote( "Besten Dank fuer die Benuetzung unserer Dienstleistung.\n" .
-                    "Bitte pruefen Sie diese Rechnung.");
+                    "Bitte pruefen Sie diese Rechnung bevor Sie die Zahlung vornehmen.");
+    $pdf->addDetails($dateToday, "Wirtschaftsinformatik", $priceToPay);
     
-    $pdf->addDetails($dateToday, "Wirtschaftsinformatik", 2000);
+    // add Bill to Invoice 
+    $pdf->Image('Testing/bill.png',0,195,210,0,'PNG');
     
-    $pdf->Image('../images/'.$image, 0, 0, $size[0], $size[1]);
+    // add Details to Invoice
+    $pdf->addPriceToBill($priceToPay);
+    $pdf->addCompanyToBill( $companyAddress );
+    $pdf->addRecipientToBill( $recipientAddress );
+    $pdf->addAccountToBill();
+    $pdf->addReferenceToBill();
     
     
-    $num_page = 5;
-
-    // **************************
-    // FOOTER
-    // **************************
-    $y1 = 270;
-    //Positionnement en bas et tout centrer
-    $pdf->SetXY( 20, $y1 ); $pdf->SetFont('Arial','B',10);
-    $pdf->Cell( 160, 5, "Seite 1/1", 0, 0, 'R');
-
-    $pdf->SetFont('Arial','',10);
-
-    // par page de 18 lignes
-    $num_page++;
-    /*}*/
-    
-    $pdf->Output("I");
+    $file = $pdf->Output("I");
     ob_end_flush(); 
 ?>

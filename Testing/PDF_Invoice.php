@@ -52,19 +52,15 @@ function addLogo( $source )
     $x1 = 10;
     $y1 = 8;
     $this->SetXY( $x1, $y1 );
-    $this->Image($source,20,20,60,0,'PNG');
+    $this->Image($source,20,20,50,0,'PNG');
 }
 
 // Company
-function addCompany( $name, $address )
+function addCompany( $address )
 {
     $x1 = 20;
-    $y1 = 60;
+    $y1 = 50;
 
-    $this->SetXY( $x1, $y1 );
-    $this->SetFont('Arial','B',8);
-    $length = $this->GetStringWidth( $name );
-    $this->Cell( $length, 4, $name);
     $this->SetXY( $x1, $y1 + 4 );
     $this->SetFont('Arial','',8);
     $length = $this->GetStringWidth( $address );
@@ -74,15 +70,11 @@ function addCompany( $name, $address )
 }
 
 // Recipient
-function addRecipient( $name, $address )
+function addRecipient( $address )
 {
     $x1 = 120;
-    $y1 = 80;
+    $y1 = 70;
 
-    $this->SetXY( $x1, $y1 );
-    $this->SetFont('Arial','',10);
-    $length = $this->GetStringWidth( $name );
-    $this->Cell( $length, 4, $name);
     $this->SetXY( $x1, $y1 + 4 );
     $length = $this->GetStringWidth( $address );
     //Coordonnées de la société
@@ -107,7 +99,7 @@ function addFacture( $numfact )
 function addDate( $place, $date )
 {
     $x1 = 120;
-    $y1 = 120;
+    $y1 = 100;
     $this->SetXY( $x1, $y1 );
     $this->SetFont( "Arial", "", 10);
     $this->SetFont( "Arial", "", 10);
@@ -117,7 +109,7 @@ function addDate( $place, $date )
 function addPP( $PP )
 {
     $x1 = 120;
-    $y1 = 60;
+    $y1 = 50;
     $this->SetXY( $x1, $y1 );
     $this->SetFont( "Arial", "B", 10);
     $this->Cell(40,10,"$PP",1);
@@ -126,7 +118,7 @@ function addPP( $PP )
 function addTotal( $total, $dateToday, $dateDue )
 {
     $x1 = 20;
-    $y1 = 120;
+    $y1 = 100;
 
     $this->SetXY( $x1, $y1 );
     $this->SetFont('Arial','B',10);
@@ -153,7 +145,7 @@ function addTotal( $total, $dateToday, $dateDue )
 function addTitle( )
 {
     $x1 = 20;
-    $y1 = 160;
+    $y1 = 140;
 
     $this->SetXY( $x1, $y1 );
     $this->SetFont('Arial','B',14);
@@ -164,7 +156,7 @@ function addTitle( )
 function addNote( $text )
 {
     $x1 = 20;
-    $y1 = 170;
+    $y1 = 150;
 
     $this->SetXY( $x1, $y1 );
     $this->SetFont('Arial','',8);
@@ -177,7 +169,7 @@ function addNote( $text )
 function addDetails( $date, $name, $price )
 {
     $x1 = 20;
-    $y1 = 200;
+    $y1 = 170;
 
     $this->SetXY( $x1, $y1 );
     $this->SetFont('Arial','B',10);
@@ -195,6 +187,63 @@ function addDetails( $date, $name, $price )
     $this->Cell( 80,6,'Wirtschaftsinformatik','TBR');
     $this->SetXY( $x1 + 120, $y1 + 6 );
     $this->Cell( 40,6,$price,'BR',1,'R',0);
+}
+
+function addPriceToBill( $price )
+{
+    $x1 = 32;
+    $y1 = 249.3;
+
+    $this->SetFont('Arial','',10);
+    $this->Text($x1, $y1, $price);
+    
+    $x1 = 49;
+    $y1 = 249.3;
+
+    $this->SetFont('Arial','',10);
+    $this->Text($x1, $y1, '00');
+}
+
+function addCompanyToBill( $address ){
+    $x1 = 5;
+    $y1 = 202;
+    
+    $this->SetXY( $x1, $y1 + 4 );
+    $this->SetFont('Arial','',8);
+    $length = $this->GetStringWidth( $address );
+    //Coordonnées de la société
+    $lignes = $this->sizeOfText( $address, $length) ;
+    $this->MultiCell($length, 4, $address);
+}
+
+function addAccountToBill( ){
+    $x1 = 30;
+    $y1 = 240.5;
+    
+    $this->SetXY( $x1, $y1 + 4 );
+    $this->SetFont('Arial','',8);
+    $this->Text($x1, $y1, '0-12345');
+}
+
+function addRecipientToBill( $address ){
+    $x1 = 125;
+    $y1 = 240;
+    
+    $this->SetXY( $x1, $y1 + 4 );
+    $this->SetFont('Arial','',8);
+    $length = $this->GetStringWidth( $address );
+    //Coordonnées de la société
+    $lignes = $this->sizeOfText( $address, $length) ;
+    $this->MultiCell($length, 4, $address);
+}
+
+function addReferenceToBill( ){
+    $x1 = 125;
+    $y1 = 232;
+    
+    $this->SetXY( $x1, $y1 + 4 );
+    $this->SetFont('Arial','',8);
+    $this->Text($x1, $y1, '0 0 0 0   1 1 1 1   2 2 2 2   3 3 3 3');
 }
 
 }

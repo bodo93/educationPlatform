@@ -35,6 +35,12 @@ Router::route("GET", "/testPDF", function(){
     require_once("Testing/createPDFtest.php");
 });
 
+// JUST FOR TESTING
+// ################
+Router::route("GET", "/sendEmail", function(){
+    require_once("Testing/sendEmail.php");
+});
+
 
 Router::route("GET", "/login", function(){
     require_once("view/instituteLogin.php");
