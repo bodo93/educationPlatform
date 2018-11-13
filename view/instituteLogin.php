@@ -31,7 +31,7 @@ include 'includes/header.inc.php';
                     <div class="block-heading">
                         <h2 class="text-info">Login</h2>
                     </div>
-                    <form method="post" action="/educationPlatform/search" style="padding-bottom: 30px;">
+                    <form method="post" action="" style="padding-bottom: 30px;">
                         <div class="form-group"><label for="email">Email</label><input class="form-control" type="email" name="email" placeholder="email" required autofocus></div>
                         <div class="form-group"><label for="password">Password</label><input class="form-control" type="password" id="password" name="password" placeholder="password" required></div>
                         <div class="form-group">
