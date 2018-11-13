@@ -23,7 +23,7 @@ if (!empty($_POST)) {
     $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
 
     if (mysqli_query($mysqli, $insert)) {
-        header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
+        header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
         echo "Daten eingefügt!";
     } else {
         echo "Error: " . $insert . "<br>" . mysqli_error($conn);
@@ -42,25 +42,14 @@ include 'includes/header.inc.php';
         <link rel="stylesheet" type="text/css" href="css.inc.css">
     </head>
     <body style="background-color: rgb(34,36,37);">
-        <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-            <div class="container"><a class="navbar-brand logo" href="search.html" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div
-                    class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="myCourses.html" style="font-size: 14px;font-weight: bold;">Meine Kurse</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="showAccount.html" style="font-size: 14px;font-weight: bold;">Benutzerprofil</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 90px;"><a class="nav-link" href="logout.php" style="font-size: 14px;font-weight: bold;">Abmelden</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="about-us.html" style="font-size: 14px;font-weight: bold;">de</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="about-us.html" style="padding-left: 0px;font-size: 14px;font-weight: bold;">EN</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+        <?php
+        include 'includes/header.inc.php';
+        ?>
         <main class="page login-page">
             <section class="clean-block clean-form dark">
                 <div class="container">
                     <div class="block-heading">
-                        <h2 class="text-info" style="margin-bottom: 15px;">Kurs erfassen</h2>
+                        <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['editCourse'] ?></h2>
                     </div>
                     <form style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
                         <div class="form-row">
@@ -68,12 +57,12 @@ include 'includes/header.inc.php';
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['name'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;"></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;">Kurs Typ</label><input class="form-control item" type="text" style="min-width: 170px;font-size: 14px;"></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['courseType'] ?></label><select class="form-control"><option value="12" selected=""></option><option value="13">Bachelor</option><option value="14">Master</option><option value="">Sonstiges</option></select></div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;">Fachbereich</label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;"></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['department'] ?></label><select class="form-control" id="subject"><option value="0"></option><option value="1">Wirtschaft</option><option value="2">IT / Technik</option><option value="4">Recht</option><option value="5">Psychologie </option><option value="6">Sprachen</option><option value="7">Sonstiges</option></select></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['costs'] ?></label><input class="form-control item" type="text" style="min-width: 170px;font-size: 14px;"></div>
@@ -81,12 +70,7 @@ include 'includes/header.inc.php';
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;">
-                                    <label for="email" style="margin-bottom: 0px;">
-                                        Raum
-                                    </label>
-                                    <input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;">
-                                </div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label><select class="form-control" id="subject"><option value="" selected=""></option><option value="1">Westschweiz</option><option value="2">Mittelland</option><option value="3">Nordwestschweiz / Zürich</option><option value="4">Ostschweiz</option><option value="5">Tessin / Wallis</option></select></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['startDate'] ?></label><input class="form-control" type="date"></div>
@@ -109,8 +93,8 @@ include 'includes/header.inc.php';
                             </div>
                         </div>
                         <div class="form-row">
-                            <div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="createCourse2.html" style="width: 142px;margin-top: 10px;">Weiter</a></div>
-                            <div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="myCourses.html" style="width: 142px;margin-top: 10px;">Abbrechen</a></div>
+                            <div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="createCourse2.html" style="width: 142px;margin-top: 10px;"><?php echo $lang['next'] ?></a></div>
+                            <div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="myCourses.html" style="width: 142px;margin-top: 10px;"><?php echo $lang['cancel'] ?></a></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                         </div>
@@ -123,7 +107,6 @@ include 'includes/header.inc.php';
         ?>
     </body>   
 </html>
-
 <!--
     
     <body style="background-color: rgb(34,36,37);">

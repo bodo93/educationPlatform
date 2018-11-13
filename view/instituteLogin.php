@@ -24,7 +24,7 @@ include 'includes/header.inc.php';
                     </ul>
                 </div>
             </div>
-        </nav>
+        
         <main class="page login-page">
             <section class="clean-block clean-form dark" style="min-height: 660px;">
                 <div class="container">

@@ -19,7 +19,6 @@ use database\courseDAO;
  */
 class CourseController {
 
-    //put your code here
 
     public static function create() {
         $contentView = new TemplateView("courseCreate.php");
