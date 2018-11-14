@@ -194,7 +194,6 @@ Router::route("POST", "/register", function () {
 
 Router::route("POST", "/login", function () {
     InstituteController::login();
-    Router::redirect("/search");
 });
 
 Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'], $errorFunction);
