@@ -42,11 +42,8 @@ include 'includes/header.inc.php';
         <link rel="stylesheet" type="text/css" href="css.inc.css">
     </head>
     <body style="background-color: rgb(34,36,37);">
-        <?php
-        include 'includes/header.inc.php';
-        ?>
         <main class="page login-page">
-            <section class="clean-block clean-form dark">
+            <section class="clean-block clean-form dark" style="min-height: 660px; padding-top: 100px;">
                 <div class="container">
                     <div class="block-heading">
                         <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['editCourse'] ?></h2>
