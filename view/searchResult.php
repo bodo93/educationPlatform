@@ -2,7 +2,24 @@
 include("includes/translator.inc.php");
 include("database/DBConnection.php");
 
-if(isset($_POST['search']) and isset($_POST['department']) and isset($_POST['area']) and isset($_POST['coursetype'])){
+if(empty($_POST['valueToSearch']) and empty($_POST['department']) and empty($_POST['area']) and empty($_POST['coursetype'])){
+
+    $query = "SELECT
+            c.ID,c.Name,c.Place,c.Costs,c.Start,c.End,c.InstituteID,c.DepartmentID,c.AreaID,c.CourseTypeID,
+            inst.Name AS instituteName,
+            depart.Name AS departmentName,
+            area.Name AS areaName,
+            ctype.Name AS courseTypeName
+        FROM course c
+        JOIN institute inst ON c.InstituteID=inst.ID
+        JOIN department depart ON c.DepartmentID=depart.ID
+        JOIN area area ON c.AreaID=area.ID
+        JOIN coursetype ctype ON c.CourseTypeID=ctype.ID
+        ORDER BY c.Name,c.Place";
+
+    $search_Result = filterTable($query);
+}
+else{
     $department = $_POST['department'];
     $valueToSearch = $_POST['valueToSearch'];
     $area = $_POST['area'];
@@ -26,23 +43,7 @@ if(isset($_POST['search']) and isset($_POST['department']) and isset($_POST['are
 
     $search_Result = filterTable($query);
 }
-else{
-    $query = "SELECT
-                c.ID,c.Name,c.Place,c.Costs,c.Start,c.End,c.InstituteID,c.DepartmentID,c.AreaID,c.CourseTypeID,
-                inst.Name AS instituteName,
-                depart.Name AS departmentName,
-                area.Name AS areaName,
-                ctype.Name AS courseTypeName
-            FROM course c
-            JOIN institute inst ON c.InstituteID=inst.ID
-            JOIN department depart ON c.DepartmentID=depart.ID
-            JOIN area area ON c.AreaID=area.ID
-            JOIN coursetype ctype ON c.CourseTypeID=ctype.ID
-            ORDER BY c.Name,c.Place";
     
-    $search_Result = filterTable($query);
-}
-
 function filterTable($query){
     $db = dbConnection::getConnection();
     $mysqli = $db->getConnection();   
@@ -57,8 +58,6 @@ function filterTable($query){
     $dbDatabase = "db_educationplatform";		//Database Name
     $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbDatabase);
 }
-    
-//controller\CourseController::search($_POST['search'], $_POST['department'], $_POST['area']);
 ?>
 <?php
 include 'includes/header.inc.php';
@@ -89,7 +88,7 @@ include 'includes/header.inc.php';
                 <div class="container" style="background-color: rgba(198,189,189,0.85);">
                     <div class="block-heading">
                         <h2 class="text-center text-info">Suchresultate</h2>
-                    </div>
+                    </div>                    
                     <table id="table-searchResult" style="border:1px solid black">
                         <tr>
                           <th><?php echo $lang['name']?></th>
