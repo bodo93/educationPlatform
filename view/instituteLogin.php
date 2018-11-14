@@ -28,11 +28,11 @@ Author: Philipp Lehmann
                         <div class="form-group">
                             <div class="form-check" style="margin-top: 25px;"><input class="form-check-input" type="checkbox" id="checkbox"><label class="form-check-label" for="checkbox">angemeldet bleiben</label></div>
                             <div class="form-row">
-                                <div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="submit" style="margin-top: 6px;min-width: 160px;" name="login">Login</button></div>
-                                <div class="col" style="margin-right: 40px;"><a class="btn btn-primary btn-block" role="button" href="/educationplatform/search" style="margin-top: 6px;min-width: 160px;">Abbrechen</a></div>
+                                <div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="submit" style="margin-top: 6px;min-width: 160px;" name="login"><?php echo $lang['login'] ?></button></div>
+                                <div class="col" style="margin-right: 40px;"><a class="btn btn-primary btn-block" role="button" href="search" style="margin-top: 6px;min-width: 160px;"><?php echo $lang['cancel'] ?></a></div>
                             </div>
-                            <div style="margin-top: 35px;"><a href="/educationplatform/register">Benutzerkonto erstellen</a></div>
-                            <div style="margin-top: 10px;"><a href="forgetPassword.html">Passwort vergessen?</a></div>
+                            <div style="margin-top: 35px;"><a href="register"><?php echo $lang['register'] ?></a></div>
+                            <div style="margin-top: 10px;"><a href="login/forgotPassword"><?php echo $lang['passwordForgot'] ?></a></div>
                         </div>
                 </form>
             </div>

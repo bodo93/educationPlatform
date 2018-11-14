@@ -26,14 +26,14 @@ include 'view/includes/translator.inc.php';
                     <div class="col-sm-3" style="min-width: 240px;">
                         <h5>Leistungen</h5>
                         <ul>
-                            <li><a href="ourOffer">Angebot</a></li>
-                            <li><a href="terms" style="min-width: 160px;">Terms</a></li>
+                            <li><a href="<?php echo $DOMAIN_URL?>/ourOffer">Angebot</a></li>
+                            <li><a href="<?php echo $DOMAIN_URL?>/terms" style="min-width: 160px;">Terms</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-3" style="min-width: 240px;">
                         <h5>Login</h5>
                         <ul>
-                            <li><a href="login">Login</a></li>
+                            <li><a href="<?php echo $DOMAIN_URL?>/login">Login</a></li>
                         </ul>
                     </div>
                 </div>

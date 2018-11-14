@@ -125,6 +125,10 @@ Router::route("POST", "/searchResult", function () {
     require_once("view/searchResult.php");
 });
 
+Router::route("GET", "/institute", function () {
+    require_once("view/instituteShowAccount.php");
+});
+
 Router::route("GET", "/institute/edit", function () {
     require_once("view/instituteEdit.php");
 });
@@ -162,10 +166,6 @@ Router::route("POST", "/course/edit", function () {
 });
 
 Router::route("GET", "/course/delete", function () {
-    require_once("view/courseDelete.php");
-});
-
-Router::route("POST", "/course/delete", function () {
     require_once("view/courseDelete.php");
 });
 
