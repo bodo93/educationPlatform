@@ -9,7 +9,7 @@ include 'view/includes/translator.inc.php';
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     </head>
-    <body>       
+    <body>               
         <footer class="page-footer dark">
             <div class="container">
                 <div class="row">
@@ -27,13 +27,13 @@ include 'view/includes/translator.inc.php';
                         <h5>Leistungen</h5>
                         <ul>
                             <li><a href="ourOffer">Angebot</a></li>
-                            <li><a href="login">Login</a></li>
+                            <li><a href="terms" style="min-width: 160px;">Terms</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-3" style="min-width: 240px;">
-                        <h5>Legal</h5>
+                        <h5>Login</h5>
                         <ul>
-                            <li><a href="terms" style="min-width: 160px;">Terms</a></li>
+                            <li><a href="login">Login</a></li>
                         </ul>
                     </div>
                 </div>
