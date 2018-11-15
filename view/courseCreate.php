@@ -2,6 +2,7 @@
 <?php
 include 'includes/translator.inc.php';
 include("database/DBConnection.php");
+include 'includes/header.inc.php';
 
 $db = dbConnection::getConnection();
 $mysqli = $db->getConnection();
@@ -36,17 +37,12 @@ if (!empty($_POST)) {
 include 'includes/header.inc.php';
 ?>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title><?php echo $lang['addCourse'] ?></title>
-        <link rel="stylesheet" type="text/css" href="css.inc.css">
-    </head>
     <body style="background-color: rgb(34,36,37);">
         <main class="page login-page">
             <section class="clean-block clean-form dark" style="min-height: 660px; padding-top: 100px;">
                 <div class="container">
                     <div class="block-heading">
-                        <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['editCourse'] ?></h2>
+                        <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['courseCreate'] ?></h2>
                     </div>
                     <form style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
                         <div class="form-row">
@@ -86,7 +82,7 @@ include 'includes/header.inc.php';
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['place'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;"></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['link'] ?></label><input class="form-control" type="email"></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['link'] ?></label><input class="form-control" type="url"></div>
                             </div>
                         </div>
                         <div class="form-row">

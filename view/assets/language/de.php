@@ -14,8 +14,6 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "endDate" => "Enddatum",
         "institute" => "Bildungsinstitut",
         "graduation" => "Abschluss",
-        "addCourse" => "Kurs hinzufügen",
-        "editCourse" => "Kurs bearbeiten",
         "sureDelete" => "Sind sie sicher?",
         "yes" => "Ja",
         "no" => "Nein",
@@ -24,7 +22,6 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "save" => "Speichern",
         "cancel" => "Abbrechen",
         "next" => "Weiter",
-        "editCourse" => "Kurs bearbeiten",
         "name" => "Name",
         "street" => "Strasse",
         "streetNr" => "Strassennummer",
@@ -52,6 +49,12 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         
         //SEARCH RESULT
         "searchResults" => "Suchresultate",
+        
+        //CREATE COURSE
+        "courseCreate" => "Neuen Kurs hinzufügen",
+        
+        //EDIT COURSE
+        "editCourse" => "Kurs bearbeiten",
         
         //HEADER
         "myCourses" => "Meine Kurse",
