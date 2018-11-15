@@ -4,22 +4,15 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
 -->
 <?php
     $lang = array(
-        "title" => "Meine Webseite",
+        "title" => "SWISSEDU",
         "home" => "Startseite",
         "profile" => "Profil",
-        "login" => "Anmelden",
         "logout" => "Abmelden",
-        "offer" => "Angebot",
-        "register" => "Registrieren",
-        "english" => "En",
-        "german" => "De",
-        "myCourses" => "Meine Kurse",
         "costs" => "Kosten",
         "attendance" => "Teilnehmerzahl",
         "startDate" => "Startdatum",
         "endDate" => "Enddatum",
         "institute" => "Bildungsinstitut",
-        "department" => "Fachbereich",
         "graduation" => "Abschluss",
         "addCourse" => "Kurs hinzufügen",
         "editCourse" => "Kurs bearbeiten",
@@ -31,7 +24,6 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "save" => "Speichern",
         "cancel" => "Abbrechen",
         "next" => "Weiter",
-        "userProfile" => "Benutzerprofil",
         "editCourse" => "Kurs bearbeiten",
         "name" => "Name",
         "street" => "Strasse",
@@ -39,16 +31,40 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "postCode" => "Postleitzahl", 
         "place" => "Ort",
         "email" => "E-Mail",
-        "userName" => "Benutzername (E-Mail)",
-        "password" => "Passwort",
         "passwordRepeat" => "Passwort wiederholen",
-        "passwordForgot" => "Passwort vergessen?",
         "passwordReset" => "Zurücksetzen",
-        "courseType" => "Kurstyp",
-        "searchTerm" => "Suchbegriff",
-        "area" => "Raum",
+        "stayLoggedIn" => "Angemeldet bleiben",
         "link" => "Link",
         "searchCourses" => "Kurse suchen",
-        "addUser" => "Benutzer hinzufügen"
-    );  
+        "addUser" => "Benutzer hinzufügen",
+        
+        //LOGIN
+        "userName" => "Benutzername (E-Mail)",
+        "password" => "Passwort",
+        "register" => "Registrieren",
+        "passwordForgot" => "Passwort vergessen?",
+        
+        //SEARCH
+        "department" => "Fachbereich",
+        "area" => "Raum",
+        "courseType" => "Kurstyp",
+        "searchTerm" => "Suchbegriff",
+        
+        //SEARCH RESULT
+        "searchResults" => "Suchresultate",
+        
+        //HEADER
+        "myCourses" => "Meine Kurse",
+        "userProfile" => "Benutzerprofil",
+        "login" => "Anmelden",
+        "english" => "En",
+        "german" => "De",
+        
+        //FOOTER
+        "offer" => "Angebot",
+        "contact" => "Kontakt",
+        "address" => "Adresse",
+        "services" => "Leistungen",
+        "terms" => "Rechtliches"
+    );
 ?>

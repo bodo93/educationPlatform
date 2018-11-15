@@ -10,7 +10,7 @@ include 'view/includes/translator.inc.php';
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Login - Brand</title>
+        <title><?php echo $lang['title']?></title>
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
         <link rel="stylesheet" href="assets/css/Data-Table.css">
@@ -31,8 +31,8 @@ include 'view/includes/translator.inc.php';
                             <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo $DOMAIN_URL?>/course/overview" style="font-size: 14px;font-weight: bold;"><?php echo $lang['myCourses']?></a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo $DOMAIN_URL?>/institute" style="font-size: 14px;font-weight: bold;"><?php echo $lang['userProfile']?></a></li>
                             <li class="nav-item" role="presentation" style="padding-right: 90px;"><a class="nav-link" href="<?php echo $DOMAIN_URL?>/login" style="font-size: 14px;font-weight: bold;"><?php echo $lang['login']?></a></li>
-                            <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0]?>?lang=de" style="font-size: 14px;font-weight: bold;"><?php echo $lang['german']?></a></li>
-                            <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0]?>?lang=en" style="padding-left: 0px;font-size: 14px;font-weight: bold;"><?php echo $lang['english']?></a></li>
+                            <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0] . "?lang=de"?>" style="font-size: 14px;font-weight: bold;"><?php echo $lang['german']?></a></li>
+                            <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0] . "?lang=en"?>" style="padding-left: 0px;font-size: 14px;font-weight: bold;"><?php echo $lang['english']?></a></li>
                         </ul>
                     </div>
                 </div>

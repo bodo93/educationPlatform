@@ -4,22 +4,15 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
 -->
 <?php
     $lang = array(
-        "title" => "My Website",
+        "title" => "SWISSEDU",
         "home" => "Home",
         "profile" => "Profile",
-        "login" => "Login",
         "logout" => "Logout",
-        "offer" => "Offer",
-        "register" => "Register",
-        "english" => "En",
-        "german" => "Ge",
-        "myCourses" => "My courses",
         "costs" => "Costs",
         "attendance" => "Attendance",
         "startDate" => "Start date",
         "endDate" => "End date",
         "institute" => "Educational Institute",
-        "department" => "Department",
         "graduation" => "Graduation",
         "addCourse" => "Add new course",
         "editCourse" => "Edit course",
@@ -31,7 +24,6 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "save" => "Save",
         "cancel" => "Cancel",
         "next" => "Next",
-        "userProfile" => "Userprofile",
         "editCourse" => "Edit course",
         "name" => "Name",
         "street" => "Street address",
@@ -39,16 +31,40 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "postCode" => "Post code",
         "place" => "Place",
         "email" => "Email",
-        "userName" => "User name (e-mail)",
-        "password" => "Password",
         "passwordRepeat" => "Repeat Password",
-        "passwordForgot" => "Forgot Password?",
         "passwordReset" => "Reset",
-        "courseType" => "CourseType",
-        "searchTerm" => "Search Term",
-        "area" => "Area",
+        "stayLoggedIn" => "Stay logged in",
         "link" => "Link",
         "searchCourses" => "Search for courses",
-        "addUser" => "Add user"
+        "addUser" => "Add user",
+        
+        //LOGIN
+        "userName" => "User name (e-mail)",
+        "password" => "Password",
+        "register" => "Register",
+        "passwordForgot" => "Forgot Password?",
+        
+        //SEARCH
+        "department" => "Department",
+        "area" => "Area",
+        "courseType" => "CourseType",
+        "searchTerm" => "Search Term",
+        
+        //SEARCH RESULT
+        "searchResults" => "Search results",
+        
+        // HEADER
+        "myCourses" => "My courses",
+        "userProfile" => "Userprofile",
+        "login" => "Login",
+        "english" => "En",
+        "german" => "Ge",
+        
+        // FOOTER
+        "offer" => "Offer",
+        "contact" => "Contact",
+        "address" => "Address",
+        "services" => "Services",
+        "terms" => "Terms"
     );  
 ?>

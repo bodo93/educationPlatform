@@ -63,17 +63,12 @@ function filterTable($query){
 include 'includes/header.inc.php';
 ?>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title><?php echo $lang['title']?></title>
-    </head>
     <body style="background-color: rgb(34,36,37);">
         <main class="page login-page">
             <section class="clean-block clean-form dark" style="background-image: url(&quot;assets/img/road_sun.jpg&quot;);min-height: 660px; padding-top: 100px; min-width: 660px;">
                 <div class="container" style="background-color: rgba(198,189,189,0.85);">
                     <div class="block-heading">
-                        <h2 class="text-center text-info">Suchresultate</h2>
+                        <h2 class="text-center text-info"><?php echo $lang['searchResults']?></h2>
                     </div>                    
                     <table id="table-searchResult" style="border:1px solid black">
                         <tr>

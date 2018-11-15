@@ -2,17 +2,11 @@
 author: Philipp Lehmann
 -->
 
-<?php 
-    include 'includes/translator.inc.php';
+<?php
     include 'includes/header.inc.php';
 ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title><?php echo $lang['title']?></title>
-    </head>
     <body style="background-color: rgb(34,36,37);">
         <main class="page landing-page">
             <section class="portfolio-block hire-me" style="background-image: url(&quot;assets/img/classroom3.jpg&quot;);background-size: cover;background-repeat: no-repeat;background-color: transparent;color: #000000;padding-top: 80px;height: 750px;">

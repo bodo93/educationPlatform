@@ -14,20 +14,20 @@ include 'view/includes/translator.inc.php';
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3" style="min-width: 240px;">
-                        <h5>Adresse</h5>
+                        <h5><?php echo $lang['address'] ?></h5>
                         <p style="color: rgb(251,251,251);">Swissedu AG<br>Wängirain 53<br>8704 Herrliberg<br></p>
                     </div>
                     <div class="col-sm-3">
-                        <h5>Kontakt&nbsp;</h5>
+                        <h5><?php echo $lang['contact'] ?>&nbsp;</h5>
                         <ul>
                             <li><a href="mailto:name@email.com">info@swissedu.ch</a></li>
                         </ul>
                     </div>
                     <div class="col-sm-3" style="min-width: 240px;">
-                        <h5>Leistungen</h5>
+                        <h5><?php echo $lang['services'] ?></h5>
                         <ul>
-                            <li><a href="<?php echo $DOMAIN_URL?>/ourOffer">Angebot</a></li>
-                            <li><a href="<?php echo $DOMAIN_URL?>/terms" style="min-width: 160px;">Terms</a></li>
+                            <li><a href="<?php echo $DOMAIN_URL?>/ourOffer"><?php echo $lang['offer'] ?></a></li>
+                            <li><a href="<?php echo $DOMAIN_URL?>/terms" style="min-width: 160px;"><?php echo $lang['terms'] ?></a></li>
                         </ul>
                     </div>
                     <div class="col-sm-3" style="min-width: 240px;">
