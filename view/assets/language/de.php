@@ -24,7 +24,6 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "save" => "Speichern",
         "cancel" => "Abbrechen",
         "next" => "Weiter",
-        "editCourse" => "Kurs bearbeiten",
         "name" => "Name",
         "street" => "Strasse",
         "streetNr" => "Strassennummer",
@@ -36,7 +35,9 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "stayLoggedIn" => "Angemeldet bleiben",
         "link" => "Link",
         "searchCourses" => "Kurse suchen",
-        "addUser" => "Benutzer hinzufügen",
+        "addUser" => "Benutzerkonto hinzufügen",
+        "editUser" => "Benutzerkonto bearbeiten",
+        "deleteUser" => "Benutzerkonto löschen",
         
         //LOGIN
         "userName" => "Benutzername (E-Mail)",

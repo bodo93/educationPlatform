@@ -129,6 +129,11 @@ Router::route("GET", "/institute", function () {
     require_once("view/instituteShowAccount.php");
 });
 
+
+Router::route("GET", "/institute/register", function () {
+    require_once("view/instituteEditAccount.php");
+});
+
 Router::route("GET", "/institute/edit", function () {
     require_once("view/instituteEdit.php");
 });
