@@ -4,7 +4,6 @@ Author: Philipp Lehmann
 <!DOCTYPE html>
 
 <?php 
-    include 'includes/translator.inc.php';
     include 'includes/header.inc.php';
 ?>
 

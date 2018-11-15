@@ -40,6 +40,8 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "password" => "Password",
         "register" => "Register",
         "passwordForgot" => "Forgot Password?",
+        "enterNewPassword" => "Enter new Password",
+        "resetPassword" => "Reset Password",
         
         //SEARCH
         "department" => "Department",

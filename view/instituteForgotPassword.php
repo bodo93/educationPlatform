@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 <?php 
-    include 'includes/translator.inc.php';
     include 'includes/header.inc.php';
 ?>
 
@@ -16,10 +15,10 @@
             <section class="clean-block clean-form dark" style="min-height: 660px; padding-top: 100px;">
                 <div class="container">
                     <div class="block-heading">
-                        <h2 class="text-info">Passwort zurücksetzen</h2>
+                        <h2 class="text-info"><?php echo $lang['resetPassword'] ?></h2>
                     </div>
                     <form style="padding-bottom: 30px;">
-                        <div class="form-group" style="margin-right: 40px;"><label for="email">Benutzername (Email)</label><input class="form-control" type="email"></div>
+                        <div class="form-group" style="margin-right: 40px;"><label for="email"><?php echo $lang['userName'] ?></label><input class="form-control" type="email"></div>
                         <div class="form-group">
                             <div class="form-row">
                                 <!--<div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="button" style="margin-top: 6px;min-width: 160px;">Zurücksetzen</button></div>-->
