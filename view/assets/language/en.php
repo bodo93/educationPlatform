@@ -14,8 +14,6 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "endDate" => "End date",
         "institute" => "Educational Institute",
         "graduation" => "Graduation",
-        "addCourse" => "Add new course",
-        "editCourse" => "Edit course",
         "sureDelete" => "Are you sure to delete?",
         "yes" => "Yes",
         "no" => "No",
@@ -55,6 +53,12 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         
         //SEARCH RESULT
         "searchResults" => "Search results",
+        
+        //CREATE COURSE
+        "courseCreate" => "Add new Course",
+        
+        //EDIT COURSE
+        "editCourse" => "Edit course",
         
         // HEADER
         "myCourses" => "My courses",
