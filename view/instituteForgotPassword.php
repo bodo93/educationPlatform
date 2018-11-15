@@ -23,7 +23,7 @@
                             <div class="form-row">
                                 <!--<div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="button" style="margin-top: 6px;min-width: 160px;">Zurücksetzen</button></div>-->
                                 <div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="submit" style="margin-top: 6px;min-width: 160px;"><?php echo $lang['passwordReset'] ?></button></div>
-                                <div class="col" style="margin-right: 40px;"><a class="btn btn-primary btn-block" role="button" href="login" style="margin-top: 6px;min-width: 160px;"><?php echo $lang['cancel'] ?></a></div>
+                                <div class="col" style="margin-right: 40px;"><a class="btn btn-primary btn-block" role="button" href="<?php echo $DOMAIN_URL?>/login" style="margin-top: 6px;min-width: 160px;"><?php echo $lang['cancel'] ?></a></div>
                             </div>
                         </div>
                     </form>

@@ -18,22 +18,18 @@ author: Philipp Lehmann
                         <div class="form-group"><label for="subject" style="font-weight: bold;color: rgb(255,255,255);margin-bottom: 2px;"><?php echo $lang['department']?></label>
                             <select name="department" class="form-control" id="subject">
                                 <option></option>
-                                <option value="Wirtschaft">Wirtschaft</option>
-                                <option value="IT / Technik">IT / Technik</option>
-                                <option value="Recht">Recht</option>
-                                <option value="Psychologie">Psychologie </option>
-                                <option value="Sprachen">Sprachen</option>
+                                <option value="Wirtschaft"><?php echo $lang['economy']?></option>
+                                <option value="Informatik"><?php echo $lang['it']?></option>
+                                <option value="Sonstiges"><?php echo $lang['other']?></option>
                             </select>
                         </div>
                         <div
                             class="form-group"><label for="subject" style="font-weight: bold;color: rgb(255,255,255);margin-bottom: 2;"><?php echo $lang['area']?></label>
                             <select name="area" class="form-control" id="subject">
                                 <option></option>
-                                <option value="Westschweiz">Westschweiz</option>
-                                <option value="Mittelland">Mittelland</option>
-                                <option value="Nordwestschweiz">Nordwestschweiz / Zürich</option>
-                                <option value="Ostschweiz">Ostschweiz</option>
-                                <option value="Tessin / Wallis">Tessin / Wallis</option>
+                                <option value="Westschweiz"><?php echo $lang['west']?></option>
+                                <option value="Mittelland"><?php echo $lang['central']?></option>
+                                <option value="Ostschweiz"><?php echo $lang['east']?></option>
                             </select>
                         </div>
                         <div
@@ -42,7 +38,7 @@ author: Philipp Lehmann
                                 <option></option>
                                 <option value="Bachelor">Bachelor</option>
                                 <option value="Master">Master</option>
-                                <option value="Sonstiges">Sonstiges</option>
+                                <option value="Sonstiges"><?php echo $lang['other']?></option>
                             </select>
                         </div>
                         <div

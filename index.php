@@ -55,7 +55,7 @@ Router::route("GET", "/login/newPassword", function(){
 });
 
 Router::route("GET", "/register", function(){
-    require_once("view/instituteRegistration.php");
+    require_once("view/instituteCreateAccount.php");
 });
 
 Router::route("GET", "/ourOffer", function(){
@@ -135,7 +135,7 @@ Router::route("GET", "/institute/register", function () {
 });
 
 Router::route("GET", "/institute/edit", function () {
-    require_once("view/instituteEdit.php");
+    require_once("view/instituteEditAccount.php");
 });
 
 Router::route("GET", "/course/overview", function () {

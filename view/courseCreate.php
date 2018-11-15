@@ -50,12 +50,22 @@ include 'includes/header.inc.php';
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['name'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;"></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['courseType'] ?></label><select class="form-control"><option value="12" selected=""></option><option value="13">Bachelor</option><option value="14">Master</option><option value="">Sonstiges</option></select></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['courseType'] ?></label><select class="form-control">
+                                        <option value="Bachelor">Bachelor</option>
+                                        <option value="Master">Master</option>
+                                        <option value="Sonstiges"><?php echo $lang['other']?></option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['department'] ?></label><select class="form-control" id="subject"><option value="0"></option><option value="1">Wirtschaft</option><option value="2">IT / Technik</option><option value="4">Recht</option><option value="5">Psychologie </option><option value="6">Sprachen</option><option value="7">Sonstiges</option></select></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['department'] ?></label><select class="form-control" id="subject">
+                                        <option value="Wirtschaft"><?php echo $lang['economy']?></option>
+                                        <option value="Informatik"><?php echo $lang['it']?></option>
+                                        <option value="Sonstiges"><?php echo $lang['other']?></option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['costs'] ?></label><input class="form-control item" type="text" style="min-width: 170px;font-size: 14px;"></div>
@@ -63,7 +73,12 @@ include 'includes/header.inc.php';
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label><select class="form-control" id="subject"><option value="" selected=""></option><option value="1">Westschweiz</option><option value="2">Mittelland</option><option value="3">Nordwestschweiz / Zürich</option><option value="4">Ostschweiz</option><option value="5">Tessin / Wallis</option></select></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label><select class="form-control" id="subject">
+                                        <option value="Westschweiz"><?php echo $lang['west']?></option>
+                                        <option value="Mittelland"><?php echo $lang['central']?></option>
+                                        <option value="Ostschweiz"><?php echo $lang['east']?></option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['startDate'] ?></label><input class="form-control" type="date"></div>
@@ -88,7 +103,7 @@ include 'includes/header.inc.php';
                         <div class="form-row">
                             <!--<div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="createCourse2.html" style="width: 142px;margin-top: 10px;"><?php echo $lang['next'] ?></a></div>-->
                             <div class="col" style="margin-right: 40px;min-width: 130px;"><button class="btn btn-primary" type="submit" style="width: 142px;margin-top: 10px;"><?php echo $lang['next'] ?></button></div>
-                            <div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="course/overview" style="width: 142px;margin-top: 10px;"><?php echo $lang['cancel'] ?></a></div>
+                            <div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="<?php echo $DOMAIN_URL?>/course/overview" style="width: 142px;margin-top: 10px;"><?php echo $lang['cancel'] ?></a></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                         </div>

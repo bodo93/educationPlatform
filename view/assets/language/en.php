@@ -21,6 +21,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "submit" => "Search",
         "save" => "Save",
         "cancel" => "Cancel",
+        "close" => "Close",
         "next" => "Next",
         "name" => "Name",
         "street" => "Street address",
@@ -36,6 +37,8 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "addUser" => "Add user profile",
         "editUser" => "Edit user profile",
         "deleteUser" => "Delete user profile",
+        "edit" => "Edit",
+        "whatOffer" => "What do we offer?",
         
         //LOGIN
         "userName" => "User name (e-mail)",
@@ -44,6 +47,14 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "passwordForgot" => "Forgot Password?",
         "enterNewPassword" => "Enter new Password",
         "resetPassword" => "Reset Password",
+        
+        //DROP DOWN
+        "economy" => "Economy",
+        "it" => "Informatics",
+        "other" => "Other",
+        "west" => "Western Switzerland",
+        "central" => "Central Switzerland",
+        "east" => "Eastern Switzerland",
         
         //SEARCH
         "department" => "Department",
