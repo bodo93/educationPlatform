@@ -8,6 +8,7 @@
 
 namespace database;
 use model\Course;
+use database\DBConnection;
 
 /**
  * Description of CourseController

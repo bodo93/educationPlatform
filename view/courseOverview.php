@@ -139,7 +139,7 @@ and open the template in the editor.
                                     . "</tr>";
                                 }
                                 //generates link "add new courses" with image
-                                echo "<tr><td valign='middle' colspan='3'><a id='addLink' href='/educationPlatform/course/create'><img class='add' border='0' alt='edit' src='view/assets/images/add.png' height='20' width='20' align='top'>" . $lang['addCourse'] . "</a></td></tr>";
+                                echo "<tr><td valign='middle' colspan='3'><a id='addLink' href='/educationPlatform/course/create'><img class='add' border='0' alt='edit' src='view/assets/img/add.png' height='20' width='20' align='top'>" . $lang['addCourse'] . "</a></td></tr>";
                                 ?>
                             </tbody>
                         </table>

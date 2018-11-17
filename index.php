@@ -183,20 +183,4 @@ Router::route("GET", "", function () {
     require_once("view/search.php");
 });
 
-//Funktionsaufrufe
-Router::route("POST", "/course/edit", function () {
-    CourseController::update();
-    Router::redirect("/course/overview");
-});
-
-Router::route("POST", "/login", function () {
-    InstituteController::login();
-    Router::redirect("/login");
-});
-
-Router::route("GET", "/logout", function (){
-    InstituteController::logout();
-    Router::redirect("/login");
-});
-
 Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'], $errorFunction);

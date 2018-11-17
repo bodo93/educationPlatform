@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 include 'includes/translator.inc.php';
-include("database/DBConnection.php");
+use database\DBConnection;
 include 'includes/header.inc.php';
 
 $db = dbConnection::getConnection();
@@ -44,7 +44,7 @@ include 'includes/header.inc.php';
                     <div class="block-heading">
                         <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['courseCreate'] ?></h2>
                     </div>
-                    <form style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
+                    <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/create" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['name'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;"></div>
@@ -116,115 +116,3 @@ include 'includes/header.inc.php';
         ?>
     </body>   
 </html>
-<!--
-    
-    <body style="background-color: rgb(34,36,37);">
-        <h3><?php echo $lang['addCourse'] ?> </h3>
-        <form action="" method="post">
-
-            <table border="0">
-                <tr>
-                    <td>ID </td>
-                    <td><input type="text" name="id" size="30" maxlength="40" value="<?php
-                        $result = mysqli_query($mysqli, "
-                        SHOW TABLE STATUS LIKE 'course'");
-                        $data = mysqli_fetch_assoc($result);
-                        echo $data['Auto_increment'];
-                        ?>" disabled></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['name'] ?> </td>
-                    <td><input type="text" name="name" size="30" maxlength="40"></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['postCode'] ?> </td>
-                    <td><input type="text" name="postCode" size="30" maxlength="40"></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['place'] ?> </td>
-                    <td><input type="text" name="place" size="30" maxlength="40"></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['costs'] ?> </td>
-                    <td><input type="text" name="costs" size="30" maxlength="40"></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['startDate'] ?> </td>
-                    <td><input type="date" name="start" size="30" maxlength="40"></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['endDate'] ?> </td>
-                    <td><input type="date" name="end" size="30" maxlength="40"></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['link'] ?> </td>
-                    <td><input type="text" name="link" size="30" maxlength="40"></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['institute'] ?> </td>
-                    <td><select name="institute" maxlength="40">
-                            <option disabled selected value></option><?php
-                            $select = "Select ID, Name from Institute";
-                            if (mysqli_query($mysqli, $select)) {
-                                $result = mysqli_query($mysqli, $select);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $id = $row["ID"];
-                                    $name = $row["Name"];
-                                    echo '<option value="' . $id . '">' . $name . '</option>';
-                                }
-                            }
-                            ?></select></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['department'] ?> </td>
-                    <td><select name="department" maxlength="40">
-                            <option disabled selected value></option><?php
-                            $select = "Select ID, Name from department";
-                            if (mysqli_query($mysqli, $select)) {
-                                $result = mysqli_query($mysqli, $select);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $id = $row["ID"];
-                                    $name = $row["Name"];
-                                    echo '<option value="' . $id . '">' . $name . '</option>';
-                                }
-                            }
-                            ?><</select></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['area'] ?> </td>
-                    <td><select name="area" maxlength="40">
-                            <option disabled selected value></option><?php
-                            $select = "Select ID, Name from area";
-                            if (mysqli_query($mysqli, $select)) {
-                                $result = mysqli_query($mysqli, $select);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $id = $row["ID"];
-                                    $name = $row["Name"];
-                                    echo '<option value="' . $id . '">' . $name . '</option>';
-                                }
-                            }
-                            ?><</select></td>
-                </tr>
-                <tr>
-                    <td><?php echo $lang['courseType'] ?> </td>
-                    <td><select name="courseType" maxlength="40">
-                            <option disabled selected value></option><?php
-                            $select = "Select ID, Name from coursetype";
-                            if (mysqli_query($mysqli, $select)) {
-                                $result = mysqli_query($mysqli, $select);
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $id = $row["ID"];
-                                    $name = $row["Name"];
-                                    echo '<option value="' . $id . '">' . $name . '</option>';
-                                }
-                            }
-                            ?><</select></td>
-                </tr>
-            </table>
-            <br/>
-            <input type="Submit" name="save" value="<?php echo $lang['save'] ?>"/>
-            <input type="button" name="cancel" value="<?php echo $lang['cancel'] ?>" onclick="window.location.href='/educationPlatform/course/overview'"/>
-        </form>
-        <br/>
-    </body>   
-</html>!-->

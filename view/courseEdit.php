@@ -15,7 +15,7 @@ use database\DBConnection;
     </head>
     <body>
         <h3><?php echo $lang['editCourse'] ?></h3>
-        <form action="" method="post">
+        <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/edit" method="post">
             <table>
                 <?php
                 
