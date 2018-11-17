@@ -12,7 +12,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "attendance" => "Attendance",
         "startDate" => "Start date",
         "endDate" => "End date",
-        "institute" => "Educational Institute",
+        "institute" => "Educational institute",
         "graduation" => "Graduation",
         "sureDelete" => "Are you sure to delete?",
         "yes" => "Yes",
@@ -29,7 +29,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "postCode" => "Post code",
         "place" => "Place",
         "email" => "Email",
-        "passwordRepeat" => "Repeat Password",
+        "passwordRepeat" => "Repeat password",
         "passwordReset" => "Reset",
         "stayLoggedIn" => "Stay logged in",
         "link" => "Link",
@@ -39,14 +39,17 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "deleteUser" => "Delete user profile",
         "edit" => "Edit",
         "whatOffer" => "What do we offer?",
+        "sendEmailSuccess" => "email has been sent",
+        "sendEmailFail" => "email could not be sent",
         
         //LOGIN
         "userName" => "User name (e-mail)",
         "password" => "Password",
         "register" => "Register",
-        "passwordForgot" => "Forgot Password?",
-        "enterNewPassword" => "Enter new Password",
-        "resetPassword" => "Reset Password",
+        "passwordForgot" => "Forgot password?",
+        "enterNewPassword" => "Enter new password",
+        "resetPassword" => "Reset password",
+        "passwordChanged" => "Password has been changed",
         
         //DROP DOWN
         "economy" => "Economy",
@@ -59,14 +62,14 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         //SEARCH
         "department" => "Department",
         "area" => "Area",
-        "courseType" => "CourseType",
-        "searchTerm" => "Search Term",
+        "courseType" => "Course type",
+        "searchTerm" => "Search term",
         
         //SEARCH RESULT
         "searchResults" => "Search results",
         
         //CREATE COURSE
-        "courseCreate" => "Add new Course",
+        "courseCreate" => "Add new course",
         
         //EDIT COURSE
         "editCourse" => "Edit course",

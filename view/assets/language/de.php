@@ -39,7 +39,8 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "deleteUser" => "Benutzerkonto löschen",
         "edit" => "Bearbeiten",
         "whatOffer" => "Was bieten wir an?",
-        
+        "sendEmailSuccess" => "E-Mail wurde versendet",
+        "sendEmailFail" => "E-Mail konnte nicht versendet werden",
         
         //LOGIN
         "userName" => "Benutzername (E-Mail)",
@@ -48,6 +49,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "passwordForgot" => "Passwort vergessen?",
         "enterNewPassword" => "Neues Passwort eingeben", 
         "resetPassword" => "Passwort zurücksetzen",
+        "passwordChanged" => "Passwort wurde geändert",
         
         //DROP DOWN
         "economy" => "Wirtschaft",

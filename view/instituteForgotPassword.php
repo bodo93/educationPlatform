@@ -2,6 +2,8 @@
 
 <?php 
     include 'includes/header.inc.php';
+    include 'controller/EmailController.php';
+    use database\DBConnection;
 ?>
 
 <html>
@@ -18,12 +20,25 @@
                         <h2 class="text-info"><?php echo $lang['resetPassword'] ?></h2>
                     </div>
                     <form style="padding-bottom: 30px;">
-                        <div class="form-group" style="margin-right: 40px;"><label for="email"><?php echo $lang['userName'] ?></label><input class="form-control" type="email"></div>
+                        <div class="form-group" style="margin-right: 40px;"><label for="email"><?php echo $lang['userName'] ?></label><input class="form-control" type="email"></div>                       
                         <div class="form-group">
                             <div class="form-row">
-                                <!--<div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="button" style="margin-top: 6px;min-width: 160px;">Zurücksetzen</button></div>-->
-                                <div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="submit" style="margin-top: 6px;min-width: 160px;"><?php echo $lang['passwordReset'] ?></button></div>
-                                <div class="col" style="margin-right: 40px;"><a class="btn btn-primary btn-block" role="button" href="<?php echo $DOMAIN_URL?>/login" style="margin-top: 6px;min-width: 160px;"><?php echo $lang['cancel'] ?></a></div>
+                                <div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="submit" style="margin-top: 6px;min-width: 160px;" onclick="sendConfirmation()"><?php echo $lang['passwordReset'] ?></button></div>
+                                <div class="col" style="margin-right: 40px;"><a class="btn btn-primary btn-block" role="button" href="<?php echo $DOMAIN_URL?>/login" style="margin-top: 6px;min-width: 160px;" ><?php echo $lang['cancel'] ?></a></div>
+                                
+                                <!--send email with reset link to user-->
+                                <?php
+                                $mail = new EmailController();
+                                $mail->pwResetMail($mail, $userId, $pwHacheCode); // get required infos of current user
+                                // eventuell Objekt zum controller senden und dort benötigte Daten extrahieren 
+                                ?>
+                                
+                                <!--email send notification-->
+                                <script> 
+                                    function sendConfirmation() {
+                                        alert ("<?php echo $lang['sendEmailSuccess'] ?>");
+                                    }
+                                </script>
                             </div>
                         </div>
                     </form>
