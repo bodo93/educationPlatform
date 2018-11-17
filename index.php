@@ -49,7 +49,7 @@ Router::route("GET", "/login", function(){
 
 Router::route("POST", "/login", function () {
     InstituteController::login();
-    Router::redirect("/search");
+    Router::redirect("/course/overview");
 });
 
 Router::route("GET", "/login/forgotPassword", function(){
