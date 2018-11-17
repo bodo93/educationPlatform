@@ -2,7 +2,7 @@
 <?php
 
 include ("includes/translator.inc.php");
-include("database/DBConnection.php");
+use database\DBConnection;
 include 'includes/header.inc.php';
 ?>
 <html>
@@ -39,7 +39,7 @@ include 'includes/header.inc.php';
           <tbody>
           <!--Get data from database and show it in table cells-->
           <?php
-          $db = dbConnection::getConnection();
+          $db = DBConnection::getConnection();
           $mysqli = $db->getConnection();
 
 
@@ -117,13 +117,12 @@ and open the template in the editor.
                                 <!--Get data from database and show it in table cells-->
                                 <?php
                                 $db = dbConnection::getConnection();
-                                $mysqli = $db->getConnection();
 
                                 //mysqli_query($conn, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
 
                                 $updatequery = "select * from course ORDER BY Name";
 
-                                $result = $mysqli->query($updatequery);
+                                $result = $db->query($updatequery);
 
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     $id = $row["ID"];

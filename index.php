@@ -47,6 +47,11 @@ Router::route("GET", "/login", function(){
     require_once("view/instituteLogin.php");
 });
 
+Router::route("POST", "/login", function () {
+    InstituteController::login();
+    Router::redirect("/search");
+});
+
 Router::route("GET", "/login/forgotPassword", function(){
     require_once("view/instituteForgotPassword.php");
 });
@@ -72,15 +77,13 @@ Router::route("GET", "/terms", function(){
     require_once("view/terms.php");
 });
 
-Router::route("POST", "/login", function () {
-    session_regenerate_id(true);
-    $_SESSION['instituteLogin']=$_POST['email'];
-    Router::redirect("/");
-});
-
 Router::route("GET", "/logout", function () {
     session_destroy();
     Router::redirect("/login");
+});
+
+Router::route("GET", "/course/overview",function () {
+    require_once("view/courseOverview.php");
 });
 
 /* IM EINSATZ

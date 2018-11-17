@@ -1,8 +1,8 @@
 <?php  
     include 'includes/translator.inc.php';
-    include("database/DBconnection.php");
+    use database\DBConnection;
     
-    $db = dbConnection::getConnection();
+    $db = DBConnection::getConnection();
     $mysqli = $db->getConnection();
 
     if ( !empty($_GET['id'])) {

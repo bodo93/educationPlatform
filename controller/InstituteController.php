@@ -85,7 +85,7 @@ class InstituteController {
         $submittedEmail = $_REQUEST['email'];
         $submittedPassword = $_REQUEST['password'];
 
-        $db = \dbConnection::getConnection();
+        $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
         $sql_query = "SELECT Email, Password FROM institute WHERE Email = '$submittedEmail'";

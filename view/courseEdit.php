@@ -4,7 +4,7 @@ author: Bodo Grütter
 -->
 <?php
 include 'includes/translator.inc.php';
-include 'database/DBConnection.php';
+use database\DBConnection;
 ?>
 <html>
     <head>
@@ -19,7 +19,7 @@ include 'database/DBConnection.php';
             <table>
                 <?php
                 
-                $db = dbConnection::getConnection();
+                $db = DBConnection::getConnection();
                 $mysqli = $db->getConnection();                
                 
                 $id = 0;
