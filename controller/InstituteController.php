@@ -13,6 +13,7 @@ use view\LayoutRendering;
 use model\Institute;
 use model\InvoiceAddress;
 use database\courseDAO;
+use database\DBConnection;
 
 /**
  * Description of EducationalInstitute
@@ -32,7 +33,7 @@ class InstituteController {
         $myPassword2 = $_POST['password2'];
         $encrypt = password_hash($myPassword, PASSWORD_DEFAULT, ['cost' => 12]);
 
-        $db = \dbConnection::getConnection();
+        $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
         $select = "SELECT Email FROM institute WHERE Email = '$myEmail'";

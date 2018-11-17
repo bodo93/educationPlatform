@@ -25,8 +25,8 @@ Author: Philipp Lehmann
                                 <div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="submit" style="margin-top: 6px;min-width: 160px;" name="login"><?php echo $lang['login'] ?></button></div>
                                 <div class="col" style="margin-right: 40px;"><a class="btn btn-primary btn-block" role="button" href="<?php echo $DOMAIN_URL?>/search" style="margin-top: 6px;min-width: 160px;"><?php echo $lang['cancel'] ?></a></div>
                             </div>
-                            <div style="margin-top: 35px;"><a href="<?php echo $DOMAIN_URL?>/register"><?php echo $lang['register'] ?></a></div>
-                            <div style="margin-top: 10px;"><a href="<?php echo $DOMAIN_URL?>/login/forgotPassword"><?php echo $lang['passwordForgot'] ?></a></div>
+                            <div style="margin-top: 35px;"><a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/register"><?php echo $lang['register'] ?></a></div>
+                            <div style="margin-top: 10px;"><a href="<?php echo $GLOBALS["ROOT_URL"]; ?>/login/forgotPassword"><?php echo $lang['passwordForgot'] ?></a></div>
                         </div>
                 </form>
             </div>

@@ -5,7 +5,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+namespace database;
+use Mysqli;
 /**
  * Description of dbConnection
  *

@@ -13,6 +13,7 @@ use routing\Router;
 use controller\InstituteController;
 use controller\CourseController;
 
+ini_set( 'session.cookie_httponly', 1 );
 session_start();
 
 $authFunction = function () {
@@ -58,16 +59,17 @@ Router::route("GET", "/register", function(){
     require_once("view/instituteCreateAccount.php");
 });
 
+Router::route("POST", "/register", function () {
+    InstituteController::register();
+    Router::redirect("/login");
+});
+
 Router::route("GET", "/ourOffer", function(){
     require_once("view/ourOffer.php");
 });
 
 Router::route("GET", "/terms", function(){
     require_once("view/terms.php");
-});
-
-Router::route("POST", "/register", function(){
-    Router::redirect("/logout");
 });
 
 Router::route("POST", "/login", function () {
@@ -138,14 +140,6 @@ Router::route("GET", "/institute/edit", function () {
     require_once("view/instituteEditAccount.php");
 });
 
-Router::route("GET", "/course/overview", function () {
-    require_once("view/courseOverview.php");
-});
-
-Router::route("POST", "/course/overview", function () {
-    require_once("view/courseOverview.php");
-});
-
 Router::route("GET", "/course/create", function () {
     require_once("view/courseCreate.php");
 });
@@ -192,13 +186,14 @@ Router::route("POST", "/course/edit", function () {
     Router::redirect("/course/overview");
 });
 
-Router::route("POST", "/register", function () {
-    InstituteController::register();
-    Router::redirect("/search");
-});
-
 Router::route("POST", "/login", function () {
     InstituteController::login();
+    Router::redirect("/login");
+});
+
+Router::route("GET", "/logout", function (){
+    InstituteController::logout();
+    Router::redirect("/login");
 });
 
 Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'], $errorFunction);
