@@ -11,7 +11,10 @@ include 'includes/header.inc.php';
   <title><?php echo $lang['myCourses']?></title>
   <link rel="stylesheet" type="text/css" href="stylesheet/courses.css">
 
-<script type="text/javascript">
+<script src="jquery-3.3.1.min.js">
+$(".delete").click(function(){
+    return confirm("Are you sure?");
+});
 </script>
 </head>
 
