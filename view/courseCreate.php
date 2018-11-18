@@ -3,8 +3,6 @@
 include 'includes/translator.inc.php';
 
 use database\DBConnection;
-
-include 'includes/header.inc.php';
 ?>
 <html>
     <body style="background-color: rgb(34,36,37);">
@@ -28,9 +26,9 @@ include 'includes/header.inc.php';
             $courseType = $_POST['courseType'];
             $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
 
-            if (mysqli_query($mysqli, $insert)) {
+            $result = $mysqli->query($insert);
+            if ($result) {
                 header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
-                echo "Daten eingefügt!";
             } else {
                 echo "Error: " . $insert . "<br>" . mysqli_error($conn);
             }
@@ -45,7 +43,7 @@ include 'includes/header.inc.php';
                     <div class="block-heading">
                         <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['courseCreate'] ?></h2>
                     </div>
-                    <form style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
+                    <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/create" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['name'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="name"></div>

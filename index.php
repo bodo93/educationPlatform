@@ -82,6 +82,10 @@ Router::route("GET", "/logout", function () {
     Router::redirect("/login");
 });
 
+Router::route("POST", "/course/overview",function () {
+    require_once("view/courseOverview.php");
+});
+
 Router::route("GET", "/course/overview",function () {
     require_once("view/courseOverview.php");
 });
