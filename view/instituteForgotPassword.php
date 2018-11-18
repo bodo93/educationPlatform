@@ -4,6 +4,9 @@
     include 'includes/header.inc.php';
     include 'controller/EmailController.php';
     use database\DBConnection;
+    
+    $db = DBConnection::getConnection();
+    $mysqli = $db->getConnection();
 ?>
 
 <html>
@@ -26,24 +29,31 @@
                                 <div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="submit" style="margin-top: 6px;min-width: 160px;" onclick="sendConfirmation()"><?php echo $lang['passwordReset'] ?></button></div>
                                 <div class="col" style="margin-right: 40px;"><a class="btn btn-primary btn-block" role="button" href="<?php echo $DOMAIN_URL?>/login" style="margin-top: 6px;min-width: 160px;" ><?php echo $lang['cancel'] ?></a></div>
                                 
-                                <!--send email with reset link to user-->
-                                <?php
-                                $sendMail = new EmailController();
-                                $mail = 'rene87@gmx.ch';
-                                $userId ='001';
-                                //$pwHacheCode = '12345';
-                            
-                                //$mail->pwResetMail($mail, $userId, $pwHacheCode); // get required infos of current user
-                                $sendMail->pwResetMail($mail, $userId);
-                                // eventuell Objekt zum controller senden und dort benötigte Daten extrahieren 
-                                ?>
                                 
                                 <!--email send notification-->
                                 <script> 
                                     function sendConfirmation() {
+                                    //send email with reset link to user
+                                    <?php
+                                    
+                                    //mail('rene87@gmx.ch', 'TEST', 'Mail wurde versendet. Juhuu!');
+                                    
+                                    $sendMail = new EmailController();
+                                    $mail = $_SESSION['login_user'];
+                                    //$userId = '001';
+                                    $code = valueCode(); // create method that calculates hash code
+                                    $insert = "INSERT INTO `institute` (`ResetPwValue`) VALUES ($code)";
+                                    
+                                    $pwHacheCode = $_SESSION['login_user'];
+                                    //$mail->pwResetMail($mail, $userId, $pwHacheCode); // get required infos of current user
+                                    $sendMail->pwResetMail($mail, $userId);
+                                    // eventuell Objekt zum controller senden und dort benötigte Daten extrahieren 
+                                    ?>
                                         alert ("<?php echo $lang['sendEmailSuccess'] ?>");
                                     }
                                 </script>
+                                
+                                
                             </div>
                         </div>
                     </form>
