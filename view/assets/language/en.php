@@ -70,6 +70,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         
         //CREATE COURSE
         "courseCreate" => "Add new course",
+        "addCourse" => "Add course",
         
         //EDIT COURSE
         "editCourse" => "Edit course",

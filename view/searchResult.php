@@ -1,6 +1,6 @@
 <?php 
 include("includes/translator.inc.php");
-include("database/DBConnection.php");
+use database\DBConnection;
 
 if(empty($_POST['valueToSearch']) and empty($_POST['department']) and empty($_POST['area']) and empty($_POST['coursetype'])){
 
@@ -45,7 +45,7 @@ else{
 }
     
 function filterTable($query){
-    $db = dbConnection::getConnection();
+    $db = DBConnection::getConnection();
     $mysqli = $db->getConnection();   
     
     $filter_Result = mysqli_query($mysqli, $query);
@@ -65,7 +65,7 @@ include 'includes/header.inc.php';
 <html>
     <body style="background-color: rgb(34,36,37);">
         <main class="page login-page">
-            <section class="clean-block clean-form dark" style="background-image: url(&quot;assets/img/road_sun.jpg&quot;);min-height: 660px; padding-top: 100px; min-width: 660px;">
+            <section class="clean-block clean-form dark" style="background-image: url(&quot;assets/img/road_sun.jpg&quot;); background-size: cover;background-repeat: no-repeat; min-height: 760px; padding-top: 100px; min-width: 660px;">
                 <div class="container" style="background-color: rgba(198,189,189,0.85);">
                     <div class="block-heading">
                         <h2 class="text-center text-info"><?php echo $lang['searchResults']?></h2>
@@ -73,28 +73,33 @@ include 'includes/header.inc.php';
                     <table id="table-searchResult" style="border:1px solid black">
                         <tr>
                           <th><?php echo $lang['name']?></th>
-                          <th><?php echo $lang['place']?></th>
-                          <th><?php echo $lang['costs']?></th>
-                          <th><?php echo $lang['startDate']?></th>
-                          <th><?php echo $lang['endDate']?></th>
-                          <th><?php echo $lang['institute']?></th>
                           <th><?php echo $lang['department']?></th>
+                          <th><?php echo $lang['institute']?></th>
                           <th><?php echo $lang['area']?></th>
+                          <th><?php echo $lang['place']?></th>
                           <th><?php echo $lang['courseType']?></th>
+                          <th><?php echo $lang['startDate']?></th>
+                          
+                          
+                          <!--<th><?php echo $lang['costs']?></th>-->
+                          <!--<th><?php echo $lang['endDate']?></th>-->
                         </tr>
                         <?php 
                             while ($row = mysqli_fetch_array($search_Result)){  
                                 //$id = $row["ID"];
                                    echo "\n\n<tr>"
                                    . "<td>" . $row['Name'] . "</td>"
-                                   . "<td>" . $row['Place'] . "</td>"
-                                   . "<td>" . $row['Costs'] . "</td>"
-                                   . "<td>" . $row['Start'] . "</td>"
-                                   . "<td>" . $row['End'] . "</td>"
-                                   . "<td>" . $row['instituteName'] . "</td>"
                                    . "<td>" . $row['departmentName'] . "</td>"
-                                   . "<td>" . $row['areaName'] . "</td>"
+                                   . "<td>" . $row['instituteName'] . "</td>"
+                                   . "<td>" . $row['areaName'] . "</td>"        
+                                   . "<td>" . $row['Place'] . "</td>"
                                    . "<td>" . $row['courseTypeName'] . "</td>"
+                                   . "<td>" . $row['Start'] . "</td>"
+                                           
+                                   
+                                   //. "<td>" . $row['Costs'] . "</td>"
+                                   
+                                   //. "<td>" . $row['End'] . "</td>"
                                    . "</tr>";
                             }
                         ?>

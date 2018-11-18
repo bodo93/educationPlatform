@@ -87,7 +87,7 @@ Router::route("POST", "/course/overview",function () {
 });
 
 Router::route("GET", "/course/overview",function () {
-    require_once("view/courseOverview.php");
+    require_once("view/courseOverview_Test.php");
 });
 
 /* IM EINSATZ
