@@ -1,9 +1,7 @@
 <?php
-    $DOMAIN_URL = 'http://localhost/educationPlatform';
+    //$DOMAIN_URL = 'http://localhost/educationPlatform';
 
-/** 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    $DOMAIN_URL = 'https://swissedu.herokuapp.com';
+
+
 ?>
