@@ -28,8 +28,13 @@
                                 
                                 <!--send email with reset link to user-->
                                 <?php
-                                $mail = new EmailController();
-                                $mail->pwResetMail($mail, $userId, $pwHacheCode); // get required infos of current user
+                                $sendMail = new EmailController();
+                                $mail = 'rene87@gmx.ch';
+                                $userId ='001';
+                                //$pwHacheCode = '12345';
+                            
+                                //$mail->pwResetMail($mail, $userId, $pwHacheCode); // get required infos of current user
+                                $sendMail->pwResetMail($mail, $userId);
                                 // eventuell Objekt zum controller senden und dort benötigte Daten extrahieren 
                                 ?>
                                 
