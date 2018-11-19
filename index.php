@@ -83,11 +83,11 @@ Router::route("GET", "/logout", function () {
 });
 
 Router::route("POST", "/course/overview",function () {
-    require_once("view/courseOverview_Test.php");
+    require_once("view/courseOverview.php");
 });
 
 Router::route("GET", "/course/overview",function () {
-    require_once("view/courseOverview_Test.php");
+    require_once("view/courseOverview.php");
 });
 
 /* IM EINSATZ

@@ -34,4 +34,5 @@
         include 'includes/footer.inc.php';
         ?>
     </body>
+    
 </html>
