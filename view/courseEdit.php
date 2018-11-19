@@ -134,7 +134,7 @@ use database\DBConnection;
                 echo "</select></td></tr>"
                 . "<tr><td><input type='submit' name'save' value='";
                 echo $lang['save'] . "'></td><td><input type='button' name'cancel' value='";
-                echo $lang['cancel'] . "' onclick='window.location.href='/educationPlatform/course/overview''></td></tr>";
+                echo $lang['cancel'] . "' onclick='window.location.href='course/overview''></td></tr>";
                 ?>
             </table>
         </form>

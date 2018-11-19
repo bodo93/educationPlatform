@@ -83,7 +83,7 @@ Router::route("GET", "/logout", function () {
 });
 
 Router::route("POST", "/course/overview",function () {
-    require_once("view/courseOverview.php");
+    require_once("view/courseOverview_Test.php");
 });
 
 Router::route("GET", "/course/overview",function () {

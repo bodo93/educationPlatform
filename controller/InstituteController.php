@@ -77,7 +77,7 @@ class InstituteController {
     }
     
     public static function login(){
-        include("database/DBConnection.php");
+        //use database/DBConnection.php;
         session_regenerate_id(true);    
 
         // get user data from login area

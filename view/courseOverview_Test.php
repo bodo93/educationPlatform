@@ -67,8 +67,8 @@ $(".delete").click(function(){
                                     . "<td><input class='text' name='start[$id]' value='" . $row['Start'] . "' size='10' disabled/></td>"
 
                                     //generates links "edit" and "delete" with image
-                                    . "<td><a class='update' href='/educationPlatform/course/edit?id=" . $id . "'><img border='0' alt='edit' src='view/assets_2/images/edit.png' height='20' width='20' align='top'></a>"
-                                    . "<a class='delete' href='/educationPlatform/course/delete?id=" . $id . "'><img border='0' alt='delete' src='view/assets_2/images/delete.png' height='20' width='20' align='top'></a></td>"
+                                    . "<td><a class='update' href='/educationPlatform/course/edit?id=" . $id . "'><img border='0' alt='edit' src='view/assets/img/edit.png' height='20' width='20' align='top'></a>"
+                                    . "<a class='delete' href='/educationPlatform/course/delete?id=" . $id . "'><img border='0' alt='delete' src='view/assets/img/delete.png' height='20' width='20' align='top'></a></td>"
                                     . "</tr>";
                                 }
  

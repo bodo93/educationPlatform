@@ -55,7 +55,7 @@ include("database/DBConnection.php");
             ."<tr><td>"; echo $lang['place'] . "</td><td><input type='text' name='ort' value='".$ort."' /></td></tr>"
             ."<tr><td>"; echo $lang['postCode'] . "</td><td><input type='text' name='plz' value='".$plz."' /></td></tr>"
             ."<tr><td>"; echo $lang['email'] . "</td><td><input type='text' name='email' value='".$email."' /></td></tr>"
-            ."<tr><td><input type='submit' name'save' value='"; echo $lang['save'] . "'></td><td><input type='button' name'cancel' value='"; echo $lang['cancel'] . "' onclick='location.href='index.php''></td></tr>";
+            ."<tr><td><input type='submit' name'save' value='"; echo $lang['save'] . "'></td><td><input type='button' name='cancel' value='"; echo $lang['cancel'] . "' onclick='location.href='index.php''></td></tr>";
                 ?>
             </table>
         </form>
