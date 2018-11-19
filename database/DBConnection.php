@@ -41,5 +41,18 @@ class DBConnection {
         }
     }
     
-    
+    // connection to heroku db connector 
+    private static function loadENV() {
+        if (isset($_ENV["JAWSDB_URL"])) {
+            $dbopts = parse_url($_ENV["JAWSDB_URL"]);
+            $dbUser = $dbopts["user"];
+            $dbPassword = $dbopts["pass"];
+            $dbHost = $dbopts["host"];
+            $dbDatabase =   ltrim($dbopts["path"], '/');
+        }
+    }
 }
+
+/*
+ * <!--mysql://hyum0j4ogwic0guk:omft2t43cv52t9z8@r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/m4145e68qi6t0w1j-->
+ */

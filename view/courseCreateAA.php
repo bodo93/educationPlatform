@@ -94,11 +94,6 @@ use database\DBConnection;
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['place'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="place" required></div>
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="terms" />
-                                    <label class="form-check-label" for="checkbox"><em>AGB gelesen und akzeptiert</em><br /></label>
-                                </div>
-                                
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['link'] ?></label><input class="form-control" type="url" name="link" onblur="checkURL(this)" required></div>
@@ -106,13 +101,12 @@ use database\DBConnection;
                         </div>
                         <div class="form-row">
                             <!--<div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="createCourse2.html" style="width: 142px;margin-top: 10px;"><?php echo $lang['next'] ?></a></div>-->
-                            <div class="col" style="margin-right: 40px;min-width: 130px;"><button class="btn btn-primary" id="registerBtn" type="submit" style="width: 142px;margin-top: 10px;"><?php echo $lang['next'] ?></button></div>
+                            <div class="col" style="margin-right: 40px;min-width: 130px;"><button class="btn btn-primary" type="submit" style="width: 142px;margin-top: 10px;"><?php echo $lang['next'] ?></button></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="<?php echo $DOMAIN_URL ?>/course/overview" style="width: 142px;margin-top: 10px;"><?php echo $lang['cancel'] ?></a></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                         </div>
                     </form>
-                    <!--adds "http://" on URL input field-->
                     <script>
                         function checkURL (abc) {
                         var string = abc.value;
@@ -123,21 +117,6 @@ use database\DBConnection;
                         return abc
                         }
                     </script>
-                    <!--enables butten after terms check box ist checked-->
-                    <script>
-                            $(function(){ 
-                                    var button = $('#registerBtn');
-                                    button.attr('disabled', 'disabled');
-                                    $('#terms').change(function(e){
-                                    if (this.checked){
-                                            button.removeAttr('disabled');
-                                    } else {
-                                    button.attr('disabled', 'disabled');
-                                    }
-                                 });
-                                });
-                    </script>
-        
                 </div>
             </section>
         </main>
@@ -145,4 +124,4 @@ use database\DBConnection;
         include 'includes/footer.inc.php';
         ?>
     </body>   
-</html> 
+</html>
