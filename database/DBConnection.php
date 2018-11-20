@@ -19,18 +19,23 @@ class DBConnection {
     
     protected function __construct(){
         
-        /*
+        
         $dbHost = get("database.host");
         $dbUser = get("database.user");
         $dbPassword = get("database.password");
         $dbDatabase = get("database.name");
-         */
         
+        echo $dbHost;
+        echo $dbUser;
+        echo $dbPassword;
+        echo $dbDatabase;
         
+        /*
         $dbHost = "127.0.0.1";
         $dbUser = "root";
         $dbPassword = "";
         $dbDatabase = "db_educationPlatform";
+        */
 
         self::$connection = new mysqli($dbHost, $dbUser, $dbPassword, $dbDatabase);
         
