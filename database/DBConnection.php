@@ -25,10 +25,10 @@ class DBConnection {
         $dbPassword = get("database.password");
         $dbDatabase = get("database.name");
         
-        echo $dbHost;
-        echo $dbUser;
-        echo $dbPassword;
-        echo $dbDatabase;
+        echo "db host".$dbHost."</br>";
+        echo "db user".$dbUser."</br>";
+        echo "db password".$dbPassword."</br>";
+        echo "db name".$dbDatabase."</br>";
         
         /*
         $dbHost = "127.0.0.1";
