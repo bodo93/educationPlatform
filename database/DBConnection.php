@@ -18,11 +18,18 @@ class DBConnection {
     private static $connection = null;
     
     protected function __construct(){
+        
+        $dbHost = get("database.host");
+        $dbUser = get("database.user");
+        $dbPassword = get("database.password");
+        $dbDatabase = get("database.name");
+        
+        /*
         $dbHost = "127.0.0.1";
         $dbUser = "root";
         $dbPassword = "";
         $dbDatabase = "db_educationPlatform";
-        
+        */
 
         self::$connection = new mysqli($dbHost, $dbUser, $dbPassword, $dbDatabase);
         
@@ -42,15 +49,16 @@ class DBConnection {
     }
     
     // connection to heroku db connector 
-    private static function loadENV() {
+    /*private static function loadENV() {
         if (isset($_ENV["JAWSDB_URL"])) {
             $dbopts = parse_url($_ENV["JAWSDB_URL"]);
             $dbUser = $dbopts["user"];
             $dbPassword = $dbopts["pass"];
             $dbHost = $dbopts["host"];
             $dbDatabase =   ltrim($dbopts["path"], '/');
-        }
-    }
+        } 
+     */
+    
 }
 
 /*
