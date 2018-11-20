@@ -55,9 +55,12 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "economy" => "Wirtschaft",
         "it" => "Informatik",
         "other" => "Sonstiges",
+        "math" => "Mathematik",
+        "northwest" => "Nordwestschweiz",
         "west" => "Westschweiz",
         "central" => "Zentralschweiz",
         "east" => "Ostschweiz",
+        "south" => "Tessin",
 
         //SEARCH
         "department" => "Fachbereich",
@@ -73,7 +76,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "addCourse" => "Kurs hinzufügen",
         
         //EDIT COURSE
-        "editCourse" => "Kurs bearbeiten",
+        "courseEdit" => "Kurs bearbeiten",
         
         //HEADER
         "myCourses" => "Meine Kurse",

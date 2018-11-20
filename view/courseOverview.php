@@ -53,7 +53,7 @@ $(".delete").click(function(){
 
                                 //mysqli_query($conn, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
 
-                                $updatequery = "select * from course ORDER BY Name";
+                                $updatequery = "select * from course c ORDER BY c.Name";
 
                                 $result = $mysqli->query($updatequery);
 

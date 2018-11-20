@@ -42,6 +42,10 @@ Router::route("GET", "/sendEmail", function(){
     require_once("Testing/sendEmail.php");
 });
 
+// JUST FOR TESTING
+Router::route("GET", "/course/editTest", function () {
+    require_once("view/courseEdit_Test.php");
+});
 
 Router::route("GET", "/login", function(){
     require_once("view/instituteLogin.php");

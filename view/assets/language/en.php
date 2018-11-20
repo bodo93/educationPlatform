@@ -55,9 +55,12 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "economy" => "Economy",
         "it" => "Informatics",
         "other" => "Other",
+        "math" => "Mathematik",
+        "northwest" => "Northwestern Switzerland",
         "west" => "Western Switzerland",
         "central" => "Central Switzerland",
         "east" => "Eastern Switzerland",
+        "south" => "Ticino",
         
         //SEARCH
         "department" => "Department",
@@ -73,7 +76,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "addCourse" => "Add course",
         
         //EDIT COURSE
-        "editCourse" => "Edit course",
+        "courseEdit" => "Edit course",
         
         // HEADER
         "myCourses" => "My courses",
