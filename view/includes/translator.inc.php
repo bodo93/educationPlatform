@@ -12,7 +12,6 @@ Source 2: https://www.w3schools.com/php/func_http_setcookie.asp
          $_COOKIE[$cookie_name] = 'en';
     }
     else if(isset($_GET['lang']) && $_COOKIE[$cookie_name] != $_GET['lang'] && !empty($_COOKIE[$cookie_name])){
-        echo $_GET['lang'];
         if($_COOKIE[$cookie_name] == "de"){
             unset($_COOKIE[$cookie_name]);
             setcookie($cookie_name, 'en', time() + (86400 * 30), '/');

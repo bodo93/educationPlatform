@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
 
-include ("includes/translator.inc.php");
-use database\DBConnection;
+include 'includes/translator.inc.php';
 include 'includes/header.inc.php';
+use database\DBConnection;
 ?>
 <html>
 <head>

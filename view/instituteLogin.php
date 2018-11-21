@@ -8,7 +8,6 @@ Author: Philipp Lehmann
 ?>
 
 <html>
-
 <body style="background-color: rgb(34,36,37);">
     <main class="page login-page">
         <section class="clean-block clean-form dark" style="min-height: 660px; padding-top: 100px;">
