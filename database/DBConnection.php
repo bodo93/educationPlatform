@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 namespace database;
-use database\Config;
+use database\config;
 use Mysqli;
 /**
  * Description of dbConnection
@@ -26,10 +26,10 @@ class DBConnection {
         $dbDatabase = "m4145e68qi6t0w1j";
         */
         
-        $dbHost = Config::get("database.host");
-        $dbUser = Config::get("database.user");
-        $dbPassword = Config::get("database.password");
-        $dbDatabase = Config::get("database.name");
+        $dbHost = config::get("database.host");
+        $dbUser = config::get("database.user");
+        $dbPassword = config::get("database.password");
+        $dbDatabase = config::get("database.name");
         
         /*
         echo "db host".$dbHost."</br>";
