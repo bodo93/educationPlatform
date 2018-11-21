@@ -13,6 +13,7 @@ author: Philipp Lehmann
         <title><?php echo $lang['title']?></title>
     </head>
     <body style="background-color: rgb(34,36,37);">
+        <!--
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
             <div class="container"><a class="navbar-brand logo" href="" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                 <div
@@ -27,8 +28,9 @@ author: Philipp Lehmann
                 </div>
             </div>
         </nav>
+        -->
         <main class="page login-page">
-            <section class="clean-block clean-form dark">
+            <section class="clean-block clean-form dark" style="min-height: 660px; padding-top: 100px;">
                 <div class="container">
                     <div class="block-heading">
                         <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['addUser']?></h2>
