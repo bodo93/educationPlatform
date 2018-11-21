@@ -24,12 +24,12 @@ include 'view/includes/translator.inc.php';
     <body>
         <header>
             <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-                <div class="container"><a class="navbar-brand logo" href="<?php echo $DOMAIN_URL?>/search" style="margin-right: 0px;"><img src="assets/img/Logo.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div class="container"><a class="navbar-brand logo" href="<?php echo $GLOBALS['ROOT_URL']?>/search" style="margin-right: 0px;"><img src="assets/img/Logo.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div
                         class="collapse navbar-collapse" id="navcol-1">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo $DOMAIN_URL?>/course/overview" style="font-size: 14px;font-weight: bold;"><?php echo $lang['myCourses']?></a></li>
-                            <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo $DOMAIN_URL?>/institute" style="font-size: 14px;font-weight: bold;"><?php echo $lang['userProfile']?></a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo $GLOBALS['ROOT_URL']?>/course/overview" style="font-size: 14px;font-weight: bold;"><?php echo $lang['myCourses']?></a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo $GLOBALS['ROOT_URL']?>/institute" style="font-size: 14px;font-weight: bold;"><?php echo $lang['userProfile']?></a></li>
                             <li class="nav-item" role="presentation" style="padding-right: 90px;"><a class="nav-link" href="<?php echo $GLOBALS['ROOT_URL']?>/login" style="font-size: 14px;font-weight: bold;"><?php echo $lang['login']?></a></li>
                             <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0] . "?lang=de"?>" style="font-size: 14px;font-weight: bold;"><?php echo $lang['german']?></a></li>
                             <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0] . "?lang=en"?>" style="padding-left: 0px;font-size: 14px;font-weight: bold;"><?php echo $lang['english']?></a></li>

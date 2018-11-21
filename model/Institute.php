@@ -8,19 +8,19 @@ namespace model;
  * @author bodog
  */
 class Institute {
-    private $id;
+    private $ID;
     private $name;
     private $street;
     private $houseNumber;
     private $postCode;
     private $place;
-    private $email;
-    private $password;
+    private $Email;
+    private $Password;
     private $invoiceAddressId;
  
 
     function getId() {
-        return $this->id;
+        return $this->ID;
     }
 
     function getName() {
@@ -44,11 +44,11 @@ class Institute {
     }
 
     function getEmail() {
-        return $this->email;
+        return $this->Email;
     }
 
     function getPassword() {
-        return $this->password;
+        return $this->Password;
     }
 
     function getInvoiceAddressId() {
@@ -56,7 +56,7 @@ class Institute {
     }
 
    function setId($id) {
-        $this->id = $id;
+        $this->ID = $id;
     }
 
     function setName($name) {
@@ -80,11 +80,11 @@ class Institute {
     }
 
     function setEmail($email) {
-        $this->email = $email;
+        $this->Email = $email;
     }
 
     function setPassword($password) {
-        $this->password = $password;
+        $this->Password = $password;
     }
 
     function setInvoiceAddressId($invoiceAddressId) {

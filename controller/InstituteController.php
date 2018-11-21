@@ -31,7 +31,7 @@ class InstituteController {
         $myEmail = $_POST['email'];
         $myPassword = $_POST['password'];
         $myPassword2 = $_POST['password2'];
-        $encrypt = password_hash($myPassword, PASSWORD_DEFAULT, ['cost' => 12]);
+        $encrypt = password_hash($myPassword, PASSWORD_DEFAULT);
 
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -82,29 +82,35 @@ class InstituteController {
 
         // get user data from login area
 
-        $submittedEmail = $_REQUEST['email'];
-        $submittedPassword = $_REQUEST['password'];
+        $submittedEmail = $_POST['email'];
+        $submittedPassword = $_POST['password'];
 
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
+        
+        // -> prepared statement machen!!!!
+        
+        $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
+        
+        $stmt->bind_param('s', $email);
+        $email = $submittedEmail;
+        $stmt->execute();
+        $institute = $stmt->get_result()->fetch_object("model\Institute");
+        $stmt->close();
 
-        $sql_query = "SELECT Email, Password FROM institute WHERE Email = '$submittedEmail'";
-        $result = $mysqli->query($sql_query);
+        if (password_verify($submittedPassword, $institute->getPassword())) {
+            $_SESSION['userID'] = $institute->getId();
+            $_SESSION['instituteLogin'] = true;
 
-        foreach($result as $item) {
-            if (password_verify($submittedPassword, $item['Password'])) {
-                $_SESSION['login_user'] = $submittedEmail;
-
-                header("location: search");
-            }
-            else {
-                echo "
-                <script type=\"text/javascript\">
-                alert('Username or Password invalid');
-                window.location.replace('login');
-                </script>
-                ";
-            }
+            header("location: course/overview");
+        }
+        else {
+            echo "
+            <script type=\"text/javascript\">
+            alert('Username or Password invalid');
+            window.location.replace('login');
+            </script>
+            ";
         }
     }
     

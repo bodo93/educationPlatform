@@ -20,7 +20,7 @@ $authFunction = function () {
     if (isset($_SESSION["instituteLogin"])) {
         return true;
     }
-    Router::redirect("/search");
+    Router::redirect("/login");
     return false;
 };
 
@@ -94,6 +94,10 @@ Router::route("GET", "/course/overview",function () {
     require_once("view/courseOverview.php");
 });
 
+Router::route("GET", "/course/overview",function () {
+    require_once("view/courseOverview.php");
+});
+
 /* IM EINSATZ
 Router::route_auth("GET", "/", $authFunction, function () {
     require_once("view/home.php");
@@ -107,11 +111,11 @@ Router::route_auth("GET", "/search", $authFunction, function () {
 Router::route_auth("GET", "/institute/edit", $authFunction, function () {
     require_once("view/instituteEdit.php");
 });
-
+*/
 Router::route_auth("GET", "/course/overview", $authFunction, function () {
     require_once("view/courseOverview.php");
 });
-
+/*
 Router::route_auth("GET", "/course/create", $authFunction, function () {
     require_once("view/courseCreate.php");
 });
