@@ -22,6 +22,7 @@ use database\DBConnection;
  */
 class InstituteController {
     /**
+    * REGISTER function 
     * 
     * @author Philipp Lehmann
     */
@@ -72,6 +73,7 @@ class InstituteController {
     }
     
     /**
+    * LOGIN function 
     * 
     * @author Philipp Lehmann
     */
@@ -83,9 +85,9 @@ class InstituteController {
 
         $submittedEmail = $_POST['email'];
         $submittedPassword = $_POST['password'];
-
+        
         $db = DBConnection::getConnection();
-        $mysqli = $db->getConnection();
+        $mysqli = $db->getConnection();        
         
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
         
@@ -98,7 +100,7 @@ class InstituteController {
         if (password_verify($submittedPassword, $institute->getPassword())) {
             $_SESSION['userID'] = $institute->getId();
             $_SESSION['instituteLogin'] = true;
-
+          
             header("location: course/overview");
         }
         else {
@@ -112,6 +114,7 @@ class InstituteController {
     }
     
     /**
+    * LOGOUT function
     * 
     * @author Philipp Lehmann
     */
