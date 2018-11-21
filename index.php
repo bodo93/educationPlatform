@@ -115,7 +115,7 @@ Router::route_auth("GET", "/institute/edit", $authFunction, function () {
 Router::route_auth("GET", "/course/overview", $authFunction, function () {
     require_once("view/courseOverview.php");
 });
-/*
+
 Router::route_auth("GET", "/course/create", $authFunction, function () {
     require_once("view/courseCreate.php");
 });
@@ -123,7 +123,6 @@ Router::route_auth("GET", "/course/create", $authFunction, function () {
 Router::route_auth("GET", "/course/edit", $authFunction, function () {
     require_once("view/courseEdit.php");
 });
-*/
 
 // JUST 4 TESTING
 /*Router::route("GET", "/",  function () {

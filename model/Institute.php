@@ -9,14 +9,14 @@ namespace model;
  */
 class Institute {
     private $ID;
-    private $name;
-    private $street;
-    private $houseNumber;
-    private $postCode;
-    private $place;
+    private $Name;
+    private $Street;
+    private $HouseNumber;
+    private $PostCode;
+    private $Place;
     private $Email;
     private $Password;
-    private $invoiceAddressId;
+    private $InvoiceAddressId;
  
 
     function getId() {
@@ -24,23 +24,23 @@ class Institute {
     }
 
     function getName() {
-        return $this->name;
+        return $this->Name;
     }
 
     function getStreet() {
-        return $this->street;
+        return $this->Street;
     }
 
     function getHouseNumber() {
-        return $this->houseNumber;
+        return $this->HouseNumber;
     }
 
     function getPostCode() {
-        return $this->postCode;
+        return $this->PostCode;
     }
 
     function getPlace() {
-        return $this->place;
+        return $this->Place;
     }
 
     function getEmail() {
@@ -52,7 +52,7 @@ class Institute {
     }
 
     function getInvoiceAddressId() {
-        return $this->invoiceAddressId;
+        return $this->InvoiceAddressId;
     }
 
    function setId($id) {
@@ -60,23 +60,23 @@ class Institute {
     }
 
     function setName($name) {
-        $this->name = $name;
+        $this->Name = $name;
     }
 
     function setStreet($street) {
-        $this->street = $street;
+        $this->Street = $street;
     }
 
     function setHouseNumber($houseNumber) {
-        $this->houseNumber = $houseNumber;
+        $this->HouseNumber = $houseNumber;
     }
 
     function setPostCode($postCode) {
-        $this->postCode = $postCode;
+        $this->PostCode = $postCode;
     }
 
     function setPlace($place) {
-        $this->place = $place;
+        $this->Place = $place;
     }
 
     function setEmail($email) {
@@ -88,6 +88,6 @@ class Institute {
     }
 
     function setInvoiceAddressId($invoiceAddressId) {
-        $this->invoiceAddressId = $invoiceAddressId;
+        $this->InvoiceAddressId = $invoiceAddressId;
     }
 }
