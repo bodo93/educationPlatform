@@ -28,7 +28,7 @@ class Router
             $_SERVER['PATH_INFO'] = "/";
         }
     }
-
+    
     public static function route($method, $path, $routeFunction) {
         self::route_auth($method, $path, null, $routeFunction);
     }
