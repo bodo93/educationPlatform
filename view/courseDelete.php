@@ -42,7 +42,7 @@
                       <p class="alert alert-error"><?php echo $lang['sureDelete']?></p>
                       <div class="form-actions">
                           <button type="submit" class="button"><?php echo $lang['yes']?></button>
-                          <a class="button" href="/educationPlatform/course/overview"><?php echo $lang['no']?></a>
+                          <a class="button" href="<?php echo $GLOBALS['ROOT_URL']?>/course/overview"><?php echo $lang['no']?></a>
                         </div>
                     </form>
                 </div>
