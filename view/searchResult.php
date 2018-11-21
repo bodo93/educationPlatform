@@ -7,7 +7,7 @@ use database\DBConnection;
 
 if(empty($_POST['valueToSearch']) and empty($_POST['department']) and empty($_POST['area']) and empty($_POST['coursetype'])){
     $query = "SELECT
-            c.ID,c.Name,c.Place,c.Costs,c.Start,c.End,c.InstituteID,c.DepartmentID,c.AreaID,c.CourseTypeID,
+            c.ID,c.Name,c.Place,c.Costs,c.Start,c.End,c.Link,c.InstituteID,c.DepartmentID,c.AreaID,c.CourseTypeID,
             inst.Name AS instituteName,
             depart.Name AS departmentName,
             area.Name AS areaName,
@@ -27,7 +27,7 @@ else{
     $area = $_POST['area'];
     $coursetype = $_POST['coursetype'];
     $query = "SELECT
-                c.ID,c.Name,c.Place,c.Costs,c.Start,c.End,c.InstituteID,c.DepartmentID,c.AreaID,c.CourseTypeID,
+                c.ID,c.Name,c.Place,c.Costs,c.Start,c.End,c.Link,c.InstituteID,c.DepartmentID,c.AreaID,c.CourseTypeID,
                 inst.Name AS instituteName,
                 depart.Name AS departmentName,
                 area.Name AS areaName,
@@ -83,7 +83,7 @@ include 'includes/header.inc.php';
                             while ($row = mysqli_fetch_array($search_Result)){  
                                 //$id = $row["ID"];
                                    echo "\n\n<tr>"
-                                   . "<td>" . $row['Name'] . "</td>"
+                                   . "<td><a href='" . $row['Link'] . "'>" . $row['Name'] . "</a></td>"
                                    . "<td>" . $row['departmentName'] . "</td>"
                                    . "<td>" . $row['instituteName'] . "</td>"
                                    . "<td>" . $row['areaName'] . "</td>"        
