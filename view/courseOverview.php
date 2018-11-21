@@ -52,10 +52,11 @@ $(".delete").click(function(){
                                 $mysqli = $db->getConnection();
 
                                 //mysqli_query($conn, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
+                                $userID = $_SESSION['userID'];
+                                
+                                $query = "select * from course c WHERE c.InstituteID = $userID ORDER BY c.Name";
 
-                                $updatequery = "select * from course c ORDER BY c.Name";
-
-                                $result = $mysqli->query($updatequery);
+                                $result = $mysqli->query($query);
 
                                 while ($row = mysqli_fetch_assoc($result)) {
                                     $id = $row["ID"];
