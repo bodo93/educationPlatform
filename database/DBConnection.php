@@ -6,6 +6,7 @@
  * and open the template in the editor.
  */
 namespace database;
+use database\Config;
 use Mysqli;
 /**
  * Description of dbConnection
@@ -19,17 +20,22 @@ class DBConnection {
     
     protected function __construct(){
         
-        
-        $dbHost = get("database.host");
-        $dbUser = get("database.user");
-        $dbPassword = get("database.password");
-        $dbDatabase = get("database.name");
+        $dbHost = "r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
+        $dbUser = "hyum0j4ogwic0guk";
+        $dbPassword = "omft2t43cv52t9z8";
+        $dbDatabase = "m4145e68qi6t0w1j";
+
+        /*
+        $dbHost = Config::get("database.host");
+        $dbUser = Config::get("database.user");
+        $dbPassword = Config::get("database.password");
+        $dbDatabase = Config::get("database.name");
         
         echo "db host".$dbHost."</br>";
         echo "db user".$dbUser."</br>";
         echo "db password".$dbPassword."</br>";
         echo "db name".$dbDatabase."</br>";
-        
+        */
         /*
         $dbHost = "127.0.0.1";
         $dbUser = "root";
@@ -54,7 +60,7 @@ class DBConnection {
         }
     }
     
-    // connection to heroku db connector 
+    // connection to heroku db connector -> copy from we-crm 
     /*private static function loadENV() {
         if (isset($_ENV["JAWSDB_URL"])) {
             $dbopts = parse_url($_ENV["JAWSDB_URL"]);
