@@ -19,23 +19,25 @@ class DBConnection {
     private static $connection = null;
     
     protected function __construct(){
-        
+        /*
         $dbHost = "r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
         $dbUser = "hyum0j4ogwic0guk";
         $dbPassword = "omft2t43cv52t9z8";
         $dbDatabase = "m4145e68qi6t0w1j";
-
-        /*
+        */
+        
         $dbHost = Config::get("database.host");
         $dbUser = Config::get("database.user");
         $dbPassword = Config::get("database.password");
         $dbDatabase = Config::get("database.name");
         
+        /*
         echo "db host".$dbHost."</br>";
         echo "db user".$dbUser."</br>";
         echo "db password".$dbPassword."</br>";
         echo "db name".$dbDatabase."</br>";
         */
+        
         /*
         $dbHost = "127.0.0.1";
         $dbUser = "root";
