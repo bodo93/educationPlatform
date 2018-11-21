@@ -1,9 +1,11 @@
-<?php 
-include("includes/translator.inc.php");
+<!--
+@author: Philipp Lehmann
+-->
+
+<?php
 use database\DBConnection;
 
 if(empty($_POST['valueToSearch']) and empty($_POST['department']) and empty($_POST['area']) and empty($_POST['coursetype'])){
-
     $query = "SELECT
             c.ID,c.Name,c.Place,c.Costs,c.Start,c.End,c.InstituteID,c.DepartmentID,c.AreaID,c.CourseTypeID,
             inst.Name AS instituteName,
@@ -50,13 +52,6 @@ function filterTable($query){
     
     $filter_Result = mysqli_query($mysqli, $query);
     return $filter_Result;
-    
-    
-    $dbHost = "127.0.0.1";		//Location Of Database
-    $dbUser = "root";			//Database User Name 
-    $dbPass = "";				//Database Password 
-    $dbDatabase = "db_educationplatform";		//Database Name
-    $conn = mysqli_connect($dbHost, $dbUser, $dbPass, $dbDatabase);
 }
 ?>
 <?php

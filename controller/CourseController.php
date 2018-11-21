@@ -66,6 +66,18 @@ class CourseController {
     }
     
     public static function search($search, $department, $area) {
-        
+        $course = new Course();
+        $course->getID();
+        $course->getName();
+        $course->getPostCode();
+        $course->getPlace();
+        $course->getCosts();
+        $course->getStart();
+        $course->getEnd();
+        $course->getLink();
+        $course->getInstituteId();
+        $course->getDepartmentId();
+        $course->getAreaId();
+        $course->getCourseTypeId();
     }
 }

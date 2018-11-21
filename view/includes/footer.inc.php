@@ -3,6 +3,13 @@
 -->
 <?php
 include 'view/includes/translator.inc.php';
+
+$sessionActive = false;
+
+if(isset($_SESSION['userID']) && isset($_SESSION['instituteLogin']))
+    $sessionActive = true;
+else
+    $sessionActive = false;
 ?>
 <html>
     <head>
@@ -31,10 +38,23 @@ include 'view/includes/translator.inc.php';
                         </ul>
                     </div>
                     <div class="col-sm-3" style="min-width: 240px;">
-                        <h5>Login</h5>
+                        <?php
+                        if($sessionActive){
+                        ?>
+                        <h5><?php echo $lang['logout']?></h5>
                         <ul>
-                            <li><a href="<?php echo $GLOBALS['ROOT_URL']?>/login">Login</a></li>
+                            <li><a href="<?php echo $GLOBALS['ROOT_URL']?>/logout"><?php echo $lang['logout']?></a></li>
                         </ul>
+                        <?php
+                        }else{
+                        ?>
+                        <h5><?php echo $lang['login']?></h5>
+                        <ul>
+                            <li><a href="<?php echo $GLOBALS['ROOT_URL']?>/login"><?php echo $lang['login']?></a></li>
+                        </ul>                        
+                        <?php
+                        }
+                        ?>                        
                     </div>
                 </div>
             </div>

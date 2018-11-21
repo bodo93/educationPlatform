@@ -1,7 +1,9 @@
+<!--
+author: René Schwab
+-->
 <!DOCTYPE html>
 
-<?php 
-    include 'includes/translator.inc.php';
+<?php
     include 'includes/header.inc.php';
 ?>
 

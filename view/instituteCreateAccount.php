@@ -2,8 +2,7 @@
 author: Philipp Lehmann
 -->
 
-<?php 
-    include 'includes/translator.inc.php';
+<?php
     include 'includes/header.inc.php';
 ?>
 <html>
@@ -13,22 +12,6 @@ author: Philipp Lehmann
         <title><?php echo $lang['title']?></title>
     </head>
     <body style="background-color: rgb(34,36,37);">
-        <!--
-        <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-            <div class="container"><a class="navbar-brand logo" href="" style="margin-right: 0px;"><img src="assets/img/Logo2.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-                <div
-                    class="collapse navbar-collapse" id="navcol-1">
-                    <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="myCourses.html" style="font-size: 14px;font-weight: bold;"><title><?php echo $lang['myCourses']?></title></a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" href="showAccount.html" style="font-size: 14px;font-weight: bold;"><title><?php echo $lang['userProfile']?></title></a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 90px;"><a class="nav-link" href="logout.php" style="font-size: 14px;font-weight: bold;">Abmelden</a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="register?lang=de" style="font-size: 14px;font-weight: bold;"><?php echo $lang['german']?></a></li>
-                        <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="register?lang=en" style="padding-left: 0px;font-size: 14px;font-weight: bold;"><?php echo $lang['english']?></a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        -->
         <main class="page login-page">
             <section class="clean-block clean-form dark" style="min-height: 660px; padding-top: 100px;">
                 <div class="container">

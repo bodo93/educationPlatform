@@ -10,113 +10,113 @@ namespace model;
 
 class Course {
 
-    private $id;
-    private $name;
-    private $postCode;
-    private $place;
-    private $costs;
-    private $start;
-    private $end;
-    private $link;
-    private $instituteId;
-    private $departmentId;
-    private $areaId;
-    private $courseTypeId;
+    private $iD;
+    private $Name;
+    private $PostCode;
+    private $Place;
+    private $Costs;
+    private $Start;
+    private $End;
+    private $Link;
+    private $InstituteId;
+    private $DepartmentId;
+    private $AreaId;
+    private $CourseTypeId;
 
     function getId() {
-        return $this->id;
+        return $this->ID;
     }
 
     function getName() {
-        return $this->name;
+        return $this->Name;
     }
 
     function getPostCode() {
-        return $this->postCode;
+        return $this->PostCode;
     }
 
     function getPlace() {
-        return $this->place;
+        return $this->Place;
     }
 
     function getCosts() {
-        return $this->costs;
+        return $this->Costs;
     }
 
     function getStart() {
-        return $this->start;
+        return $this->Start;
     }
 
     function getEnd() {
-        return $this->end;
+        return $this->End;
     }
 
     function getLink() {
-        return $this->link;
+        return $this->Link;
     }
 
     function getInstituteId() {
-        return $this->instituteId;
+        return $this->InstituteId;
     }
 
     function getDepartmentId() {
-        return $this->departmentId;
+        return $this->DepartmentId;
     }
 
     function getAreaId() {
-        return $this->areaId;
+        return $this->AreaId;
     }
 
     function getCourseTypeId() {
-        return $this->courseTypeId;
+        return $this->CourseTypeId;
     }
 
     function setId($id) {
-        $this->id = $id;
+        $this->ID = $id;
     }
 
     function setName($name) {
-        $this->name = $name;
+        $this->Name = $name;
     }
 
     function setPostCode($postCode) {
-        $this->postCode = $postCode;
+        $this->PostCode = $postCode;
     }
 
     function setPlace($place) {
-        $this->place = $place;
+        $this->Place = $place;
     }
 
     function setCosts($costs) {
-        $this->costs = $costs;
+        $this->Costs = $costs;
     }
 
     function setStart($start) {
-        $this->start = $start;
+        $this->Start = $start;
     }
 
     function setEnd($end) {
-        $this->end = $end;
+        $this->End = $end;
     }
 
     function setLink($link) {
-        $this->link = $link;
+        $this->Link = $link;
     }
 
     function setInstituteId($instituteId) {
-        $this->instituteId = $instituteId;
+        $this->InstituteId = $instituteId;
     }
 
     function setDepartmentId($departmentId) {
-        $this->departmentId = $departmentId;
+        $this->DepartmentId = $departmentId;
     }
 
     function setAreaId($areaId) {
-        $this->areaId = $areaId;
+        $this->AreaId = $areaId;
     }
 
     function setCourseTypeId($courseTypeId) {
-        $this->courseTypeId = $courseTypeId;
+        $this->CourseTypeId = $courseTypeId;
     }
 
 }

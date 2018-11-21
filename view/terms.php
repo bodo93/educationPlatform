@@ -1,3 +1,6 @@
+<!--
+author: René Schwab
+-->
 <!DOCTYPE html>
 
 <?php 
