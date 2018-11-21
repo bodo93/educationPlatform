@@ -20,10 +20,11 @@ use database\DBConnection;
             $start = $_POST['start'];
             $end = $_POST['end'];
             $link = $_POST['link'];
-            $institute = $_POST['institute'];
+            $institute = $_SESSION['userID'];
             $department = $_POST['department'];
             $area = $_POST['area'];
             $courseType = $_POST['courseType'];
+            
             $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
             
             $result = $mysqli->query($insert);
@@ -50,9 +51,18 @@ use database\DBConnection;
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['courseType'] ?></label><select class="form-control" name="courseType" required>
-                                        <option value="Bachelor">Bachelor</option>
-                                        <option value="Master">Master</option>
-                                        <option value="Sonstiges"><?php echo $lang['other'] ?></option>
+                                    <?php    
+                                    $select = "Select DISTINCT ID, Name from CourseType";
+                                    $result = $result = $mysqli->query($select);
+                                    if ($result) {
+                                        $result = $mysqli->query($select);
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            $id = $row["ID"];
+                                            $name = $row["Name"];
+                                            echo '<option value="' . $id . '">' . $name . '</option>';
+                                        }
+                                    }
+                                    ?>
                                     </select>
                                 </div>
                             </div>
@@ -60,9 +70,18 @@ use database\DBConnection;
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['department'] ?></label><select class="form-control" id="subject" name="department" required>
-                                        <option value="Wirtschaft"><?php echo $lang['economy'] ?></option>
-                                        <option value="Informatik"><?php echo $lang['it'] ?></option>
-                                        <option value="Sonstiges"><?php echo $lang['other'] ?></option>
+                                    <?php
+                                    $select = "Select DISTINCT ID, Name from Department";
+                                    $result = $mysqli->query($select);
+                                    if ($result) {
+                                        $result = $mysqli->query($select);
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            $id = $row["ID"];
+                                            $name = $row["Name"];
+                                            echo '<option value="' . $id . '">' . $name . '</option>';
+                                        }
+                                    }
+                                    ?>
                                     </select>
                                 </div>
                             </div>
@@ -73,9 +92,18 @@ use database\DBConnection;
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label><select class="form-control" id="subject" name="area" required>
-                                        <option value="Westschweiz"><?php echo $lang['west'] ?></option>
-                                        <option value="Mittelland"><?php echo $lang['central'] ?></option>
-                                        <option value="Ostschweiz"><?php echo $lang['east'] ?></option>
+                                    <?php
+                                    $select = "Select DISTINCT ID, Name from Area";
+                                    $result = $result = $mysqli->query($select);
+                                    if ($result) {
+                                        $result = $mysqli->query($select);
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            $id = $row["ID"];
+                                            $name = $row["Name"];
+                                            echo '<option value="' . $id . '">' . $name . '</option>';
+                                        }
+                                    }
+                                    ?>
                                     </select>
                                 </div>
                             </div>

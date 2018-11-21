@@ -54,7 +54,14 @@ $(".delete").click(function(){
                                 //mysqli_query($conn, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
                                 $userID = $_SESSION['userID'];
                                 
-                                $query = "select * from course c WHERE c.InstituteID = $userID ORDER BY c.Name";
+                                $query = "select c.ID, c.Name, c.Place, c.Start,
+                                        depart.Name AS departmentName,
+                                        ctype.Name AS courseTypeName
+                                        from course c
+                                        JOIN department depart ON c.DepartmentID=depart.ID
+                                        JOIN coursetype ctype ON c.CourseTypeID=ctype.ID
+                                        
+                                        WHERE c.InstituteID = $userID ORDER BY c.Name";
 
                                 $result = $mysqli->query($query);
 
@@ -62,9 +69,9 @@ $(".delete").click(function(){
                                     $id = $row["ID"];
                                     echo "\n\n<tr>"
                                     . "<td><input class='text' name='name[$id]' value='" . $row['Name'] . "' size='25' disabled/></td>"
-                                    . "<td><input class='text' name='department[$id]' value='" . $row['DepartmentID'] . "' size='14' disabled/></td>"
+                                    . "<td><input class='text' name='department[$id]' value='" . $row['departmentName'] . "' size='14' disabled/></td>"
                                     . "<td><input class='text' name='place[$id]' value='" . $row['Place'] . "' size='10' disabled/></td>"
-                                    . "<td><input class='text' name='courseType[$id]' value='" . $row['CourseTypeID'] . "' size='10' disabled/></td>"
+                                    . "<td><input class='text' name='courseType[$id]' value='" . $row['courseTypeName'] . "' size='10' disabled/></td>"
                                     . "<td><input class='text' name='start[$id]' value='" . $row['Start'] . "' size='10' disabled/></td>"
 
                                     //generates links "edit" and "delete" with image
