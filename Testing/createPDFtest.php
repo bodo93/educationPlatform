@@ -31,7 +31,7 @@
     $pdf->AddPage();
     
     // add Logo to Invoice
-    $pdf->addLogo('view/assets/img/Logo2.png');
+    $pdf->addLogo('view/assets/img/Logo.png');
         
     // add addresses to Invoice
     $pdf->addCompany( $companyAddress );
