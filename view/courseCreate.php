@@ -91,20 +91,7 @@ use database\DBConnection;
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label><select class="form-control" id="subject" name="area" required>
-                                    <?php
-                                    $select = "Select DISTINCT ID, Name from Area";
-                                    $result = $result = $mysqli->query($select);
-                                    if ($result) {
-                                        $result = $mysqli->query($select);
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            $id = $row["ID"];
-                                            $name = $row["Name"];
-                                            echo '<option value="' . $id . '">' . $name . '</option>';
-                                        }
-                                    }
-                                    ?>
-                                    </select>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label>
                                 </div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
