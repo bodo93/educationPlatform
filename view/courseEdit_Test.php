@@ -6,7 +6,7 @@ use database\DBConnection;
 
 <html>
     <body style="background-color: rgb(34,36,37);">
-        <?php 
+        <?php /*
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
@@ -34,7 +34,7 @@ use database\DBConnection;
             }
             echo "<meta http-equiv='refresh' content='0'>";
             mysqli_close($conn);
-        }
+        }*/
         include 'includes/header.inc.php';
         ?>
         <main class="page login-page">
@@ -44,7 +44,7 @@ use database\DBConnection;
                         <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['courseEdit'] ?></h2>
                     </div>
                     <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/editTest" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
-                        <?php/*
+                        <?php
                         $db = DBConnection::getConnection();
                         $mysqli = $db->getConnection();                
 
@@ -85,7 +85,7 @@ use database\DBConnection;
                         $department = $row['DepartmentID'];
                         $area = $row['AreaID'];
                         $courseType = $row['CourseTypeID'];
-                        */
+                
                         echo "<div class='form-row'>
                             <div class='col' style='margin-right: 40px;min-width: 130px;'>
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'>" . $lang['name'] . "</label><input class='form-control item' type='text' style='min-width: 160px;font-size: 14px;' name='name' value='" . $name . "' required></div>
