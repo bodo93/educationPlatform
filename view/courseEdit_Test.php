@@ -92,7 +92,7 @@ use database\DBConnection;
                             </div>
                             <div class='col' style='min-width: 130px;margin-right: 40px;'>
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'>" . $lang['courseType'] . "</label>
-                                    <select class='form-control' name='courseType' required>";
+                                    <select class='form-control' name='courseType'>";
                                     $select = "Select DISTINCT ID, Name from courseType";
                                     $result = $mysqli->query($select);
                                     if ($result) {
