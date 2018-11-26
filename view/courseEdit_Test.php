@@ -43,7 +43,7 @@ use database\DBConnection;
                     <div class="block-heading">
                         <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['courseEdit'] ?></h2>
                     </div>
-                    <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/edit" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
+                    <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/editTest" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
                         <?php
                         $db = DBConnection::getConnection();
                         $mysqli = $db->getConnection();                
