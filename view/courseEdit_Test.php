@@ -104,7 +104,7 @@ use database\DBConnection;
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             $id = $row["ID"];
                                             $name = $row["Name"];
-                                            echo "<option value='1'>" . $name . "</option>";
+                                            echo "<option ".$id.">" . $name . "</option>";
                                         }
                                     }
                                     echo "</select>
