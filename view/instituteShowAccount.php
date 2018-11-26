@@ -2,7 +2,6 @@
 
 <?php
 include 'includes/header.inc.php';
-
 use database\DBConnection;
 
 $userID = $_SESSION['userID'];
@@ -17,7 +16,6 @@ $id = $userID;
 $stmt->execute();
 $institute = $stmt->get_result()->fetch_object("model\Institute");
 $stmt->close();
-?>
 ?>
 <html>
     <head>
