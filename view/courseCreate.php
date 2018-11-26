@@ -92,6 +92,9 @@ use database\DBConnection;
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label>
+                                    <select>
+                                        <option value="test">test</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
