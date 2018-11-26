@@ -43,13 +43,21 @@ Router::route("GET", "/sendEmail", function(){
 });
 
 // JUST FOR TESTING
-Router::route("GET", "/course/editTest", function () {
+Router::route_auth("GET", "/course/editTest", $authFunction, function () {
     require_once("view/courseEdit_Test.php");
 });
 
-Router::route("POST", "/course/editTest", function () {
+Router::route_auth("POST", "/course/editTest", $authFunction, function () {
     require_once("view/courseEdit_Test.php");
     //Router::redirect("/course/overview");
+});
+
+Router::route_auth("GET", "/course/edit", $authFunction, function () {
+    require_once("view/courseEdit.php");
+});
+
+Router::route_auth("POST", "/course/edit", $authFunction, function () {
+    require_once("view/courseEdit.php");
 });
 
 Router::route("GET", "/login", function(){
@@ -115,14 +123,6 @@ Router::route_auth("GET", "/course/overview", $authFunction, function () {
 
 Router::route_auth("GET", "/course/create", $authFunction, function () {
     require_once("view/courseCreate.php");
-});
-
-Router::route_auth("GET", "/course/edit", $authFunction, function () {
-    require_once("view/courseEdit.php");
-});
-
-Router::route_auth("POST", "/course/edit", $authFunction, function () {
-    require_once("view/courseEdit.php");
 });
 
 Router::route_auth("GET", "/institute", $authFunction, function () {
