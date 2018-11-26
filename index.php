@@ -49,6 +49,7 @@ Router::route("GET", "/course/editTest", function () {
 
 Router::route("POST", "/course/editTest", function () {
     require_once("view/courseEdit_Test.php");
+    Router::redirect("/course/overview");
 });
 
 Router::route("GET", "/login", function(){

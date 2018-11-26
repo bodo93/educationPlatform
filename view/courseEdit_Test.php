@@ -62,7 +62,7 @@ use database\DBConnection;
                                     . "WHERE `ID` = '" . $_POST['id'] . "'";
                             $result = $mysqli->query($update);
                             if ($result) {
-                                header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
+                                //header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
                             } else {
                                 echo "Error: " . $update . "<br>" . mysqli_error($conn);
                             }
@@ -157,6 +157,8 @@ use database\DBConnection;
                             <div class='col' style='margin-right: 40px;min-width: 130px;'>
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'>" . $lang['link'] . "</label><input class='form-control item' type='url' style='min-width: 160px;font-size: 14px;' name='link' value='" . $link . "' required></div>
                             </div>
+                            <input class='form-control item' type='hidden' style='min-width: 160px;font-size: 14px;' name='institute' value='" . $institute . "' required>
+                                <input class='form-control item' type='hidden' style='min-width: 160px;font-size: 14px;' name='id' value='" . $id . "' required>
                         </div>
                         <div class='form-row'>
                             
