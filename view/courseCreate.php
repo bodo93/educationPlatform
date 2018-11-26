@@ -64,10 +64,10 @@ use database\DBConnection;
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['department'] ?></label>
                                     <select class="form-control" name="department" required>
                                         <option disabled selected value></option>
-                                        <option value="Informatik"><?php echo $lang['it']?></option>
-                                        <option value="Wirtschaft"><?php echo $lang['economy']?></option>
-                                        <option value="Mathematik"><?php echo $lang['math']?></option>
-                                        <option value="Andere"><?php echo $lang['other']?></option>
+                                        <option value="4"><?php echo $lang['it']?></option>
+                                        <option value="1"><?php echo $lang['economy']?></option>
+                                        <option value="5"><?php echo $lang['math']?></option>
+                                        <option value="2"><?php echo $lang['other']?></option>
                                     </select>
                                 </div>
                             </div>
