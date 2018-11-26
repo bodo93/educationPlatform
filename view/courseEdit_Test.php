@@ -104,7 +104,7 @@ use database\DBConnection;
                                         while ($row = mysqli_fetch_assoc($result)) {
                                             $id = $row["ID"];
                                             $name = $row["Name"];
-                                            echo '<option value="' . $id . '">' . $name . '</option>';
+                                            echo "<option value='" . $id . "'>" . $name . "</option>";
                                         }
                                     }
                                     echo "</select>
@@ -134,11 +134,11 @@ use database\DBConnection;
                         <div class='form-row'>
                             <div class='col' style='min-width: 130px;margin-right: 40px;'>
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'>" . $lang['area'] . "</label><select class='form-control' name='area' required>
-                                        <option value='NordWestschweiz'>" . $lang['northwest'] . "</option>
-                                        <option value='Westschweiz'>" . $lang['west'] . "</option>
-                                        <option value='Mittelland'>" . $lang['central'] . "</option>
-                                        <option value='Ostschweiz'>" . $lang['east'] . "</option>
-                                        <option value='Tessin'>" . $lang['south'] . "</option>
+                                        <option value='1'>" . $lang['northwest'] . "</option>
+                                        <option value='2'>" . $lang['west'] . "</option>
+                                        <option value='3'>" . $lang['central'] . "</option>
+                                        <option value='4'>" . $lang['east'] . "</option>
+                                        <option value='5'>" . $lang['south'] . "</option>
                                     </select>
                                 </div>
                             </div>
