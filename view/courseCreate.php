@@ -50,19 +50,11 @@ use database\DBConnection;
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['name'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="name" required></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['courseType'] ?></label><select class="form-control" name="courseType" required>
-                                    <?php    
-                                    $select = "Select DISTINCT ID, Name from CourseType";
-                                    $result = $result = $mysqli->query($select);
-                                    if ($result) {
-                                        $result = $mysqli->query($select);
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            $id = $row["ID"];
-                                            $name = $row["Name"];
-                                            echo '<option value="' . $id . '">' . $name . '</option>';
-                                        }
-                                    }
-                                    ?>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['courseType'] ?></label>
+                                    <select class="form-control" name="courseType" required>
+                                        <option disabled selected value></option>
+                                        <option value="Bachelor">Bachelor</option>
+                                        <option value="Master">Master</option>
                                     </select>
                                 </div>
                             </div>
