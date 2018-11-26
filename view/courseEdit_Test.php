@@ -7,7 +7,6 @@ use database\DBConnection;
 <html>
     <body style="background-color: rgb(34,36,37);">
         <?php 
-        //echo "hallo Test" ;
         /*
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
