@@ -69,19 +69,13 @@ use database\DBConnection;
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['department'] ?></label><select class="form-control" id="subject" name="department" required>
-                                    <?php
-                                    $select = "Select DISTINCT ID, Name from Department";
-                                    $result = $mysqli->query($select);
-                                    if ($result) {
-                                        $result = $mysqli->query($select);
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            $id = $row["ID"];
-                                            $name = $row["Name"];
-                                            echo '<option value="' . $id . '">' . $name . '</option>';
-                                        }
-                                    }
-                                    ?>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['department'] ?></label>
+                                    <select class="form-control" name="department" required>
+                                        <option disabled selected value></option>
+                                        <option value="Informatik"><?php echo $lang['it']?></option>
+                                        <option value="Wirtschaft"><?php echo $lang['economy']?></option>
+                                        <option value="Mathematik"><?php echo $lang['math']?></option>
+                                        <option value="Andere"><?php echo $lang['other']?></option>
                                     </select>
                                 </div>
                             </div>
@@ -92,11 +86,12 @@ use database\DBConnection;
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label>
-                                    <br/><select class="form-control" id="subject" name="area" required>
+                                    <br/><select class="form-control" name="area" required>
+                                        <option disabled selected value></option>
                                         <option value='NordWestschweiz'><?php echo $lang['northwest']?></option>
                                         <option value='Westschweiz'><?php echo $lang['west']?></option>
                                         <option value='Mittelland'><?php echo $lang['central']?></option>
-                                        <option value='Ostschweiz'><?php echo $lang['east']?>"</option>
+                                        <option value='Ostschweiz'><?php echo $lang['east']?></option>
                                         <option value='Tessin'><?php echo $lang['south']?></option>
                                     </select>
                                 </div>
