@@ -53,7 +53,9 @@ use database\DBConnection;
                         if ($_GET) {
                             // keep track post values
                             $id = $_GET['id'];
+                            echo "<h3>".$id."</h3>";
                         } else if ($_POST) {
+                            echo "<h3>".$_POST('id')."</h3>";
                             $id = $_POST['id'];
                             $update = "UPDATE course SET `Name` = '" . $_POST['name'] . "', "
                                     . "`PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
