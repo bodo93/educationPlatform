@@ -92,7 +92,7 @@ use database\DBConnection;
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label>
-                                    <br/><select>
+                                    <br/><select class="form-control" id="subject" name="area" required>
                                         <option value="test">test</option>
                                     </select>
                                 </div>
