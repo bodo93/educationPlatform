@@ -53,8 +53,8 @@ use database\DBConnection;
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['courseType'] ?></label>
                                     <select class="form-control" name="courseType" required>
                                         <option disabled selected value></option>
-                                        <option value="Bachelor">Bachelor</option>
-                                        <option value="Master">Master</option>
+                                        <option value="1">Bachelor</option>
+                                        <option value="2">Master</option>
                                     </select>
                                 </div>
                             </div>
@@ -80,11 +80,10 @@ use database\DBConnection;
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label>
                                     <br/><select class="form-control" name="area" required>
                                         <option disabled selected value></option>
-                                        <option value='NordWestschweiz'><?php echo $lang['northwest']?></option>
-                                        <option value='Westschweiz'><?php echo $lang['west']?></option>
-                                        <option value='Mittelland'><?php echo $lang['central']?></option>
-                                        <option value='Ostschweiz'><?php echo $lang['east']?></option>
-                                        <option value='Tessin'><?php echo $lang['south']?></option>
+                                        <option value='3'><?php echo $lang['northwest']?></option>
+                                        <option value='1'><?php echo $lang['west']?></option>
+                                        <option value='2'><?php echo $lang['east']?></option>
+                                        <option value='4'><?php echo $lang['south']?></option>
                                     </select>
                                 </div>
                             </div>
