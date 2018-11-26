@@ -62,7 +62,7 @@ use database\DBConnection;
                                     . "WHERE `ID` = '" . $_POST['id'] . "'";
                             $result = $mysqli->query($update);
                             if ($result) {
-                                //header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
+                                header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
                             } else {
                                 echo "Error: " . $update . "<br>" . mysqli_error($conn);
                             }
