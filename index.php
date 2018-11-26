@@ -49,7 +49,7 @@ Router::route("GET", "/course/editTest", function () {
 
 Router::route("POST", "/course/editTest", function () {
     require_once("view/courseEdit_Test.php");
-    Router::redirect("/course/overview");
+    //Router::redirect("/course/overview");
 });
 
 Router::route("GET", "/login", function(){
@@ -121,6 +121,10 @@ Router::route_auth("GET", "/course/edit", $authFunction, function () {
     require_once("view/courseEdit.php");
 });
 
+Router::route_auth("POST", "/course/edit", $authFunction, function () {
+    require_once("view/courseEdit.php");
+});
+
 Router::route_auth("GET", "/institute", $authFunction, function () {
     require_once("view/instituteShowAccount.php");
 });
@@ -155,10 +159,6 @@ Router::route("GET", "/course/cost", function () {
 
 Router::route("POST", "/course/cost", function () {
     require_once("view/courseCost.php");
-});
-
-Router::route("POST", "/course/edit", function () {
-    require_once("view/courseEdit.php");
 });
 
 Router::route("GET", "/course/delete", function () {
