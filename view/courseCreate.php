@@ -93,11 +93,11 @@ use database\DBConnection;
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label>
                                     <br/><select class="form-control" id="subject" name="area" required>
-                                        <option value='NordWestschweiz'>" . $lang['northwest'] . "</option>
-                                        <option value='Westschweiz'>" . $lang['west'] . "</option>
-                                        <option value='Mittelland'>" . $lang['central'] . "</option>
-                                        <option value='Ostschweiz'>" . $lang['east'] . "</option>
-                                        <option value='Tessin'>" . $lang['south'] . "</option>
+                                        <option value='NordWestschweiz'><?php echo $lang['northwest']?></option>
+                                        <option value='Westschweiz'><?php echo $lang['west']?></option>
+                                        <option value='Mittelland'><?php echo $lang['central']?></option>
+                                        <option value='Ostschweiz'><?php echo $lang['east']?>"</option>
+                                        <option value='Tessin'><?php echo $lang['south']?></option>
                                     </select>
                                 </div>
                             </div>
