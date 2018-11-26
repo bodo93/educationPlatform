@@ -55,7 +55,7 @@ use database\DBConnection;
                             $id = $_GET['id'];
                             echo "<h3>".$id."</h3>";
                         } else if ($_POST) {
-                            echo "<h3>".$_POST('id')."</h3>";
+                            echo "<h3>".$_POST['id']."+ 5</h3>";
                             $id = $_POST['id'];
                             $update = "UPDATE course SET `Name` = '" . $_POST['name'] . "', "
                                     . "`PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
