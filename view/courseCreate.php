@@ -64,10 +64,10 @@ use database\DBConnection;
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['department'] ?></label>
                                     <select class="form-control" name="department" required>
                                         <option disabled selected value></option>
-                                        <option value="4"><?php echo $lang['it']?></option>
                                         <option value="1"><?php echo $lang['economy']?></option>
-                                        <option value="5"><?php echo $lang['math']?></option>
-                                        <option value="2"><?php echo $lang['other']?></option>
+                                        <option value="2"><?php echo $lang['it']?></option>
+                                        <option value="3"><?php echo $lang['math']?></option>
+                                        <option value="4"><?php echo $lang['other']?></option>
                                     </select>
                                 </div>
                             </div>
@@ -79,11 +79,11 @@ use database\DBConnection;
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label>
                                     <br/><select class="form-control" name="area" required>
-                                        <option disabled selected value></option>
-                                        <option value='3'><?php echo $lang['northwest']?></option>
-                                        <option value='1'><?php echo $lang['west']?></option>
-                                        <option value='2'><?php echo $lang['east']?></option>
-                                        <option value='4'><?php echo $lang['south']?></option>
+                                        <option value='1'><?php echo $lang['northwest']?></option>
+                                        <option value='2'><?php echo $lang['west']?></option>
+                                        <option value='3'><?php echo $lang['central']?></option>
+                                        <option value='4'><?php echo $lang['east']?></option>
+                                        <option value='5'><?php echo $lang['south']?></option>
                                     </select>
                                 </div>
                             </div>

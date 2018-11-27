@@ -65,8 +65,17 @@ use database\DBConnection;
                             </div>
                             <div class='col' style='min-width: 130px;margin-right: 40px;'>
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['courseType']?></label><select class='form-control' name='courseType' required>";
-                                    <option value='1'>Bachelor</option>
-                                    <option value='2'>Master</option>
+                                    <?php
+                                    if($courseType == 1){
+                                        echo "<option value='1' selected>Bachelor</option>
+                                        <option value='2'>Master</option>";
+                                    }
+                                    else{
+                                        echo "<option value='1'>Bachelor</option>
+                                        <option value='2' selected>Master</option>";
+                                    }
+                                    ?>    
+                                    
                                     </select>
                                 </div>
                             </div>
@@ -74,10 +83,30 @@ use database\DBConnection;
                         <div class='form-row'>
                             <div class='col' style='min-width: 130px;margin-right: 40px;'>
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['department']?></label><select class='form-control' name='department' required>";
-                                    <option value='1'><?php echo $lang['economy']?></option>
-                                    <option value='2'><?php echo $lang['it']?></option>
-                                    <option value='3'><?php echo $lang['math']?></option>
-                                    <option value='4'><?php echo $lang['other']?></option>
+                                    <?php
+                                    if($department == 1){    
+                                        echo "<option value='1' selected>" . $lang['economy'] . "</option>
+                                        <option value='2'>" . $lang['it'] . "</option>
+                                        <option value='3'>" . $lang['math'] . "</option>
+                                        <option value='4'>" . $lang['other'] . "</option>";
+                                    }else if($department == 2){
+                                        echo "<option value='1'>" . $lang['economy'] . "</option>
+                                        <option value='2' selected>" . $lang['it'] . "</option>
+                                        <option value='3'>" . $lang['math'] . "</option>
+                                        <option value='4'>" . $lang['other'] . "</option>";
+                                    }else if($department == 3){
+                                        echo "<option value='1'>" . $lang['economy'] . "</option>
+                                        <option value='2'>" . $lang['it'] . "</option>
+                                        <option value='3' selected>" . $lang['math'] . "</option>
+                                        <option value='4'>" . $lang['other'] . "</option>";
+                                    }else{
+                                        echo "<option value='1'>" . $lang['economy'] . "</option>
+                                        <option value='2'>" . $lang['it'] . "</option>
+                                        <option value='3'>" . $lang['math'] . "</option>
+                                        <option value='4' selected>" . $lang['other'] . "</option>";
+                                    }
+                                    
+                                    ?>
                                     </select>
                                 </div>
                             </div>
@@ -88,11 +117,39 @@ use database\DBConnection;
                         <div class='form-row'>
                             <div class='col' style='min-width: 130px;margin-right: 40px;'>
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['area']?></label><select class='form-control' name='area' required>
-                                        <option value='1'><?php echo $lang['northwest']?></option>
-                                        <option value='2'><?php echo $lang['west']?></option>
-                                        <option value='3'><?php echo $lang['central']?></option>
-                                        <option value='4'><?php echo $lang['east']?></option>
-                                        <option value='5'><?php echo $lang['south']?></option>
+                                        <?php
+                                        if($area == 1){  
+                                        echo "<option value='1' selected>" . $lang['northwest'] . "</option>
+                                        <option value='2'>" . $lang['west'] . "</option>
+                                        <option value='3'>" . $lang['central'] . "</option>
+                                        <option value='4'>" . $lang['east'] . "</option>
+                                        <option value='5'>" . $lang['south'] . "</option>";
+                                        }else if($area == 2){
+                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
+                                        <option value='2' selected>" . $lang['west'] . "</option>
+                                        <option value='3'>" . $lang['central'] . "</option>
+                                        <option value='4'>" . $lang['east'] . "</option>
+                                        <option value='5'>" . $lang['south'] . "</option>";    
+                                        }else if($area == 3){
+                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
+                                        <option value='2'>" . $lang['west'] . "</option>
+                                        <option value='3' selected>" . $lang['central'] . "</option>
+                                        <option value='4'>" . $lang['east'] . "</option>
+                                        <option value='5'>" . $lang['south'] . "</option>";    
+                                        }else if($area == 4){
+                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
+                                        <option value='2'>" . $lang['west'] . "</option>
+                                        <option value='3'>" . $lang['central'] . "</option>
+                                        <option value='4' selected>" . $lang['east'] . "</option>
+                                        <option value='5'>" . $lang['south'] . "</option>";    
+                                        }else if($area == 5){
+                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
+                                        <option value='2'>" . $lang['west'] . "</option>
+                                        <option value='3'>" . $lang['central'] . "</option>
+                                        <option value='4'>" . $lang['east'] . "</option>
+                                        <option value='5' selected>" . $lang['south'] . "</option>";    
+                                        }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -121,7 +178,7 @@ use database\DBConnection;
                         <div class='form-row'>
                             
                             <div class='col' style='margin-right: 40px;min-width: 130px;'><input class='btn btn-primary' type='submit' style='width: 142px;margin-top: 10px;' value='<?php echo $lang['next']?>'></div>
-                            <div class='col' style='margin-right: 40px;min-width: 130px;'><a class='btn btn-primary' role='button' href="<?php echo $DOMAIN_URL?>/course/overview" style='width: 142px;margin-top: 10px;'><?php echo $lang['cancel']?></a></div>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'><a class='btn btn-primary' role='button' href="<?php echo $GLOBALS["ROOT_URL"]?>/course/overview" style='width: 142px;margin-top: 10px;'><?php echo $lang['cancel']?></a></div>
                             <div class='col' style='margin-right: 40px;min-width: 130px;height: 40px;'></div>
                             <div class='col' style='margin-right: 40px;min-width: 130px;height: 40px;'></div>
                         </div>

@@ -10,6 +10,11 @@ $userID = $_SESSION['userID'];
 $db = DBConnection::getConnection();
 $mysqli = $db->getConnection();        
 
+
+
+
+
+
 $stmt = $mysqli->prepare("SELECT * FROM institute WHERE ID = ?");
 
 $stmt->bind_param('i', $id);
