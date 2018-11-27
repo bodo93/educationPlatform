@@ -18,6 +18,7 @@ use database\DBConnection;
             $update = "UPDATE course SET `Name` = '" . $_POST['name'] . "', "
                     . "`PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
                     . "`Start` = '" . $_POST['start'] . "', `End` = '" . $_POST['end'] . "', "
+                    . "`Start` = '" . $_POST['start'] . "', "
                     . "`Link` = '" . $_POST['link'] . "', `InstituteID` = '" . $_POST['institute'] . "', "
                     . "`DepartmentID`= '" . $_POST['department'] . "', `AreaID` = '" . $_POST['area'] . "', `CourseTypeID` = '" . $_POST['courseType'] . "' "
                     . "WHERE `ID` = '" . $_POST['id'] . "'";
