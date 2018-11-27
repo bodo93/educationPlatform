@@ -25,8 +25,6 @@ use database\DBConnection;
             } else {
                 echo "Error: ";
             }
-            
-            exit();
         }   
         
         //Query
