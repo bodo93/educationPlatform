@@ -9,19 +9,22 @@ use database\DBConnection;
         <?php
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();                
-
+        
         $id = 0;
+        
         if ($_GET) {
             // keep track post values
             $id = $_GET['id'];
         } else if ($_POST) {
+            $id = $_POST['id'];
+
             $update = "UPDATE course SET `Name` = '" . $_POST['name'] . "', "
                     . "`PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
-                    . "`Costs` = '" . $_POST['costs'] . "', `End` = '" . $_POST['end'] . "', "
-                    . "`Start` = '" . $_POST['start'] . "', "
+                    . "`Start` = '" . $_POST['start'] . "', `End` = '" . $_POST['end'] . "', "
+                    . "`Costs` = '" . $_POST['costs'] . "', "
                     . "`Link` = '" . $_POST['link'] . "', `InstituteID` = '" . $_POST['institute'] . "', "
                     . "`DepartmentID`= '" . $_POST['department'] . "', `AreaID` = '" . $_POST['area'] . "', `CourseTypeID` = '" . $_POST['courseType'] . "' "
-                    . "WHERE `ID` = '" . $_POST['id'] . "'";
+                    . "WHERE `ID` = '$id'";
             $result = $mysqli->query($update);
             if ($result) {
                 header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
@@ -29,12 +32,10 @@ use database\DBConnection;
                 echo "Error: " . $update . "<br>" . mysqli_error($conn);
             }
         }
-
         include 'includes/header.inc.php';
         
         //Query
         $select = "Select * from course where ID = '$id'";
-
         //Ausführen
         $result = $mysqli->query($select);
         $row = mysqli_fetch_array($result);
@@ -64,17 +65,8 @@ use database\DBConnection;
                             </div>
                             <div class='col' style='min-width: 130px;margin-right: 40px;'>
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['courseType']?></label><select class='form-control' name='courseType' required>";
-                                    <?php
-                                    $select = "Select DISTINCT ID, Name from coursetype";
-                                    $result = $mysqli->query($select);
-                                    if ($result) {
-                                        $result = $mysqli->query($select);
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            $id = $row["ID"];
-                                            $name = $row["Name"];
-                                            echo '<option value="' . $id . '">' . $name . '</option>';
-                                        }
-                                    }?>
+                                    <option value='1'>Bachelor</option>
+                                    <option value='2'>Master</option>
                                     </select>
                                 </div>
                             </div>
@@ -82,17 +74,10 @@ use database\DBConnection;
                         <div class='form-row'>
                             <div class='col' style='min-width: 130px;margin-right: 40px;'>
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['department']?></label><select class='form-control' name='department' required>";
-                                    <?php
-                                    $select = "Select DISTINCT ID, Name from department";
-                                    $result = $mysqli->query($select);
-                                    if ($result) {
-                                        $result = $mysqli->query($select);
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            $id = $row["ID"];
-                                            $name = $row["Name"];
-                                            echo '<option value="' . $id . '">' . $name . '</option>';
-                                        }
-                                    }?>
+                                    <option value='1'><?php echo $lang['economy']?></option>
+                                    <option value='2'><?php echo $lang['it']?></option>
+                                    <option value='3'><?php echo $lang['math']?></option>
+                                    <option value='4'><?php echo $lang['other']?></option>
                                     </select>
                                 </div>
                             </div>
