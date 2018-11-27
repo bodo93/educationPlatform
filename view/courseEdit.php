@@ -1,146 +1,204 @@
 <!DOCTYPE html>
-<!--
-author: Bodo Grütter
--->
 <?php
 include 'includes/translator.inc.php';
 use database\DBConnection;
 ?>
+
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="userprofile.css">
-        <link rel="stylesheet" type="text/css" href="all.css">
-        <title><?php echo $lang['editCourse'] ?></title>
-    </head>
-    <body>
-        <h3><?php echo $lang['courseEdit'] ?></h3>
-        <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/edit" method="post">
-            <table>
-                <?php
-                
-                $db = DBConnection::getConnection();
-                $mysqli = $db->getConnection();                
-                
-                $id = 0;
-                if ($_GET) {
-                    // keep track post values
-                    $id = $_GET['id'];
-                } else if ($_POST) {
-                    $id = $_POST['id'];
-                    $update = "Update course set `Name` = '" . $_POST['name'] . "', `"
-                            . "PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
-                            . "`Start` = '" . $_POST['start'] . "', `End` = '" . $_POST['end'] . "', "
-                            . "`Link` = '" . $_POST['link'] . "', `InstituteID` = '" . $_POST['institute'] . "', "
-                            . "`DepartmentID`= '" . $_POST['department'] . "', `AreaID` = '" . $_POST['area'] . "', `CourseTypeID` = '" . $_POST['courseType'] . "' "
-                            . "where `ID` = '" . $_POST['id'] . "'";
-                    $result = $mysqli->query($update);
-                    if ($result) {
-                        header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
-                    } else {
-                        echo "Error: " . $update . "<br>" . mysqli_error($conn);
-                    }
-                }
-                //Query
-                $select = "Select * from course where ID = '$id'";
+    <body style="background-color: rgb(34,36,37);">
+        <?php
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();                
+        
+        $id = 0;
+        
+        if ($_GET) {
+            // keep track post values
+            $id = $_GET['id'];
+        } else if ($_POST) {
+            $id = $_POST['id'];
 
-                //Ausführen
-                $result = $mysqli->query($select);
-                $row = mysqli_fetch_array($result);
-                $id = $row['ID'];
-                $name = $row['Name'];
-                $postCode = $row['PostCode'];
-                $place = $row['Place'];
-                $costs = $row['Costs'];
-                $start = $row['Start'];
-                $end = $row['End'];
-                $link = $row['Link'];
-                $institute = $row['InstituteID'];
-                $department = $row['DepartmentID'];
-                $area = $row['AreaID'];
-                $courseType = $row['CourseTypeID'];
+            $update = "UPDATE course SET `Name` = '" . $_POST['name'] . "', "
+                    . "`PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
+                    . "`Start` = '" . $_POST['start'] . "', `End` = '" . $_POST['end'] . "', "
+                    . "`Costs` = '" . $_POST['costs'] . "', "
+                    . "`Link` = '" . $_POST['link'] . "', `InstituteID` = '" . $_POST['institute'] . "', "
+                    . "`DepartmentID`= '" . $_POST['department'] . "', `AreaID` = '" . $_POST['area'] . "', `CourseTypeID` = '" . $_POST['courseType'] . "' "
+                    . "WHERE `ID` = '$id'";
+            $result = $mysqli->query($update);
+            if ($result) {
+                header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
+            } else {
+                echo "Error: " . $update . "<br>" . mysqli_error($conn);
+            }
+        }
+        include 'includes/header.inc.php';
+        
+        //Query
+        $select = "Select * from course where ID = '$id'";
+        //Ausführen
+        $result = $mysqli->query($select);
+        $row = mysqli_fetch_array($result);
+        $id = $row['ID'];
+        $name = $row['Name'];
+        $postCode = $row['PostCode'];
+        $place = $row['Place'];
+        $costs = $row['Costs'];
+        $start = $row['Start'];
+        $end = $row['End'];
+        $link = $row['Link'];
+        $institute = $row['InstituteID'];
+        $department = $row['DepartmentID'];
+        $area = $row['AreaID'];
+        $courseType = $row['CourseTypeID'];
+        ?>
+        <main class="page login-page">
+            <section class="clean-block clean-form dark" style="min-height: 660px; padding-top: 100px;">
+                <div class="container">
+                    <div class="block-heading">
+                        <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['courseEdit'] ?></h2>
+                    </div>
+                    <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/edit" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
+                        <div class='form-row'>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['name']?></label><input class='form-control item' type='text' style='min-width: 160px;font-size: 14px;' name='name' value='<?php echo $name?>' required></div>
+                            </div>
+                            <div class='col' style='min-width: 130px;margin-right: 40px;'>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['courseType']?></label><select class='form-control' name='courseType' required>";
+                                    <?php
+                                    if($courseType == 1){
+                                        echo "<option value='1' selected>Bachelor</option>
+                                        <option value='2'>Master</option>";
+                                    }
+                                    else{
+                                        echo "<option value='1'>Bachelor</option>
+                                        <option value='2' selected>Master</option>";
+                                    }
+                                    ?>    
+                                    
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='col' style='min-width: 130px;margin-right: 40px;'>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['department']?></label><select class='form-control' name='department' required>";
+                                    <?php
+                                    if($department == 1){    
+                                        echo "<option value='1' selected>" . $lang['economy'] . "</option>
+                                        <option value='2'>" . $lang['it'] . "</option>
+                                        <option value='3'>" . $lang['math'] . "</option>
+                                        <option value='4'>" . $lang['other'] . "</option>";
+                                    }else if($department == 2){
+                                        echo "<option value='1'>" . $lang['economy'] . "</option>
+                                        <option value='2' selected>" . $lang['it'] . "</option>
+                                        <option value='3'>" . $lang['math'] . "</option>
+                                        <option value='4'>" . $lang['other'] . "</option>";
+                                    }else if($department == 3){
+                                        echo "<option value='1'>" . $lang['economy'] . "</option>
+                                        <option value='2'>" . $lang['it'] . "</option>
+                                        <option value='3' selected>" . $lang['math'] . "</option>
+                                        <option value='4'>" . $lang['other'] . "</option>";
+                                    }else{
+                                        echo "<option value='1'>" . $lang['economy'] . "</option>
+                                        <option value='2'>" . $lang['it'] . "</option>
+                                        <option value='3'>" . $lang['math'] . "</option>
+                                        <option value='4' selected>" . $lang['other'] . "</option>";
+                                    }
+                                    
+                                    ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['costs']?></label><input class='form-control item' type='text' style='min-width: 160px;font-size: 14px;' name='costs' value='<?php echo $costs?>' required></div>
+                            </div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='col' style='min-width: 130px;margin-right: 40px;'>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['area']?></label><select class='form-control' name='area' required>
+                                        <?php
+                                        if($area == 1){  
+                                        echo "<option value='1' selected>" . $lang['northwest'] . "</option>
+                                        <option value='2'>" . $lang['west'] . "</option>
+                                        <option value='3'>" . $lang['central'] . "</option>
+                                        <option value='4'>" . $lang['east'] . "</option>
+                                        <option value='5'>" . $lang['south'] . "</option>";
+                                        }else if($area == 2){
+                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
+                                        <option value='2' selected>" . $lang['west'] . "</option>
+                                        <option value='3'>" . $lang['central'] . "</option>
+                                        <option value='4'>" . $lang['east'] . "</option>
+                                        <option value='5'>" . $lang['south'] . "</option>";    
+                                        }else if($area == 3){
+                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
+                                        <option value='2'>" . $lang['west'] . "</option>
+                                        <option value='3' selected>" . $lang['central'] . "</option>
+                                        <option value='4'>" . $lang['east'] . "</option>
+                                        <option value='5'>" . $lang['south'] . "</option>";    
+                                        }else if($area == 4){
+                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
+                                        <option value='2'>" . $lang['west'] . "</option>
+                                        <option value='3'>" . $lang['central'] . "</option>
+                                        <option value='4' selected>" . $lang['east'] . "</option>
+                                        <option value='5'>" . $lang['south'] . "</option>";    
+                                        }else if($area == 5){
+                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
+                                        <option value='2'>" . $lang['west'] . "</option>
+                                        <option value='3'>" . $lang['central'] . "</option>
+                                        <option value='4'>" . $lang['east'] . "</option>
+                                        <option value='5' selected>" . $lang['south'] . "</option>";    
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['startDate']?></label><input class='form-control item' type='date' style='min-width: 160px;font-size: 14px;' name='start' value='<?php echo $start?>' required></div>
+                            </div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['postCode']?></label><input class='form-control item' type='text' style='min-width: 160px;font-size: 14px;' name='postCode' value='<?php echo $postCode?>' required></div>
+                            </div>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['endDate']?></label><input class='form-control item' type='date' style='min-width: 160px;font-size: 14px;' name='end' value='<?php echo $end?>' required></div>
+                            </div>
+                        </div>
+                        <div class='form-row'>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['place']?></label><input class='form-control item' type='text' style='min-width: 160px;font-size: 14px;' name='place' value='<?php echo $place?>' required></div>
+                            </div>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['link']?></label><input class='form-control item' type='url' style='min-width: 160px;font-size: 14px;' name='link' onblur="checkURL(this)" value='<?php echo $link?>' required></div>
+                            </div>
+                            <input class='form-control item' type='hidden' style='min-width: 160px;font-size: 14px;' name='institute' value='<?php echo $institute?>' required>
+                                <input class='form-control item' type='hidden' style='min-width: 160px;font-size: 14px;' name='id' value='<?php echo $id?>' required>
+                        </div>
+                        <div class='form-row'>
+                            
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'><input class='btn btn-primary' type='submit' style='width: 142px;margin-top: 10px;' value='<?php echo $lang['next']?>'></div>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'><a class='btn btn-primary' role='button' href="<?php echo $GLOBALS["ROOT_URL"]?>/course/overview" style='width: 142px;margin-top: 10px;'><?php echo $lang['cancel']?></a></div>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;height: 40px;'></div>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;height: 40px;'></div>
+                        </div>
+                    </form>
 
-                //Formular anzeigen und mit Daten füllen
-                echo "<tr><td>ID</td><td><input type='text' name='id' value='" . $id . "' /></td></tr>"
-                . "<tr><td>";
-                echo $lang['name'] . "</td><td><input type='text' name='name' value='" . $name . "' /></td></tr>"
-                . "<tr><td>";
-                echo $lang['postCode'] . "</td><td><input type='text' name='postCode' value='" . $postCode . "' /></td></tr>"
-                . "<tr><td>";
-                echo $lang['place'] . "</td><td><input type='text' name='place' value='" . $place . "' /></td></tr>"
-                . "<tr><td>";
-                echo $lang['costs'] . "</td><td><input type='text' name='costs' value='" . $costs . "' /></td></tr>"
-                . "<tr><td>";
-                echo $lang['startDate'] . "</td><td><input type='date' name='start' value='" . $start . "' /></td></tr>"
-                . "<tr><td>";
-                echo $lang['endDate'] . "</td><td><input type='date' name='end' value='" . $end . "' /></td></tr>"
-                . "<tr><td>";
-                echo $lang['link'] . "</td><td><input type='text' name='link' value='" . $link . "' /></td></tr>"
-                . "<tr><td>";
-                echo $lang['institute'] . "</td><td><select name='institute' maxlength='40'>"
-                . "<option selected value='" . $institute . "'>" . $institute . "</option>";
-                $select = "Select DISTINCT ID, Name from Institute";
-                $result = $mysqli->query($select);
-                if ($result) {
-                    $result = $mysqli->query($select);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row["ID"];
-                        $name = $row["Name"];
-                        echo '<option value="' . $id . '">' . $name . '</option>';
-                    }
-                }
-                echo "</select></td></tr>"
-                . "<tr><td>";
-                echo $lang['department'] . "</td><td><select name='department' maxlength='40'>"
-                . "<option selected value='" . $department . "'>" . $department . "</option>";
-                $select = "Select DISTINCT ID, Name from Department";
-                $result = $mysqli->query($select);
-                if ($result) {
-                    $result = $mysqli->query($select);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row["ID"];
-                        $name = $row["Name"];
-                        echo '<option value="' . $id . '">' . $name . '</option>';
-                    }
-                }
-                echo "</select></td></tr>"
-                . "<tr><td>";
-                echo $lang['area'] . "</td><td><select name='area' maxlength='40'>"
-                . "<option selected value='" . $area . "'>" . $area . "</option>";
-                $select = "Select DISTINCT ID, Name from Area";
-                $result = $result = $mysqli->query($select);
-                if ($result) {
-                    $result = $mysqli->query($select);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row["ID"];
-                        $name = $row["Name"];
-                        echo '<option value="' . $id . '">' . $name . '</option>';
-                    }
-                }
-                echo "</select></td></tr>"
-                . "<tr><td>";
-                echo $lang['courseType'] . "</td><td><select name='courseType' maxlength='40'>"
-                . "<option selected value='" . $courseType . "'>" . $courseType . "</option>";
-                $select = "Select DISTINCT ID, Name from CourseType";
-                $result = $result = $mysqli->query($select);
-                if ($result) {
-                    $result = $mysqli->query($select);
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row["ID"];
-                        $name = $row["Name"];
-                        echo '<option value="' . $id . '">' . $name . '</option>';
-                    }
-                }
-                echo "</select></td></tr>"
-                . "<tr><td><input type='submit' name'save' value='";
-                echo $lang['save'] . "'></td><td><input type='button' name'cancel' value='";
-                echo $lang['cancel'] . "' onclick='window.location.href='course/overview''></td></tr>";
-                ?>
-            </table>
-        </form>
-    </body>
+                    <script>
+                        function checkURL (abc) {
+                        var string = abc.value;
+                        if (!~string.indexOf("http")) {
+                            string = "http://" + string;
+                        }
+                        abc.value = string;
+                        return abc
+                        }
+                    </script>
+                </div>
+            </section>
+        </main>
+        <?php
+        include 'includes/footer.inc.php';
+        ?>
+    </body>   
 </html>
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
