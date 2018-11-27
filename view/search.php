@@ -20,6 +20,7 @@ include 'includes/header.inc.php';
                                 <option></option>
                                 <option value="Wirtschaft"><?php echo $lang['economy'] ?></option>
                                 <option value="Informatik"><?php echo $lang['it'] ?></option>
+                                <option value="Mathematik"><?php echo $lang['math'] ?></option>
                                 <option value="Sonstiges"><?php echo $lang['other'] ?></option>
                             </select>
                         </div>
@@ -27,9 +28,11 @@ include 'includes/header.inc.php';
                             class="form-group"><label for="subject" style="font-weight: bold;color: rgb(255,255,255);margin-bottom: 2;"><?php echo $lang['area'] ?></label>
                             <select name="area" class="form-control" id="subject">
                                 <option></option>
+                                <option value="Nordwestschweiz"><?php echo $lang['northwest'] ?></option>
                                 <option value="Westschweiz"><?php echo $lang['west'] ?></option>
-                                <option value="Mittelland"><?php echo $lang['central'] ?></option>
+                                <option value="Zentralschweiz"><?php echo $lang['central'] ?></option>
                                 <option value="Ostschweiz"><?php echo $lang['east'] ?></option>
+                                <option value="Suedschweiz"><?php echo $lang['south'] ?></option>
                             </select>
                         </div>
                         <div
@@ -38,7 +41,6 @@ include 'includes/header.inc.php';
                                 <option></option>
                                 <option value="Bachelor">Bachelor</option>
                                 <option value="Master">Master</option>
-                                <option value="Sonstiges"><?php echo $lang['other'] ?></option>
                             </select>
                         </div>
                         <div

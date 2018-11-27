@@ -60,7 +60,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "west" => "Westschweiz",
         "central" => "Zentralschweiz",
         "east" => "Ostschweiz",
-        "south" => "Tessin",
+        "south" => "Südschweiz",
 
         //SEARCH
         "department" => "Fachbereich",
