@@ -57,15 +57,27 @@ function filterTable($query){
 <?php
 include 'includes/header.inc.php';
 ?>
-<html>
     <body style="background-color: rgb(34,36,37);">
+    <head>
+        <style>
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+            background-color: #dddddd;
+            }
+        </style>
+    </head>
         <main class="page login-page">
-            <section class="clean-block clean-form dark" style="background-image: url(&quot;assets/img/road_sun.jpg&quot;); background-size: cover;background-repeat: no-repeat; min-height: 760px; padding-top: 100px; min-width: 660px;">
-                <div class="container" style="background-color: rgba(198,189,189,0.85);">
+            <section class="clean-block clean-form dark" style="background-image: url(&quot;assets/img/road_sun.jpg&quot;); background-size: cover;background-repeat: no-repeat; padding-top: 100px;">
+                <div class="container" style="background-color: rgba(198,189,189,0.85); overflow-x: auto; padding:20px;">
                     <div class="block-heading">
                         <h2 class="text-center text-info"><?php echo $lang['searchResults']?></h2>
-                    </div>                    
-                    <table id="table-searchResult" style="border:1px solid black">
+                    </div>                
+                    <table id="table-searchResult" style="width: 100%">
                         <tr>
                           <th><?php echo $lang['name']?></th>
                           <th><?php echo $lang['department']?></th>

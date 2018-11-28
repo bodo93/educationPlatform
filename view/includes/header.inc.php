@@ -62,5 +62,3 @@ else
         <script src="assets/js/theme.js"></script>
         <script src="assets/js/createMyCoursesTable.js"></script>
         <script src="assets/js/Table-With-Search.js"></script>
-    </body>
-</html>
