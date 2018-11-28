@@ -60,8 +60,6 @@ include 'includes/header.inc.php';
     <body style="background-color: rgb(34,36,37);">
     <head>
         <style>
-            
-            
             td, th {
                 border: 1px solid #dddddd;
                 text-align: left;
@@ -69,9 +67,20 @@ include 'includes/header.inc.php';
             }
             
             tr:nth-child(even) {
-            background-color: #dddddd;
+                background-color: #dddddd;
+            }
+            
+            tr:hover {
+                background-color:#b5b5b5;
             }
         </style>
+        <script type="text/javascript">
+            jQuery(document).ready(function($) {
+                $(".clickable-row").click(function() {
+                    window.location = $(this).data("href");
+                });
+            });
+        </script>
     </head>
         <main class="page login-page">
             <section class="clean-block clean-form dark" style="background-image: url(&quot;assets/img/road_sun.jpg&quot;); background-size: cover;background-repeat: no-repeat; min-height: 600px; padding-top: 100px;">
@@ -92,8 +101,8 @@ include 'includes/header.inc.php';
                         <?php 
                             while ($row = mysqli_fetch_array($search_Result)){  
                                 //$id = $row["ID"];
-                                   echo "\n\n<tr>"
-                                   . "<td><a href='" . $row['Link'] . "'>" . $row['Name'] . "</a></td>"
+                                   echo "<tr class='clickable-row' data-href='" . $row['Link'] . "'>"
+                                   . "<td>" . $row['Name'] . "</td>"
                                    . "<td>" . $row['departmentName'] . "</td>"
                                    . "<td>" . $row['instituteName'] . "</td>"
                                    . "<td>" . $row['areaName'] . "</td>"        
