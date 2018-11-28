@@ -1,7 +1,7 @@
 <?php
 
 namespace mail;
-use database\Config;
+use database\config;
 
 
 /**

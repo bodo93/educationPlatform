@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 namespace database;
-use database\Config;
+use database\config;
 use \mysqli;
 /**
  * Description of dbConnection
