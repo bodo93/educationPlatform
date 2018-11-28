@@ -61,7 +61,14 @@ class InstituteController {
 
             if ($mysqli->query($insert) === FALSE) {
                 echo "Error: " . $sql . "<br>" . $conn->error;
-            }
+            }else{
+                echo "
+                <script type=\"text/javascript\">
+                alert('User successfully created');
+                window.location.replace('login');
+                </script>
+                "; 
+            }      
         }else{
             echo "
             <script type=\"text/javascript\">
