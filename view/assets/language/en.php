@@ -78,6 +78,9 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         //EDIT COURSE
         "courseEdit" => "Edit course",
         
+        //USERPROFILE
+        "userprofile" => "User profile",
+        
         // HEADER
         "myCourses" => "My courses",
         "userProfile" => "Userprofile",

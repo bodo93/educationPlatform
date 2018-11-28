@@ -97,20 +97,29 @@ class InstituteController {
         $institute = $stmt->get_result()->fetch_object("model\Institute");
         $stmt->close();
 
-        if (password_verify($submittedPassword, $institute->getPassword())) {
+        
+        if($institute){
+            if (password_verify($submittedPassword, $institute->getPassword())) {
             $_SESSION['userID'] = $institute->getId();
             $_SESSION['instituteLogin'] = true;
           
             header("location: course/overview");
-        }
-        else {
+            }else {
+                echo "
+                <script type=\"text/javascript\">
+                alert('Password invalid');
+                window.location.replace('login');
+                </script>
+                ";
+            }
+        }else{
             echo "
             <script type=\"text/javascript\">
-            alert('Username or Password invalid');
+            alert('Username invalid');
             window.location.replace('login');
             </script>
             ";
-        }
+        } 
     }
     
     /**

@@ -45,7 +45,7 @@ use database\DBConnection;
             <section class="clean-block clean-form dark" style="min-height: 660px; padding-top: 100px;">
                 <div class="container">
                     <div class="block-heading">
-                        <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['courseEdit'] ?></h2>
+                        <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['userprofile'] ?></h2>
                     </div>
                     <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/institute" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
                         <div class="form-row">
