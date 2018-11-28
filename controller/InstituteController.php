@@ -96,6 +96,10 @@ class InstituteController {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();        
         
+        // test mail function
+        EmailServiceClient::sendEmail('rene.schwab@students.fhnw.ch', 'SendGrid Test"', 'Das ist ein Test der Mail Funktion');
+
+
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
         
         $stmt->bind_param('s', $email);
