@@ -60,6 +60,8 @@ include 'includes/header.inc.php';
     <body style="background-color: rgb(34,36,37);">
     <head>
         <style>
+            
+            
             td, th {
                 border: 1px solid #dddddd;
                 text-align: left;
@@ -72,7 +74,7 @@ include 'includes/header.inc.php';
         </style>
     </head>
         <main class="page login-page">
-            <section class="clean-block clean-form dark" style="background-image: url(&quot;assets/img/road_sun.jpg&quot;); background-size: cover;background-repeat: no-repeat; padding-top: 100px;">
+            <section class="clean-block clean-form dark" style="background-image: url(&quot;assets/img/road_sun.jpg&quot;); background-size: cover;background-repeat: no-repeat; min-height: 600px; padding-top: 100px;">
                 <div class="container" style="background-color: rgba(198,189,189,0.85); overflow-x: auto; padding:20px;">
                     <div class="block-heading">
                         <h2 class="text-center text-info"><?php echo $lang['searchResults']?></h2>
@@ -86,10 +88,6 @@ include 'includes/header.inc.php';
                           <th><?php echo $lang['place']?></th>
                           <th><?php echo $lang['courseType']?></th>
                           <th><?php echo $lang['startDate']?></th>
-                          
-                          
-                          <!--<th><?php echo $lang['costs']?></th>-->
-                          <!--<th><?php echo $lang['endDate']?></th>-->
                         </tr>
                         <?php 
                             while ($row = mysqli_fetch_array($search_Result)){  
@@ -102,11 +100,6 @@ include 'includes/header.inc.php';
                                    . "<td>" . $row['Place'] . "</td>"
                                    . "<td>" . $row['courseTypeName'] . "</td>"
                                    . "<td>" . $row['Start'] . "</td>"
-                                           
-                                   
-                                   //. "<td>" . $row['Costs'] . "</td>"
-                                   
-                                   //. "<td>" . $row['End'] . "</td>"
                                    . "</tr>";
                             }
                         ?>
