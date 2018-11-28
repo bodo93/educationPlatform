@@ -10,6 +10,7 @@ use database\config;
 class EmailServiceClient {
 
     public static function sendEmail($toEmail, $subject, $htmlData) {
+        echo "Methode aufgerufen";
         $jsonObj = self::createEmailJSONObj();
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
         $jsonObj->subject = $subject;

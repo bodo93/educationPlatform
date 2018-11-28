@@ -14,6 +14,7 @@ use model\Institute;
 use model\InvoiceAddress;
 use database\courseDAO;
 use database\DBConnection;
+use controller\EmailController;
 
 /**
  * Description of EducationalInstitute
@@ -97,7 +98,8 @@ class InstituteController {
         $mysqli = $db->getConnection();        
         
         // test mail function
-        // EmailServiceClient::sendEmail('rene.schwab@students.fhnw.ch', 'SendGrid Test"', 'Das ist ein Test der Mail Funktion');
+        
+        EmailServiceClient::sendEmail('rene.schwab@students.fhnw.ch', 'SendGrid Test', 'Das ist ein Test der Mail Funktion');
 
 
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
