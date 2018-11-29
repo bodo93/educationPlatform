@@ -97,7 +97,9 @@ class InstituteController {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();        
         
+        
         // test mail function
+        echo "Methode aufgerufen";
         EmailServiceClient::sendEmail("rene.schwab@students.fhnw.ch", "SendGrid Test", "Das ist ein Test der Mail Funktion");
 
 
