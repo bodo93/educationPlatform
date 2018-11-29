@@ -15,6 +15,7 @@ use model\InvoiceAddress;
 use database\courseDAO;
 use database\DBConnection;
 use controller\EmailController;
+use mail\EmailServiceClient;
 
 /**
  * Description of EducationalInstitute
