@@ -32,15 +32,8 @@ class InstituteController {
     * @author Philipp Lehmann
     */
     public static function register($view = null){        
-        $myschool = $_POST['name'];
-        $myaddress = $_POST['street'];
-        $myHouseNumber = $_POST['houseNumber'];
-        $myPostCode = $_POST['postCode'];
-        $myCity = $_POST['place'];
-        $myEmail = $_POST['email'];
         $myPassword = $_POST['password'];
         $myPassword2 = $_POST['password2'];
-        $encrypt = password_hash($myPassword, PASSWORD_DEFAULT);
 
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -48,7 +41,7 @@ class InstituteController {
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
         
         $stmt->bind_param('s', $email);
-        $email = $myEmail;
+        $email = $_POST['email'];
         $stmt->execute();
         $institute = $stmt->get_result()->fetch_object("model\Institute");
         $stmt->close();
@@ -61,10 +54,20 @@ class InstituteController {
                 </script>
             ";
         }else if($myPassword == $myPassword2){
-            $insert = "INSERT INTO institute (Name, Street, HouseNumber, PostCode, Place, Email, Password)
-                    VALUES ('$myschool', '$myaddress', '$myHouseNumber', '$myPostCode', '$myCity', '$myEmail', '$encrypt')";
+            $stmt = $mysqli->prepare("INSERT INTO institute (Name, Street, HouseNumber, PostCode, Place, Email, Password)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)");
 
-            if ($mysqli->query($insert) === FALSE) {
+            $stmt->bind_param('sssisss', $name, $street, $houseNumber, $postCode, $place, $email, $encryption);
+            $name = $_POST['name'];
+            $street = $_POST['street'];
+            $houseNumber = $_POST['houseNumber'];
+            $postCode = $_POST['postCode'];
+            $place = $_POST['place'];
+            $email = $_POST['email'];
+            $encryption = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $stmt->execute();
+            
+            if ($stmt === FALSE) {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }else{
                 echo "

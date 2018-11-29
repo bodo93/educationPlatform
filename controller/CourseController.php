@@ -19,15 +19,19 @@ use database\DBConnection;
  * @author bodog
  */
 class CourseController {
-
-
     public static function create() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
         if (!empty($_POST)) {
+            $stmt = $mysqli->prepare("INSERT INTO course (ID, Name, PostCode, Place, Costs, Start, End, 
+                                    Link, InstituteID, DepartmentID, AreaID, CourseTypeID)
+                                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            // Formularinhalte in Variablen schreiben
+            $stmt->bind_param('isisisssiiii', $id, $name, $postCode, $place, $costs, $start, $end, $link, $institute,
+                            $department, $area, $courseType);
+
+            $id = NULL;
             $name = $_POST['name'];
             $postCode = $_POST['postCode'];
             $place = $_POST['place'];
@@ -40,10 +44,9 @@ class CourseController {
             $area = $_POST['area'];
             $courseType = $_POST['courseType'];
             
-            $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
-            
-            $result = $mysqli->query($insert);
-            if ($result) {
+            $stmt->execute();
+
+            if ($stmt) {
                 header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
             } else {
                 echo "Error: " . $insert . "<br>" . mysqli_error($conn);
@@ -69,22 +72,31 @@ class CourseController {
     }
 
     public static function update() {
-        $course = new Course();
-        $course->setId($_POST["id"]);
-        $course->setName($_POST["name"]);
-        $course->setPostCode($_POST["postCode"]);
-        $course->setPlace($_POST["place"]);
-        $course->setCosts($_POST["costs"]);
-        $course->setStart($_POST["start"]);
-        $course->setEnd($_POST["end"]);
-        $course->setLink($_POST["link"]);
-        $course->setInstituteId($_POST["institute"]);
-        $course->setDepartmentId($_POST["department"]);
-        $course->setAreaId($_POST["area"]);
-        $course->setCourseTypeId($_POST["courseType"]);
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();                
         
-        $courseDAO = new CourseDAO();
-        $courseDAO->update($course);
+        $id = 0;
+        
+        if ($_GET) {
+            // keep track post values
+            $id = $_GET['id'];
+        } else if ($_POST) {
+            $id = $_POST['id'];
+
+            $update = "UPDATE course SET `Name` = '" . $_POST['name'] . "', "
+                    . "`PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
+                    . "`Start` = '" . $_POST['start'] . "', `End` = '" . $_POST['end'] . "', "
+                    . "`Costs` = '" . $_POST['costs'] . "', "
+                    . "`Link` = '" . $_POST['link'] . "', `InstituteID` = '" . $_POST['institute'] . "', "
+                    . "`DepartmentID`= '" . $_POST['department'] . "', `AreaID` = '" . $_POST['area'] . "', `CourseTypeID` = '" . $_POST['courseType'] . "' "
+                    . "WHERE `ID` = '$id'";
+            $result = $mysqli->query($update);
+            if ($result) {
+                header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
+            } else {
+                echo "Error: " . $update . "<br>" . mysqli_error($conn);
+            }
+        }
     }
 
     public static function delete($courseId) {

@@ -10,7 +10,7 @@ namespace model;
 
 class Course {
 
-    private $iD;
+    private $ID;
     private $Name;
     private $PostCode;
     private $Place;
@@ -18,10 +18,10 @@ class Course {
     private $Start;
     private $End;
     private $Link;
-    private $InstituteId;
-    private $DepartmentId;
-    private $AreaId;
-    private $CourseTypeId;
+    private $InstituteID;
+    private $DepartmentID;
+    private $AreaID;
+    private $CourseTypeID;
 
     function getId() {
         return $this->ID;
@@ -56,19 +56,19 @@ class Course {
     }
 
     function getInstituteId() {
-        return $this->InstituteId;
+        return $this->InstituteID;
     }
 
     function getDepartmentId() {
-        return $this->DepartmentId;
+        return $this->DepartmentID;
     }
 
     function getAreaId() {
-        return $this->AreaId;
+        return $this->AreaID;
     }
 
     function getCourseTypeId() {
-        return $this->CourseTypeId;
+        return $this->CourseTypeID;
     }
 
     function setId($id) {

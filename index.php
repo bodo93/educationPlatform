@@ -46,7 +46,7 @@ Router::route_auth("GET", "/course/edit", $authFunction, function () {
 });
 
 Router::route_auth("POST", "/course/edit", $authFunction, function () {
-    require_once("view/courseEdit.php");
+    CourseController::update();
 });
 
 Router::route("GET", "/login", function(){
