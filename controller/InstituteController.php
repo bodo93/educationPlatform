@@ -104,7 +104,7 @@ class InstituteController {
         
         // test mail function
         echo "Methode aufgerufen";
-        EmailServiceClient::sendEmail("rene.schwab@students.fhnw.ch", "SendGrid Test", "Das ist ein Test der Mail Funktion");
+        EmailServiceClient::sendEmail("philipp.lehmann32@gmail.com", "SendGrid Test", "Das ist ein Test der Mail Funktion");
 
 
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
