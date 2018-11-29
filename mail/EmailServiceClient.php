@@ -19,7 +19,8 @@ class EmailServiceClient {
         $options = ["http" => [
                 "method" => "POST",
                 "header" => ["Content-Type: application/json",
-                    "Authorization: Bearer " . Config::get("sendGrid.value") . ""],
+                    //"Authorization: Bearer " . Config::get("sendGrid.value") . ""],
+                    "Authorization: Bearer " . getenv("SENDGRID_API_KEY") . ""], // test
                 "content" => json_encode($jsonObj)
         ]];
         $context = stream_context_create($options);
