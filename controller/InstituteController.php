@@ -8,13 +8,15 @@
 
 namespace controller;
 
-use view\TemplateView;
-use view\LayoutRendering;
+//use view\TemplateView;
+//use view\LayoutRendering;
 use model\Institute;
 use model\InvoiceAddress;
 use database\courseDAO;
 use database\DBConnection;
 use controller\EmailController;
+use view\TemplateView;
+use view\LayoutRendering;
 
 /**
  * Description of EducationalInstitute
@@ -150,25 +152,32 @@ class InstituteController {
         $LayoutRendering::basicLayout($contentView);
     }
     
-    public static function update(){
-        $institute = new Institute();
-        $institute->setId($_POST["instituteId"]);
-        $institute->setName($_POST["name"]);
-        $institute->setStreet($_POST["street"]);
-        $institute->setHouseNumber($_POST["houseNumber"]);
-        $institute->setPostCode($_POST["postCode"]);
-        $institute->setPlace($_POST["place"]);
-        $institute->setEmail($_POST["email"]);
-        $institute->setPassword($_POST["password"]);
-        $institute->setInvoiceAddressId($_POST["invoiceAddress"]);
-        $invoiceAddress = new InvoiceAddress();
-        $invoiceAddress->setId($_POST["invoiceAddressId"]);
-        $invoiceAddress->setStreet($_POST["invoiceAddressStreet"]);
-        $invoiceAddress->setHouseNumber($_POST["invoiceAddressHouseNumber"]);
-        $invoiceAddress->setPostCode($_POST["invoiceAddressPostCode"]);
-        $invoiceAddress->setPlace($_POST["invoiceAddressPlace"]);
+    public static function updateAccount(){
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();     
         
-        $instituteDAO = new InstituteDAO();
-        $instituteDAO->update($institute, $invoiceAddress);
+        if ($_POST) {
+            // update institute
+            $stmt = $mysqli->prepare("UPDATE institute SET `Name` = ?, `Street` = ?, `HouseNumber` = ?,
+                    `PostCode` = ?, `Place` = ?, `Email` = ?
+                    WHERE `ID` = ?");
+            
+            $stmt->bind_param('sssissi', $name, $street, $houseNumber, $postCode, $place, $email, $id);
+            $name = $_POST['name'];
+            $street = $_POST['street'];
+            $houseNumber = $_POST['houseNumber'];
+            $postCode = $_POST['postCode'];
+            $place = $_POST['place'];
+            $email = $_POST['email'];
+            $id = $_SESSION['userID'];
+            
+            $stmt->execute();
+            
+            if ($stmt) {
+                header("Location: ".$GLOBALS["ROOT_URL"]."/institute");
+            } else {
+                echo "Error: ";
+            }
+        }
     }
 }

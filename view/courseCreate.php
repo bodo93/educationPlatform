@@ -1,41 +1,11 @@
 <!DOCTYPE html>
 <?php
 include 'includes/translator.inc.php';
-use database\DBConnection;
 ?>
 
 <html>
     <body style="background-color: rgb(34,36,37);">
         <?php
-        $db = DBConnection::getConnection();
-        $mysqli = $db->getConnection();
-
-        if (!empty($_POST)) {
-
-            // Formularinhalte in Variablen schreiben
-            $name = $_POST['name'];
-            $postCode = $_POST['postCode'];
-            $place = $_POST['place'];
-            $costs = $_POST['costs'];
-            $start = $_POST['start'];
-            $end = $_POST['end'];
-            $link = $_POST['link'];
-            $institute = $_SESSION['userID'];
-            $department = $_POST['department'];
-            $area = $_POST['area'];
-            $courseType = $_POST['courseType'];
-            
-            $insert = "INSERT INTO `course` (`ID`, `Name`, `PostCode`, `Place`, `Costs`, `Start`, `End`, `Link`, `InstituteID`, `DepartmentID`, `AreaID`, `CourseTypeID`) VALUES (NULL, '$name', '$postCode', '$place', '$costs', '$start', '$end', '$link', '$institute', '$department', '$area', '$courseType')";
-            
-            $result = $mysqli->query($insert);
-            if ($result) {
-                header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
-            } else {
-                echo "Error: " . $insert . "<br>" . mysqli_error($conn);
-            }
-            echo "<meta http-equiv='refresh' content='0'>";
-            mysqli_close($conn);
-        }
         include 'includes/header.inc.php';
         ?>
         <main class="page login-page">

@@ -2,18 +2,12 @@
 
 <?php
 include 'includes/header.inc.php';
-
 use database\DBConnection;
 
 $userID = $_SESSION['userID'];
 
 $db = DBConnection::getConnection();
 $mysqli = $db->getConnection();        
-
-
-
-
-
 
 $stmt = $mysqli->prepare("SELECT * FROM institute WHERE ID = ?");
 

@@ -29,7 +29,6 @@ $errorFunction = function () {
     require_once("view/404.php");
 };
 
-
 // JUST FOR TESTING
 // ################
 Router::route("GET", "/testPDF", function(){
@@ -56,7 +55,6 @@ Router::route("GET", "/login", function(){
 
 Router::route("POST", "/login", function () {
     InstituteController::login();
-    //Router::redirect("/course/overview");
 });
 
 Router::route("GET", "/login/forgotPassword", function(){
@@ -73,7 +71,6 @@ Router::route("GET", "/register", function(){
 
 Router::route("POST", "/register", function () {
     InstituteController::register();
-    //Router::redirect("/login");
 });
 
 Router::route("GET", "/ourOffer", function(){
@@ -93,16 +90,6 @@ Router::route("POST", "/course/overview",function () {
     require_once("view/courseOverview.php");
 });
 
-/* IM EINSATZ
-Router::route_auth("GET", "/", $authFunction, function () {
-    require_once("view/home.php");
-});
-
-Router::route_auth("GET", "/search", $authFunction, function () {
-    require_once("view/search.php");
-});
-*/
-
 Router::route_auth("GET", "/course/overview", $authFunction, function () {
     require_once("view/courseOverview.php");
 });
@@ -116,7 +103,7 @@ Router::route_auth("GET", "/institute", $authFunction, function () {
 });
 
 Router::route_auth("POST", "/institute", $authFunction, function () {
-    require_once("view/instituteShowAccount.php");
+    InstituteController::updateAccount();
 });
 
 Router::route("GET", "/search", function () {
@@ -131,13 +118,8 @@ Router::route("POST", "/searchResult", function () {
     require_once("view/searchResult.php");
 });
 
-/*
-Router::route("GET", "/institute/register", function () {
-    require_once("view/instituteEditAccount.php");
-});*/
-
 Router::route("POST", "/course/create", function () {
-    require_once("view/courseCreate.php");
+    CourseController::create();
 });
 
 Router::route("GET", "/course/cost", function () {

@@ -71,4 +71,13 @@ class CourseDAO extends BasicDAO {
         $stmt->execute();
         return $stmt->fetch_all($mysqli::fetch_object)[0];
     }
+    
+    /*
+    public function search(Course $course){
+        $stmt = $this->mysqli->prepare("SELECT ? FROM course c ORDER BY Name;");
+        $stmt->bind_param("i", $instituteId);
+        $stmt->execute();
+        
+        return $stmt->fetch_all($mysqli::fetch_object)[0];       
+    }*/
 }
