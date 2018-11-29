@@ -18,6 +18,8 @@ use controller\EmailController;
 use view\TemplateView;
 use view\LayoutRendering;
 
+use mail\EmailServiceClient;
+
 /**
  * Description of EducationalInstitute
  *
@@ -99,8 +101,10 @@ class InstituteController {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();        
         
+        
         // test mail function
-        //EmailServiceClient::sendEmail("rene.schwab@students.fhnw.ch", "SendGrid Test", "Das ist ein Test der Mail Funktion");
+        echo "Methode aufgerufen";
+        EmailServiceClient::sendEmail("rene.schwab@students.fhnw.ch", "SendGrid Test", "Das ist ein Test der Mail Funktion");
 
 
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
