@@ -63,7 +63,7 @@ Router::route("GET", "/login/forgotPassword", function(){
 });
 
 Router::route("POST", "/login/forgotPassword", function(){
-    EmailController::restPw();
+    EmailController::resetPw();
 });
 
 Router::route("GET", "/login/newPassword", function(){
