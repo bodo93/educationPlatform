@@ -6,8 +6,6 @@ use database\DBConnection;
 use service\EmailServiceClient;
 
 
-
-
 class EmailController {
     
         // public static function pwResetMail($mail, $userId, $pwHacheCode) {
@@ -24,15 +22,18 @@ class EmailController {
     
     
      public static function resetPw() {
+        echo "resetPw aufgerufen";
         
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
         echo "db connection ok";
 
-        $id = $_SESSION['userID'];
-        echo "session id ok";
+        $toEmail = $_POST['email'];
         
-        $toEmail = $mysqli("Select Email from institute where ID = $id");
+        //$id = $_SESSION['userID'];
+        //echo "session id ok";
+        
+        $id = $mysqli("Select ID from institute where Email = $toEmail");
         $pw = $mysqli("Select Password from institute where ID = $id");
         echo "select statements ok";
 
@@ -41,7 +42,13 @@ class EmailController {
         $htmlData = "Ihr Passwort lautet: " . $pw;
         
         EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
-     
+        
+        header("location: login");
+        echo "  <script type=\"text/javascript\">
+                alert('Check your E-Mail');
+                window.location.replace('login');
+                </script>
+                ";
     }
 
 
