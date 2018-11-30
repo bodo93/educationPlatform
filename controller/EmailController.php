@@ -1,6 +1,7 @@
 <?php
 
 include 'includes/translator.inc.php';
+use service\EmailServiceClient;
 
 
 
@@ -18,6 +19,15 @@ class EmailController {
             mail($to, $subject, $message, $headers); // standard PHP function
     }
     
+    
+     public static function resetPw($mail, $userId) {
+            
+         
+         sendEmail($toEmail, $subject, $htmlData);
+        
+
+            
+    }
 
 }
 
