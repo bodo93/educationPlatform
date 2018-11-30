@@ -1,6 +1,6 @@
 <?php
 
-namespace mail;
+namespace service;
 use database\config;
 
 
