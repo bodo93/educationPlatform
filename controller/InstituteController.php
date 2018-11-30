@@ -18,7 +18,7 @@ use controller\EmailController;
 use view\TemplateView;
 use view\LayoutRendering;
 
-use mail\EmailServiceClient;
+use service\EmailServiceClient;
 
 /**
  * Description of EducationalInstitute

@@ -1,7 +1,10 @@
 <?php
 
 include 'includes/translator.inc.php';
+
+use database\DBConnection;
 use service\EmailServiceClient;
+
 
 
 
@@ -20,14 +23,27 @@ class EmailController {
     }
     
     
-     public static function resetPw($mail, $userId) {
-            
-         
-         sendEmail($toEmail, $subject, $htmlData);
+     public static function resetPw() {
         
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();
+        echo "db connection ok";
 
-            
+        $id = $_SESSION['userID'];
+        echo "session id ok";
+        
+        $toEmail = $mysqli("Select Email from institute where ID = $id");
+        $pw = $mysqli("Select Password from institute where ID = $id");
+        echo "select statements ok";
+
+        $subject = "SWISSEDU";
+
+        $htmlData = "Ihr Passwort lautet: " . $pw;
+        
+        EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+     
     }
+
 
 }
 

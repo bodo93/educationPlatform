@@ -12,6 +12,7 @@ require_once("view/layout.php");
 use routing\Router;
 use controller\InstituteController;
 use controller\CourseController;
+use controller\EmailController;
 
 ini_set( 'session.cookie_httponly', 1 );
 session_start();
@@ -59,6 +60,10 @@ Router::route("POST", "/login", function () {
 
 Router::route("GET", "/login/forgotPassword", function(){
     require_once("view/instituteForgotPassword.php");
+});
+
+Router::route("POST", "/login/forgotPassword", function(){
+    EmailController::restPw();
 });
 
 Router::route("GET", "/login/newPassword", function(){
