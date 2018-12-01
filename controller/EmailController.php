@@ -35,8 +35,16 @@ class EmailController {
         //$id = $_SESSION['userID'];
         //echo "session id ok";
         
-        $id = $mysqli("Select ID from institute where Email = $toEmail");
-        $pw = $mysqli("Select Password from institute where ID = $id");
+        $idStmt = $mysqli("Select ID from institute where Email = $toEmail");
+        $result = mysqli_query($mysqli,$idStmt);
+        $row = mysqli_fetch_assoc($result);
+        $id = $row["ID"];
+        
+        $pwStmt = $mysqli("Select Password from institute where ID = $id");
+        $result = mysqli_query($mysqli,$pwStmt);
+        $row = mysqli_fetch_assoc($result);
+        $pw = $row["Password"];
+        
         echo "select statements ok";
 
         $subject = "SWISSEDU";
