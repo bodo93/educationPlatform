@@ -64,6 +64,7 @@ class EmailController {
         
         $stmt = $mysqli->prepare("Select Password from institute where ID = ?");
         $stmt->bind_param('i', $id);
+        echo $id;
 
         $result = $stmt->execute();
         $row = mysqli_fetch_assoc($result);
