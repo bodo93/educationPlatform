@@ -32,7 +32,7 @@ class EmailController {
 
         $toEmail = $_POST['email'];
         
-        echo $toEmail;
+        echo $toEmail." ";
         //$id = $_SESSION['userID'];
         //echo "session id ok";
         
@@ -63,8 +63,11 @@ class EmailController {
          */
         
         $stmt = $mysqli->prepare("Select Password from institute where ID = ?");
+        echo "test1 ";
         $stmt->bind_param('i', $id);
         echo $id;
+        
+        echo "test2 ";
 
         $result = $stmt->execute();
         $row = mysqli_fetch_assoc($result);
