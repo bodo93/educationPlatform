@@ -24,11 +24,11 @@ class EmailController {
     
     
      public static function resetPw() {
-        echo "resetPw aufgerufen";
+        echo "resetPw aufgerufen ";
         
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
-        echo "db connection ok";
+        echo "db connection ok ";
 
         $toEmail = $_POST['email'];
         
@@ -36,20 +36,31 @@ class EmailController {
         //$id = $_SESSION['userID'];
         //echo "session id ok";
         
+        /*
         $idStmt = $mysqli("Select ID from institute where Email = '$toEmail'");
         if ($result = mysqli_query($mysqli,$idStmt)){
             $row = mysqli_fetch_assoc($result);
             $id = $row["ID"];
             echo "select statement ID ok";
         }
+        */
         
+        $stmt = $mysqli->prepare("Select ID from institute where Email = ?");
+        $stmt->bind_param('s', $toEmail);
+        
+        $result = $stmt->execute();
+        $row = mysqli_fetch_assoc($result);
+        $id = $row["ID"];
+        
+        echo "select statements id ok ";
 
+        
         $pwStmt = $mysqli("Select Password from institute where ID = '$id'");
         $result = mysqli_query($mysqli,$pwStmt);
         $row = mysqli_fetch_assoc($result);
         $pw = $row["Password"];
         
-        echo "select statements ok";
+        echo "select statements PW ok ";
 
         $subject = "SWISSEDU";
 
