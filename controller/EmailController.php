@@ -51,7 +51,7 @@ class EmailController {
         $result = $stmt->execute();
         $row = mysqli_fetch_assoc($result);
         $id = $row["ID"];
-        
+        echo $id;
         echo "select statements id ok ";
 
         /*
