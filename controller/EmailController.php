@@ -32,6 +32,7 @@ class EmailController {
 
         $toEmail = $_POST['email'];
         
+        echo $toEmail;
         //$id = $_SESSION['userID'];
         //echo "session id ok";
         
