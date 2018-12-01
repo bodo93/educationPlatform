@@ -1,5 +1,7 @@
 <?php
 
+namespace controller;
+
 include 'includes/translator.inc.php';
 
 use database\DBConnection;
