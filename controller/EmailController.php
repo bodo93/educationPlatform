@@ -64,7 +64,7 @@ class EmailController {
         
         $stmt = $mysqli->prepare("Select Password from institute where ID = ?");
         echo "test1 ";
-        $stmt->bind_param('i', $id);
+        $stmt->bind_param('i', $id); // hier stimmt etwas nicht -> test 1 wird ausgegeben..
         echo $id;
         
         echo "test2 ";
