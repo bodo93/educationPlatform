@@ -10,6 +10,7 @@ namespace controller;
 use view\TemplateView;
 use view\LayoutRendering;
 use model\Course;
+use model\Institute;
 use database\courseDAO;
 use database\DBConnection;
 use service\EmailServiceClient;
@@ -61,7 +62,7 @@ class CourseController {
             $stmt->execute();
             echo "stmt execute ";
             
-            $toEmail = $stmt->getEmail();
+            $toEmail = $stmt->getEmail();  // funktioniert nicht, warum ??
             echo "get mail ";
             //$email = $_POST['email'];
             
