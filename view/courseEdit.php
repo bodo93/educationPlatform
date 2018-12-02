@@ -35,11 +35,18 @@ use database\DBConnection;
                                     <?php
                                     if($course->getCourseTypeId() == 1){
                                         echo "<option value='1' selected>Bachelor</option>
-                                        <option value='2'>Master</option>";
+                                        <option value='2'>Master</option>
+                                        <option value='3'>" . $lang['other'] . "</option>";
+                                    }
+                                    else if($course->getCourseTypeId() == 2){
+                                        echo "<option value='1'>Bachelor</option>
+                                        <option value='2' selected>Master</option>
+                                        <option value='3'>" . $lang['other'] . "</option>";
                                     }
                                     else{
                                         echo "<option value='1'>Bachelor</option>
-                                        <option value='2' selected>Master</option>";
+                                        <option value='2'>Master</option>
+                                        <option value='3' selected>" . $lang['other'] . "</option>";
                                     }
                                     ?> 
                                     </select>
