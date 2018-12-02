@@ -164,24 +164,74 @@ class InstituteController {
         $mysqli = $db->getConnection();     
         
         if ($_POST) {
-            // update institute
-            $stmt = $mysqli->prepare("UPDATE institute SET `Name` = ?, `Street` = ?, `HouseNumber` = ?,
-                    `PostCode` = ?, `Place` = ?, `Email` = ?
-                    WHERE `ID` = ?");
+            $myPassword = $_POST['password'];
+            $myPassword2 = $_POST['password2'];
             
-            $stmt->bind_param('sssissi', $name, $street, $houseNumber, $postCode, $place, $email, $id);
-            $name = $_POST['name'];
-            $street = $_POST['street'];
-            $houseNumber = $_POST['houseNumber'];
-            $postCode = $_POST['postCode'];
-            $place = $_POST['place'];
-            $email = $_POST['email'];
-            $id = $_SESSION['userID'];
+            if (!$myPassword){
+                // update institute
+                $stmt = $mysqli->prepare("UPDATE institute SET `Name` = ?, `Street` = ?, `HouseNumber` = ?,
+                        `PostCode` = ?, `Place` = ?, `Email` = ?
+                        WHERE `ID` = ?");
+
+                $stmt->bind_param('sssissi', $name, $street, $houseNumber, $postCode, $place, $email, $id);
+                $name = $_POST['name'];
+                $street = $_POST['street'];
+                $houseNumber = $_POST['houseNumber'];
+                $postCode = $_POST['postCode'];
+                $place = $_POST['place'];
+                $email = $_POST['email'];
+                $id = $_SESSION['userID'];
+                
+                $string = "Update successfull";
+            }else{
+                if($myPassword == $myPassword2){
+                    // update institute
+                    $stmt = $mysqli->prepare("UPDATE institute SET `Name` = ?, `Street` = ?, `HouseNumber` = ?,
+                            `PostCode` = ?, `Place` = ?, `Email` = ?, `Password` = ?
+                            WHERE `ID` = ?");
+
+                    $stmt->bind_param('sssisssi', $name, $street, $houseNumber, $postCode, $place, $email, $encryption, $id);
+                    $name = $_POST['name'];
+                    $street = $_POST['street'];
+                    $houseNumber = $_POST['houseNumber'];
+                    $postCode = $_POST['postCode'];
+                    $place = $_POST['place'];
+                    $email = $_POST['email'];
+                    $encryption = $encryption = password_hash($myPassword, PASSWORD_DEFAULT);
+                    $id = $_SESSION['userID'];
+                    
+                    $string = "Password changed successfully";
+                }else{
+                    // update institute
+                    $stmt = $mysqli->prepare("UPDATE institute SET `Name` = ?, `Street` = ?, `HouseNumber` = ?,
+                            `PostCode` = ?, `Place` = ?, `Email` = ?
+                            WHERE `ID` = ?");
+
+                    $stmt->bind_param('sssissi', $name, $street, $houseNumber, $postCode, $place, $email, $id);
+                    $name = $_POST['name'];
+                    $street = $_POST['street'];
+                    $houseNumber = $_POST['houseNumber'];
+                    $postCode = $_POST['postCode'];
+                    $place = $_POST['place'];
+                    $email = $_POST['email'];
+                    $id = $_SESSION['userID'];
+                    
+                    $string = "Passwords do not match";
+                }
+                
+                
+                
+            }
             
             $stmt->execute();
             
             if ($stmt) {
-                header("Location: ".$GLOBALS["ROOT_URL"]."/institute");
+                echo "
+                    <script type=\"text/javascript\">
+                    alert('". $string ."');
+                    window.location.replace('institute');    
+                    </script>
+                    ";
             } else {
                 echo "Error: ";
             }
