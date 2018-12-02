@@ -14,47 +14,53 @@ class EmailController {
      * creates new password and sends it per email and update in database
      */
      public static function resetPw() {
-        $db = DBConnection::getConnection();
-        $mysqli = $db->getConnection();
         
-        $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
-        $stmt->bind_param('s', $email);
-        $email = $_POST['email'];
-        $stmt->execute();
-        $institute = $stmt->get_result()->fetch_object("model\Institute");
-        $stmt->close();
-        
-        // creates random pw with 8 caracters containing a-z, 0-9 
-        $newPassword = bin2hex(openssl_random_pseudo_bytes(4)); 
-        
-        // check if email exists in DB 
-        if ($institute) {
-          
-            $subject = "SWISSEDU";
-            $htmlData = "New Password: ". $newPassword;
+        try {
+            $db = DBConnection::getConnection();
+            $mysqli = $db->getConnection();
 
-            // send new pw to user
-            EmailServiceClient::sendEmail($email, $subject, $htmlData);
-
-            // update database
-            $stmt = $mysqli->prepare("UPDATE institute SET `Password` = ? WHERE `Email` = ?");
-            $stmt->bind_param('ss', $encryption, $email);
-            $encryption = password_hash($newPassword, PASSWORD_DEFAULT);
+            $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
+            $stmt->bind_param('s', $email);
             $email = $_POST['email'];
             $stmt->execute();
+            $institute = $stmt->get_result()->fetch_object("model\Institute");
+            $stmt->close();
 
-            header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
-   
-            echo "  <script type=\"text/javascript\">
+            // creates random pw with 8 caracters containing a-z, 0-9 
+            $newPassword = bin2hex(openssl_random_pseudo_bytes(4));
+
+            // check if email exists in DB 
+            if ($institute) {
+
+                $subject = "SWISSEDU";
+                $htmlData = "New Password: " . $newPassword;
+
+                // send new pw to user
+                EmailServiceClient::sendEmail($email, $subject, $htmlData);
+
+                // update database
+                $stmt = $mysqli->prepare("UPDATE institute SET `Password` = ? WHERE `Email` = ?");
+                $stmt->bind_param('ss', $encryption, $email);
+                $encryption = password_hash($newPassword, PASSWORD_DEFAULT);
+                $email = $_POST['email'];
+                $stmt->execute();
+
+                header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
+
+                echo "  <script type=\"text/javascript\">
                 alert('Check your E-Mail');
                 </script>
                 ";
-        } else {
-            echo "
+            } else {
+                echo "
             <script type=\"text/javascript\">
             alert('Username does not exist');
             </script>
             ";
+            }
+            
+        } catch (Exception $ex) {
+            echo $ex->getMessage;
         }
     }
 }
