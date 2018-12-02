@@ -62,12 +62,8 @@ class EmailController {
         $stmt->execute();
         $institute = $stmt->get_result()->fetch_object("model\Institute");
         $stmt->close();
-        
-        //$row = mysqli_fetch_assoc($result);
-        //$id = $row["ID"];
-        //$password = row["Password"];
-        echo $institute->getId();
-        echo $institute->getPassword();
+
+        $ow= $institute->getPassword();
         echo "select statements id ok ";
 
         /*
@@ -78,6 +74,7 @@ class EmailController {
          * 
          */
         
+        /*
         $stmt = $mysqli->prepare("Select Password from institute where ID = ?");
         echo "test1 ";
         $stmt->bind_param('i', $id); // hier stimmt etwas nicht -> test 1 wird ausgegeben..
@@ -88,6 +85,8 @@ class EmailController {
         $result = $stmt->execute();
         $row = mysqli_fetch_assoc($result);
         $pw = $row["Password"];
+
+        */
 
         echo "select statements PW ok ";
 
