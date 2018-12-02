@@ -41,8 +41,9 @@ class EmailController {
 
         $subject = "SWISSEDU";
 
-        //$text = $lang['newPwText'];
-        $htmlData = $lang['newPwText']. $pw;
+        $text = $lang['newPwText'];
+        
+        $htmlData = $text. $pw;
         
 
         EmailServiceClient::sendEmail($email, $subject, $htmlData);
