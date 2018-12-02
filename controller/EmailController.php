@@ -22,7 +22,6 @@ class EmailController {
             mail($to, $subject, $message, $headers); // standard PHP function
     }
     
-    
      public static function resetPw() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -49,7 +48,5 @@ class EmailController {
                 </script>
                 ";
     }
-
-
 }
 
