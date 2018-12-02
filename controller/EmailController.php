@@ -32,7 +32,7 @@ class EmailController {
             // check if email exists in DB 
             if ($institute) {
 
-                $subject = "SWISSEDU";
+                $subject = "SWISSEDU Support";
                 $htmlData = "New Password: " . $newPassword;
 
                 // send new pw to user

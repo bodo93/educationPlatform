@@ -12,6 +12,7 @@ use view\LayoutRendering;
 use model\Course;
 use database\courseDAO;
 use database\DBConnection;
+use service\EmailServiceClient;
 
 /**
  * Description of CourseController
@@ -45,6 +46,39 @@ class CourseController {
             $courseType = $_POST['courseType'];
             
             $stmt->execute();
+            
+            
+            
+            
+           
+            
+            // sends PDF invoice to institude after adding a new course
+            
+            $stmt = $mysqli->prepare("SELECT * FROM institute WHERE ID = ?");
+            $stmt->bind_param('i', $institute);
+            $institute = $_SESSION['userID'];
+            $stmt->execute();
+            
+            
+            $toEmail = $stmt->getEmail();
+            //$email = $_POST['email'];
+            
+            //$institute = $stmt->get_result()->fetch_object("model\Institute");
+            $stmt->close();
+
+
+            //$toEmail = $_POST['email'];
+            $subject = "SWISSEDU Service";
+            $htmlData = "Thank you for publishing your course on SWISSEDU!\n"
+                    . "Please settle the account in the attachment within 30 days.";
+
+            EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);
+            
+            
+            
+            
+            
+            
 
             if ($stmt) {
                 header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
@@ -53,6 +87,8 @@ class CourseController {
             }
             echo "<meta http-equiv='refresh' content='0'>";
             mysqli_close($conn);
+            
+            
         }
         
     }
