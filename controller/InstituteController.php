@@ -200,7 +200,7 @@ class InstituteController {
                     $encryption = $encryption = password_hash($myPassword, PASSWORD_DEFAULT);
                     $id = $_SESSION['userID'];
                     
-                    $string = "Password changed successfully";
+                    $string = "Update successfull";
                 }else{
                     // update institute
                     $stmt = $mysqli->prepare("UPDATE institute SET `Name` = ?, `Street` = ?, `HouseNumber` = ?,
