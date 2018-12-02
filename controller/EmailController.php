@@ -17,6 +17,8 @@ class EmailController {
         
         $submittedEmail = $_POST['email'];
         echo $email;
+        echo "halo Phil";
+        exit();
         
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
         $stmt->bind_param('si', $email, $id);
@@ -29,7 +31,11 @@ class EmailController {
         $pw = bin2hex(openssl_random_pseudo_bytes(4)); 
         echo $pw;
         
+        echo "halo";
         
+        
+        
+        // enters just if email exists in DB 
         if ($institute) {
           
             $subject = "SWISSEDU";
