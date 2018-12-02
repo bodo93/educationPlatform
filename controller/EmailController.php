@@ -15,21 +15,20 @@ class EmailController {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
         
-        $submittedEmail = $_POST['email'];
-        echo $email;
+    
         echo "halo Phil";
-        exit();
+        //exit();
         
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
-        $stmt->bind_param('si', $email, $id);
-        $email = $submittedEmail;
+        $stmt->bind_param('s', $email);
+        $email = $_POST['email'];
         $stmt->execute();
         $institute = $stmt->get_result()->fetch_object("model\Institute");
         $stmt->close();
         
         // creates random pw with 8 caracters containing a-z, 0-9
-        $pw = bin2hex(openssl_random_pseudo_bytes(4)); 
-        echo $pw;
+        $newPassword = bin2hex(openssl_random_pseudo_bytes(4)); 
+        echo $newPassword;
         
         echo "halo";
         
@@ -43,20 +42,21 @@ class EmailController {
             //echo $text.$pw;
             //$htmlData = $text . $pw;
             
-            $htmlData = "New Password: ". $pw;
+            $htmlData = "New Password: ". $newPassword;
 
             // send new pw to user
             EmailServiceClient::sendEmail($email, $subject, $htmlData);
 
-            /*
-            // update new pw (encrypted) to database 
-            $stmt = $mysqli->prepare("UPDATE institute SET `Password` = ? WHERE `ID` = ?");
+            echo "email send ";
+            
+            //update new pw (encrypted) to database 
+            $stmt = $mysqli->prepare("UPDATE institute SET `Password` = ? WHERE `Email` = ?");
 
-            $stmt->bind_param('si', $encryption, $id);
+            $stmt->bind_param('ss', $encryption, $email);
    
-            $encryption = $encryption = password_hash($myPassword, PASSWORD_DEFAULT);
-            $id = ???
-            */
+            $encryption = password_hash($newPassword, PASSWORD_DEFAULT);
+            $email = $_POST['email'];
+            
             
             
             header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
