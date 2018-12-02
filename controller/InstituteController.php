@@ -182,7 +182,7 @@ class InstituteController {
                 $email = $_POST['email'];
                 $id = $_SESSION['userID'];
                 
-                $string = "Update successfull";
+                $message = "Update successfull";
             }else{
                 if($myPassword == $myPassword2){
                     // update institute
@@ -200,7 +200,7 @@ class InstituteController {
                     $encryption = $encryption = password_hash($myPassword, PASSWORD_DEFAULT);
                     $id = $_SESSION['userID'];
                     
-                    $string = "Update successfull";
+                    $message = "Update successfull";
                 }else{
                     // update institute
                     $stmt = $mysqli->prepare("UPDATE institute SET `Name` = ?, `Street` = ?, `HouseNumber` = ?,
@@ -216,7 +216,7 @@ class InstituteController {
                     $email = $_POST['email'];
                     $id = $_SESSION['userID'];
                     
-                    $string = "Passwords do not match";
+                    $message = "Passwords do not match";
                 } 
             }
             
@@ -225,7 +225,7 @@ class InstituteController {
             if ($stmt) {
                 echo "
                     <script type=\"text/javascript\">
-                    alert('". $string ."');
+                    alert('". $message ."');
                     window.location.replace('". $GLOBALS['ROOT_URL']."/institute');    
                     </script>
                     ";
