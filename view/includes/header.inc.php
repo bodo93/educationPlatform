@@ -44,9 +44,23 @@ else
                             <li class="nav-item" role="presentation" style="padding-right: 90px;"><a class="nav-link" href="<?php echo $GLOBALS['ROOT_URL']?>/login" style="font-size: 14px;font-weight: bold;"><?php echo $lang['login']?></a></li>
                             <?php
                             }
+                            if(strpos($_SERVER['REQUEST_URI'], "id=") !== false && strpos($_SERVER['REQUEST_URI'], "lang=") !== false){
                             ?>
-                            <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0] . "?lang=de"?>" style="font-size: 14px;font-weight: bold;"><?php echo $lang['german']?></a></li>
-                            <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="<?php echo explode('?', $_SERVER['REQUEST_URI'], 2)[0] . "?lang=en"?>" style="padding-left: 0px;font-size: 14px;font-weight: bold;"><?php echo $lang['english']?></a></li>
+                            <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="<?php echo substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], "&")) . "&lang=de" ?>" style="font-size: 14px;font-weight: bold;"><?php echo $lang['german']?></a></li>
+                            <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="<?php echo substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], "&")) . "&lang=en"?>" style="padding-left: 0px;font-size: 14px;font-weight: bold;"><?php echo $lang['english']?></a></li>
+                            <?php                                
+                            }else if(strpos($_SERVER['REQUEST_URI'], "id=") !== false){
+                            ?>
+                            <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="<?php echo $_SERVER['REQUEST_URI'] . "&lang=de"?>" style="font-size: 14px;font-weight: bold;"><?php echo $lang['german']?></a></li>
+                            <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="<?php echo $_SERVER['REQUEST_URI'] . "&lang=en"?>" style="padding-left: 0px;font-size: 14px;font-weight: bold;"><?php echo $lang['english']?></a></li>
+                            <?php
+                            }else{
+                            ?>
+                            <li class="nav-item" role="presentation" style="padding-right: 0px;"><a class="nav-link" href="<?php echo substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], "?")) . "?lang=de" ?>" style="font-size: 14px;font-weight: bold;"><?php echo $lang['german']?></a></li>
+                            <li class="nav-item" role="presentation" style="padding-right: 20px;"><a class="nav-link" href="<?php echo substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], "?")) . "?lang=en" ?>" style="padding-left: 0px;font-size: 14px;font-weight: bold;"><?php echo $lang['english']?></a></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>
