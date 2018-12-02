@@ -10,14 +10,12 @@ use service\EmailServiceClient;
 
 class EmailController {
     
-
+    /* checks if entered email in "institutForgotPassword" is in database
+     * creates new password and sends it per email and update in database
+     */
      public static function resetPw() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
-        
-    
-        echo "halo Phil";
-        //exit();
         
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
         $stmt->bind_param('s', $email);
@@ -26,50 +24,25 @@ class EmailController {
         $institute = $stmt->get_result()->fetch_object("model\Institute");
         $stmt->close();
         
-        // creates random pw with 8 caracters containing a-z, 0-9
+        // creates random pw with 8 caracters containing a-z, 0-9 
         $newPassword = bin2hex(openssl_random_pseudo_bytes(4)); 
-        echo $newPassword;
         
-        echo "halo";
-        
-        
-        
-        // enters just if email exists in DB 
+        // check if email exists in DB 
         if ($institute) {
           
             $subject = "SWISSEDU";
-            //$text = $lang['newPwText'];
-            //echo $text.$pw;
-            //$htmlData = $text . $pw;
-            
             $htmlData = "New Password: ". $newPassword;
 
             // send new pw to user
             EmailServiceClient::sendEmail($email, $subject, $htmlData);
 
-            echo "email send ";
-            
-            //update new pw (encrypted) to database 
-            
+            // update database
             $stmt = $mysqli->prepare("UPDATE institute SET `Password` = ? WHERE `Email` = ?");
-
             $stmt->bind_param('ss', $encryption, $email);
-   
             $encryption = password_hash($newPassword, PASSWORD_DEFAULT);
             $email = $_POST['email'];
             $stmt->execute();
-            
-            if ($stmt){
-                echo "succes";
-                exit();
-            } else {
-                echo "no succes";
-                exit();
-            }
-            echo "test pw".$encryption.$email;
-            exit();
-            
-            
+
             header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
    
             echo "  <script type=\"text/javascript\">
@@ -83,15 +56,6 @@ class EmailController {
             </script>
             ";
         }
-
-        
-        
-        
-        
-        
-        
-        
     }
 }
 
-// window.location.replace('login');
