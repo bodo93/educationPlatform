@@ -57,6 +57,7 @@ class EmailController {
    
             $encryption = password_hash($newPassword, PASSWORD_DEFAULT);
             $email = $_POST['email'];
+            $stmt->execute();
             
             if ($stmt){
                 echo "succes";
