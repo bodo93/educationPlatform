@@ -25,6 +25,7 @@ include 'includes/translator.inc.php';
                                         <option disabled selected value></option>
                                         <option value="1">Bachelor</option>
                                         <option value="2">Master</option>
+                                        <option value="3"><?php echo $lang['other']?></option>
                                     </select>
                                 </div>
                             </div>

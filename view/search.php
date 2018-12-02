@@ -41,6 +41,7 @@ include 'includes/header.inc.php';
                                 <option></option>
                                 <option value="Bachelor">Bachelor</option>
                                 <option value="Master">Master</option>
+                                <option value="Sonstiges"><?php echo $lang['other'] ?></option>
                             </select>
                         </div>
                         <div
