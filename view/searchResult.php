@@ -39,7 +39,7 @@ else{
             JOIN coursetype ctype ON c.CourseTypeID=ctype.ID
             WHERE c.Name LIKE '%".$valueToSearch."%'
                 AND depart.Name LIKE '%".$department."%'
-                AND area.Name = '".$area."'
+                AND area.Name LIKE '%".$area."%'
                 AND ctype.Name LIKE '%".$coursetype."%'
             ORDER BY c.Name,c.Place";
 
