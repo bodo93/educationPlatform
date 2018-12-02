@@ -42,7 +42,9 @@ class EmailController {
         $subject = "SWISSEDU";
 
         $text = $lang['newPwText'];
-        
+        echo $text;
+        echo $pw;
+                
         $htmlData = $text. $pw;
         
 
