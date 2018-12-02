@@ -56,7 +56,8 @@ class EmailController {
    
             $encryption = password_hash($newPassword, PASSWORD_DEFAULT);
             $email = $_POST['email'];
-            
+            echo "test pw".$encryption.$email;
+            exit();
             
             
             header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
