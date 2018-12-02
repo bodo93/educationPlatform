@@ -24,8 +24,6 @@ class EmailController {
     
     
      public static function resetPw() {
-        echo "resetPw aufgerufen ";
-        
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
