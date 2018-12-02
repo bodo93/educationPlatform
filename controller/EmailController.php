@@ -63,7 +63,7 @@ class EmailController {
         $institute = $stmt->get_result()->fetch_object("model\Institute");
         $stmt->close();
 
-        $ow= $institute->getPassword();
+        $pw = $institute->getPassword();
         echo "select statements id ok ";
 
         /*
