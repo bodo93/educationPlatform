@@ -30,11 +30,14 @@ class EmailController {
         
         $stmt->bind_param('s', $email);
         $email = $_POST['email'];
+        echo $email;
+        
         $stmt->execute();
         $institute = $stmt->get_result()->fetch_object("model\Institute");
         $stmt->close();
 
         $pw = $institute->getPassword();
+        echo $pw;
 
         $subject = "SWISSEDU";
 
