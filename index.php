@@ -58,11 +58,11 @@ Router::route("POST", "/login", function () {
     InstituteController::login();
 });
 
-Router::route("GET", "/forgotPassword", function(){
+Router::route("GET", "/login/forgotPassword", function(){
     require_once("view/instituteForgotPassword.php");
 });
 
-Router::route("POST", "/forgotPassword", function(){
+Router::route("POST", "/login/forgotPassword", function(){
     EmailController::resetPw();
 });
 
