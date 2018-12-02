@@ -107,7 +107,11 @@ Router::route_auth("GET", "/institute", $authFunction, function () {
     require_once("view/instituteShowAccount.php");
 });
 
-Router::route_auth("POST", "/institute", $authFunction, function () {
+Router::route_auth("GET", "/institute/edit", $authFunction, function () {
+    require_once("view/instituteEditAccount.php");
+});
+
+Router::route_auth("POST", "/institute/edit", $authFunction, function () {
     InstituteController::updateAccount();
 });
 

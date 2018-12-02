@@ -217,10 +217,7 @@ class InstituteController {
                     $id = $_SESSION['userID'];
                     
                     $string = "Passwords do not match";
-                }
-                
-                
-                
+                } 
             }
             
             $stmt->execute();
@@ -229,7 +226,7 @@ class InstituteController {
                 echo "
                     <script type=\"text/javascript\">
                     alert('". $string ."');
-                    window.location.replace('institute');    
+                    window.location.replace('". $GLOBALS['ROOT_URL']."/institute');    
                     </script>
                     ";
             } else {
