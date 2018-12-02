@@ -55,17 +55,19 @@ class CourseController {
             // sends PDF invoice to institude after adding a new course
             
             $stmt = $mysqli->prepare("SELECT * FROM institute WHERE ID = ?");
+            echo "prepare ";
             $stmt->bind_param('i', $institute);
             $institute = $_SESSION['userID'];
             $stmt->execute();
-            
+            echo "stmt execute ";
             
             $toEmail = $stmt->getEmail();
+            echo "get mail ";
             //$email = $_POST['email'];
             
             //$institute = $stmt->get_result()->fetch_object("model\Institute");
             $stmt->close();
-
+            echo "stmt close ";
 
             //$toEmail = $_POST['email'];
             $subject = "SWISSEDU Service";
@@ -74,7 +76,7 @@ class CourseController {
 
             EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);
             
-            
+            echo "send Mail ";
             
             
             
