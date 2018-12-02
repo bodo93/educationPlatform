@@ -47,12 +47,16 @@ class EmailController {
         
         $stmt = $mysqli->prepare("Select ID, Password from institute where Email = ?");
         $stmt->bind_param('s', $email);
-        $email = $toEmail;
+        $email = $_POST['email'];
+        $institute = $stmt->get_result()->fetch_object("model\Institute");
+        $stmt->execute();
         
-        $result = $stmt->execute();
-        $row = mysqli_fetch_assoc($result);
-        $id = $row["ID"];
-        $password = row["Password"];
+        $id = $institute->getId();
+        $password = $institute->getPassword();
+        
+        //$row = mysqli_fetch_assoc($result);
+        //$id = $row["ID"];
+        //$password = row["Password"];
         echo $id;
         echo $password;
         echo "select statements id ok ";
