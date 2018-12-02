@@ -50,12 +50,21 @@ class EmailController {
             echo "email send ";
             
             //update new pw (encrypted) to database 
+            
             $stmt = $mysqli->prepare("UPDATE institute SET `Password` = ? WHERE `Email` = ?");
 
             $stmt->bind_param('ss', $encryption, $email);
    
             $encryption = password_hash($newPassword, PASSWORD_DEFAULT);
             $email = $_POST['email'];
+            
+            if ($stmt){
+                echo "succes";
+                exit();
+            } else {
+                echo "no succes";
+                exit();
+            }
             echo "test pw".$encryption.$email;
             exit();
             
