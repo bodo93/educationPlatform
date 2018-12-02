@@ -28,33 +28,7 @@ class EmailController {
         
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
-        echo "db connection ok ";
 
-        $toEmail = $_POST['email'];
-        
-        echo $toEmail." ";
-        //$id = $_SESSION['userID'];
-        //echo "session id ok";
-        
-        /*
-        $idStmt = $mysqli("Select ID from institute where Email = '$toEmail'");
-        if ($result = mysqli_query($mysqli,$idStmt)){
-            $row = mysqli_fetch_assoc($result);
-            $id = $row["ID"];
-            echo "select statement ID ok";
-        }
-        */
-        
-        /*
-        $stmt = $mysqli->prepare("Select ID, Password from institute where Email = ?");
-        $stmt->bind_param('s', $email);
-        $email = $_POST['email'];
-        $institute = $stmt->get_result()->fetch_object("model\Institute");
-        $stmt->execute();
-        
-        $id = $institute->getId();
-        $password = $institute->getPassword(); */
-        
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
         
         $stmt->bind_param('s', $email);
