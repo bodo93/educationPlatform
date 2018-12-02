@@ -1,6 +1,6 @@
 function tableCreate() {
-  var body = document.getElementsById('myCourseTableBody')[0];
-  var tbl = document.getElementsById('myCoursesTable');
+  var body = document.getElementById('myCourseTableBody')[0];
+  var tbl = document.getElementById('myCoursesTable');
   tbl.style.width = '100%';
   tbl.setAttribute('border', '1');
   var tbdy = document.createElement('tbody');

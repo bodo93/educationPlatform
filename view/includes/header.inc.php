@@ -25,7 +25,6 @@ else
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
         <link rel="stylesheet" href="assets/css/smoothproducts.css">
-        <link rel="stylesheet" href="assets/css/Table-With-Search.css">
     </head>
     <body>
         <header>

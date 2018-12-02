@@ -44,7 +44,7 @@ class EmailController {
         
         echo "  <script type=\"text/javascript\">
                 alert('Check your E-Mail');
-                window.location.replace('');
+                window.location.replace('login');
                 </script>
                 ";
     }
