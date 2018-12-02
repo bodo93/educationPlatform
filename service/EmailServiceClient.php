@@ -43,7 +43,7 @@ class EmailServiceClient {
           ],
           "from": {
             "email": "noreply@fhnw.ch",
-            "name": "WE-CRM"
+            "name": "SWISSEDU"
           },
           "subject": "subject",
           "content": [

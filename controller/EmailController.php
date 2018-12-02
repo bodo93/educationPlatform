@@ -41,15 +41,21 @@ class EmailController {
 
         $subject = "SWISSEDU";
 
-        $htmlData = "Ihr Passwort lautet: " . $pw;
+        //$text = $lang['newPwText'];
+        $htmlData = $lang['newPwText']. $pw;
         
-        EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+
+        EmailServiceClient::sendEmail($email, $subject, $htmlData);
+        
+        header("Location: ".$GLOBALS["ROOT_URL"]."/login");
+        
         
         echo "  <script type=\"text/javascript\">
                 alert('Check your E-Mail');
-                window.location.replace('login');
+                
                 </script>
                 ";
     }
 }
 
+// window.location.replace('login');

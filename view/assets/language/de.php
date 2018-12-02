@@ -50,6 +50,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "enterNewPassword" => "Neues Passwort eingeben", 
         "resetPassword" => "Passwort zurücksetzen",
         "passwordChanged" => "Passwort wurde geändert",
+        "newPwText" => "Ihr neues Passwort ist: ",
         
         //DROP DOWN
         "economy" => "Wirtschaft",
