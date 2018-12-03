@@ -33,7 +33,10 @@ class EmailServiceClient {
     
     // send Emial with subject, text content and attachment
     public static function sendInvoiceEmail($toEmail, $subject, $htmlData) {
-        $file = fopen("Testing/test.pdf", "r");
+        include 'Testing/createPDFtest.php';
+        
+        //$file = fopen("Testing/test.pdf", "r");
+        $file = "Testing/test.pdf";
         
         $jsonObj = self::createEmailJSONObj();
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
