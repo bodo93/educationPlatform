@@ -7,6 +7,7 @@
  */
 namespace controller;
 
+include 'includes/translator.inc.php';
 use view\TemplateView;
 use view\LayoutRendering;
 use model\Course;
@@ -68,10 +69,13 @@ class CourseController {
             echo "get mail ";
             echo $toEmail;
             //$email = $_POST['email'];
+            echo $lang['userName'];
             
             //$institute = $stmt->get_result()->fetch_object("model\Institute");
             $stmt->close();
             echo "stmt close ";
+            
+            exit();
 
             //$toEmail = $_POST['email'];
             $subject = "SWISSEDU Service";
