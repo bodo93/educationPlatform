@@ -33,11 +33,14 @@ class EmailServiceClient {
     
     // send Emial with subject, text content and attachment
     public static function sendInvoiceEmail($toEmail, $subject, $htmlData) {
- 
+        $file = fopen("Testing/createPDFTest.php", "r");
+        
         $jsonObj = self::createEmailJSONObj();
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
         $jsonObj->subject = $subject;
         $jsonObj->content[0]->value = $htmlData;
+        $jsonObj->attachments[0]->filename = "file.pdf";
+        $jsonObj->attachments[0]->content = base64_encode($file);
 
         $options = ["http" => [
                 "method" => "POST",
@@ -75,6 +78,13 @@ class EmailServiceClient {
             {
               "type": "text/html",
               "value": "value"
+            }
+          ],
+          "attachments": [
+            {
+              "content": "content",
+              "type": "application/pdf",
+              "filename": "filename"
             }
           ]
         }');
