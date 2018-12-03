@@ -49,25 +49,16 @@ class CourseController {
             
             $stmt->execute();
             
-            
-            
-            
-           
-            
             // sends PDF invoice to institude after adding a new course
             
             $stmt = $mysqli->prepare("SELECT * FROM institute WHERE ID = ?");
-            echo "prepare ";
             $stmt->bind_param('i', $institute);
             
             //$institute = $_SESSION['userID'];
             $stmt->execute();
             $myInstitute = $stmt->get_result()->fetch_object("model\Institute");
-            echo "stmt execute ";
             
             $toEmail = $myInstitute->getEmail();  // funktioniert nicht, warum ??
-            echo "get mail ";
-            echo $toEmail;
             //$email = $_POST['email'];
             echo $lang['userName'];
             
@@ -82,13 +73,7 @@ class CourseController {
             $htmlData = "Thank you for publishing your course on SWISSEDU!\n"
                     . "Please settle the account in the attachment within 30 days.";
 
-            EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);
-            
-            echo "send Mail ";
-            
-            
-            
-            
+            EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);            
 
             if ($stmt) {
                 header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
