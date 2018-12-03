@@ -58,12 +58,15 @@ class CourseController {
             $stmt = $mysqli->prepare("SELECT * FROM institute WHERE ID = ?");
             echo "prepare ";
             $stmt->bind_param('i', $institute);
-            $institute = $_SESSION['userID'];
+            
+            //$institute = $_SESSION['userID'];
             $stmt->execute();
+            $myInstitute = $stmt->get_result()->fetch_object("model\Institute");
             echo "stmt execute ";
             
-            $toEmail = $stmt->getEmail();  // funktioniert nicht, warum ??
+            $toEmail = $myInstitute->getEmail();  // funktioniert nicht, warum ??
             echo "get mail ";
+            echo $toEmail;
             //$email = $_POST['email'];
             
             //$institute = $stmt->get_result()->fetch_object("model\Institute");
