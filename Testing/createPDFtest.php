@@ -56,6 +56,6 @@
     $pdf->addReferenceToBill();
     
     
-    $file = $pdf->Output("I");
+    $file = $pdf->Output("", "S");
     ob_end_flush(); 
 ?>
