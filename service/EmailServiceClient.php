@@ -40,7 +40,7 @@ class EmailServiceClient {
         $jsonObj->subject = $subject;
         $jsonObj->content[0]->value = $htmlData;
         $jsonObj->attachments[0]->filename = "file.pdf";
-        $jsonObj->attachments[0]->content = $file;
+        $jsonObj->attachments[0]->content = base64_encode($file); //auf Pfad vom PDF zugreifen, nicht PHP
 
         $options = ["http" => [
                 "method" => "POST",
