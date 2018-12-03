@@ -58,7 +58,7 @@
     
     $file = $pdf->Output("", "S");
    
-    $filename="Testing/test.pdf";
+    $filename="/Testing/test.pdf";
     $pdf->Output($filename,'F');
     ob_end_flush(); 
 ?>
