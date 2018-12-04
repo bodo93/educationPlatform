@@ -68,7 +68,7 @@ else
         </header>
         
         <!--no script tag, if user deactivatted JavaScript-->
-        <noscript>Sorry, your browser does not support JavaScript.<br>Please activate JavaScript to show the website correctly.</noscript> 
+        <noscript style="background-color: green; color:white;">Sorry, your browser does not support JavaScript.<br>Please activate JavaScript to show the website correctly.</noscript> 
         <!--assets-->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
