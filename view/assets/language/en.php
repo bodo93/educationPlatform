@@ -15,6 +15,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "institute" => "Educational institute",
         "graduation" => "Graduation",
         "sureDelete" => "Are you sure to delete?",
+        "delete" => "Delete Course",
         "yes" => "Yes",
         "no" => "No",
         "deleteCourse" => "Delete a course",

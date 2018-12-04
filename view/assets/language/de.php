@@ -15,6 +15,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "institute" => "Bildungsinstitut",
         "graduation" => "Abschluss",
         "sureDelete" => "Sind sie sicher?",
+        "delete" => "Kurs löschen",
         "yes" => "Ja",
         "no" => "Nein",
         "deleteCourse" => "Kurs löschen",
