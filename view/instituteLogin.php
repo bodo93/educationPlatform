@@ -18,7 +18,6 @@ Author: Philipp Lehmann
                     <div class="form-group"><label for="email">Email</label><input class="form-control" type="email" name="email" placeholder="<?php echo $lang['email'] ?>" required autofocus></div>
                         <div class="form-group"><label for="password"><?php echo $lang['password'] ?></label><input class="form-control" type="password" id="password" name="password" placeholder="<?php echo $lang['password'] ?>" required></div>
                         <div class="form-group">
-                            <div class="form-check" style="margin-top: 25px;"><input class="form-check-input" type="checkbox" id="checkbox" name="rememberMe"><label class="form-check-label" for="checkbox"><?php echo $lang['stayLoggedIn'] ?></label></div>
                             <div class="form-row">
                                 <div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="submit" style="margin-top: 6px;min-width: 160px;" name="login"><?php echo $lang['login'] ?></button></div>
                                 <div class="col" style="margin-right: 40px;"><a class="btn btn-primary btn-block" role="button" href="<?php echo $GLOBALS['ROOT_URL']?>/search" style="margin-top: 6px;min-width: 160px;"><?php echo $lang['cancel'] ?></a></div>
