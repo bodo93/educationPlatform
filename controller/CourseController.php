@@ -5,9 +5,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 namespace controller;
 
-include 'includes/translator.inc.php';
+include 'view/includes/translator.inc.php';
+
 use view\TemplateView;
 use view\LayoutRendering;
 use model\Course;
@@ -22,6 +24,7 @@ use service\EmailServiceClient;
  * @author bodog
  */
 class CourseController {
+
     public static function create() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -31,8 +34,7 @@ class CourseController {
                                     Link, InstituteID, DepartmentID, AreaID, CourseTypeID)
                                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->bind_param('isisisssiiii', $id, $name, $postCode, $place, $costs, $start, $end, $link, $institute,
-                            $department, $area, $courseType);
+            $stmt->bind_param('isisisssiiii', $id, $name, $postCode, $place, $costs, $start, $end, $link, $institute, $department, $area, $courseType);
 
             $id = NULL;
             $name = $_POST['name'];
@@ -46,34 +48,30 @@ class CourseController {
             $department = $_POST['department'];
             $area = $_POST['area'];
             $courseType = $_POST['courseType'];
-            
+
             $stmt->execute();
-            
+
             // sends PDF invoice to institude after adding a new course
-            
+
             $stmt = $mysqli->prepare("SELECT * FROM institute WHERE ID = ?");
             $stmt->bind_param('i', $institute);
-            
+
             //$institute = $_SESSION['userID'];
             $stmt->execute();
             $myInstitute = $stmt->get_result()->fetch_object("model\Institute");
-            
+
             $toEmail = $myInstitute->getEmail();  // funktioniert nicht, warum ??
             //$email = $_POST['email'];
-            echo $lang['userName'];
-            
+
             //$institute = $stmt->get_result()->fetch_object("model\Institute");
             $stmt->close();
-            echo "stmt close ";
-            
-            exit();
 
             //$toEmail = $_POST['email'];
             $subject = "SWISSEDU Service";
             $htmlData = "Thank you for publishing your course on SWISSEDU!\n"
                     . "Please settle the account in the attachment within 30 days.";
 
-            EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);            
+            EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);
 
             if ($stmt) {
                 header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
@@ -82,10 +80,7 @@ class CourseController {
             }
             echo "<meta http-equiv='refresh' content='0'>";
             mysqli_close($conn);
-            
-            
         }
-        
     }
 
     public static function readAll() {
@@ -104,10 +99,10 @@ class CourseController {
 
     public static function update() {
         $db = DBConnection::getConnection();
-        $mysqli = $db->getConnection();                
-        
+        $mysqli = $db->getConnection();
+
         $id = 0;
-        
+
         if ($_GET) {
             // keep track post values
             $id = $_GET['id'];
@@ -123,21 +118,33 @@ class CourseController {
                     . "WHERE `ID` = '$id'";
             $result = $mysqli->query($update);
             if ($result) {
-                header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
+                header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
             } else {
                 echo "Error: " . $update . "<br>" . mysqli_error($conn);
             }
         }
     }
 
-    public static function delete($courseId) {
-        $courseDAO = new CourseDAO();
-        $course = new Course();
-        $course->setId($courseId);
-        $courseDAO->delete($course);
+    public static function delete() {
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();
+
+        if (!empty($_GET['id'])) {
+            $id = $_REQUEST['id'];
+        }
+
+        if (!empty($_POST)) {
+            // keep track post values
+            $id = $_POST['id'];
+
+            // delete data
+            mysqli_query($mysqli, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
+            $delete = "DELETE FROM course WHERE ID = " . $id;
+            mysqli_query($mysqli, $delete);
+            header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
+        }
     }
-    
-    
+
     public static function search($search, $department, $area, $courseType) {
         $course = new Course();
         $course->getID();
@@ -152,11 +159,12 @@ class CourseController {
         $course->getDepartmentId();
         $course->getAreaId();
         $course->getCourseTypeId();
-        
+
         /*
-        $courseDAO = new CourseDAO();
-        $courseDAO->search($course);
+          $courseDAO = new CourseDAO();
+          $courseDAO->search($course);
          * 
          */
     }
+
 }
