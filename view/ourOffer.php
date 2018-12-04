@@ -17,7 +17,7 @@ author: René Schwab
 
     <body style="background-color: rgb(34,36,37);">
         <main class="page login-page">
-            <section class="clean-block clean-form dark" style="padding-bottom: 10px; padding-top: 100px; min-width: 660px;">
+            <section class="clean-block clean-form dark" style="padding-bottom: 10px; padding-top: 100px;">
                 <div class="container">
                     <div class="block-heading">
                         <h2 class="text-info"><?php echo $lang['offer']?></h2>
