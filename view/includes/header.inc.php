@@ -28,9 +28,6 @@ else
     </head>
     <body>
         <header>
-            <!--no script tag, if user deactivatted JavaScript-->
-            <noscript style="background-color: green; color:white;">Sorry, your browser does not support JavaScript.<br>Please activate JavaScript to show the website correctly.</noscript>
-           
             <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
                 <div class="container"><a class="navbar-brand logo" href="<?php echo $GLOBALS['ROOT_URL']?>/search" style="margin-right: 0px;"><img src="assets/img/Logo.png" id="logo" style="width: 180px;height: 65px;"></a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navcol-1">
@@ -68,6 +65,8 @@ else
                     </div>
                 </div>
             </nav>
+            <!--no script tag, if user deactivatted JavaScript-->
+            <noscript style="background-color: green; color:white;">Sorry, your browser does not support JavaScript.<br>Please activate JavaScript to show the website correctly.</noscript>
         </header>
         
          
