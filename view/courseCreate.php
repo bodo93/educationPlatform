@@ -79,6 +79,7 @@ include 'includes/translator.inc.php';
                                 </div>
                                 
                             </div>
+                            <p>Click on one of the text labels to toggle the related control:</p>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['link'] ?></label><input class="form-control" type="url" name="link" onblur="checkURL(this)" required></div>
                             </div>
@@ -88,9 +89,6 @@ include 'includes/translator.inc.php';
                             <div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="<?php echo $GLOBALS['ROOT_URL']?>/course/overview" style="width: 142px;margin-top: 10px;"><?php echo $lang['cancel'] ?></a></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
-                            <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['name'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="name" required></div>
-                            </div>
                         </div>
                        
                     </form>
