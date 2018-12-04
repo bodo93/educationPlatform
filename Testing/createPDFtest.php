@@ -13,12 +13,11 @@
     $dateToday = date("d.m.Y");
     $dateToPay = date('d.m.Y', strtotime($dateToday. ' + 14 days'));
     
-    $companyAddress = ( "SWISSEDU\n" .
-                      "Cards Services / CS\n" .
+    $companyAddress = ( "Swissedu AG\n" .
                       "Postfach\n".
-                      "8048 Zurich\n" .
+                      "8704 Herrliberg\n" .
                       "Tel.: 044 439 40 20\n" .
-                      "www.google.ch"
+                      "https://swissedu.herokuapp.com"
             );
     
     $recipientAddress = ( "Philipp Lehmann\n" .
@@ -55,10 +54,8 @@
     $pdf->addAccountToBill();
     $pdf->addReferenceToBill();
     
-    
-    $file = $pdf->Output("", "S");
-   
-    $filename="/Testing/test.pdf";
-    $pdf->Output($filename,'F');
+    // $file = $pdf->Output("I");
+    $file = $pdf->Output('D', "Invoice_".$dateToday.".pdf");
+
     ob_end_flush(); 
 ?>
