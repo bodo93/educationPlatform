@@ -6,23 +6,34 @@
 // Ver 1.0 THONGSOUME Jean-Paul
 //
 
+    use database\DBConnection;
     require('PDF_Invoice.php');
     
+    $db = DBConnection::getConnection();
+    $mysqli = $db->getConnection();
+
+    $stmt = $mysqli->prepare("SELECT * FROM institute WHERE ID = ?");
+
+    $stmt->bind_param('s', $userID);
+    $userID = $_SESSION['userID'];
+    $stmt->execute();
+    $institute = $stmt->get_result()->fetch_object("model\Institute");
+    $stmt->close();
+
     //get all infos
     $priceToPay = 2000;
     $dateToday = date("d.m.Y");
-    $dateToPay = date('d.m.Y', strtotime($dateToday. ' + 14 days'));
+    $dateToPay = date('d.m.Y', strtotime($dateToday. ' + 30 days'));
     
     $companyAddress = ( "Swissedu AG\n" .
-                      "Postfach\n".
                       "8704 Herrliberg\n" .
                       "Tel.: 044 439 40 20\n" .
                       "https://swissedu.herokuapp.com"
             );
-    
-    $recipientAddress = ( "Philipp Lehmann\n" .
-                      "Aecherligasse 19-H\n" .
-                      "4665 Oftringen"
+   
+    $recipientAddress = ( $institute->getName() . "\n" . 
+                      $institute->getStreet() . "\n" .
+                      $institute->getPostCode() . " " . $institute->getPlace()
             );
     
     // le mettre au debut car plante si on declare $mysqli avant !
@@ -36,8 +47,8 @@
     $pdf->addCompany( $companyAddress );
     $pdf->addRecipient( $recipientAddress );
         
-    $pdf->addDate( 'Zurich, ', $dateToday );
-    $pdf->addPP("P.P 8040 Zurich");
+    $pdf->addDate( 'Herrliberg, ', $dateToday );
+    $pdf->addPP("P.P 8704 Herrliberg");
     $pdf->addTotal($priceToPay, $dateToday, $dateToPay);
     $pdf->addTitle();
     $pdf->addNote( "Besten Dank fuer die Benuetzung unserer Dienstleistung.\n" .
