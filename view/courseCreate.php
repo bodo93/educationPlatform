@@ -70,28 +70,6 @@ include 'includes/translator.inc.php';
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['endDate'] ?></label><input class="form-control" type="date" name="end" required></div>
                             </div>
                         </div>
-                        
-                        
-                        
-                        
-                        
-                        <div class="form-row">
-                            <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                
-                                <p>Mit Bestätigen wir der Kurs 3 Monaten für 60 CHF auf der Plattform online gestellt.</p>
-                                
-                            </div>
-                        </div>
-                        
-                        
-                        
-                        
-                        
-                        
-      
-                        
-                        
-                        
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['place'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="place" required></div>
@@ -104,6 +82,21 @@ include 'includes/translator.inc.php';
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['link'] ?></label><input class="form-control" type="url" name="link" onblur="checkURL(this)" required></div>
                             </div>
                         </div>
+                        
+                        
+                        
+                        
+                        
+                        <div class="form-row">
+                            <div id="infoTxt" style="margin-top: 20px;min-width: 130px;">Mit Bestätigen wir der Kurs 3 Monaten für 60 CHF auf der Plattform online gestellt.</div>
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;"><button class="btn btn-primary" id="registerBtn" type="submit" style="width: 142px;margin-top: 10px;"><?php echo $lang['save'] ?></button></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="<?php echo $GLOBALS['ROOT_URL']?>/course/overview" style="width: 142px;margin-top: 10px;"><?php echo $lang['cancel'] ?></a></div>
