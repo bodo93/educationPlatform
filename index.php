@@ -91,7 +91,7 @@ Router::route("GET", "/logout", function () {
     Router::redirect("/login");
 });
 
-Router::route("POST", "/course/overview",function () {
+Router::route_auth("POST", "/course/overview", $authFunction, function () {
     require_once("view/courseOverview.php");
 });
 
@@ -127,28 +127,24 @@ Router::route("POST", "/searchResult", function () {
     require_once("view/searchResult.php");
 });
 
-Router::route("POST", "/course/create", function () {
+Router::route_auth("POST", "/course/create", $authFunction, function () {
     CourseController::create();
 });
 
-Router::route("GET", "/course/cost", function () {
+Router::route_auth("GET", "/course/cost", $authFunction, function () {
     require_once("view/courseCost.php");
 });
 
-Router::route("POST", "/course/cost", function () {
+Router::route_auth("POST", "/course/cost", $authFunction, function () {
     require_once("view/courseCost.php");
 });
 
-Router::route("GET", "/course/delete", function () {
+Router::route_auth("GET", "/course/delete", $authFunction, function () {
     require_once("view/courseDelete.php");
 });
 
-Router::route("POST", "/course/delete", function () {
-    require_once("view/courseDelete.php");
-});
-
-Router::route("GET", "/search", function () {
-    require_once("view/search.php");
+Router::route_auth("POST", "/course/delete", $authFunction, function () {
+    CourseController::delete();
 });
 
 Router::route("GET", "", function () {

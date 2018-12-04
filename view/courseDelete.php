@@ -1,6 +1,5 @@
 <?php  
-    include 'includes/translator.inc.php';
-    use database\DBConnection;
+    /*use database\DBConnection;
     
     $db = DBConnection::getConnection();
     $mysqli = $db->getConnection();
@@ -18,7 +17,7 @@
         $delete = "DELETE FROM course WHERE ID = ".$id;
         mysqli_query($mysqli, $delete);
         header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
-    }
+    }*/
     
 ?>
 <?php 
@@ -31,8 +30,8 @@
                 <div class="block-heading">
                     <h2 class="text-info"><?php echo $lang['delete'] ?></h2>
                 </div>
-                <form method="post" action="" style="padding-bottom: 30px;">
-                    <input type="hidden" name="id" value="<?php echo $id;?>"/>
+                <form method="post" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/delete" style="padding-bottom: 30px;">
+                    <input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
                     <p class="alert alert-error"><?php echo $lang['sureDelete']?></p>    
                     <div class="form-group">
                         <div class="form-row">
