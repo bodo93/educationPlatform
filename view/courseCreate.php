@@ -77,9 +77,7 @@ include 'includes/translator.inc.php';
                                     <input type="checkbox" class="form-check-input" id="terms" />
                                     <label class="form-check-label" for="checkbox"><em>AGB gelesen und akzeptiert</em><br /></label>
                                 </div>
-                                
                             </div>
-                            <p>Click on one of the text labels to toggle the related control:</p>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['link'] ?></label><input class="form-control" type="url" name="link" onblur="checkURL(this)" required></div>
                             </div>
