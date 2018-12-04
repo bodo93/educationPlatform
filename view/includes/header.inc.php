@@ -67,7 +67,6 @@ else
             </nav>
         </header>
         
-        
         <!--no script tag, if user deactivatted JavaScript-->
         <noscript>Sorry, your browser does not support JavaScript.<br>Please activate JavaScript to show the website correctly.</noscript> 
         <!--assets-->
