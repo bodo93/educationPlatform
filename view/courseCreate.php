@@ -89,6 +89,9 @@ include 'includes/translator.inc.php';
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                         </div>
+                        <div class="col" style="margin-right: 40px;min-width: 130px;">
+                            <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['name'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="name" required></div>
+                        </div>
                     </form>
                     <!--adds "http://" on URL input field-->
                     <script>
