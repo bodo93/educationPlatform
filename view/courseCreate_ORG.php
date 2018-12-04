@@ -70,28 +70,6 @@ include 'includes/translator.inc.php';
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['endDate'] ?></label><input class="form-control" type="date" name="end" required></div>
                             </div>
                         </div>
-                        
-                        
-                        
-                        
-                        
-                        <div class="form-row">
-                            <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                
-                                <p>Mit Bestätigen wir der Kurs 3 Monaten für 60 CHF auf der Plattform online gestellt.</p>
-                                
-                            </div>
-                        </div>
-                        
-                        
-                        
-                        
-                        
-                        
-      
-                        
-                        
-                        
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['place'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="place" required></div>
