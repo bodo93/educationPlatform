@@ -63,10 +63,13 @@ else
                             ?>
                         </ul>
                     </div>
+                        <div>
+                            <!--no script tag, if user deactivatted JavaScript-->
+                            <noscript style="background-color: green; color:white;">Your browser does not support JavaScript,<br>
+                            please activate it to display the website correctly.</noscript>
+                        </div>
                 </div>
             </nav>
-            <!--no script tag, if user deactivatted JavaScript-->
-            <noscript style="background-color: green; color:white;">Sorry, your browser does not support JavaScript.<br>Please activate JavaScript to show the website correctly.</noscript>
         </header>
         
          
