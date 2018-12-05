@@ -30,7 +30,7 @@ author: René Schwab
                 <div class="row" style="margin-left: -10px;margin-right: -10px;">
                     <div class="col-sm-6 col-md-7 col-lg-7">
                         <h1 style="font-size: 30px;margin-bottom: 15px;"><?php echo $lang['whatOffer']?></h1>
-                        <p style="min-height: 330px;"><?php echo $lang['xxxxx1']?><br><br><br><?php echo $lang['xxxxx1']?><br><br><br><br><br><br>
+                        <p style="min-height: 330px;"><?php echo $lang['termsInfo1']?><br><br><br><?php echo $lang['termsInfo2']?><br><br><br><br><br><br>
                             <a class="btn btn-primary btn-block" role="button" href="<?php echo $GLOBALS['ROOT_URL']?>/search" style="margin-top: 6px;min-width: 160px;max-width: 200px;"><?php echo $lang['close']?></a></p>
                     </div>
                     <div class="col-sm-6 col-md-5 col-lg-5"><img src="assets/img/checklist.jpg"></div>
