@@ -140,13 +140,13 @@ include 'includes/translator.inc.php';
                     
                     
                     
-                    
-                    <script>
+                    <!--
+                                        <script>
                     var x = document.getElementById("infoTxt"){
                     x.style.display = "none";
                     }
                     </script>
-                    
+                    -->
                     
                   
                     
@@ -154,9 +154,9 @@ include 'includes/translator.inc.php';
                         function myFunction() {
                         var x = document.getElementById("infoTxt");
                         if (x.style.display === "none") {
-                            x.style.display = "block";
-                        } else {
                             x.style.display = "none";
+                        } else {
+                            x.style.display = "block";
                             }
                         }
                     </script>
