@@ -1,9 +1,7 @@
 <?php
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: Bodo Grütter
  */
 
 namespace controller;
@@ -18,13 +16,11 @@ use database\courseDAO;
 use database\DBConnection;
 use service\EmailServiceClient;
 
-/**
- * Description of CourseController
- *
- * @author bodog
- */
 class CourseController {
 
+    /**
+     * $Author: Bodo Grütter
+     */
     public static function create() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -62,7 +58,6 @@ class CourseController {
 
             $toEmail = $myInstitute->getEmail();  // funktioniert nicht, warum ??
             //$email = $_POST['email'];
-
             //$institute = $stmt->get_result()->fetch_object("model\Institute");
             $stmt->close();
 
@@ -83,6 +78,7 @@ class CourseController {
         }
     }
 
+
     public static function readAll() {
         $contentView = new TemplateView("courseOverview.php");
         $courseDAO = new CourseDAO();
@@ -97,6 +93,9 @@ class CourseController {
         LayoutRendering::basicLayout($contentView);
     }
 
+    /*
+     * Author: Bodo Grütter
+     */
     public static function update() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -125,6 +124,9 @@ class CourseController {
         }
     }
 
+    /*
+     * Author: Bodo Grütter
+     */
     public static function delete() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();

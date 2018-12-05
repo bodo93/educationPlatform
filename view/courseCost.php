@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+/*
+ * Author: René Schwab
+ */
 include 'includes/header.inc.php';
 ?>
 <html>

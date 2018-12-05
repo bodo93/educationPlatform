@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <?php
+/*
+ * Author: Bodo Grütter
+ */
 
 include 'includes/translator.inc.php';
 include 'includes/header.inc.php';

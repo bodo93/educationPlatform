@@ -3,9 +3,7 @@
 namespace model;
 
 /**
- * Description of EducationalInstitute
- *
- * @author bodog
+ * Author: Bodo Grütter
  */
 class Institute {
     private $ID;

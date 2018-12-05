@@ -3,9 +3,7 @@
 namespace model;
 
 /**
- * Description of Area
- *
- * @author bodog
+ * Author: Bodo Grütter
  */
 class Area {
     

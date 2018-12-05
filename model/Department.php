@@ -3,9 +3,7 @@
 namespace model;
 
 /**
- * Description of Department
- *
- * @author bodog
+ * Author: Bodo Grütter
  */
 class Department {
     

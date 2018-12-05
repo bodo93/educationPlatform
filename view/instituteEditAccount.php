@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <?php
+
+/*
+ * Author: Bodo Grütter
+ */
 use database\DBConnection;
 include 'includes/translator.inc.php';
 

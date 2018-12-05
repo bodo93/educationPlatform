@@ -12,9 +12,7 @@ use model\Institute;
 use model\InvoiceAddress;
 
 /**
- * Description of InstituteDAO
- *
- * @author bodog
+ * Author: Bodo Grütter
  */
 class InstituteDAO extends BasicDAO {
 

@@ -3,9 +3,7 @@
 namespace model;
 
 /**
- * Description of CourseType
- *
- * @author bodog
+ * Author: Bodo Grütter
  */
 class CourseType {
     private $id;
