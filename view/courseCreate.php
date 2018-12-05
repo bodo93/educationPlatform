@@ -78,7 +78,7 @@ include 'includes/translator.inc.php';
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['place'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="place" required></div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="terms" />
-                                    <label class="form-check-label" for="checkbox"><em>AGB gelesen und akzeptiert</em><br /></label>
+                                    <label class="form-check-label" for="checkbox"><em><?php echo $lang['gtc'] ?></em><br /></label>
                                 </div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">

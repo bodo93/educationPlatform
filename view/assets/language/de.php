@@ -77,6 +77,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "courseCreate" => "Neuen Kurs hinzufügen",
         "addCourse" => "Kurs hinzufügen",
         "confirmCourse" => "Bestätigen",
+        "gtc" => "AGB gelesen und akzeptiert",
         "addCourseInfo" => "Mit “Bestätigen“ wird der Kurs für 60 CHF während 3 Monaten auf der Plattform publiziert.",
         
         //EDIT COURSE
@@ -97,6 +98,8 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "contact" => "Kontakt",
         "address" => "Adresse",
         "services" => "Leistungen",
-        "terms" => "Rechtliches"
+        "terms" => "Rechtliches",
+        "termsInfo1" => "SWISSEDU ist die grösste und bekannteste Bildungsplattform der Schweiz. Wir bringen Sie und Ihre zukünftigen Kunden zusammen.",
+        "termsInfo2" => "Das Veröffentlichen Ihres Kurses auf unserer Plattform kostet 60 CHF. Das Inserat wird dann während 3 Monaten, ab Zeitpunkt der Buchung, auf unserer Plattform publiziert."
     );
 ?>

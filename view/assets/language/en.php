@@ -77,6 +77,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "courseCreate" => "Add new course",
         "addCourse" => "Add course",
         "confirmCourse" => "Confirm",
+        "gtc" => "GTC read and accepted",
         "addCourseInfo" => "With “Confirm“ the course will be published for 60 CHF during 3 months on the platform.",
         
         //EDIT COURSE
@@ -97,6 +98,8 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "contact" => "Contact",
         "address" => "Address",
         "services" => "Services",
-        "terms" => "Terms"
+        "terms" => "Terms",
+        "termsInfo1" => "SWISSEDU is the biggest and most popular education platform in Switzerland. We connect you and your future clients.",
+        "termsInfo2" => "The publication of your course on our platform costs 60 CHF. Your course will then be published on our platform for 3 months, beginning on the date of booking."
     );  
 ?>
