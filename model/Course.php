@@ -3,9 +3,7 @@
 namespace model;
 
 /**
- * Description of Course
- *
- * @author bodog
+ * Author: Bodo Grütter
  */
 
 class Course {

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <?php
+
+/*
+ * Author: René Schwab
+ */
 use database\DBConnection;
 include 'includes/translator.inc.php';
 

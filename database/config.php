@@ -3,7 +3,7 @@
 namespace database;
 
 /**
- * @author andreas.martin
+ * @Author: andreas.martin
  */
 class Config {
 

@@ -159,6 +159,9 @@ class InstituteController {
         $LayoutRendering::basicLayout($contentView);
     }
     
+    /*
+     * Author: Bodo Grütter
+     */
     public static function updateAccount(){
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();     

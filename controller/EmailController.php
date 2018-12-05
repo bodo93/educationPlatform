@@ -7,7 +7,9 @@ include 'includes/translator.inc.php';
 use database\DBConnection;
 use service\EmailServiceClient;
 
-
+/*
+ * Author: René Schwab
+ */
 class EmailController {
     
     /* checks if entered email in "institutForgotPassword" is in database

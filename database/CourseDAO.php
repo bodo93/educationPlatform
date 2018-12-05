@@ -11,9 +11,7 @@ use model\Course;
 use database\DBConnection;
 
 /**
- * Description of CourseController
- *
- * @author bodog
+ * Author: Bodo Grütter
  */
 class CourseDAO extends BasicDAO {
     

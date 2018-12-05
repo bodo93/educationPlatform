@@ -1,26 +1,7 @@
-<?php  
-    /*use database\DBConnection;
-    
-    $db = DBConnection::getConnection();
-    $mysqli = $db->getConnection();
-
-    if ( !empty($_GET['id'])) {
-        $id = $_REQUEST['id'];
-    }
-     
-    if ( !empty($_POST)) {
-        // keep track post values
-        $id = $_POST['id'];
-         
-        // delete data
-        mysqli_query($mysqli, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
-        $delete = "DELETE FROM course WHERE ID = ".$id;
-        mysqli_query($mysqli, $delete);
-        header("Location: ".$GLOBALS["ROOT_URL"]."/course/overview");
-    }*/
-    
-?>
-<?php 
+<?php
+/*
+ * Author: René Schwab
+ */
     include 'includes/header.inc.php';
 ?>
 <body style="background-color: rgb(34,36,37);">

@@ -7,9 +7,7 @@
  */
 
 /**
- * Description of BasicDAO
- *
- * @author bodog
+ * Author: Bodo Grütter
  */
 
 namespace database;
