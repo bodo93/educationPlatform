@@ -85,20 +85,12 @@ include 'includes/translator.inc.php';
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['link'] ?></label><input class="form-control" type="url" name="link" onblur="checkURL(this)" required></div>
                             </div>
                         </div>
-                        
-                        
-                        
-                        
-                        
+                        <!--Info text, appears if checkbox is ckecked-->
                         <div class="form-row">
-                            <div id="infoTxt" style="display: none; margin-top: 20px; margin-bottom: 20px; padding-left: 5px; min-width: 130px;">Mit Bestätigen wir der Kurs 3 Monaten für 60 CHF auf der Plattform online gestellt.</div>
+                            <div id="infoTxt" style="display: none; margin-top: 20px; margin-bottom: 20px; padding-left: 5px; min-width: 130px;"><?php echo $lang['addCourseInfo'] ?></div>
                         </div>
-                        
-                     
-                        
-                        
                         <div class="form-row">
-                            <div class="col" style="margin-right: 40px;min-width: 130px;"><button class="btn btn-primary" id="registerBtn" type="submit" style="width: 142px;margin-top: 10px;"><?php echo $lang['save'] ?></button></div>
+                            <div class="col" style="margin-right: 40px;min-width: 130px;"><button class="btn btn-primary" id="registerBtn" type="submit" style="width: 142px;margin-top: 10px;"><?php echo $lang['confirmCourse'] ?></button></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;"><a class="btn btn-primary" role="button" href="<?php echo $GLOBALS['ROOT_URL']?>/course/overview" style="width: 142px;margin-top: 10px;"><?php echo $lang['cancel'] ?></a></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
@@ -128,25 +120,11 @@ include 'includes/translator.inc.php';
                                     } else {
                                     button.attr('disabled', 'disabled');
                                     myFunction();
-                                    
-                                    
                                     }
                                  });
                                 });
                     </script>
-                    
-                    
-                    
-                    <!--
-                                        <script>
-                    var x = document.getElementById("infoTxt"){
-                    x.style.display = "none";
-                    }
-                    </script>
-                    -->
-                    
-                  
-                    
+                    <!--shows or hides info text-->
                     <script>
                         function myFunction() {
                         var x = document.getElementById("infoTxt");
@@ -157,16 +135,6 @@ include 'includes/translator.inc.php';
                             }
                         }
                     </script>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-        
                 </div>
             </section>
         </main>

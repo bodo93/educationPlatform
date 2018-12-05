@@ -76,6 +76,8 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         //CREATE COURSE
         "courseCreate" => "Add new course",
         "addCourse" => "Add course",
+        "confirmCourse" => "Confirm",
+        "addCourseInfo" => "With “Confirm“ the course will be published for 60 CHF during 3 months on the platform.",
         
         //EDIT COURSE
         "courseEdit" => "Edit course",

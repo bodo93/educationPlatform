@@ -76,6 +76,8 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         //CREATE COURSE
         "courseCreate" => "Neuen Kurs hinzufügen",
         "addCourse" => "Kurs hinzufügen",
+        "confirmCourse" => "Bestätigen",
+        "addCourseInfo" => "Mit “Bestätigen“ wird der Kurs für 60 CHF während 3 Monaten auf der Plattform publiziert.",
         
         //EDIT COURSE
         "courseEdit" => "Kurs bearbeiten",
