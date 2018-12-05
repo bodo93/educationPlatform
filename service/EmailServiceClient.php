@@ -84,15 +84,7 @@ class EmailServiceClient {
               "type": "text/html",
               "value": "value"
             }
-          ],
-          "attachments": [
-            {
-              "content": "content",
-              "type": "application/pdf",
-              "filename": "filename"
-            }
           ]
         }');
     }
-
 }
