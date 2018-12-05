@@ -91,13 +91,10 @@ include 'includes/translator.inc.php';
                         
                         
                         <div class="form-row">
-                            <div id="infoTxt" style="margin-top: 20px; margin-bottom: 20px; padding-left: 5px; min-width: 130px;">Mit Bestätigen wir der Kurs 3 Monaten für 60 CHF auf der Plattform online gestellt.</div>
+                            <div id="infoTxt" style="display: none; margin-top: 20px; margin-bottom: 20px; padding-left: 5px; min-width: 130px;">Mit Bestätigen wir der Kurs 3 Monaten für 60 CHF auf der Plattform online gestellt.</div>
                         </div>
                         
-                        
-                        
-                        
-                        
+                     
                         
                         
                         <div class="form-row">
@@ -153,7 +150,7 @@ include 'includes/translator.inc.php';
                     <script>
                         function myFunction() {
                         var x = document.getElementById("infoTxt");
-                        if (!x.style.display === "none") {
+                        if (x.style.display === "none") {
                             x.style.display = "block";
                         } else {
                             x.style.display = "none";
