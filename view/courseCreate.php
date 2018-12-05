@@ -124,10 +124,12 @@ include 'includes/translator.inc.php';
                                     $('#terms').change(function(e){
                                     if (this.checked){
                                             button.removeAttr('disabled');
+                                            myFunction();
                                     } else {
                                     button.attr('disabled', 'disabled');
-                                    
                                     myFunction();
+                                    
+                                    
                                     }
                                  });
                                 });
