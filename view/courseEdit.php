@@ -95,35 +95,25 @@ use database\DBConnection;
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['area']?></label><select class='form-control' name='area' required>
                                         <?php
                                         if($course->getAreaId() == 1){  
-                                        echo "<option value='1' selected>" . $lang['northwest'] . "</option>
-                                        <option value='2'>" . $lang['west'] . "</option>
-                                        <option value='3'>" . $lang['central'] . "</option>
-                                        <option value='4'>" . $lang['east'] . "</option>
-                                        <option value='5'>" . $lang['south'] . "</option>";
+                                        echo "<option value='1' selected>" . $lang['west'] . "</option>
+                                        <option value='2'>" . $lang['central'] . "</option>
+                                        <option value='3'>" . $lang['east'] . "</option>
+                                        <option value='4'>" . $lang['south'] . "</option>";
                                         }else if($course->getAreaId() == 2){
-                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
-                                        <option value='2' selected>" . $lang['west'] . "</option>
-                                        <option value='3'>" . $lang['central'] . "</option>
-                                        <option value='4'>" . $lang['east'] . "</option>
-                                        <option value='5'>" . $lang['south'] . "</option>";    
+                                        echo "<option value='1'>" . $lang['west'] . "</option>
+                                        <option value='2' selected>" . $lang['central'] . "</option>
+                                        <option value='3'>" . $lang['east'] . "</option>
+                                        <option value='4'>" . $lang['south'] . "</option>";    
                                         }else if($course->getAreaId() == 3){
-                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
-                                        <option value='2'>" . $lang['west'] . "</option>
-                                        <option value='3' selected>" . $lang['central'] . "</option>
-                                        <option value='4'>" . $lang['east'] . "</option>
-                                        <option value='5'>" . $lang['south'] . "</option>";    
+                                        echo "<option value='1'>" . $lang['west'] . "</option>
+                                        <option value='2'>" . $lang['central'] . "</option>
+                                        <option value='3' selected>" . $lang['east'] . "</option>
+                                        <option value='4'>" . $lang['south'] . "</option>";    
                                         }else if($course->getAreaId() == 4){
-                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
-                                        <option value='2'>" . $lang['west'] . "</option>
-                                        <option value='3'>" . $lang['central'] . "</option>
-                                        <option value='4' selected>" . $lang['east'] . "</option>
-                                        <option value='5'>" . $lang['south'] . "</option>";    
-                                        }else if($course->getAreaId() == 5){
-                                        echo "<option value='1'>" . $lang['northwest'] . "</option>
-                                        <option value='2'>" . $lang['west'] . "</option>
-                                        <option value='3'>" . $lang['central'] . "</option>
-                                        <option value='4'>" . $lang['east'] . "</option>
-                                        <option value='5' selected>" . $lang['south'] . "</option>";    
+                                        echo "<option value='1'>" . $lang['west'] . "</option>
+                                        <option value='2'>" . $lang['central'] . "</option>
+                                        <option value='3'>" . $lang['east'] . "</option>
+                                        <option value='4' selected>" . $lang['south'] . "</option>";    
                                         }
                                         ?>
                                     </select>

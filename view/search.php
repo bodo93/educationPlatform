@@ -48,7 +48,6 @@ include 'includes/header.inc.php';
                             <div class="form-row">
                                 <div class="col-md-6"><label for="hire-date" style="font-weight: bold;color: rgb(255,255,255);margin-bottom: 2px;"><?php echo $lang['searchTerm'] ?></label>
                                     <input name="valueToSearch" class="form-control" type="text"></div>
-                                <!--<button type="submit" name="search" class="btn btn-primary btn-block" role="button" style="width:100px; margin-top: 26px;font-weight: bold;background-color: rgb(43,47,49);"><?php echo $lang['submit'] ?></button>-->
                                 <div class="col-md-6 button"><button class="btn btn-primary btn-block" type="submit" style="margin-top: 26px;font-weight: bold;background-color: rgb(43,47,49);"><?php echo $lang['submit'] ?></button></div>
                             </div>
                         </div>
