@@ -86,6 +86,10 @@ Router::route("GET", "/terms", function(){
     require_once("view/terms.php");
 });
 
+Router::route("GET", "/test", function(){
+    require_once("view/TEST.php");
+});
+
 Router::route("GET", "/logout", function () {
     session_destroy();
     Router::redirect("/login");
