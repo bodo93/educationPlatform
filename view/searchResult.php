@@ -100,12 +100,13 @@ include 'includes/header.inc.php';
                 </tr>
                 <?php
                 // check if there is content in the search
+                /*
                 $content = mysqli_fetch_assoc($search_Result);
                 if (is_null($content)) {
                     echo "<tr>"
                     . "<td colspan='7' style='text-align: center'>Keine Inhalte gefunden</td>"
                     . "</tr>";
-                }
+                }*/
 
                 while ($row = mysqli_fetch_array($search_Result)) {
                     //$id = $row["ID"];
