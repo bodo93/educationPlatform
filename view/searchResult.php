@@ -107,6 +107,7 @@ include 'includes/header.inc.php';
                     . "<td colspan='7' style='text-align: center'>Keine Inhalte gefunden</td>"
                     . "</tr>";
                 }
+                // test comment
 
                 while ($row = mysqli_fetch_array($search_Result)) {
                     //$id = $row["ID"];
