@@ -69,15 +69,18 @@ class EmailServiceClient {
     
     
     
-    public static function sendEmailAttachement($ToEmail, $subject, $htmlData) {
+    public static function sendEmailAttachement($toEmail, $subject, $htmlData) {
         
         echo "sendEmailAtt aufgerufen";
 
         $apiKey = getenv("SENDGRID_API_KEY");
         //$apiKey = config::get("sendGrid.value");
+        
+        echo $apiKey;
+        
         $sg = new \SendGrid($apiKey);
 
-        $email = new SendGrid\Email("Me", "$ToEmail");
+        $email = new SendGrid\Email("Me", "$toEmail");
 
         $mail = new SendGrid\Mail();
         $mail->setFrom($email);
@@ -90,7 +93,7 @@ class EmailServiceClient {
 
         $att1 = new \SendGrid\Attachment();
         //$att1->setContent(base64_encode(file_get_contents("$pfad")));
-        $att1->setContent(base64_encode(file_get_contents("Invoice/createInvoice.php")));
+        $att1->setContent(base64_encode(file_get_contents('Invoice/createInvoice.php')));
         $att1->setType("application/pdf");
         $att1->setFilename("Rechnung");
         $att1->setDisposition("attachment");
