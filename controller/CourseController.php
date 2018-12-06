@@ -68,7 +68,12 @@ class CourseController {
                     . "You can find the Invoice in your course overview.";
 
             EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);
+            
+            // Test Mail with pdf
+            EmailServiceClient::sendEmailAttachement($ToEmail, $subject, $htmlData);
 
+            
+            
             if ($stmt) {
                 header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
             } else {
