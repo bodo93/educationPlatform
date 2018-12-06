@@ -44,7 +44,6 @@ if (empty($_POST['valueToSearch']) and empty($_POST['department']) and empty($_P
             ORDER BY c.Name,c.Place";
 
     $search_Result = filterTable($query);
-    echo $valueToSearch;
 }
 
 function filterTable($query) {
@@ -56,7 +55,7 @@ function filterTable($query) {
 }
 ?>
 <?php
-//include 'includes/header.inc.php';
+include 'includes/header.inc.php';
 ?>
 <body style="background-color: rgb(34,36,37);">
 <head>
