@@ -70,8 +70,7 @@ class CourseController {
             EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);
             
             // Test Mail with pdf
-            
-            EmailServiceClient::sendEmailAttachement($toEmail, $subject, $htmlData);
+            //EmailServiceClient::sendEmailAttachement($toEmail, $subject, $htmlData);
 
             
             
