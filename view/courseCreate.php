@@ -17,7 +17,7 @@ include 'includes/translator.inc.php';
                     <div class="block-heading">
                         <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['courseCreate'] ?></h2>
                     </div>
-                    <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/create" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
+                    <form action="" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['name'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="name" required></div>
@@ -53,11 +53,11 @@ include 'includes/translator.inc.php';
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['area'] ?></label>
                                     <br/><select class="form-control" name="area" required>
-                                        <option value='1'><?php echo $lang['northwest']?></option>
-                                        <option value='2'><?php echo $lang['west']?></option>
-                                        <option value='3'><?php echo $lang['central']?></option>
-                                        <option value='4'><?php echo $lang['east']?></option>
-                                        <option value='5'><?php echo $lang['south']?></option>
+                                        <option disabled selected value></option>
+                                        <option value='1'><?php echo $lang['west']?></option>
+                                        <option value='2'><?php echo $lang['central']?></option>
+                                        <option value='3'><?php echo $lang['east']?></option>
+                                        <option value='4'><?php echo $lang['south']?></option>
                                     </select>
                                 </div>
                             </div>

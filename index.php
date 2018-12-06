@@ -32,8 +32,8 @@ $errorFunction = function () {
 
 // JUST FOR TESTING
 // ################
-Router::route("GET", "/testPDF", function(){
-    require_once("Testing/createPDFtest.php");
+Router::route("GET", "/Invoice", function(){
+    require_once("Invoice/createInvoice.php");
 });
 
 // JUST FOR TESTING

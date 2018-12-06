@@ -28,7 +28,6 @@ include 'includes/header.inc.php';
                             class="form-group"><label for="subject" style="font-weight: bold;color: rgb(255,255,255);margin-bottom: 2;"><?php echo $lang['area'] ?></label>
                             <select name="area" class="form-control" id="subject">
                                 <option></option>
-                                <option value="Nordwestschweiz"><?php echo $lang['northwest'] ?></option>
                                 <option value="Westschweiz"><?php echo $lang['west'] ?></option>
                                 <option value="Zentralschweiz"><?php echo $lang['central'] ?></option>
                                 <option value="Ostschweiz"><?php echo $lang['east'] ?></option>
