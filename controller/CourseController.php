@@ -64,7 +64,8 @@ class CourseController {
             //$toEmail = $_POST['email'];
             $subject = "SWISSEDU Service";
             $htmlData = "Thank you for publishing your course on SWISSEDU!\n"
-                    . "Please settle the account in the attachment within 30 days.";
+                    . "Please settle the account within 30 days.\n"
+                    . "You can find the Invoice in your course overview.";
 
             EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);
 
