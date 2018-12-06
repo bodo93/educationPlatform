@@ -99,16 +99,6 @@ include 'includes/header.inc.php';
                     <th><?php echo $lang['startDate'] ?></th>
                 </tr>
                 <?php
-                // check if there is content in the search
-                
-                $content = mysqli_fetch_assoc($search_Result);
-                if (is_null($content)) {
-                    echo "<tr>"
-                    . "<td colspan='7' style='text-align: center'>Keine Inhalte gefunden</td>"
-                    . "</tr>";
-                }
-                // test comment
-
                 while ($row = mysqli_fetch_array($search_Result)) {
                     //$id = $row["ID"];
                     echo "<tr class='clickable-row' data-href='" . $row['Link'] . "'>"
