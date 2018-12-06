@@ -143,7 +143,7 @@ use database\DBConnection;
                         </div>
                         <div class='form-row'>
                             
-                            <div class='col' style='margin-right: 40px;min-width: 130px;'><input class='btn btn-primary' type='submit' style='width: 142px;margin-top: 10px;' value='<?php echo $lang['next']?>'></div>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'><input class='btn btn-primary' type='submit' style='width: 142px;margin-top: 10px;' value='<?php echo $lang['save']?>'></div>
                             <div class='col' style='margin-right: 40px;min-width: 130px;'><a class='btn btn-primary' role='button' href="<?php echo $GLOBALS["ROOT_URL"]?>/course/overview" style='width: 142px;margin-top: 10px;'><?php echo $lang['cancel']?></a></div>
                             <div class='col' style='margin-right: 40px;min-width: 130px;height: 40px;'></div>
                             <div class='col' style='margin-right: 40px;min-width: 130px;height: 40px;'></div>
