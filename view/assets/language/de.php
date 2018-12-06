@@ -24,7 +24,6 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "cancel" => "Abbrechen",
         "close" => "Schliessen",
         "next" => "Weiter",
-        "downloadInvoice" => "Rechnung",
         "name" => "Name",
         "street" => "Strasse",
         "streetNr" => "Strassennummer",
