@@ -79,8 +79,12 @@ class EmailServiceClient {
         echo $apiKey;
         
         $sg = new \SendGrid($apiKey);
+        
+        echo " new SendGrid ";
 
         $email = new SendGrid\Email("Me", "$toEmail");
+        
+        echo " email new sendGrid ";
 
         $mail = new SendGrid\Mail();
         $mail->setFrom($email);
