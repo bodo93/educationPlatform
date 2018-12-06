@@ -70,6 +70,8 @@ class EmailServiceClient {
     
     
     public static function sendEmailAttachement($ToEmail, $subject, $htmlData) {
+        
+        echo "sendEmailAtt aufgerufen";
 
         $apiKey = getenv("SENDGRID_API_KEY");
         //$apiKey = config::get("sendGrid.value");
