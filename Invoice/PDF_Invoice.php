@@ -82,20 +82,6 @@ function addRecipient( $address )
     $this->MultiCell($length, 4, $address);
 }
 
-// Estimate
-function addDevis( $numdev )
-{
-    $string = sprintf("DEV%04d",$numdev);
-    $this->fact_dev( "Devis", $string );
-}
-
-// Invoice
-function addFacture( $numfact )
-{
-    $string = sprintf("FA%04d",$numfact);
-    $this->fact_dev( "Facture", $string );
-}
-
 function addDate( $place, $date )
 {
     $x1 = 120;
@@ -166,7 +152,7 @@ function addNote( $text )
     $this->MultiCell($length, 4, $text);
 }
 
-function addDetails( $date, $name, $price )
+function addDetails( $date, $courseName, $price )
 {
     $x1 = 20;
     $y1 = 170;
@@ -184,14 +170,14 @@ function addDetails( $date, $name, $price )
     $this->SetXY( $x1, $y1 + 6 );
     $this->Cell( 40, 6, "$date", 'BLR' );
     $this->SetXY( $x1 + 40, $y1 + 6 );
-    $this->Cell( 80,6,'Wirtschaftsinformatik','TBR');
+    $this->Cell( 80,6,$courseName,'TBR');
     $this->SetXY( $x1 + 120, $y1 + 6 );
     $this->Cell( 40,6,$price,'BR',1,'R',0);
 }
 
 function addPriceToBill( $price )
 {
-    $x1 = 32;
+    $x1 = 36;
     $y1 = 249.3;
 
     $this->SetFont('Arial','',10);
