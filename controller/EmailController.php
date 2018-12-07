@@ -47,14 +47,14 @@ class EmailController {
                 $email = $_POST['email'];
                 $stmt->execute();
 
-                //header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
-
                 echo "  
                 <script type=\"text/javascript\">
                 alert('Check your E-Mail');
-                window.location.replace('login');
                 </script>
                 ";
+                
+                header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
+
             } else {
                 echo "
             <script type=\"text/javascript\">
