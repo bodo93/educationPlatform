@@ -59,9 +59,10 @@ class EmailController {
                 echo "
             <script type=\"text/javascript\">
             alert('Username does not exist');
+            window.location.replace ('https://swissedu.herokuapp.com/login/forgotPassword');
             </script>
             ";
-                header("Location: " . $GLOBALS["ROOT_URL"] . "/forgotPassword");
+                //header("Location: " . $GLOBALS["ROOT_URL"] . "login/forgotPassword");
             }
             
         } catch (Exception $ex) {
