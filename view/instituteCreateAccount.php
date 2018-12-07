@@ -65,6 +65,7 @@ author: Philipp Lehmann
                         var textLength = password.value.length;
                         if(password.value=='' || textLength<=6){
                         alert('Password must have at least 6 characters');
+                        password.value='';
                         }
                     }
                     </script>
@@ -74,6 +75,7 @@ author: Philipp Lehmann
                         var textLength = num.value.length;
                         if (isNaN(num)) || textLength<=4 || textLength>=4){
                         alert('Please enter a valid postcode');
+                        num.value='';
                         }
                     }
                     </script>
