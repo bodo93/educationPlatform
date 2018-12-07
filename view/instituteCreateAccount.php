@@ -61,7 +61,6 @@ author: Philipp Lehmann
                     
                     <script>
                     function checkPw(password){
-                        //var password = document.getElementById("pw1");
                         var textLength = password.value.length;
                         if(password.value=='' || textLength<6){
                         alert('Password must have at least 6 characters');
@@ -72,7 +71,7 @@ author: Philipp Lehmann
                     
                     <script>
                     function checkIsNum(num){
-                        var textLength = num.value.length;
+                        //var textLength = num.value.length;
                         //if (isNaN(num) || textLength<4 || textLength>4){
                         if (isNaN(num)){
                         alert('Please enter a valid postcode');
