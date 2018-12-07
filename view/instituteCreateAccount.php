@@ -72,7 +72,6 @@ author: Philipp Lehmann
                     <script>
                     function checkIsNum(num){
                         var textLength = num.value.length;
-                        //if (isNaN(num) || textLength<4 || textLength>4){
                         if (isNaN(num.value) || textLength<4 || textLength>4){
                         alert('Please enter a valid postcode');
                         num.value='';

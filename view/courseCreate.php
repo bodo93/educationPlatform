@@ -46,7 +46,7 @@ include 'includes/translator.inc.php';
                                 </div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['costs'] ?></label><input class="form-control item" type="text" style="min-width: 170px;font-size: 14px;" name="costs" required></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['costs'] ?></label><input class="form-control item" type="text" onblur="checkIsPrice(this)" style="min-width: 170px;font-size: 14px;" name="costs" required></div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -62,20 +62,20 @@ include 'includes/translator.inc.php';
                                 </div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['startDate'] ?></label><input class="form-control" type="date" name="start" required></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['startDate'] ?></label><input class="form-control" type="date" id="dateOne" name="start" onblur="checkDate(this)" required></div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['postCode'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="postCode" required></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['postCode'] ?></label><input class="form-control item" type="text" onblur="checkIsNum(this)" style="min-width: 160px;font-size: 14px;" name="postCode" required></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['endDate'] ?></label><input class="form-control" type="date" name="end" required></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['endDate'] ?></label><input class="form-control" type="date" name="end" onblur="checkDate2(this)" required></div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['place'] ?></label><input class="form-control item" type="text" style="min-width: 160px;font-size: 14px;" name="place" required></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['place'] ?></label><input class="form-control item" type="text" onblur="checkPlace(this)" style="min-width: 160px;font-size: 14px;" name="place" required></div>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="terms" />
                                     <label class="form-check-label" for="checkbox"><em><?php echo $lang['gtc'] ?></em><br /></label>
@@ -135,6 +135,62 @@ include 'includes/translator.inc.php';
                             }
                         }
                     </script>
+                    
+                    <script>
+                    function checkIsNum(num){
+                        var textLength = num.value.length;
+                        if (isNaN(num.value) || textLength<4 || textLength>4){
+                            alert('Please enter a valid postcode');
+                            num.value='';
+                        }
+                    }
+                    </script>
+                    
+                    <script>
+                    function checkIsPrice(num){
+                        var textLength = num.value.length;
+                        if (isNaN(num.value) || textLength>5){
+                            alert('Please enter a valid price');
+                            num.value='';
+                        }
+                    }
+                    </script>
+
+                    <script>
+                    function checkPlace(place){
+                        if (!isNaN(place.value) ){
+                            alert('Please enter a valid place');
+                            place.value='';
+                        }
+                    }
+                    </script>
+                    
+                    <script>
+                    function checkDate(date) {
+                        //var date = this.value;
+                        if(date.valueAsDate <= new Date()) {
+                            alert('Please enter a date in the future');
+                            date.value='';
+                        } else {
+                            //Date in the future
+                        }
+                    }    
+                    </script>
+                    
+                    <script>
+                    function checkDate2(date) {
+                        //var date = this.value;
+                        var start = document.getElementById("dateOne");
+                        if(date.valueAsDate <= new Date()) {
+                            alert('Please enter a date in the future');
+                            date.value='';
+                        } else if(date.valueAsDate <= start.valueAsDate){
+                            alert('End date must be after the start date');
+                        }
+                    }    
+                    </script>
+                    
+                    
                 </div>
             </section>
         </main>
