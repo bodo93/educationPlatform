@@ -50,10 +50,11 @@ class EmailController {
                 echo "
                 <script type=\"text/javascript\">
                 alert('Check your E-Mail');
+                window.location.replace ('https://swissedu.herokuapp.com/login');
                 </script>
                 ";
 
-                header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
+                //header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
 
             } else {
                 echo "
