@@ -29,7 +29,7 @@ author: Philipp Lehmann
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['password']?></label><input class="form-control" type="password" name="password" required></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['password']?></label><input class="form-control" type="password" name="password" onblur="checkPw(this)" required></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['streetNr']?></label><input class="form-control item" type="text" name="houseNumber" style="min-width: 170px;font-size: 14px;" required autofocus></div>
@@ -37,10 +37,10 @@ author: Philipp Lehmann
                         </div>
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['passwordRepeat']?></label><input class="form-control" type="password" name="password2" required></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['passwordRepeat']?></label><input class="form-control" type="password" name="password2" onblur="checkPw(this)" required></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['postCode']?></label><input class="form-control" type="text" name="postCode" required autofocus></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['postCode']?></label><input class="form-control" type="text" name="postCode" onblur="checkIsNum(this)" required autofocus></div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -58,6 +58,26 @@ author: Philipp Lehmann
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                         </div>
                     </form>
+                    
+                    <script>
+                    function checkPw(password){
+                        //var password = document.getElementById("pw1");
+                        var textLength = password.value.length;
+                        if(password.value=='' || textLength<=6){
+                        alert('Password must have at least 6 characters');
+                        }
+                    }
+                    </script>
+                    
+                    <script>
+                    function checkIsNum(num){
+                        var textLength = num.value.length;
+                        if (isNaN(num)) || textLength<=4 || textLength>=4){
+                        alert('Please enter a valid postcode');
+                        }
+                    }
+                    </script>
+                    
                 </div>
             </section>
         </main>
