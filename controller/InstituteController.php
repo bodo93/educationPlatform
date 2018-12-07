@@ -238,4 +238,50 @@ class InstituteController {
             }
         }
     }
+    
+    public static function deleteAccount(){
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();
+        
+        $id = $_SESSION['userID'];
+        
+        // delete all course
+        $stmt = $mysqli->prepare("DELETE FROM course WHERE InstituteID = ?");
+        $stmt->bind_param('i', $userID);
+        $userID = $id;
+
+        $stmt->execute();
+
+        if($stmt){
+            // delete account
+            $stmt = $mysqli->prepare("DELETE FROM institute WHERE ID = ?");
+            $stmt->bind_param('i', $userID);
+            $userID = $id;
+
+            $stmt->execute();
+            
+            if ($stmt) {
+                echo "
+                <script type=\"text/javascript\">
+                alert('Profile and all courses deleted');
+                window.location.replace('". $GLOBALS['ROOT_URL']."/login');    
+                </script>
+                ";
+                
+                InstituteController::logout();
+            } else {
+                echo "Error: " . $update . "<br>" . mysqli_error($conn);
+            }
+        } else {
+            echo "Error: " . $update . "<br>" . mysqli_error($conn);
+        }
+        
+        
+        /*
+        
+
+        
+         * 
+         */
+    }
 }

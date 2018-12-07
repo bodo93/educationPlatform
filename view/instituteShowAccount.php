@@ -60,6 +60,7 @@ $institute = $stmt->get_result()->fetch_object("model\Institute");
                         </div>
                         <div class="form-row">
                             <div class='col' style='margin-right: 40px;min-width: 130px;'><a class="btn btn-primary" role="button" href="<?php echo $GLOBALS['ROOT_URL']?>/institute/edit" style="width: 142px;margin-top: 10px;"><?php echo $lang['edit']?></a></div>
+                            <div class='col' style='margin-right: 40px;min-width: 130px;'><a class="btn btn-primary" role="button" href="<?php echo $GLOBALS['ROOT_URL']?>/institute/delete" style="width: 142px;margin-top: 10px;background-color:red"><?php echo $lang['deleteInstitute']?></a></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                         </div>

@@ -16,6 +16,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "graduation" => "Graduation",
         "sureDelete" => "Are you sure?",
         "delete" => "Delete Course",
+        "deleteInstitute" => "Delete Profile",
         "yes" => "Yes",
         "no" => "No",
         "deleteCourse" => "Delete a course",
@@ -85,6 +86,9 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         
         //USERPROFILE
         "userprofile" => "User profile",
+        
+        //DELETE USERPROFILE
+        "deleteInstituteInfo" => "Are you sure? By deleting your profile, you are also deleting all of your courses.",
         
         // HEADER
         "myCourses" => "My courses",

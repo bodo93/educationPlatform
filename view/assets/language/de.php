@@ -16,6 +16,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "graduation" => "Abschluss",
         "sureDelete" => "Sind Sie sicher?",
         "delete" => "Kurs löschen",
+        "deleteInstitute" => "Profil löschen",
         "yes" => "Ja",
         "no" => "Nein",
         "deleteCourse" => "Kurs löschen",
@@ -85,6 +86,9 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         
         //USERPROFILE
         "userprofile" => "Benutzerprofil",
+        
+        //DELETE USERPROFILE
+        "deleteInstituteInfo" => "Sind Sie sicher? Wenn sie ihr Profil löschen, werden auch all Ihre Kurse gelöscht.",
         
         //HEADER
         "myCourses" => "Meine Kurse",

@@ -151,6 +151,14 @@ Router::route_auth("POST", "/course/delete", $authFunction, function () {
     CourseController::delete();
 });
 
+Router::route_auth("GET", "/institute/delete", $authFunction, function () {
+    require_once("view/instituteDelete.php");
+});
+
+Router::route_auth("POST", "/institute/delete", $authFunction, function () {
+    InstituteController::deleteAccount();
+});
+
 Router::route("GET", "", function () {
     require_once("view/search.php");
 });
