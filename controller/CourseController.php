@@ -112,18 +112,36 @@ class CourseController {
             // keep track post values
             $id = $_GET['id'];
         } else if ($_POST) {
-            $id = $_POST['id'];
+            $stmt = $mysqli->prepare("UPDATE course SET `Name` = ?, "
+                    . "`PostCode` = ?, `Place` = ?, `Start` = ?, `End` = ?, "
+                    . "`Costs` = ?, `Link` = ?, `InstituteID` = ?, "
+                    . "`DepartmentID`= ?, `AreaID` = ?, `CourseTypeID` = ? "
+                    . "WHERE `ID` = ?");
 
-            $update = "UPDATE course SET `Name` = '" . $_POST['name'] . "', "
-                    . "`PostCode` = '" . $_POST['postCode'] . "', `Place` = '" . $_POST['place'] . "', "
-                    . "`Start` = '" . $_POST['start'] . "', `End` = '" . $_POST['end'] . "', "
-                    . "`Costs` = '" . $_POST['costs'] . "', "
-                    . "`Link` = '" . $_POST['link'] . "', `InstituteID` = '" . $_POST['institute'] . "', "
-                    . "`DepartmentID`= '" . $_POST['department'] . "', `AreaID` = '" . $_POST['area'] . "', `CourseTypeID` = '" . $_POST['courseType'] . "' "
-                    . "WHERE `ID` = '$id'";
-            $result = $mysqli->query($update);
-            if ($result) {
-                header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
+            $stmt->bind_param('sisssisiiiii', $name, $postCode, $place, $start, $end, $costs, $link, $institute, $department, $area, $courseType, $id);
+
+            $name = $_POST['name'];
+            $postCode = $_POST['postCode'];
+            $place = $_POST['place'];
+            $start = $_POST['start'];
+            $end = $_POST['end'];
+            $costs = $_POST['costs'];
+            $link = $_POST['link'];
+            $institute = $_POST['institute'];
+            $department = $_POST['department'];
+            $area = $_POST['area'];
+            $courseType = $_POST['courseType'];
+            $id = $_POST['id'];
+            
+            $stmt->execute();
+            
+            if ($stmt) {
+                echo "
+                <script type=\"text/javascript\">
+                alert('Course was updated');
+                window.location.replace('overview');
+                </script>
+                ";
             } else {
                 echo "Error: " . $update . "<br>" . mysqli_error($conn);
             }
@@ -146,10 +164,22 @@ class CourseController {
             $id = $_POST['id'];
 
             // delete data
-            mysqli_query($mysqli, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
-            $delete = "DELETE FROM course WHERE ID = " . $id;
-            mysqli_query($mysqli, $delete);
-            header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
+            $stmt = $mysqli->prepare("DELETE FROM course WHERE ID = ?");
+            $stmt->bind_param('i', $id);
+            $id = $_POST['id'];
+            
+            $stmt->execute();
+            
+            if ($stmt) {
+                echo "
+                <script type=\"text/javascript\">
+                alert('Course was deleted');
+                window.location.replace('overview');
+                </script>
+                ";
+            } else {
+                echo "Error: " . $update . "<br>" . mysqli_error($conn);
+            }
         }
     }
 
