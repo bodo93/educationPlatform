@@ -2,7 +2,8 @@
 
 namespace service;
 use database\config;
-
+require ("SendGrid/SendGrid-API/vendor/autoload.php");
+use SendGrid\Mail;
 
 /**
  * @author Andreas Martin
@@ -60,7 +61,7 @@ class EmailServiceClient {
             return true;
         return false;
     }
-
+        
     
     
     
@@ -69,7 +70,7 @@ class EmailServiceClient {
     
     
     
-    public static function sendEmailAttachement($toEmail, $subject, $htmlData) {
+    public static function sendEmailAttachement($toEmail, $subject, $htmlData, $path) {
         
         echo "sendEmailAtt aufgerufen";
 
@@ -96,8 +97,8 @@ class EmailServiceClient {
         $mail->addContent($c);
 
         $att1 = new \SendGrid\Attachment();
-        //$att1->setContent(base64_encode(file_get_contents("$pfad")));
-        $att1->setContent(base64_encode(file_get_contents('Invoice/createInvoice.php')));
+        $att1->setContent(base64_encode(file_get_contents("$path")));
+        //$att1->setContent(base64_encode(file_get_contents('Invoice/createInvoice.php')));
         $att1->setType("application/pdf");
         $att1->setFilename("Rechnung");
         $att1->setDisposition("attachment");
