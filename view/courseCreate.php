@@ -167,7 +167,6 @@ include 'includes/translator.inc.php';
                     
                     <script>
                     function checkDate(date) {
-                        //var date = this.value;
                         if(date.valueAsDate <= new Date()) {
                             alert('Please enter a date in the future');
                             date.value='';
@@ -179,17 +178,16 @@ include 'includes/translator.inc.php';
                     
                     <script>
                     function checkDate2(date) {
-                        //var date = this.value;
                         var start = document.getElementById("dateOne");
                         if(date.valueAsDate <= new Date()) {
                             alert('Please enter a date in the future');
                             date.value='';
                         } else if(date.valueAsDate <= start.valueAsDate){
                             alert('End date must be after the start date');
+                            date.value='';
                         }
                     }    
                     </script>
-                    
                     
                 </div>
             </section>

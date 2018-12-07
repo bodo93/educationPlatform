@@ -87,7 +87,7 @@ use database\DBConnection;
                                 </div>
                             </div>
                             <div class='col' style='margin-right: 40px;min-width: 130px;'>
-                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['costs']?></label><input class='form-control item' type='text' style='min-width: 160px;font-size: 14px;' name='costs' value='<?php echo $course->getCosts();?>' required></div>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['costs']?></label><input class='form-control item' type='text' onblur="checkIsPrice(this)" style='min-width: 160px;font-size: 14px;' name='costs' value='<?php echo $course->getCosts();?>' required></div>
                             </div>
                         </div>
                         <div class='form-row'>
@@ -120,20 +120,20 @@ use database\DBConnection;
                                 </div>
                             </div>
                             <div class='col' style='margin-right: 40px;min-width: 130px;'>
-                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['startDate']?></label><input class='form-control item' type='date' style='min-width: 160px;font-size: 14px;' name='start' value='<?php echo $course->getStart();?>' required></div>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['startDate']?></label><input class='form-control item' type='date' id="dateOne" onblur="checkDate(this)" style='min-width: 160px;font-size: 14px;' name='start' value='<?php echo $course->getStart();?>' required></div>
                             </div>
                         </div>
                         <div class='form-row'>
                             <div class='col' style='margin-right: 40px;min-width: 130px;'>
-                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['postCode']?></label><input class='form-control item' type='text' style='min-width: 160px;font-size: 14px;' name='postCode' value='<?php echo $course->getpostCode();?>' required></div>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['postCode']?></label><input class='form-control item' type='text' onblur="checkIsNum(this)" style='min-width: 160px;font-size: 14px;' name='postCode' value='<?php echo $course->getpostCode();?>' required></div>
                             </div>
                             <div class='col' style='margin-right: 40px;min-width: 130px;'>
-                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['endDate']?></label><input class='form-control item' type='date' style='min-width: 160px;font-size: 14px;' name='end' value='<?php echo $course->getEnd();?>' required></div>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['endDate']?></label><input class='form-control item' type='date' onblur="checkDate2(this)" style='min-width: 160px;font-size: 14px;' name='end' value='<?php echo $course->getEnd();?>' required></div>
                             </div>
                         </div>
                         <div class='form-row'>
                             <div class='col' style='margin-right: 40px;min-width: 130px;'>
-                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['place']?></label><input class='form-control item' type='text' style='min-width: 160px;font-size: 14px;' name='place' value='<?php echo $course->getPlace();?>' required></div>
+                                <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['place']?></label><input class='form-control item' type='text' onblur="checkPlace(this)" style='min-width: 160px;font-size: 14px;' name='place' value='<?php echo $course->getPlace();?>' required></div>
                             </div>
                             <div class='col' style='margin-right: 40px;min-width: 130px;'>
                                 <div class='form-group' style='margin-bottom: 10px;'><label for='email' style='margin-bottom: 0px;'><?php echo $lang['link']?></label><input class='form-control item' type='url' style='min-width: 160px;font-size: 14px;' name='link' onblur="checkURL(this)" value='<?php echo $course->getLink();?>' required></div>
@@ -160,6 +160,61 @@ use database\DBConnection;
                         return abc
                         }
                     </script>
+                    
+                    <script>
+                    function checkIsNum(num){
+                        var textLength = num.value.length;
+                        if (isNaN(num.value) || textLength<4 || textLength>4){
+                            alert('Please enter a valid postcode');
+                            num.value='';
+                        }
+                    }
+                    </script>
+
+                    <script>
+                    function checkIsPrice(num){
+                        var textLength = num.value.length;
+                        if (isNaN(num.value) || textLength>5){
+                            alert('Please enter a valid price');
+                            num.value='';
+                        }
+                    }
+                    </script>
+
+                    <script>
+                    function checkPlace(place){
+                        if (!isNaN(place.value) ){
+                            alert('Please enter a valid place');
+                            place.value='';
+                        }
+                    }
+                    </script>
+
+                    <script>
+                    function checkDate(date) {
+                        if(date.valueAsDate <= new Date()) {
+                            alert('Please enter a date in the future');
+                            date.value='';
+                        } else {
+                            //Date in the future
+                        }
+                    }    
+                    </script>
+
+                    <script>
+                    function checkDate2(date) {
+                        var start = document.getElementById("dateOne");
+                        if(date.valueAsDate <= new Date()) {
+                            alert('Please enter a date in the future');
+                            date.value='';
+                        } else if(date.valueAsDate <= start.valueAsDate){
+                            alert('End date must be after the start date');
+                            date.value='';
+                        }
+                    }    
+                    </script>
+                    
+                    
                 </div>
             </section>
         </main>
