@@ -35,7 +35,7 @@ class EmailController {
             if ($institute) {
 
                 $subject = "SWISSEDU Support";
-                $htmlData = "New Password: " . $newPassword."\nPlease log in promptly and change the password.";
+                $htmlData = "New Password: " . $newPassword."\r\nPlease log in promptly and change the password.";
 
                 // send new pw to user
                 EmailServiceClient::sendEmail($email, $subject, $htmlData);
@@ -47,10 +47,12 @@ class EmailController {
                 $email = $_POST['email'];
                 $stmt->execute();
 
-                header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
+                //header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
 
-                echo "  <script type=\"text/javascript\">
+                echo "  
+                <script type=\"text/javascript\">
                 alert('Check your E-Mail');
+                window.location.replace('login');
                 </script>
                 ";
             } else {
