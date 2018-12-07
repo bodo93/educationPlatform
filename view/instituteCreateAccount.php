@@ -48,7 +48,7 @@ author: Philipp Lehmann
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['institute']?></label><input class="form-control item" type="text" name="name" style="min-width: 160px;font-size: 14px;" required ></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['place']?></label><input class="form-control" type="text" name="place" required ></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['place']?></label><input class="form-control" type="text" name="place" onblur="checkPlace(this)" required ></div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -73,9 +73,19 @@ author: Philipp Lehmann
                     <script>
                     function checkIsNum(num){
                         var textLength = num.value.length;
-                        if (isNaN(num) || textLength<4 || textLength>4){
+                        //if (isNaN(num) || textLength<4 || textLength>4){
+                        if (isNaN(num)){
                         alert('Please enter a valid postcode');
                         num.value='';
+                        }
+                    }
+                    </script>
+                    
+                    <script>
+                    function checkPlace(place){
+                        if (!isNaN(place) ){
+                        alert('Please enter a valid place');
+                        place.value='';
                         }
                     }
                     </script>
