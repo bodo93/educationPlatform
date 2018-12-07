@@ -46,13 +46,11 @@ class EmailController {
                 $encryption = password_hash($newPassword, PASSWORD_DEFAULT);
                 $email = $_POST['email'];
                 $stmt->execute();
-                
-                $url = $GLOBALS["ROOT_URL"];
 
                 echo "
                 <script type=\"text/javascript\">
                 alert('Check your E-Mail');
-                window.location.replace ('$url.'/login');
+                window.location.replace ('https://swissedu.herokuapp.com/login');
                 </script>
                 ";
                 //header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
