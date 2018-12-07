@@ -35,7 +35,7 @@ class EmailController {
             if ($institute) {
 
                 $subject = "SWISSEDU Support";
-                $htmlData = "New Password: " . $newPassword;
+                $htmlData = "New Password: " . $newPassword."\nPlease log in promptly and change the password.";
 
                 // send new pw to user
                 EmailServiceClient::sendEmail($email, $subject, $htmlData);
