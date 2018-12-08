@@ -220,25 +220,18 @@ class CourseController {
             $startTimestamp = strtotime($start);
             $control = $row["ControlNumber"];
 
-            /*$selectMail = prepare("SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID"
-                    . "WHERE course.ID = ?");
-            $selectMail->bind_param('i', $id);
-            $selectMail->execute();
-            $selectResult = $selectMail->get_result();
-            
-            #Check if are rows in query
-            if ($selectResult->num_rows > 0) {
-                $row = $selectResult->fetch_assoc();
-                $mail = $row["Email"];
-            } else {
-                # No data actions
-                echo 'No data here :(';
-            }*/
-
 
             if ($control == 0) {
                 if ($startTimestamp <= time()) {
-                    $toEmail = "$mail"; // mail noch ergänzen 
+
+                    $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
+
+                    if ($result = $mysqli->query($selectMail)) {
+                        $row = mysqli_fetch_assoc($result);
+                        $mail = $row["Email"];
+                    }
+
+                    $toEmail = "$mail";
                     $subject = "SWISSEDU Notification";
                     $htmlData = "Your published course " . $name . " has started. Under my courses the course data can be modified as required.";
                     EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
