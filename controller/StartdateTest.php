@@ -8,7 +8,7 @@ use controller\CourseController;
 $db = DBConnection::getConnection();
 $mysqli = $db->getConnection();
 
-$select = "SELECT ID, Name, Start, ControlNumber FROM course";
+/*$select = "SELECT ID, Name, Start, ControlNumber FROM course";
 $result = $mysqli->query($select);
 
 while ($row = mysqli_fetch_assoc($result)) {
@@ -38,7 +38,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
       echo "OK"; */
 
-    if ($control == 0) {
+    /*if ($control == 0) {
         if ($startTimestamp <= time()) {
             echo $name . " abgelaufen";
 
@@ -65,14 +65,16 @@ while ($row = mysqli_fetch_assoc($result)) {
         }
     } else {
         echo $name . ": Mail wurde bereits versendet";
-    }
+    }*/
     
         
         /*$testquery = "SELECT CreationDate FROM course where ID = 98";
         $result = $mysqli->query($testquery);
         $row = mysqli_fetch_assoc($result);
-        echo $row["CreationDate"];*/
+        echo $row["CreationDate"];
+
+         }         */
         
-        echo CourseController::getCreationDate(98);
-}
+        echo CourseController::checkDateOfInvoice();
+
 ?>

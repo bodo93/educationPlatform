@@ -205,16 +205,33 @@ class CourseController {
          * 
          */
     }
-    
-    public static function getCreationDate($id){
+
+    public static function getCreationDate($id) {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
-        
-        $select = "SELECT CreationDate FROM course where ID = ".$id;
+
+        $select = "SELECT CreationDate FROM course where ID = " . $id;
         $result = $mysqli->query($select);
         $row = mysqli_fetch_assoc($result);
         $creationDate = $row["CreationDate"];
         return $creationDate;
+    }
+
+    public static function checkDateOfInvoice() {
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();
+
+        $select = "SELECT ID, Name, CreationDate FROM course";
+        $result = $mysqli->query($select);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $id = $row["ID"];
+            $name = $row["Name"];
+            $creation = $row["CreationDate"];
+            $creationTimestamp = strtotime($start);
+            
+            echo $creationTimestamp;
+        }
     }
 
     //Author: Bodo Grütter
