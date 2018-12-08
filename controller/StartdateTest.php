@@ -23,12 +23,13 @@ while ($row = mysqli_fetch_assoc($result)) {
             //Email versenden
             $update = $mysqli->prepare("UPDATE course SET `ControlNumber` = ? WHERE `ID` = ?");
             if ($update === false) {
+                echo "Fehler1";
                 trigger_error($this->mysqli->error, E_USER_ERROR);
-                return;
             }
             $update->bind_param('ii', 1, $id);
             $status = $update->execute();
             if ($status === false) {
+                echo "Fehler2";
                 trigger_error($stmt->error, E_USER_ERROR);
             }
         } else {
