@@ -7,7 +7,6 @@
 //
 
     use database\DBConnection;
-    use controller\CourseController;
     require('PDF_Invoice.php');
     
     $db = DBConnection::getConnection();
@@ -35,11 +34,11 @@
     
     //get all infos
     $priceToPay = 60;
-    //$dateToday = date("d.m.Y");
-    //$dateToPay = date('d.m.Y', strtotime($dateToday. ' + 30 days'));
-    
-    $dateToday = CourseController::getCreationDate($courseID);
+    $dateToday = date("d.m.Y");
     $dateToPay = date('d.m.Y', strtotime($dateToday. ' + 30 days'));
+    
+    //$dateToday = controller\CourseController::getCreationDate($courseID);
+    //$dateToPay = date('d.m.Y', strtotime($dateToday. ' + 30 days'));
     
     $companyAddress = ( "Swissedu AG\n" .
                       "8704 Herrliberg\n" .
