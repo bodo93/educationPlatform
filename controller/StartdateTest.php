@@ -60,13 +60,17 @@ while ($row = mysqli_fetch_assoc($result)) {
             $update->execute();
         } else {
             echo $name . " OK";
-            echo $name.": ".CourseController::getCreationDate($id);
+            //echo $name.": ".CourseController::getCreationDate($id);
             echo "</br>";
         }
     } else {
         echo $name . ": Mail wurde bereits versendet";
     }
     
-    
+        
+        $testquery = "SELECT CreationDate FROM course where ID = 98";
+        $result = $mysqli->query($testquery);
+        $row = mysqli_fetch_assoc($result);
+        echo $row["CreationDate"];
 }
 ?>
