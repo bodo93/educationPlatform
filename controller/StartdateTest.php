@@ -40,9 +40,11 @@ $result = $mysqli->query($select);
 while ($row = mysqli_fetch_assoc($result)) {
     $id = $row["ID"];
     $name = $row["Name"];
-    $date = $row["CreationDate"];
-    $time = strtotime($date);
-
-    echo $name . " OK" .$time; 
+    $creationDate = $row["CreationDate"];
+    $creationTimestamp = strtotime($creationDate);
+    
+    if($creationTimestamp>time()){
+        echo $name . " OK" .$creationTimestamp;
+    } else{echo "FAIL";}
 }
 ?>
