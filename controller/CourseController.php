@@ -68,12 +68,12 @@ class CourseController {
                     . "You can find the Invoice in your course overview.";
 
             EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);
-            
+
             // Test Mail with pdf
             //EmailServiceClient::sendEmailAttachement($toEmail, $subject, $htmlData);
 
-            
-            
+
+
             if ($stmt) {
                 header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
             } else {
@@ -83,7 +83,6 @@ class CourseController {
             mysqli_close($conn);
         }
     }
-
 
     public static function readAll() {
         $contentView = new TemplateView("courseOverview.php");
@@ -102,6 +101,7 @@ class CourseController {
     /*
      * Author: Bodo Grütter
      */
+
     public static function update() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -132,9 +132,9 @@ class CourseController {
             $area = $_POST['area'];
             $courseType = $_POST['courseType'];
             $id = $_POST['id'];
-            
+
             $stmt->execute();
-            
+
             if ($stmt) {
                 echo "
                 <script type=\"text/javascript\">
@@ -151,6 +151,7 @@ class CourseController {
     /*
      * Author: Bodo Grütter
      */
+
     public static function delete() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -167,9 +168,9 @@ class CourseController {
             $stmt = $mysqli->prepare("DELETE FROM course WHERE ID = ?");
             $stmt->bind_param('i', $id);
             $id = $_POST['id'];
-            
+
             $stmt->execute();
-            
+
             if ($stmt) {
                 echo "
                 <script type=\"text/javascript\">
@@ -203,6 +204,38 @@ class CourseController {
           $courseDAO->search($course);
          * 
          */
+    }
+
+    public static function checkStartDate() {
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();
+
+        $select = "SELECT ID, Name, Start, ControlNumber FROM course";
+        $result = $mysqli->query($select);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $id = $row["ID"];
+            $name = $row["Name"];
+            $start = $row["Start"];
+            $startTimestamp = strtotime($start);
+            $control = $row["ControlNumber"];
+
+            if ($control == 0) {
+                if ($startTimestamp <= time()) {
+                    echo $name . " abgelaufen";
+                    //Email versenden
+                    $update = $mysqli->prepare("Update course SET `ControlNumber` = ? WHERE `ID` = ?");
+                    $number = 1;
+                    $update->bind_param('ii', $number, $id);
+                    $update->execute();
+                } else {
+                    echo $name . " OK";
+                    echo "</br>";
+                }
+            } else {
+                echo $name . ": Mail wurde bereits versendet";
+            }
+        }
     }
 
 }

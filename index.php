@@ -17,6 +17,8 @@ use controller\EmailController;
 ini_set( 'session.cookie_httponly', 1 );
 session_start();
 
+CourseController::checkStartDate();
+
 $authFunction = function () {
     if (isset($_SESSION["instituteLogin"])) {
         return true;
