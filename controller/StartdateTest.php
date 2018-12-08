@@ -4,18 +4,10 @@ use controller\CourseController;
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
-        $select = "SELECT ID, Name, CreationDate FROM course";
-        if($result = $mysqli->query($select)){
-            echo "OK10";
-        } else {echo "Not OK2";}
+        $testquery = "SELECT CreationDate FROM course where ID = 98";
+        $result = $mysqli->query($testquery);
+        $row = mysqli_fetch_assoc($result);
+        echo $row["CreationDate"];
         
-        while ($row = mysqli_fetch_assoc($result)) {
-            $id = $row["ID"];
-            $name = $row["Name"];
-            $creation = $row["CreationDate"];
-            //$creationTimestamp = strtotime($start);
-            echo $creation;
-        }
-    
     //CourseController::checkDateOfInvoice();
 ?>
