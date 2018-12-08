@@ -75,7 +75,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
          }         */
         
-        echo "OK1";
+        echo "OK5";
         CourseController::checkDateOfInvoice();
         echo "OK2";
 ?>
