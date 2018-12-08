@@ -22,15 +22,9 @@ while ($row = mysqli_fetch_assoc($result)) {
             echo $name . " abgelaufen";
             //Email versenden
             $update = $mysqli->prepare("Update course SET `ControlNumber` = ? WHERE `ID` = ?");
-            if ($update === false) {
-                echo "Fehler1";
-            } else {echo "OK1";}
             $number = 1;
             $update->bind_param('ii', $number, $id);
-            $status = $update->execute();
-            if ($status === false) {
-                echo "Fehler2";
-            } else {echo "OK2";}
+            $update->execute();
         } else {
             echo $name . " OK"; 
            echo "</br>";
