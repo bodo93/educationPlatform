@@ -34,10 +34,10 @@
     
     //get all infos
     $priceToPay = 60;
-    $dateToday = date("d.m.Y");
-    $dateToPay = date('d.m.Y', strtotime($dateToday. ' + 30 days'));
+    $dateToday2 = date("d.m.Y");
+    $dateToPay = date('d.m.Y', strtotime($dateToday2. ' + 30 days'));
     
-    //$dateToday = controller\CourseController::getCreationDate($courseID);
+    $dateToday = controller\CourseController::getCreationDate($courseID);
     //$dateToPay = date('d.m.Y', strtotime($dateToday. ' + 30 days'));
     
     $companyAddress = ( "Swissedu AG\n" .
