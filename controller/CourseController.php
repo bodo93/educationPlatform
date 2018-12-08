@@ -234,7 +234,7 @@ class CourseController {
                 # No data actions
                 echo 'No data here :(';
             }
-            $stmt->close();
+
 
             if ($control == 0) {
                 if ($startTimestamp <= time()) {
