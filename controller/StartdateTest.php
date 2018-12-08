@@ -21,7 +21,7 @@ while ($row = mysqli_fetch_assoc($result)) {
      
      if($result = $mysqli->query($query)){
          echo "OK";
-     } else {echo "FAIL"};
+     } else {echo "FAIL";};
 
     /*$selectMail = prepare("SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID"
             . "WHERE course.ID = ?");
