@@ -43,6 +43,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     $date = $row["CreationDate"];
     $time = strtotime($date);
 
-    echo $name . " OK" .$date; 
+    echo $name . " OK" .$time; 
 }
 ?>
