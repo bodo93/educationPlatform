@@ -34,8 +34,16 @@
     
     //get all infos
     $priceToPay = 60;
-    $dateToday = date("d.m.Y");
-    $dateToPay = date('d.m.Y', strtotime($dateToday. ' + 30 days'));
+
+    $testquery = "SELECT CreationDate FROM course where ID = 98";
+        $result = $mysqli->query($testquery);
+        $row = mysqli_fetch_assoc($result);
+        //Testing
+        $dateToday = date('d.m.Y', strotime($row["CreationDate"]));
+        $dateToPay = 1;
+        
+    //$dateToday = date("d.m.Y");
+    //$dateToPay = date('d.m.Y', strtotime($dateToday. ' + 30 days'));
     
     $companyAddress = ( "Swissedu AG\n" .
                       "8704 Herrliberg\n" .
