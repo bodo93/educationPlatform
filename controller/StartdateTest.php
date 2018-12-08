@@ -42,6 +42,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     $name = $row["Name"];
     $date = $row["CreationDate"];
 
-    echo $name . " OK" .DateTime::createFromFormat ( "Y-m-d H:i:s", $date ); 
+    echo $name . " OK" .$date; 
 }
 ?>
