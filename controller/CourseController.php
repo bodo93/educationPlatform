@@ -205,6 +205,16 @@ class CourseController {
          * 
          */
     }
+    
+    public static function getCreationDate($id){
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();
+        
+        $select = "SELECT CreationDate FROM course where ID = ".$id;
+        $result = $mysqli->query($select);
+        $row = mysqli_fetch_assoc($result);
+        return $row["CreationDate"];
+    }
 
     //Author: Bodo Grütter
     public static function checkStartDate() {
