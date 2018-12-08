@@ -17,9 +17,12 @@ while ($row = mysqli_fetch_assoc($result)) {
     $startTimestamp = strtotime($start);
     $control = $row["ControlNumber"];
 
-     $query = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = ?";
+     $query = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " .$id;
      
      if($result = $mysqli->query($query)){
+         $row = mysqli_fetch_assoc($result);
+         $mail = $row["Email"];
+         echo $mail;
          echo "OK";
      } else {echo "FAIL";};
 
