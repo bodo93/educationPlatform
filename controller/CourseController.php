@@ -229,6 +229,8 @@ class CourseController {
             echo "not successful";
         }
         
+        exit();
+        
         while ($row = mysqli_fetch_assoc($result)) {
             $id = $row["ID"];
             $name = $row["Name"];
