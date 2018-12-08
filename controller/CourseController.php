@@ -261,9 +261,9 @@ class CourseController {
             $creationTimestamp = strtotime($creationDate);
             $creationDateFormat = date('d.m.Y', $creationTimestamp);
             $dateOfReminderTimestamp = $creationTimestamp + ((60 * 60 * 24) * 83);
-            $dateOfReminderFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
+            $dateOfReminderFormat = date('d.m.Y', $dateOfReminderTimestamp);
             $dateOfDeletionTimestamp = $creationTimestamp + ((60 * 60 * 24) * 90);
-            $dateOfDeletionFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
+            $dateOfDeletionFormat = date('d.m.Y', $dateOfDeletionTimestamp);
         }
     }
 
