@@ -161,8 +161,8 @@ Router::route_auth("POST", "/institute/delete", $authFunction, function () {
 });
 
 Router::route("GET", "", function () {
-    CourseController::checkStartDate(); // check if courses alredy started
     require_once("view/search.php");
+    CourseController::checkStartDate(); // check if courses alredy started
 });
 
 Router::route("POST", "/test", function () {
