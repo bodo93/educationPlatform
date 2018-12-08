@@ -42,9 +42,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     $name = $row["Name"];
     $creationDate = $row["CreationDate"];
     $creationTimestamp = strtotime($creationDate);
-    $creationDateFormat = date('d/m/Y', $creationTimestamp);
+    $creationDateFormat = date('d.m.Y', $creationTimestamp);
     $dateOfInvoiceTimestamp = $creationTimestamp + ((60 * 60 * 24)*30);
-    $dateOfInvoiceFormat = date('d/m/Y', $dateOfInvoiceTimestamp);
+    $dateOfInvoiceFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
     
     if($creationTimestamp <= time()){
         echo $creationDateFormat;
