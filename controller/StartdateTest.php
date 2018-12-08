@@ -21,9 +21,16 @@ while ($row = mysqli_fetch_assoc($result)) {
         if($startTimestamp <= time()){
             echo "Datum vom Kurs ".$name." abgelaufen";
             //Email versenden
-            $update = $mysqli->prepare("UPDATE course SET `ControlNumber` = ? WHERE `ID` = ?");
+            /*$update = $mysqli->prepare("UPDATE course SET `ControlNumber` = ? WHERE `ID` = ?");
             $update->bind_param('ii', 1, $id);
-            $update->execute();
+            $update->execute();*/
+            
+            $update = "Update course SET `ControlNumber` = 1 WHERE `ID` = " . $id;
+            if(mysqli_query(mysqli, $update)){
+                echo "alles OK";
+            } else {
+                echo "Fehler";
+            }
         }
     } else {
         echo "Mail wurde bereits versendet";
