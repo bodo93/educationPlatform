@@ -30,7 +30,7 @@ while ($row = mysqli_fetch_assoc($result)) {
            echo "</br>";
         }
     } else {
-        echo "Mail wurde bereits versendet";
+        echo $name . ": Mail wurde bereits versendet";
     }
 }
 ?>
