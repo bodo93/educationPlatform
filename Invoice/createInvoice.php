@@ -7,6 +7,7 @@
 //
 
     use database\DBConnection;
+    use controller\CourseController;
     require('PDF_Invoice.php');
     
     $db = DBConnection::getConnection();
