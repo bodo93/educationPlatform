@@ -77,7 +77,7 @@ include 'includes/header.inc.php';
     <script type="text/javascript">
         jQuery(document).ready(function ($) {
             $(".clickable-row").click(function () {
-                window.location = $(this).data("href");
+                window.open ($(this).data("href"),'_blank');
             });
         });
     </script>
@@ -101,7 +101,7 @@ include 'includes/header.inc.php';
                 <?php
                 while ($row = mysqli_fetch_array($search_Result)) {
                     //$id = $row["ID"];
-                    echo "<a target = '_blank'><tr class='clickable-row' data-href='" . $row['Link'] . "'>"
+                    echo "<tr class='clickable-row' data-href='" . $row['Link'] . "'>"
                     . "<td>" . $row['Name'] . "</td>"
                     . "<td>" . $row['departmentName'] . "</td>"
                     . "<td>" . $row['instituteName'] . "</td>"
@@ -109,7 +109,7 @@ include 'includes/header.inc.php';
                     . "<td>" . $row['Place'] . "</td>"
                     . "<td>" . $row['courseTypeName'] . "</td>"
                     . "<td>" . $row['Start'] . "</td>"
-                    . "</tr></a>";
+                    . "</tr>";
                 }
                 ?>
             </table>
