@@ -1,6 +1,7 @@
 <?php
-use controller\CourseController;
+//use controller\CourseController;
     
+echo "OK";
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
