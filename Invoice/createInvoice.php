@@ -39,8 +39,8 @@ if (!empty($_GET['id'])) {
 $priceToPay = 60;
 
 //DATE
-$select = "SELECT ID, Name, CreationDate FROM course where ID =" . $courseID;
-$result = $mysqli->query($select);
+$selectCreationDate = "SELECT ID, Name, CreationDate FROM course where ID =" . $courseID;
+$result = $mysqli->query($selectCreationDate);
 
 while ($row = mysqli_fetch_assoc($result)) {
     $id = $row["ID"];
