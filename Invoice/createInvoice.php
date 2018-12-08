@@ -37,7 +37,7 @@
     //$dateToday = date("d.m.Y");
     //$dateToPay = date('d.m.Y', strtotime($dateToday. ' + 30 days'));
     
-    $dateToday = $course->getCreationDate();
+    $dateToday = DateTime::createFromFormat ( "Y-m-d H:i:s", $course->getCreationDate() );
     $dateToPay = date('d.m.Y', strtotime($dateToday. ' + 30 days'));
     
     $companyAddress = ( "Swissedu AG\n" .
