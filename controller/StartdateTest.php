@@ -3,6 +3,7 @@
 namespace controller;
 
 use database\DBConnection;
+use controller\CourseController;
 
 $db = DBConnection::getConnection();
 $mysqli = $db->getConnection();
@@ -59,10 +60,13 @@ while ($row = mysqli_fetch_assoc($result)) {
             $update->execute();
         } else {
             echo $name . " OK";
+            echo $name.": ".CourseController::getCreationDate($id);
             echo "</br>";
         }
     } else {
         echo $name . ": Mail wurde bereits versendet";
     }
+    
+    
 }
 ?>
