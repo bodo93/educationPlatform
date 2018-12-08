@@ -26,7 +26,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             $update->execute();*/
             
             //$update = "Update bildungsangebot set `Bezeichnung` = '" . $_POST['bezeichnung'] . "', `Kosten` = '" . $_POST['kosten'] . "', `Max_Teilnehmerzahl` = '" . $_POST['max_teilnehmerzahl'] . "', `Startdatum` = '" . $_POST['startdatum'] . "', `Enddatum` = '" . $_POST['enddatum'] . "', `Ort` = '" . $_POST['ort'] . "', `FK_Bildungsinstitut` = '" . $_POST['bildungsinstitut'] . "', `FK_Fachbereich`= '" . $_POST['fachbereich'] . "', `FK_Abschluss` = '" . $_POST['abschluss'] . "' where `ID` = '" . $_POST['id'] . "'";
-            $update = "Update course SET `ControlNumber` = '1' WHERE `ID` = '" . $id . "'";
+            $update = "Update course SET `ControlNumber` = 1 WHERE `ID` = '" . $id . "'";
             if(mysqli_query(mysqli, $update)){
                 echo "alles OK";
             } else {
