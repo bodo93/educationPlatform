@@ -18,15 +18,14 @@ while ($row = mysqli_fetch_assoc($result)) {
     $control = $row["ControlNumber"];
 
 
-    $selectMail = prepare("SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID"
+    /*$selectMail = prepare("SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID"
             . "WHERE course.ID = ?");
     $selectMail->bind_param('i', $id);
     $selectMail->execute();
     $selectResult = $selectMail->get_result();
 
     echo "OK";
-    
-    /*
+ 
     #Check if are rows in query
     if ($selectResult->num_rows > 0) {
         $row = $selectResult->fetch_assoc();
