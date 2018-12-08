@@ -222,12 +222,7 @@ class CourseController {
         $mysqli = $db->getConnection();
 
         $select = "SELECT ID, Name, CreationDate FROM course";
-        if($result = $mysqli->query($select))
-        {
-            echo "successful";
-        } else {
-            echo "not successful";
-        }
+        $result = $mysqli->query($select);
         
         while ($row = mysqli_fetch_assoc($result)) {
             $id = $row["ID"];
