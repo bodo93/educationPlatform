@@ -220,13 +220,29 @@ class CourseController {
             $startTimestamp = strtotime($start);
             $control = $row["ControlNumber"];
 
+            $selectMail = prepare("SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID"
+                    . "WHERE course.ID = ?");
+            $selectMail->bind_param('i', $id);
+            $selectMail->execute();
+            $selectResult = $selectMail->get_result();
+            
+            #Check if are rows in query
+            if ($selectResult->num_rows > 0) {
+                $row = $selectResult->fetch_assoc();
+                $mail = $row["Email"];
+            } else {
+                # No data actions
+                echo 'No data here :(';
+            }
+            $stmt->close();
+
             if ($control == 0) {
                 if ($startTimestamp <= time()) {
-                    $toEmail = "rene87@gmx.ch"; // mail noch ergänzen 
+                    $toEmail = "$mail"; // mail noch ergänzen 
                     $subject = "SWISSEDU Notification";
-                    $htmlData = "Your published course ".$name." has started. Under my courses the course data can be modified as required.";
+                    $htmlData = "Your published course " . $name . " has started. Under my courses the course data can be modified as required.";
                     EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
-            
+
                     $update = $mysqli->prepare("Update course SET `ControlNumber` = ? WHERE `ID` = ?");
                     $number = 1;
                     $update->bind_param('ii', $number, $id);
