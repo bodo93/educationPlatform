@@ -43,8 +43,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     $creationDate = $row["CreationDate"];
     $creationTimestamp = strtotime($creationDate);
     
-    if($creationTimestamp>time()){
-        echo $name . " OK" .$creationTimestamp;
-    } else{echo "FAIL";}
+    if($creationTimestamp <= time()){
+        echo $name . " abgelaufen";
+    } else{echo $name . " OK" .$creationTimestamp;}
 }
 ?>
