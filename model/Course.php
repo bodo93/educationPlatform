@@ -5,7 +5,6 @@ namespace model;
 /**
  * Author: Bodo Grütter
  */
-
 class Course {
 
     private $ID;
@@ -20,6 +19,7 @@ class Course {
     private $DepartmentID;
     private $AreaID;
     private $CourseTypeID;
+    private $CreationDate;
 
     function getId() {
         return $this->ID;
@@ -67,6 +67,14 @@ class Course {
 
     function getCourseTypeId() {
         return $this->CourseTypeID;
+    }
+
+    function getCreationDate() {
+        return $this->CourseTypeID;
+    }
+
+    function setCreationDate($creationDate) {
+        $this->CreationDate = $creationDate;
     }
 
     function setId($id) {
