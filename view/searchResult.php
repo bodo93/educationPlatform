@@ -101,7 +101,7 @@ include 'includes/header.inc.php';
                 <?php
                 while ($row = mysqli_fetch_array($search_Result)) {
                     //$id = $row["ID"];
-                    echo "<a target = '_blank' href = '". $row['Link'] . "'><tr class='clickable-row'>"
+                    echo "<a target = '_blank'><tr class='clickable-row' data-href='" . $row['Link'] . "'>"
                     . "<td>" . $row['Name'] . "</td>"
                     . "<td>" . $row['departmentName'] . "</td>"
                     . "<td>" . $row['instituteName'] . "</td>"
