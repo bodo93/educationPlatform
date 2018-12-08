@@ -220,7 +220,7 @@ class CourseController {
             $startTimestamp = strtotime($start);
             $control = $row["ControlNumber"];
 
-            $selectMail = prepare("SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID"
+            /*$selectMail = prepare("SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID"
                     . "WHERE course.ID = ?");
             $selectMail->bind_param('i', $id);
             $selectMail->execute();
@@ -233,7 +233,7 @@ class CourseController {
             } else {
                 # No data actions
                 echo 'No data here :(';
-            }
+            }*/
 
 
             if ($control == 0) {
