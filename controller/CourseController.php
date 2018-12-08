@@ -223,13 +223,13 @@ class CourseController {
 
         $select = "SELECT ID, Name, CreationDate FROM course";
         $result = $mysqli->query($select);
-        
+
         while ($row = mysqli_fetch_assoc($result)) {
             $id = $row["ID"];
             $name = $row["Name"];
-            $creation = $row["CreationDate"];
-            //$creationTimestamp = strtotime($start);
-            echo $creation;
+            $date = $row["CreationDate"];
+
+            echo $name . " OK" . $date;
         }
     }
 
