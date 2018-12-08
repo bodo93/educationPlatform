@@ -42,9 +42,10 @@ while ($row = mysqli_fetch_assoc($result)) {
     $name = $row["Name"];
     $creationDate = $row["CreationDate"];
     $creationTimestamp = strtotime($creationDate);
+    $dateOfInvoice = strotime("+30 days", $creationTimestamp);
     
     if($creationTimestamp <= time()){
-        echo $name . " abgelaufen";
+        echo $dateOfInvoice . " noch nicht abgelaufen";
     } else{echo $name . " OK" .$creationTimestamp;}
 }
 ?>
