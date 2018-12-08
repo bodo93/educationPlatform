@@ -213,7 +213,8 @@ class CourseController {
         $select = "SELECT CreationDate FROM course where ID = ".$id;
         $result = $mysqli->query($select);
         $row = mysqli_fetch_assoc($result);
-        return $row["CreationDate"];
+        $creationDate = $row["CreationDate"];
+        return $creationDate;
     }
 
     //Author: Bodo Grütter
