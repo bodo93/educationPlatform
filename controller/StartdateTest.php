@@ -46,8 +46,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     $dateOfInvoice = $creationTimestamp + ((60 * 60 * 24)*30);
     
     if($creationTimestamp <= time()){
-        echo $dateOfInvoice . " noch nicht abgelaufen";
-        echo $creationDateFormat;
+        echo $dateOfInvoice + "</br>";
+        echo $creationDate + "</br>";
+        echo $creationDateFormat + "</br>";
     } else{echo $name . " OK" .$creationTimestamp;}
 }
 ?>
