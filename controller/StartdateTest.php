@@ -25,7 +25,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             $update->bind_param('ii', 1, $id);
             $update->execute();
         } else {
-            echo "OK";
+            echo $name . " OK";
+            echo "</br>";
         }
     } else {
         echo "Mail wurde bereits versendet";
