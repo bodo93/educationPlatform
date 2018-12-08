@@ -225,8 +225,10 @@ class CourseController {
         if($result = $mysqli->query($select))
         {
             echo "successful";
+        } else {
+            echo "not successful";
         }
-
+        
         while ($row = mysqli_fetch_assoc($result)) {
             $id = $row["ID"];
             $name = $row["Name"];
