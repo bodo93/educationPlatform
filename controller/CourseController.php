@@ -206,30 +206,64 @@ class CourseController {
          */
     }
 
-    public static function getCreationDate($id) {
+    //Author: Bodo Grütter
+    public static function getDateOfCreation($id){
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
-        $select = "SELECT CreationDate FROM course where ID = " . $id;
-        $result = $mysqli->query($select);
-        $row = mysqli_fetch_assoc($result);
-        $creationDate = $row["CreationDate"];
-        return $creationDate;
-    }
-
-    public static function checkDateOfInvoice() {
-        $db = DBConnection::getConnection();
-        $mysqli = $db->getConnection();
-
-        $select = "SELECT ID, Name, CreationDate FROM course";
+        $select = "SELECT ID, Name, CreationDate FROM course where ID =".$id;
         $result = $mysqli->query($select);
 
         while ($row = mysqli_fetch_assoc($result)) {
             $id = $row["ID"];
             $name = $row["Name"];
-            $date = $row["CreationDate"];
+            $creationDate = $row["CreationDate"];
+            $creationTimestamp = strtotime($creationDate);
+            $creationDateFormat = date('d.m.Y', $creationTimestamp);
+        }
+        
+        return $creationDateFormat;
+    }
+    
+    //Author: Bodo Grütter
+    public static function getDateOfInvoice($id) {
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();
 
-            echo $name . " OK" . $date;
+        $select = "SELECT ID, Name, CreationDate FROM course where ID =".$id;
+        $result = $mysqli->query($select);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $id = $row["ID"];
+            $name = $row["Name"];
+            $creationDate = $row["CreationDate"];
+            $creationTimestamp = strtotime($creationDate);
+            $creationDateFormat = date('d.m.Y', $creationTimestamp);
+            $dateOfInvoiceTimestamp = $creationTimestamp + ((60 * 60 * 24) * 30);
+            $dateOfInvoiceFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
+        }
+        
+        return $dateOfInvoiceFormat;
+    }
+    
+    //Author: Bodo Grütter
+    public static function checkDateOfDeletion() {
+        $db = DBConnection::getConnection();
+        $mysqli = $db->getConnection();
+
+        $select = "SELECT ID, Name, CreationDate FROM course where ID =".$id;
+        $result = $mysqli->query($select);
+
+        while ($row = mysqli_fetch_assoc($result)) {
+            $id = $row["ID"];
+            $name = $row["Name"];
+            $creationDate = $row["CreationDate"];
+            $creationTimestamp = strtotime($creationDate);
+            $creationDateFormat = date('d.m.Y', $creationTimestamp);
+            $dateOfReminderTimestamp = $creationTimestamp + ((60 * 60 * 24) * 83);
+            $dateOfReminderFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
+            $dateOfDeletionTimestamp = $creationTimestamp + ((60 * 60 * 24) * 90);
+            $dateOfDeletionFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
         }
     }
 

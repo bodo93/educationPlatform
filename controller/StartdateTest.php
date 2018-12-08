@@ -46,13 +46,13 @@ while ($row = mysqli_fetch_assoc($result)) {
     $dateOfInvoiceTimestamp = $creationTimestamp + ((60 * 60 * 24)*30);
     $dateOfInvoiceFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
     
-    if($creationTimestamp <= time()){
+    /*if($creationTimestamp <= time()){
         echo $creationDateFormat;
         echo $dateOfInvoiceFormat;
     }
     
     if($dateOfInvoice>time()){
         echo "OK";
-    }
+    }*/
 }
 ?>
