@@ -222,15 +222,17 @@ class CourseController {
         $mysqli = $db->getConnection();
 
         $select = "SELECT ID, Name, CreationDate FROM course";
-        $result = $mysqli->query($select);
+        if($result = $mysqli->query($select))
+        {
+            echo "successful";
+        }
 
         while ($row = mysqli_fetch_assoc($result)) {
             $id = $row["ID"];
             $name = $row["Name"];
             $creation = $row["CreationDate"];
-            $creationTimestamp = strtotime($start);
-            
-            echo $creationTimestamp;
+            //$creationTimestamp = strtotime($start);
+            echo $creation;
         }
     }
 
