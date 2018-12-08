@@ -34,31 +34,14 @@ while ($row = mysqli_fetch_assoc($result)) {
     }
 }*/
 
-$select = "SELECT ID, Name, Start, ControlNumber, CreationDate FROM course";
+$select = "SELECT ID, Name, CreationDate FROM course";
 $result = $mysqli->query($select);
 
 while ($row = mysqli_fetch_assoc($result)) {
     $id = $row["ID"];
     $name = $row["Name"];
-    $start = $row["Start"];
-    $startTimestamp = strtotime($start);
-    $control = $row["ControlNumber"];
     $date = $row["CreationDate"];
 
-    if ($control == 0) {
-        if ($startTimestamp <= time()) {
-            echo $name . " abgelaufen";
-            //Email versenden
-            $update = $mysqli->prepare("Update course SET `ControlNumber` = ? WHERE `ID` = ?");
-            $number = 1;
-            $update->bind_param('ii', $number, $id);
-            $update->execute();
-        } else {
-            echo $name . " OK" .$date; 
-           echo "</br>";
-        }
-    } else {
-        echo $name . ": Mail wurde bereits versendet";
-    }
+    echo $name . " OK" .$date; 
 }
 ?>
