@@ -17,38 +17,41 @@ while ($row = mysqli_fetch_assoc($result)) {
     $startTimestamp = strtotime($start);
     $control = $row["ControlNumber"];
 
-     $query = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " .$id;
-     
-     if($result = $mysqli->query($query)){
-         $row = mysqli_fetch_assoc($result);
-         $mail = $row["Email"];
-         echo $mail;
-         echo "OK";
-     } else {echo "FAIL";};
+    /* $selectMail = prepare("SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID"
+      . "WHERE course.ID = ?");
+      $selectMail->bind_param('i', $id);
+      $selectMail->execute();
+      $selectResult = $selectMail->get_result();
 
-    /*$selectMail = prepare("SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID"
-            . "WHERE course.ID = ?");
-    $selectMail->bind_param('i', $id);
-    $selectMail->execute();
-    $selectResult = $selectMail->get_result();
+      echo "OK";
 
-    echo "OK";
- 
-    #Check if are rows in query
-    if ($selectResult->num_rows > 0) {
-        $row = $selectResult->fetch_assoc();
-        $mail = $row["Email"];
-        echo $mail;
-    } else {
-        # No data actions
-        echo 'No data here :(';
-    }
-    
-    echo "OK";*/
+      #Check if are rows in query
+      if ($selectResult->num_rows > 0) {
+      $row = $selectResult->fetch_assoc();
+      $mail = $row["Email"];
+      echo $mail;
+      } else {
+      # No data actions
+      echo 'No data here :(';
+      }
+
+      echo "OK"; */
 
     if ($control == 0) {
         if ($startTimestamp <= time()) {
             echo $name . " abgelaufen";
+
+            $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
+
+            if ($result = $mysqli->query($selectMail)) {
+                $row = mysqli_fetch_assoc($result);
+                $mail = $row["Email"];
+                echo $mail;
+                echo "OK";
+            } else {
+                echo "FAIL";
+            };
+
             //Email versenden
             $update = $mysqli->prepare("Update course SET `ControlNumber` = ? WHERE `ID` = ?");
             $number = 1;
