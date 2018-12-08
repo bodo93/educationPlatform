@@ -17,7 +17,6 @@ use controller\EmailController;
 ini_set( 'session.cookie_httponly', 1 );
 session_start();
 
-//CourseController::checkStartDate();
 
 $authFunction = function () {
     if (isset($_SESSION["instituteLogin"])) {
@@ -162,6 +161,7 @@ Router::route_auth("POST", "/institute/delete", $authFunction, function () {
 });
 
 Router::route("GET", "", function () {
+    CourseController::checkStartDate(); // check if courses alredy started
     require_once("view/search.php");
 });
 

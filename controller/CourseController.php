@@ -222,19 +222,16 @@ class CourseController {
 
             if ($control == 0) {
                 if ($startTimestamp <= time()) {
-                    //echo $name . " abgelaufen";
-
-                    //Email versenden
+                    $toEmail = "rene87@gmx.ch"; // mail noch ergänzen 
+                    $subject = "SWISSEDU Notification";
+                    $htmlData = "Your published course ".$name." has started. Under my courses the course data can be modified as required.";
+                    EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+            
                     $update = $mysqli->prepare("Update course SET `ControlNumber` = ? WHERE `ID` = ?");
                     $number = 1;
                     $update->bind_param('ii', $number, $id);
                     $update->execute();
-                } else {
-                    //echo $name . " OK";
-                    //echo "</br>";
                 }
-            } else {
-                //echo $name . ": Mail wurde bereits versendet";
             }
         }
     }
