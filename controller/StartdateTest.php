@@ -24,6 +24,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             $update = $mysqli->prepare("UPDATE course SET `ControlNumber` = ? WHERE `ID` = ?");
             $update->bind_param('ii', 1, $id);
             $update->execute();
+        } else {
+            echo "OK";
         }
     } else {
         echo "Mail wurde bereits versendet";
