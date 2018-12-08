@@ -206,6 +206,7 @@ class CourseController {
          */
     }
 
+    //Author: Bodo Grütter
     public static function checkStartDate() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
