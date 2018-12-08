@@ -24,6 +24,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     $selectMail->execute();
     $selectResult = $selectMail->get_result();
 
+    echo "OK";
+    
+    /*
     #Check if are rows in query
     if ($selectResult->num_rows > 0) {
         $row = $selectResult->fetch_assoc();
@@ -34,7 +37,7 @@ while ($row = mysqli_fetch_assoc($result)) {
         echo 'No data here :(';
     }
     
-    echo "OK";
+    echo "OK";*/
 
     if ($control == 0) {
         if ($startTimestamp <= time()) {
