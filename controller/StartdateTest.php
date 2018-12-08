@@ -68,9 +68,11 @@ while ($row = mysqli_fetch_assoc($result)) {
     }
     
         
-        $testquery = "SELECT CreationDate FROM course where ID = 98";
+        /*$testquery = "SELECT CreationDate FROM course where ID = 98";
         $result = $mysqli->query($testquery);
         $row = mysqli_fetch_assoc($result);
-        echo $row["CreationDate"];
+        echo $row["CreationDate"];*/
+        
+        echo CourseController::getCreationDate(98);
 }
 ?>
