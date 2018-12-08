@@ -207,30 +207,30 @@ class CourseController {
     }
 
     //Author: Bodo Grütter
-    public static function getDateOfCreation($id){
+    public static function getDateOfCreation($id) {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
-        $select = "SELECT ID, Name, CreationDate FROM course where ID =".$id;
+        $select = "SELECT ID, Name, CreationDate FROM course where ID =" . $id;
         $result = $mysqli->query($select);
 
         while ($row = mysqli_fetch_assoc($result)) {
-           $id = $row["ID"];
+            $id = $row["ID"];
             $name = $row["Name"];
             $creationDate = $row["CreationDate"];
             $creationTimestamp = strtotime($creationDate);
             $creationDateFormat = date('d.m.Y', $creationTimestamp);
         }
-        
+
         return $creationDateFormat;
     }
-    
+
     //Author: Bodo Grütter
     public static function getDateOfInvoice($id) {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
-        $select = "SELECT ID, Name, CreationDate FROM course where ID =".$id;
+        $select = "SELECT ID, Name, CreationDate FROM course where ID =" . $id;
         $result = $mysqli->query($select);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -242,16 +242,16 @@ class CourseController {
             $dateOfInvoiceTimestamp = $creationTimestamp + ((60 * 60 * 24) * 30);
             $dateOfInvoiceFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
         }
-        
+
         return $dateOfInvoiceFormat;
     }
-    
+
     //Author: Bodo Grütter
     public static function checkDateOfDeletion() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
-        $select = "SELECT ID, Name, CreationDate FROM course where ID =".$id;
+        $select = "SELECT ID, Name, CreationDate FROM course where ID =" . $id;
         $result = $mysqli->query($select);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -264,6 +264,30 @@ class CourseController {
             $dateOfReminderFormat = date('d.m.Y', $dateOfReminderTimestamp);
             $dateOfDeletionTimestamp = $creationTimestamp + ((60 * 60 * 24) * 90);
             $dateOfDeletionFormat = date('d.m.Y', $dateOfDeletionTimestamp);
+
+            $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
+
+            if ($result = $mysqli->query($selectMail)) {
+                $row = mysqli_fetch_assoc($result);
+                $mail = $row["Email"];
+            }
+
+            $toEmail = "$mail";
+            $subject = "SWISSEDU Notification";
+            $htmlData = "Your published course " . $name . " has started. Under my courses the course data can be modified as required.";
+            EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+
+            if ($dateOfReminderTimestamp <= time()) {
+                    $toEmail = "$mail";
+                    $subject = "SWISSEDU Notification";
+                    $htmlData = "Your published course " . $name . " will be deleted from SWISSEDU on " .$dateOfDeletionFormat;
+                    EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+            } elseif ($dateOfDeletionTimestamp <= time()) {
+                    $toEmail = "$mail";
+                    $subject = "SWISSEDU Notification";
+                    $htmlData = "Your published course " . $name . " has been deleted from SWISSEDU.";
+                    EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+            }
         }
     }
 
