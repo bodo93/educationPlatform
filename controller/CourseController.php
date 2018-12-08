@@ -215,7 +215,7 @@ class CourseController {
         $result = $mysqli->query($select);
 
         while ($row = mysqli_fetch_assoc($result)) {
-            $id = $row["ID"];
+           $id = $row["ID"];
             $name = $row["Name"];
             $creationDate = $row["CreationDate"];
             $creationTimestamp = strtotime($creationDate);
