@@ -101,7 +101,7 @@ include 'includes/header.inc.php';
                 <?php
                 while ($row = mysqli_fetch_array($search_Result)) {
                     //$id = $row["ID"];
-                    echo "<tr class='clickable-row' data-href='" . $row['Link'] . "'>"
+                    echo "<a target = '_blank' href = '". $row['Link'] . "'><tr>"
                     . "<td>" . $row['Name'] . "</td>"
                     . "<td>" . $row['departmentName'] . "</td>"
                     . "<td>" . $row['instituteName'] . "</td>"
@@ -109,7 +109,7 @@ include 'includes/header.inc.php';
                     . "<td>" . $row['Place'] . "</td>"
                     . "<td>" . $row['courseTypeName'] . "</td>"
                     . "<td>" . $row['Start'] . "</td>"
-                    . "</tr>";
+                    . "</tr></a>";
                 }
                 ?>
             </table>
