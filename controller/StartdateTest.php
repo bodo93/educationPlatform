@@ -19,13 +19,10 @@ use database\DBConnection;
             $dateOfReminderFormat = date('d.m.Y', $dateOfReminderTimestamp);
             $dateOfDeletionTimestamp = $creationTimestamp + ((60 * 60 * 24) * 90);
             $dateOfDeletionFormat = date('d.m.Y', $dateOfDeletionTimestamp);
-            echo $dateOfReminderFormat ."</br>";
-            echo $dateOfDeletionFormat ."</br>";
             $control = $row["ControlNumber"];
-            echo $control;
 
             if ($control == 0) {
-                if ($startTimestamp <= time()) {
+                if ($dateOfReminderTimestamp <= time()) {
 
                     $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
 
@@ -43,9 +40,11 @@ use database\DBConnection;
                     $number = 1;
                     $update->bind_param('ii', $number, $id);
                     $update->execute();
+                } elseif($dateOfDeletionTimestamp <= time()){
+                    
+                } else {
+                    echo "OK";
                 }
-            } else {
-                echo "OK";
             }
         }
 ?>
