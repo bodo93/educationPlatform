@@ -1,6 +1,7 @@
 <?php
 
 use database\DBConnection;
+use service\EmailServiceClient;
 
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -24,24 +25,19 @@ use database\DBConnection;
 
             if ($control == 0) {
                 if ($dateOfReminderTimestamp <= time()) {
-                    
-                    echo "Abgelaufen 1";
-
-                    /*$selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
+                    $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
 
                     if ($result = $mysqli->query($selectMail)) {
                         $row = mysqli_fetch_assoc($result);
                         $mail = $row["Email"];
                     }
-*/
-                    $toEmail = "bodo.gruetter@students.fhnw.ch";
+
+                    echo "Abgelaufen1";
+                    $toEmail = "$mail";
                     $subject = "SWISSEDU Notification";
                     $htmlData = "Your published course " . $name . " will be deleted from SWISSEDU on " . $dateOfDeletionFormat;
                     EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
                 } elseif($dateOfDeletionTimestamp <= time()){
-                    
-                    "Abgelaufen2";
-                    
                     $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
 
                     if ($result = $mysqli->query($selectMail)) {
@@ -58,8 +54,6 @@ use database\DBConnection;
                 $stmt = $mysqli->prepare("DELETE FROM course WHERE ID = ?");
                 $stmt->bind_param('i', $id);
                 $stmt->execute();
-                } else {
-                    echo "OK";
                 }
             }
         }
