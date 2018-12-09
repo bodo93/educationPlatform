@@ -101,7 +101,7 @@ include 'includes/header.inc.php';
                 </tr>
                 <?php
                 
-                if(!mysqli_num_row($search_Result)){
+                if(mysqli_fetch_array($search_Result) == 0){
                     echo "<tr>"
                     . "<td colspan='7'>" . $lang['noData'] . "</td>"
                     . "</tr>";
