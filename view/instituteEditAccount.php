@@ -82,6 +82,7 @@ $institute = $stmt->get_result()->fetch_object("model\Institute");
                         if(password.value=='' || textLength<6){
                         alert('Password must have at least 6 characters');
                         password.value='';
+                        if (document.activeElement != document.body) document.activeElement.blur();
                         }
                     }
                     </script>
@@ -92,6 +93,7 @@ $institute = $stmt->get_result()->fetch_object("model\Institute");
                         if (isNaN(num.value) || textLength<4 || textLength>4){
                         alert('Please enter a valid postcode');
                         num.value='';
+                        if (document.activeElement != document.body) document.activeElement.blur();
                         }
                     }
                     </script>
@@ -101,6 +103,7 @@ $institute = $stmt->get_result()->fetch_object("model\Institute");
                         if (!isNaN(place.value) ){
                         alert('Please enter a valid place');
                         place.value='';
+                        if (document.activeElement != document.body) document.activeElement.blur();
                         }
                     }
                     </script>
