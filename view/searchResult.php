@@ -100,11 +100,12 @@ include 'includes/header.inc.php';
                     <th><?php echo $lang['startDate'] ?></th>
                 </tr>
                 <?php
+                /*
                 if(mysqli_fetch_array($search_Result) == NULL){
                     echo "<tr>"
                     . "<td colspan='7'>" . $lang['noData'] . "</td>"
                     . "</tr>";
-                }
+                }*/
                 
                 while ($row = mysqli_fetch_array($search_Result)) {
                     //$id = $row["ID"];
