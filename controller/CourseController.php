@@ -291,10 +291,10 @@ class CourseController {
      * return: -
      */
     public static function checkDateOfDeletion() {
-               $db = DBConnection::getConnection();
+        $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
-        $select = "SELECT ID, Name, Start, CreationDate, ControlNumber FROM course";
+        $select = "SELECT ID, Name, Start, CreationDate, ControlNumber2 FROM course";
         $result = $mysqli->query($select);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -309,10 +309,10 @@ class CourseController {
             $dateOfDeletionTimestamp = $creationTimestamp + ((60 * 60 * 24) * 90);
             $dateOfDeletionFormat = date('d.m.Y', $dateOfDeletionTimestamp);
             $control = $row["ControlNumber"];
+            echo $name . ": " . $dateOfReminderFormat;
 
             if ($control == 0) {
                 if ($dateOfReminderTimestamp <= time()) {
-
                     $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
 
                     if ($result = $mysqli->query($selectMail)) {
@@ -320,6 +320,7 @@ class CourseController {
                         $mail = $row["Email"];
                     }
 
+                    echo "Abgelaufen1";
                     $toEmail = "$mail";
                     $subject = "SWISSEDU Notification";
                     $htmlData = "Your published course " . $name . " will be deleted from SWISSEDU on " . $dateOfDeletionFormat;
@@ -329,8 +330,7 @@ class CourseController {
                     $number = 1;
                     $update->bind_param('ii', $number, $id);
                     $update->execute();
-                } elseif($dateOfDeletionTimestamp <= time()){
-                    
+                } elseif ($dateOfDeletionTimestamp <= time()) {
                     $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
 
                     if ($result = $mysqli->query($selectMail)) {
@@ -342,13 +342,11 @@ class CourseController {
                     $subject = "SWISSEDU Notification";
                     $htmlData = "Your published course " . $name . " has been deleted from SWISSEDU.";
                     EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
-                    
-                // delete data
-                $stmt = $mysqli->prepare("DELETE FROM course WHERE ID = ?");
-                $stmt->bind_param('i', $id);
-                $stmt->execute();
-                } else {
-                    echo "OK";
+
+                    // delete data
+                    $stmt = $mysqli->prepare("DELETE FROM course WHERE ID = ?");
+                    $stmt->bind_param('i', $id);
+                    $stmt->execute();
                 }
             }
         }
