@@ -3,6 +3,7 @@
 /*
  * Author: René Schwab
  */
+
 include 'includes/translator.inc.php';
 use database\DBConnection;
 ?>

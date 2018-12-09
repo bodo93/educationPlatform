@@ -1,10 +1,10 @@
-<!-- 
-Author: Philipp Lehmann
--->
 <!DOCTYPE html>
-
 <?php 
-    include 'includes/header.inc.php';
+/*
+ * Author: Philipp Lehmann
+ */
+
+include 'includes/header.inc.php';
 ?>
 
 <body style="background-color: rgb(34,36,37);">

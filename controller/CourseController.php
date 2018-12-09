@@ -159,7 +159,6 @@ class CourseController {
             if ($stmt) {
                 echo "
                 <script type=\"text/javascript\">
-                alert('Course was updated');
                 window.location.replace('overview');
                 </script>
                 ";

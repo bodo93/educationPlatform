@@ -1,20 +1,18 @@
-<!--
-author: René Schwab
--->
 <!DOCTYPE html>
-
 <?php
-    include 'includes/header.inc.php';
+/*
+ * Author: René Schwab
+ */
+
+include 'includes/header.inc.php';
 ?>
 
 <html>
-
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <title>Login - Brand</title>
     </head>
-
     <body style="background-color: rgb(34,36,37);">
         <main class="page login-page">
             <section class="clean-block clean-form dark" style="padding-bottom: 10px; padding-top: 100px;">
@@ -41,5 +39,4 @@ author: René Schwab
         include 'includes/footer.inc.php';
         ?>
     </body>
-
 </html>

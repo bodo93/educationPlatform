@@ -1,10 +1,11 @@
-<!--
-author: Philipp Lehmann
--->
-
 <?php
-    include 'includes/header.inc.php';
+/*
+ * Author: Philipp Lehmann
+ */
+
+include 'includes/header.inc.php';
 ?>
+
 <html>
     <head>
         <meta charset="utf-8">

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
-
 /*
  * Author: René Schwab
  */
+
 use database\DBConnection;
 include 'includes/translator.inc.php';
 
@@ -17,7 +17,6 @@ $stmt->bind_param('i', $id);
 $id = $_SESSION['userID'];
 $stmt->execute();
 $institute = $stmt->get_result()->fetch_object("model\Institute");
-
 ?>
 
 <html>

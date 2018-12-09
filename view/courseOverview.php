@@ -11,6 +11,7 @@ use database\DBConnection;
 $db = DBConnection::getConnection();
 $mysqli = $db->getConnection();
 ?>  
+<html>
     <head>
         <style>
             td, th {

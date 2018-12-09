@@ -1,8 +1,8 @@
-<!--
-@author: Philipp Lehmann
--->
-
+<!DOCTYPE html>
 <?php
+/*
+ * Author: Philipp Lehmann
+ */
 
 use database\DBConnection;
 

@@ -1,11 +1,12 @@
-<!--
-author: René Schwab
--->
 <!DOCTYPE html>
+<?php
+/*
+ * Author: René Schwab
+ */
 
-<?php 
-    include 'includes/header.inc.php';
+include 'includes/header.inc.php';
 ?>
+
 <html>
     <head>
         <meta charset="utf-8">
@@ -24,7 +25,6 @@ author: René Schwab
                         <div class="form-group" style="margin-right: 40px;"><label for="email"><?php echo $lang['passwordRepeat'] ?></label><input class="form-control" type="text"></div>
                         <div class="form-group">
                             <div class="form-row">
-                                <!--<div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="button" style="margin-top: 6px;min-width: 160px;">Speichern</button></div>-->
                                 <div class="col" style="margin-right: 40px;"><button class="btn btn-primary btn-block" type="submit" style="margin-top: 6px;min-width: 160px;"><?php echo $lang['save'] ?></button></div>
                                 <div class="col" style="margin-right: 40px;"><a class="btn btn-primary btn-block" role="button" href="<?php echo $GLOBALS['ROOT_URL']?>/login" style="margin-top: 6px;min-width: 160px;"><?php echo $lang['cancel'] ?></a></div>
                             </div>
