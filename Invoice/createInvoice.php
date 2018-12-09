@@ -46,17 +46,17 @@ while ($row = mysqli_fetch_assoc($result)) {
     $id = $row["ID"];
     $name = $row["Name"];
     $creationDate = $row["CreationDate"];
-    $creationTimestamp = strtotime($creationDate);
-    $creationDateFormat = date('d.m.Y', $creationTimestamp);
-    $dateOfInvoiceTimestamp = $creationTimestamp + ((60 * 60 * 24) * 30);
-    $dateOfInvoiceFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
+    $dateOfInvoiceTimestamp = strtotime($creationDate);
+    $dateOfInvoiceFormat = date('d.m.Y', $creationTimestamp);
+    $dueDateTimestamp = $creationTimestamp + ((60 * 60 * 24) * 30);
+    $dueDateFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
 }
 
 //$dateToday = date("d.m.Y");
 //$dateToPay = date('d.m.Y', strtotime($dateToday . ' + 30 days'));
 
-$dateToday = $creationDateFormat;
-$dateToPay = $dateOfInvoiceFormat;
+$dateToday = $dateOfInvoiceFormat;
+$dateToPay = $dueDateFormat;
 
 $companyAddress = ( "Swissedu AG\n" .
         "8704 Herrliberg\n" .
