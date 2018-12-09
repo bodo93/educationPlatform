@@ -38,7 +38,7 @@ while ($row = mysqli_fetch_assoc($result)) {
             $htmlData = "Your published course " . $name . " will be deleted from SWISSEDU on " . $dateOfDeletionFormat;
             EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
 
-            $update = $mysqli->prepare("Update course SET `ControlNumber` = ? WHERE `ID` = ?");
+            $update = $mysqli->prepare("Update course SET `ControlNumber2` = ? WHERE `ID` = ?");
             $number = 1;
             $update->bind_param('ii', $number, $id);
             $update->execute();
