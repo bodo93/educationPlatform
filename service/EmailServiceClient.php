@@ -10,7 +10,6 @@ class EmailServiceClient {
 
     // send Emial with subject and text content 
     public static function sendEmail($toEmail, $subject, $htmlData) {
-        //echo "Methode aufgerufen";
         $jsonObj = self::createEmailJSONObj();
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
         $jsonObj->subject = $subject;
@@ -19,8 +18,7 @@ class EmailServiceClient {
         $options = ["http" => [
                 "method" => "POST",
                 "header" => ["Content-Type: application/json",
-                    //"Authorization: Bearer " . Config::get("sendGrid.value") . ""],
-                    "Authorization: Bearer " . getenv("SENDGRID_API_KEY") . ""], // test
+                "Authorization: Bearer " . getenv("SENDGRID_API_KEY") . ""],
                 "content" => json_encode($jsonObj)
         ]];
         $context = stream_context_create($options);

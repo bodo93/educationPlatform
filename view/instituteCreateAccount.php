@@ -62,7 +62,8 @@ author: Philipp Lehmann
                     <script>
                     function checkPw(password){
                         var textLength = password.value.length;
-                        if(password.value=='' || textLength<6){
+                        //if(password.value=='' || textLength<6){
+                        if(textLength<6){
                         alert('Password must have at least 6 characters');
                         password.value='';
                         }
