@@ -5,7 +5,7 @@ use database\DBConnection;
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
-        $select = "SELECT ID, Name, Start, ControlNumber FROM course";
+        $select = "SELECT ID, Name, Start, CreationDate, ControlNumber FROM course";
         $result = $mysqli->query($select);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -13,7 +13,10 @@ use database\DBConnection;
             $name = $row["Name"];
             $start = $row["Start"];
             $startTimestamp = strtotime($start);
+            $creationDate = $row["CreationDate"];
+            echo $creationDate;
             $control = $row["ControlNumber"];
+            echo $control;
 
 
             if ($control == 0) {
