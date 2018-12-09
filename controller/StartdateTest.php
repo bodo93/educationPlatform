@@ -20,6 +20,8 @@ $db = DBConnection::getConnection();
             $dateOfDeletionTimestamp = $creationTimestamp + ((60 * 60 * 24) * 90);
             $dateOfDeletionFormat = date('d.m.Y', $dateOfDeletionTimestamp);
 
+                        echo "OK2";
+                        
             $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
 
             if ($result = $mysqli->query($selectMail)) {
@@ -27,7 +29,7 @@ $db = DBConnection::getConnection();
                 $mail = $row["Email"];
             }
             
-            echo "OK2";
+            echo "OK3";
 
             $toEmail = "$mail";
             $subject = "SWISSEDU Notification";
