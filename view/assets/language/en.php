@@ -13,6 +13,7 @@ URL: https://www.youtube.com/watch?v=cgvDMUrQ3vA
         "startDate" => "Start date",
         "endDate" => "End date",
         "institute" => "Educational institute",
+        "noData" => "No Data to be displayed",
         "graduation" => "Graduation",
         "sureDelete" => "Are you sure?",
         "delete" => "Delete Course",
