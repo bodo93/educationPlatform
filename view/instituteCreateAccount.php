@@ -24,7 +24,7 @@ author: Philipp Lehmann
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['userName']?></label><input class="form-control" type="email" name="email" placeholder="your@institute.ch" required autofocus></div>
                             </div>
                             <div class="col" style="min-width: 130px;margin-right: 40px;">
-                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['street']?></label><input class="form-control item" type="text" name="street" style="min-width: 170px;font-size: 14px;" required ></div>
+                                <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['street']?></label><input class="form-control item" type="text" name="street" onblur="checkPlace(this)" style="min-width: 170px;font-size: 14px;" required ></div>
                             </div>
                         </div>
                         <div class="form-row">
@@ -62,7 +62,8 @@ author: Philipp Lehmann
                     <script>
                     function checkPw(password){
                         var textLength = password.value.length;
-                        if(password.value=='' || textLength<6){
+                        //if(password.value=='' || textLength<6){
+                        if(textLength<6){
                         alert('Password must have at least 6 characters');
                         password.value='';
                         }
@@ -82,7 +83,7 @@ author: Philipp Lehmann
                     <script>
                     function checkPlace(place){
                         if (!isNaN(place.value) ){
-                        alert('Please enter a valid place');
+                        alert('Please enter a valid value');
                         place.value='';
                         }
                     }
