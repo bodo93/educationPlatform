@@ -77,6 +77,7 @@ author: Philipp Lehmann
                         if (isNaN(num.value) || textLength<4 || textLength>4){
                         alert('Please enter a valid postcode');
                         num.value='';
+                        if (document.activeElement != document.body) document.activeElement.blur();
                         }
                     }
                     </script>
@@ -86,6 +87,7 @@ author: Philipp Lehmann
                         if (!isNaN(place.value) ){
                         alert('Please enter a valid value');
                         place.value='';
+                        if (document.activeElement != document.body) document.activeElement.blur();
                         }
                     }
                     </script>

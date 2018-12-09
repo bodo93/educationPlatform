@@ -167,6 +167,7 @@ use database\DBConnection;
                         if (isNaN(num.value) || textLength<4 || textLength>4){
                             alert('Please enter a valid postcode');
                             num.value='';
+                            if (document.activeElement != document.body) document.activeElement.blur();
                         }
                     }
                     </script>
@@ -177,6 +178,7 @@ use database\DBConnection;
                         if (isNaN(num.value) || textLength>5){
                             alert('Please enter a valid price');
                             num.value='';
+                            if (document.activeElement != document.body) document.activeElement.blur();
                         }
                     }
                     </script>
@@ -186,6 +188,7 @@ use database\DBConnection;
                         if (!isNaN(place.value) ){
                             alert('Please enter a valid place');
                             place.value='';
+                            if (document.activeElement != document.body) document.activeElement.blur();
                         }
                     }
                     </script>
@@ -195,6 +198,7 @@ use database\DBConnection;
                         if(date.valueAsDate <= new Date()) {
                             alert('Please enter a date in the future');
                             date.value='';
+                            if (document.activeElement != document.body) document.activeElement.blur();
                         } else {
                             //Date in the future
                         }
@@ -207,9 +211,11 @@ use database\DBConnection;
                         if(date.valueAsDate <= new Date()) {
                             alert('Please enter a date in the future');
                             date.value='';
+                            if (document.activeElement != document.body) document.activeElement.blur();
                         } else if(date.valueAsDate <= start.valueAsDate){
                             alert('End date must be after the start date');
                             date.value='';
+                            if (document.activeElement != document.body) document.activeElement.blur();
                         }
                     }    
                     </script>
