@@ -17,7 +17,10 @@ use database\DBConnection;
             $creationTimestamp = strtotime($creationDate);
             $dateOfReminderTimestamp = $creationTimestamp + ((60 * 60 * 24) * 83);
             $dateOfReminderFormat = date('d.m.Y', $dateOfReminderTimestamp);
+            $dateOfDeletionTimestamp = $creationTimestamp + ((60 * 60 * 24) * 90);
+            $dateOfDeletionFormat = date('d.m.Y', $dateOfDeletionTimestamp);
             echo $dateOfReminderFormat ."</br>";
+            echo $dateOfDeletionFormat ."</br>";
             $control = $row["ControlNumber"];
             echo $control;
 
