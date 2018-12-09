@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<!--
-Author: Bodo Grütter, Phillip Lehmann, René Schwab
-
-The index is the central switch that routes through all the pages.
--->
 <?php
+/*
+ * Author: Bodo Grütter, Phillip Lehmann, René Schwab
+ * 
+ * The index is the central switch that routes through all the pages.
+ */
 
 require_once("config/Autoloader.php");
 require_once("view/layout.php");
@@ -31,14 +31,10 @@ $errorFunction = function () {
     require_once("view/404.php");
 };
 
-// JUST FOR TESTING
-// ################
 Router::route("GET", "/Invoice", function(){
     require_once("Invoice/createInvoice.php");
 });
 
-// JUST FOR TESTING
-// ################
 Router::route("GET", "/sendEmail", function(){
     require_once("Testing/sendEmail.php");
 });
@@ -135,7 +131,6 @@ Router::route("POST", "/searchResult", function () {
 
 Router::route("GET", "/searchResult", function () {
     require_once("view/searchResult.php");
-    
 });
 
 Router::route_auth("POST", "/course/create", $authFunction, function () {
@@ -171,17 +166,12 @@ Router::route("GET", "", function () {
     CourseController::checkStartDate(); // check if courses alredy started
 });
 
-Router::route("POST", "/test", function () {
-    require_once("controller/StartdateTest.php");
+Router::route("POST", "/demo", function () {
+    require_once("controller/DemoController.php");
 });
 
-Router::route("GET", "/test", function () {
-    require_once("controller/StartdateTest.php");
+Router::route("GET", "/demo", function () {
+    require_once("controller/DemoController.php");
 });
 
 Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'], $errorFunction);
-
-/*Router::route("GET", "", function () {
-    require_once("view/search.php");
-    CourseController::checkDateOfDeletion(); // check if courses alredy started
-});*/
