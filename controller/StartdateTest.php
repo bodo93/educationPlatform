@@ -27,22 +27,17 @@ use database\DBConnection;
                     
                     echo "Abgelaufen 1";
 
-                    $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
+                    /*$selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
 
                     if ($result = $mysqli->query($selectMail)) {
                         $row = mysqli_fetch_assoc($result);
                         $mail = $row["Email"];
                     }
-
-                    $toEmail = "$mail";
+*/
+                    $toEmail = "bodo.gruetter@students.fhnw.ch";
                     $subject = "SWISSEDU Notification";
                     $htmlData = "Your published course " . $name . " will be deleted from SWISSEDU on " . $dateOfDeletionFormat;
                     EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
-
-                    $update = $mysqli->prepare("Update course SET `ControlNumber` = ? WHERE `ID` = ?");
-                    $number = 1;
-                    $update->bind_param('ii', $number, $id);
-                    $update->execute();
                 } elseif($dateOfDeletionTimestamp <= time()){
                     
                     "Abgelaufen2";
