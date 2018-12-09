@@ -87,7 +87,7 @@ $courseName = utf8_encode($course->getName());
 $pdf->addDetails($dateToday, $courseName, $priceToPay);
 
 // add Bill to Invoice 
-$pdf->Image('Invoice/bill.png', 0, 195, 210, 0, 'PNG');
+$pdf->Image('view/assets/img/bill.png', 0, 195, 210, 0, 'PNG');
 
 // add Details to Invoice
 $pdf->addPriceToBill($priceToPay);
