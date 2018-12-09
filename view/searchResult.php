@@ -101,7 +101,6 @@ include 'includes/header.inc.php';
                     <th><?php echo $lang['startDate'] ?></th>
                 </tr>
                 <?php
-                
                 if(mysqli_num_rows($search_Result) == 0){
                     echo "<tr>"
                     . "<td colspan='7'>" . $lang['noData'] . "</td>"
@@ -120,7 +119,6 @@ include 'includes/header.inc.php';
                             . "</tr>";
                     }
                 }
-                
                 ?>
             </table>
             </div>
