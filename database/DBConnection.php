@@ -1,16 +1,25 @@
 <?php
 
-namespace database;
-use database\config;
-use \mysqli;
 /**
  * Author: Bodo Grütter
  */
+
+namespace database;
+use database\config;
+use \mysqli;
+
 
 class DBConnection {
     
     private static $connection = null;
     
+     /**
+     * $Author: Bodo Grütter
+     * 
+     * _construct() connects to database
+     * parameter: -
+     * return: -
+     */
     protected function __construct(){
         /*
         $dbHost = "r6ze0q02l4me77k3.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
@@ -46,7 +55,13 @@ class DBConnection {
         }
     }
     
-    //singleton
+     /**
+     * $Author: Bodo Grütter
+     * 
+     * getConnection() creates a connection object
+     * parameter: -
+     * return: a singleton of a connection-object
+     */
     public static function getConnection(){
         if(self::$connection){
             return self::$connection;

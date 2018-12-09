@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Author: Bodo Grütter, Phillip Lehmann, René Schwab
+
+The index is the central switch that routes through all the pages.
 -->
 <?php
 
