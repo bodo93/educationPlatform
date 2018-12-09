@@ -101,12 +101,12 @@ include 'includes/header.inc.php';
                 </tr>
                 <?php
                 
-                if(mysqli_fetch_array($search_Result) == NULL){
+                if(!mysqli_num_row($search_Result)){
                     echo "<tr>"
                     . "<td colspan='7'>" . $lang['noData'] . "</td>"
                     . "</tr>";
-                }else{
-                    while ($row = mysqli_fetch_array($search_Result)) {
+                }
+                while ($row = mysqli_fetch_array($search_Result)) {
                         //$id = $row["ID"];
                         echo "<tr class='clickable-row' data-href='" . $row['Link'] . "'>"
                         . "<td>" . $row['Name'] . "</td>"
@@ -117,8 +117,7 @@ include 'includes/header.inc.php';
                         . "<td>" . $row['courseTypeName'] . "</td>"
                         . "<td>" . $row['Start'] . "</td>"
                         . "</tr>";
-                    }   
-                }
+                    }
                 ?>
             </table>
         </div>
