@@ -1,6 +1,7 @@
 <?php
 
 use database\DBConnection;
+use service\EmailServiceClient;
 
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
