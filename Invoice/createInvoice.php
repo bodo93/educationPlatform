@@ -47,9 +47,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     $name = $row["Name"];
     $creationDate = $row["CreationDate"];
     $dateOfInvoiceTimestamp = strtotime($creationDate);
-    $dateOfInvoiceFormat = date('d.m.Y', $creationTimestamp);
-    $dueDateTimestamp = $creationTimestamp + ((60 * 60 * 24) * 30);
-    $dueDateFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
+    $dateOfInvoiceFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
+    $dueDateTimestamp = $dateOfInvoiceTimestamp + ((60 * 60 * 24) * 30);
+    $dueDateFormat = date('d.m.Y', $dueDateTimestamp);
 }
 
 //$dateToday = date("d.m.Y");
