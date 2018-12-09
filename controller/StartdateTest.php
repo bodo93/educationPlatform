@@ -9,6 +9,8 @@ $mysqli = $db->getConnection();
 $selectCreationDate = "SELECT ID, Name, CreationDate FROM course where ID =" . $courseID;
 $result = $mysqli->query($selectCreationDate);
 
+echo "OK1";
+
 while ($row = mysqli_fetch_assoc($result)) {
     $id = $row["ID"];
     $name = $row["Name"];
