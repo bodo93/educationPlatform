@@ -126,7 +126,7 @@ class InstituteController {
             } else {
                 echo "
                 <script type=\"text/javascript\">
-                alert('Password invalid');
+                alert('Username or Password invalid');
                 window.location.replace('login');
                 </script>
                 ";
@@ -134,7 +134,7 @@ class InstituteController {
         } else {
             echo "
             <script type=\"text/javascript\">
-            alert('Username invalid');
+            alert('Username or Password invalid');
             window.location.replace('login');
             </script>
             ";
