@@ -1,10 +1,11 @@
 <?php
 
-namespace model;
-
 /**
  * Author: Bodo Grütter
  */
+
+namespace model;
+
 class Area {
     
     private $id;
