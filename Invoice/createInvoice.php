@@ -58,11 +58,12 @@ $companyAddress = ( "Swissedu AG\n" .
         "https://swissedu.herokuapp.com"
         );
 
-$recipientAddress = ( $institute->getName() . "\n" .
-        $institute->getStreet() . " " .
-        $institute->getHouseNumber() . "\n" .
-        $institute->getPostCode() . " " . $institute->getPlace()
-        );
+$recipientAddress = ( iconv('UTF-8', 'ISO-8859-2', $institute->getName()) . "\n" .
+                      iconv('UTF-8', 'ISO-8859-2', $institute->getStreet()) . " " .
+                      iconv('UTF-8', 'ISO-8859-2', $institute->getHouseNumber()) . "\n" .
+                      iconv('UTF-8', 'ISO-8859-2', $institute->getPostCode()) . " " .
+                      iconv('UTF-8', 'ISO-8859-2', $institute->getPlace())
+                    );
 
 // le mettre au debut car plante si on declare $mysqli avant !
 $pdf = new PDF_Invoice('P', 'mm', 'A4');
@@ -80,7 +81,7 @@ $pdf->addPP("P.P 8704 Herrliberg");
 $pdf->addTotal($priceToPay, $dateToday, $dateToPay);
 $pdf->addTitle();
 $pdf->addNote("Besten Dank, dass Sie unser Angebot nutzen.\n"
-        . "Wir bitten Sie die Rechnung fristgerecht zu begleichen. Ihr SWISSEDU Team'");
+        . "Wir bitten Sie die Rechnung fristgerecht zu begleichen. Ihr SWISSEDU Team");
 
 $courseName = iconv('UTF-8', 'ISO-8859-2', $course->getName()) . "\n";
 
