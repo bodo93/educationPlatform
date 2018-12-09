@@ -6,6 +6,12 @@
 
 use database\DBConnection;
 
+/*
+ * Author: Philipp Lehmann
+ * 
+ * SELECT statements to get course data from database
+ * Shows all courses, if form fields of search.php are empty
+ */
 if (empty($_POST['valueToSearch']) and empty($_POST['department']) and empty($_POST['area']) and empty($_POST['coursetype'])) {
     $query = "SELECT
             c.ID,c.Name,c.Place,c.Costs,c.Start,c.End,c.Link,c.InstituteID,c.DepartmentID,c.AreaID,c.CourseTypeID,
@@ -46,6 +52,13 @@ if (empty($_POST['valueToSearch']) and empty($_POST['department']) and empty($_P
     $search_Result = filterTable($query);
 }
 
+/*
+ * Author: Philipp Lehmann
+ * 
+ * create() creates a course and saves it in the database.
+ * parameter: SQL SELECT statement
+ * return: course data retrieved from database
+ */
 function filterTable($query) {
     $db = DBConnection::getConnection();
     $mysqli = $db->getConnection();
@@ -92,6 +105,7 @@ include 'includes/header.inc.php';
             <div style="height:400px; overflow-y: scroll">
             <table id="table-searchResult" style="width: 100%;">
                 <tr>
+                    <!-- Define table headers -->
                     <th><?php echo $lang['name'] ?></th>
                     <th><?php echo $lang['department'] ?></th>
                     <th><?php echo $lang['institute'] ?></th>
@@ -102,21 +116,24 @@ include 'includes/header.inc.php';
                 </tr>
                 <?php
                 if(mysqli_num_rows($search_Result) == 0){
-                    echo "<tr>"
-                    . "<td colspan='7'>" . $lang['noData'] . "</td>"
-                    . "</tr>";
+                ?>
+                    <tr>
+                    <td colspan="7"><?php echo $lang['noData']?></td>
+                    </tr>
+                <?php
                 }else{
-                    while ($row = mysqli_fetch_array($search_Result)) {
-                            //$id = $row["ID"];
-                            echo "<tr class='clickable-row' data-href='" . $row['Link'] . "'>"
-                            . "<td>" . $row['Name'] . "</td>"
-                            . "<td>" . $row['departmentName'] . "</td>"
-                            . "<td>" . $row['instituteName'] . "</td>"
-                            . "<td>" . $row['areaName'] . "</td>"
-                            . "<td>" . $row['Place'] . "</td>"
-                            . "<td>" . $row['courseTypeName'] . "</td>"
-                            . "<td>" . $row['Start'] . "</td>"
-                            . "</tr>";
+                    // loop through all courses and show them in SearchResult table
+                    while ($row = mysqli_fetch_array($search_Result)) { ?>
+                    <tr class="clickable-row" data-href="<?php echo $row['Link'] ?>">
+                        <td><?php echo $row['Name'] ?></td>
+                        <td><?php echo $row['departmentName'] ?></td>
+                        <td><?php echo $row['instituteName'] ?></td>
+                        <td><?php echo $row['areaName'] ?></td>
+                        <td><?php echo $row['Place'] ?></td>
+                        <td><?php echo $row['courseTypeName'] ?></td>
+                        <td><?php echo $row['Start'] ?></td>
+                    </tr>
+                    <?php
                     }
                 }
                 ?>
