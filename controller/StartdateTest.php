@@ -1,4 +1,6 @@
 <?php
+use database\DBConnection;
+
 $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
 
