@@ -60,7 +60,7 @@ $mysqli = $db->getConnection();
                                 //mysqli_query($conn, "SET NAMES 'utf8'"); // ä, ö, ü richtig darstellen
                                 $userID = $_SESSION['userID'];
                                 
-                                $query = "select c.ID, c.Name, c.Place, c.Start,
+                                $query = "select c.ID, c.Name, c.Place, c.Start, c.Link,
                                         depart.Name AS departmentName,
                                         ctype.Name AS courseTypeName
                                         from course c
@@ -75,7 +75,7 @@ $mysqli = $db->getConnection();
                                     $id = $row["ID"];
                                     
                                     echo "<tr>"
-                                    . "<td>" . $row['Name'] . "</td>"
+                                    . "<td><a href='" . $row['Link'] . "'>" . $row['Name'] . "</td>"
                                     . "<td>" . $row['departmentName'] . "</td>"
                                     . "<td>" . $row['Place'] . "</td>"
                                     . "<td>" . $row['courseTypeName'] . "</td>"
