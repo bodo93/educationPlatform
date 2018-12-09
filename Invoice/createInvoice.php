@@ -91,7 +91,11 @@ $pdf->addTitle();
 $pdf->addNote("Besten Dank fuer die Buchung und das Vertrauen in SWISSEDU.\n" .
         "Wir bitten Sie die Rechnung fristgerecht zu begleichen. Besten Dank.");
 
-$pdf->addDetails($dateToday, $course->getName(), $priceToPay);
+$courseName = utf8_encode($course->getName());
+
+$pdf->addDetails($dateToday, $courseName, $priceToPay);
+
+//$pdf->addDetails($dateToday, $course->getName(), $priceToPay);
 
 // add Bill to Invoice 
 $pdf->Image('Invoice/bill.png', 0, 195, 210, 0, 'PNG');
