@@ -11,7 +11,7 @@
                 <div class="block-heading">
                     <h2 class="text-info"><?php echo $lang['delete'] ?></h2>
                 </div>
-                <form method="post" action="<?php echo $GLOBALS["ROOT_URL"]; ?>/course/delete" style="padding-bottom: 30px;">
+                <form method="post" action="<?php echo htmlspecialchars($GLOBALS["ROOT_URL"]); ?>/course/delete" style="padding-bottom: 30px;">
                     <input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
                     <p class="alert alert-error"><?php echo $lang['sureDelete']?></p>    
                     <div class="form-group">

@@ -31,7 +31,7 @@ $institute = $stmt->get_result()->fetch_object("model\Institute");
                     <div class="block-heading">
                         <h2 class="text-info" style="margin-bottom: 15px;"><?php echo $lang['userprofile'] ?></h2>
                     </div>
-                    <form action="<?php echo $GLOBALS["ROOT_URL"]; ?>/institute/edit" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
+                    <form action="<?php echo htmlspecialchars($GLOBALS["ROOT_URL"]); ?>/institute/edit" method="post" style="padding-bottom: 30px;max-width: 800px;min-width: 220px;margin-right: 100;padding-right: 0px;">
                         <div class="form-row">
                             <div class="col" style="margin-right: 40px;min-width: 130px;">
                                 <div class="form-group" style="margin-bottom: 10px;"><label for="email" style="margin-bottom: 0px;"><?php echo $lang['userName']?></label><input class="form-control" type="email" name="email" value="<?php echo $institute->getEmail(); ?>" required></div>
