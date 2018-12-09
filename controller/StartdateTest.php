@@ -22,6 +22,8 @@ $db = DBConnection::getConnection();
                 $row = mysqli_fetch_assoc($result);
                 $mail = $row["Email"];
             }
+            
+            echo "OK";
 
             $toEmail = "$mail";
             $subject = "SWISSEDU Notification";
