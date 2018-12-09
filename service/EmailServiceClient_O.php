@@ -1,12 +1,15 @@
 <?php
 
 namespace service;
+
 use database\config;
+
 require ("SendGrid/SendGrid-API/vendor/autoload.php");
+
 use SendGrid\Mail;
 
 /**
- * @author Andreas Martin adapted by René Schwab
+ * @author Andreas Martin
  */
 class EmailServiceClient {
 
@@ -31,26 +34,28 @@ class EmailServiceClient {
             return true;
         return false;
     }
-    
+
     // send Emial with subject, text content and attachment
     public static function sendInvoiceEmail($toEmail, $subject, $htmlData) {
-        /*include 'Testing/createPDFtest.php';
-        
-        //$file = fopen("Testing/test.pdf", "r");
-        $file = "Testing/test.pdf";*/
-        
+        /* include 'Testing/createPDFtest.php';
+
+          //$file = fopen("Testing/test.pdf", "r");
+          $file = "Testing/test.pdf"; */
+
         $jsonObj = self::createEmailJSONObj();
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
         $jsonObj->subject = $subject;
         $jsonObj->content[0]->value = $htmlData;
-        /*$jsonObj->attachments[0]->filename = "file.pdf";
-        $jsonObj->attachments[0]->content = base64_encode("hello"); //auf Pfad vom PDF zugreifen, nicht PHP
+        /* $jsonObj->attachments[0]->filename = "file.pdf";
+          $jsonObj->attachments[0]->content = base64_encode("hello"); //auf Pfad vom PDF zugreifen, nicht PHP
+         * 
          */
 
         $options = ["http" => [
                 "method" => "POST",
                 "header" => ["Content-Type: application/json",
-                "Authorization: Bearer " . getenv("SENDGRID_API_KEY") . ""], 
+                    //"Authorization: Bearer " . Config::get("sendGrid.value") . ""],
+                    "Authorization: Bearer " . getenv("SENDGRID_API_KEY") . ""], // test
                 "content" => json_encode($jsonObj)
         ]];
         $context = stream_context_create($options);
@@ -59,8 +64,48 @@ class EmailServiceClient {
             return true;
         return false;
     }
-        
-    
+
+    public static function sendEmailAttachement($toEmail, $subject, $htmlData, $path) {
+
+        echo "sendEmailAtt aufgerufen";
+
+        $apiKey = getenv("SENDGRID_API_KEY");
+        //$apiKey = config::get("sendGrid.value");
+
+        echo $apiKey;
+
+        $sg = new \SendGrid($apiKey);
+
+        echo " new SendGrid ";
+
+        $email = new SendGrid\Email("Me", "$toEmail");
+
+        echo " email new sendGrid ";
+
+        $mail = new SendGrid\Mail();
+        $mail->setFrom($email);
+        $mail->setSubject("$subject");
+        $p = new \SendGrid\Personalization();
+        $p->addTo($email);
+        $c = new \SendGrid\Content("text/plain", "$htmlData");
+        $mail->addPersonalization($p);
+        $mail->addContent($c);
+
+        $att1 = new \SendGrid\Attachment();
+        $att1->setContent(base64_encode(file_get_contents("$path")));
+        //$att1->setContent(base64_encode(file_get_contents('Invoice/createInvoice.php')));
+        $att1->setType("application/pdf");
+        $att1->setFilename("Rechnung");
+        $att1->setDisposition("attachment");
+        $mail->addAttachment($att1);
+
+        $response = $sg->client->mail()->send()->post($mail);
+
+        echo $response->statusCode() . "\n";
+        echo json_encode(json_decode($response->body()), JSON_PRETTY_PRINT) . "\n";
+        var_dump($response->headers());
+    }
+
     protected static function createEmailJSONObj() {
         return json_decode('{
           "personalizations": [
@@ -85,4 +130,5 @@ class EmailServiceClient {
           ]
         }');
     }
+
 }
