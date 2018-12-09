@@ -53,8 +53,6 @@ class EmailController {
                 window.location.replace ('https://swissedu.herokuapp.com/login');
                 </script>
                 ";
-                //header("Location: " . $GLOBALS["ROOT_URL"] . "/login");
-
             } else {
                 echo "
             <script type=\"text/javascript\">
@@ -62,7 +60,6 @@ class EmailController {
             window.location.replace ('https://swissedu.herokuapp.com/login/forgotPassword');
             </script>
             ";
-                //header("Location: " . $GLOBALS["ROOT_URL"] . "login/forgotPassword");
             }
             
         } catch (Exception $ex) {

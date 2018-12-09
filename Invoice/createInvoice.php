@@ -65,7 +65,6 @@ $recipientAddress = ( iconv('UTF-8', 'ISO-8859-2', $institute->getName()) . "\n"
                       iconv('UTF-8', 'ISO-8859-2', $institute->getPlace())
                     );
 
-// le mettre au debut car plante si on declare $mysqli avant !
 $pdf = new PDF_Invoice('P', 'mm', 'A4');
 $pdf->AddPage();
 

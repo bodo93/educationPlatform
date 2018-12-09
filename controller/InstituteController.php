@@ -6,8 +6,6 @@
 
 namespace controller;
 
-//use view\TemplateView;
-//use view\LayoutRendering;
 use model\Institute;
 use model\InvoiceAddress;
 use database\courseDAO;
@@ -100,13 +98,6 @@ class InstituteController {
 
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
-
-
-        // test mail function
-        /*
-          echo "Methode aufgerufen";
-          EmailServiceClient::sendEmail("philipp.lehmann32@gmail.com", "SendGrid Test", "Das ist ein Test der Mail Funktion");
-         */
 
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
 
@@ -293,5 +284,4 @@ class InstituteController {
             echo "Error: " . $update . "<br>" . mysqli_error($conn);
         }
     }
-
 }

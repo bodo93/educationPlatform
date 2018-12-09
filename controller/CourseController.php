@@ -51,32 +51,22 @@ class CourseController {
 
             $stmt->execute();
 
-            // sends PDF invoice to institude after adding a new course
-
             $stmt = $mysqli->prepare("SELECT * FROM institute WHERE ID = ?");
             $stmt->bind_param('i', $institute);
 
-            //$institute = $_SESSION['userID'];
             $stmt->execute();
             $myInstitute = $stmt->get_result()->fetch_object("model\Institute");
 
-            $toEmail = $myInstitute->getEmail();  // funktioniert nicht, warum ??
-            //$email = $_POST['email'];
-            //$institute = $stmt->get_result()->fetch_object("model\Institute");
-            $stmt->close();
+            $toEmail = $myInstitute->getEmail();
 
-            //$toEmail = $_POST['email'];
+            $stmt->close();
+            
             $subject = "SWISSEDU Service";
             $htmlData = "Thank you for publishing your course on SWISSEDU!\n"
                     . "Please settle the account within 30 days.\n"
                     . "You can find the Invoice in your course overview.";
 
             EmailServiceClient::sendInvoiceEmail($toEmail, $subject, $htmlData);
-
-            // Test Mail with pdf
-            //EmailServiceClient::sendEmailAttachement($toEmail, $subject, $htmlData);
-
-
 
             if ($stmt) {
                 header("Location: " . $GLOBALS["ROOT_URL"] . "/course/overview");
@@ -220,12 +210,6 @@ class CourseController {
         $course->getDepartmentId();
         $course->getAreaId();
         $course->getCourseTypeId();
-
-        /*
-          $courseDAO = new CourseDAO();
-          $courseDAO->search($course);
-         * 
-         */
     }
 
     /**
@@ -397,5 +381,4 @@ class CourseController {
             }
         }
     }
-
 }
