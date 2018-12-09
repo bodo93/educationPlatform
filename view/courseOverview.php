@@ -75,7 +75,7 @@ $mysqli = $db->getConnection();
                                     $id = $row["ID"];
                                     
                                     echo "<tr>"
-                                    . "<td><a href='" . $row['Link'] . "'>" . $row['Name'] . "</td>"
+                                    . "<td><a href='" . $row['Link'] . "' target='_blank'>" . $row['Name'] . "</td>"
                                     . "<td>" . $row['departmentName'] . "</td>"
                                     . "<td>" . $row['Place'] . "</td>"
                                     . "<td>" . $row['courseTypeName'] . "</td>"
