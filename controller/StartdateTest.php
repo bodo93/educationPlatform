@@ -13,8 +13,10 @@ echo "OK1";
 
 while ($row = mysqli_fetch_assoc($result)) {
     $id = $row["ID"];
+    echo $id;
     $name = $row["Name"];
     $creationDate = $row["CreationDate"];
+    echo $creationDate;
     $dateOfInvoiceTimestamp = strtotime($creationDate);
     $dateOfInvoiceFormat = date('d.m.Y', $dateOfInvoiceTimestamp);
     $dueDateTimestamp = $dateOfInvoiceTimestamp + ((60 * 60 * 24) * 30);
