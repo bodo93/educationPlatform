@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!--
--->
 <?php
 include 'view/includes/config.inc.php';
 include 'view/includes/translator.inc.php';

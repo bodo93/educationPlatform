@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<!--
--->
 <?php
-include 'view/includes/translator.inc.php';
-
 $sessionActive = false;
 
 if(isset($_SESSION['userID']) && isset($_SESSION['instituteLogin']))
@@ -11,12 +6,13 @@ if(isset($_SESSION['userID']) && isset($_SESSION['instituteLogin']))
 else
     $sessionActive = false;
 ?>
+<!--
 <html>
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     </head>
-    <body>               
+    <body> -->              
         <footer class="page-footer dark">
             <div class="container">
                 <div class="row">
