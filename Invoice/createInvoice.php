@@ -108,7 +108,7 @@ $pdf->addAccountToBill();
 $pdf->addReferenceToBill();
 
 // $file = $pdf->Output("I");
-$file = $pdf->Output('D', "Invoice_" . $dateToday . ".pdf");
+$file = $pdf->Output('D', "Invoice_" . $dateToday . ".pdf", true);
 
 ob_end_flush();
 ?>
