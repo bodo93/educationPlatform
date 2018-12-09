@@ -4,6 +4,8 @@ $db = DBConnection::getConnection();
 
         $select = "SELECT ID, Name, CreationDate FROM course where ID =" . $id;
         $result = $mysqli->query($select);
+        
+        echo "OK1";
 
         while ($row = mysqli_fetch_assoc($result)) {
             $id = $row["ID"];
@@ -23,7 +25,7 @@ $db = DBConnection::getConnection();
                 $mail = $row["Email"];
             }
             
-            echo "OK";
+            echo "OK2";
 
             $toEmail = "$mail";
             $subject = "SWISSEDU Notification";
