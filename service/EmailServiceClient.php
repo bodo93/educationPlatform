@@ -2,8 +2,6 @@
 
 namespace service;
 use database\config;
-require ("SendGrid/SendGrid-API/vendor/autoload.php");
-use SendGrid\Mail;
 
 /**
  * @author Andreas Martin adapted by René Schwab
