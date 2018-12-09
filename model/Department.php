@@ -26,6 +26,4 @@ class Department {
     function setName($name) {
         $this->name = $name;
     }
-
-
 }

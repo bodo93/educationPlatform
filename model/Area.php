@@ -26,6 +26,4 @@ class Area {
     function setName($name) {
         $this->name = $name;
     }
-
-
 }

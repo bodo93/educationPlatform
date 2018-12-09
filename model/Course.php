@@ -125,5 +125,4 @@ class Course {
     function setCourseTypeId($courseTypeId) {
         $this->CourseTypeId = $courseTypeId;
     }
-
 }
