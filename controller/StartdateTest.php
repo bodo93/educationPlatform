@@ -14,10 +14,12 @@ use database\DBConnection;
             $start = $row["Start"];
             $startTimestamp = strtotime($start);
             $creationDate = $row["CreationDate"];
-            echo $creationDate;
+            $creationTimestamp = strtotime($creationDate);
+            $dateOfReminderTimestamp = $creationTimestamp + ((60 * 60 * 24) * 83);
+            $dateOfReminderFormat = date('d.m.Y', $dateOfReminderTimestamp);
+            echo $dateOfReminderFormat ."</br>";
             $control = $row["ControlNumber"];
             echo $control;
-
 
             if ($control == 0) {
                 if ($startTimestamp <= time()) {
