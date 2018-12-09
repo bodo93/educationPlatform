@@ -130,11 +130,11 @@ Router::route("POST", "/search", function () {
 
 Router::route("POST", "/searchResult", function () {
     require_once("view/searchResult.php");
-    CourseController::checkDateOfDeletion(); // check if courses, if 3 months online -> delete and email notification
 });
 
 Router::route("GET", "/searchResult", function () {
     require_once("view/searchResult.php");
+    CourseController::checkDateOfDeletion(); // check if courses, if 3 months online -> delete and email notification
 });
 
 Router::route_auth("POST", "/course/create", $authFunction, function () {

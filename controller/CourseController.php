@@ -188,9 +188,10 @@ class CourseController {
             $id = $_POST['id'];
 
             // delete data
-            $stmt = $mysqli->prepare("DELETE FROM course WHERE ID = ?");
-            $stmt->bind_param('i', $id);
+            $stmt = $mysqli->prepare("DELETE FROM course WHERE ID = ? AND InstituteID = ?");
+            $stmt->bind_param('ii', $id, $userID);
             $id = $_POST['id'];
+            $userID = $_SESSION['userID'];
 
             $stmt->execute();
 
