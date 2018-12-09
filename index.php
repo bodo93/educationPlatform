@@ -174,3 +174,8 @@ Router::route("GET", "/test", function () {
 });
 
 Router::call_route($_SERVER['REQUEST_METHOD'], $_SERVER['PATH_INFO'], $errorFunction);
+
+Router::route("GET", "", function () {
+    require_once("view/search.php");
+    CourseController::checkDateOfDeletion(); // check if courses alredy started
+});
