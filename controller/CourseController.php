@@ -20,6 +20,10 @@ class CourseController {
 
     /**
      * $Author: Bodo Grütter
+     * 
+     * create() creates a course and saves it in the database.
+     * parameter: -
+     * return: -
      */
     public static function create() {
         $db = DBConnection::getConnection();
@@ -84,6 +88,13 @@ class CourseController {
         }
     }
 
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * readAll() reads all courses by InstititeID.
+     * parameter: -
+     * return: -
+     */
     public static function readAll() {
         $contentView = new TemplateView("courseOverview.php");
         $courseDAO = new CourseDAO();
@@ -91,17 +102,27 @@ class CourseController {
         LayoutRendering::basicLayout($contentView);
     }
 
-    public static function edit($courseId) {
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * edit($course) edits a course.
+     * parameter: a course-object
+     * return: -
+     */
+    public static function edit($course) {
         $contentView = new TemplateView("courseEdit.php");
         $courseDAO = new CourseDAO();
-        $contentView->course = $courseDAO->read($courseID);
+        $contentView->course = $courseDAO->update($course);
         LayoutRendering::basicLayout($contentView);
     }
 
-    /*
-     * Author: Bodo Grütter
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * update() updates the selected course in database.
+     * parameter: -
+     * return: -
      */
-
     public static function update() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -148,10 +169,13 @@ class CourseController {
         }
     }
 
-    /*
-     * Author: Bodo Grütter
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * delete() deletes the selected course in database.
+     * parameter: -
+     * return: -
      */
-
     public static function delete() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -206,7 +230,13 @@ class CourseController {
          */
     }
 
-    //Author: Bodo Grütter
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * getDateOfInvoice($id) determines the date of invoice of an selected course.
+     * parameter: id of the selected course
+     * return: the date of Invoice in format d.m.Y
+     */
     public static function getDateOfInvoice($id) {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -225,7 +255,13 @@ class CourseController {
         return $dateOfInvoiceFormat;
     }
 
-    //Author: Bodo Grütter
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * getDueDate($id) determines the due date of an selected course.
+     * parameter: id of the selected course
+     * return: the due date in format d.m.Y
+     */
     public static function getDueDate($id) {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -246,7 +282,14 @@ class CourseController {
         return $dueDateFormat;
     }
 
-    //Author: Bodo Grütter
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * checkDateOfDeletion() checks with every call, if a course has expired
+     * and sends then a reminder to the corresponding institute or deletes the course 
+     * parameter: -
+     * return: -
+     */
     public static function checkDateOfDeletion() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
@@ -278,20 +321,32 @@ class CourseController {
             EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
 
             if ($dateOfReminderTimestamp <= time()) {
-                    $toEmail = "$mail";
-                    $subject = "SWISSEDU Notification";
-                    $htmlData = "Your published course " . $name . " will be deleted from SWISSEDU on " .$dateOfDeletionFormat;
-                    EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+                $toEmail = "$mail";
+                $subject = "SWISSEDU Notification";
+                $htmlData = "Your published course " . $name . " will be deleted from SWISSEDU on " . $dateOfDeletionFormat;
+                EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
             } elseif ($dateOfDeletionTimestamp <= time()) {
-                    $toEmail = "$mail";
-                    $subject = "SWISSEDU Notification";
-                    $htmlData = "Your published course " . $name . " has been deleted from SWISSEDU.";
-                    EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+                $toEmail = "$mail";
+                $subject = "SWISSEDU Notification";
+                $htmlData = "Your published course " . $name . " has been deleted from SWISSEDU.";
+                EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+
+                // delete data
+                $stmt = $mysqli->prepare("DELETE FROM course WHERE ID = ?");
+                $stmt->bind_param('i', $id);
+                $stmt->execute();
             }
         }
     }
 
-    //Author: Bodo Grütter
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * checkStartDate() checks with every call, if a course has already started
+     * and sends then a notification to the corresponding institute 
+     * parameter: -
+     * return: -
+     */
     public static function checkStartDate() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();

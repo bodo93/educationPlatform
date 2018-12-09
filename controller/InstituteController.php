@@ -1,9 +1,7 @@
 <?php
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: Bodo Grütter and Pilipp Lehmann
  */
 
 namespace controller;
@@ -17,21 +15,18 @@ use database\DBConnection;
 use controller\EmailController;
 use view\TemplateView;
 use view\LayoutRendering;
-
 use service\EmailServiceClient;
 
-/**
- * Description of EducationalInstitute
- *
- * @author bodog
- */
 class InstituteController {
+
     /**
-    * REGISTER function 
-    * 
-    * @author Philipp Lehmann
-    */
-    public static function register($view = null){        
+     * $Author: Philipp Lehmann
+     * 
+     * register() creates a new account (institute) with new password and username
+     * parameter: -
+     * return: -
+     */
+    public static function register() {
         $myPassword = $_POST['password'];
         $myPassword2 = $_POST['password2'];
 
@@ -39,21 +34,21 @@ class InstituteController {
         $mysqli = $db->getConnection();
 
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
-        
+
         $stmt->bind_param('s', $email);
         $email = $_POST['email'];
         $stmt->execute();
         $institute = $stmt->get_result()->fetch_object("model\Institute");
         $stmt->close();
-        
-        if($institute) {
+
+        if ($institute) {
             echo "
                 <script type=\"text/javascript\">
                 alert('Username already exists!');
                 window.location.replace('register');
                 </script>
             ";
-        }else if($myPassword == $myPassword2){
+        } else if ($myPassword == $myPassword2) {
             $stmt = $mysqli->prepare("INSERT INTO institute (Name, Street, HouseNumber, PostCode, Place, Email, Password)
                     VALUES (?, ?, ?, ?, ?, ?, ?)");
 
@@ -66,18 +61,18 @@ class InstituteController {
             $email = $_POST['email'];
             $encryption = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $stmt->execute();
-            
+
             if ($stmt === FALSE) {
                 echo "Error: " . $sql . "<br>" . $conn->error;
-            }else{
+            } else {
                 echo "
                 <script type=\"text/javascript\">
                 alert('User successfully created');
                 window.location.replace('login');
                 </script>
-                "; 
-            }      
-        }else{
+                ";
+            }
+        } else {
             echo "
             <script type=\"text/javascript\">
             alert('Your Passwords do not match!');
@@ -86,47 +81,49 @@ class InstituteController {
             ";
         }
     }
-    
+
     /**
-    * LOGIN function 
-    * 
-    * @author Philipp Lehmann
-    */
-    public static function login(){
+     * $Author: Philipp Lehmann
+     * 
+     * login() verifiy username and password and logs the user in
+     * parameter: -
+     * return: -
+     */
+    public static function login() {
         //use database/DBConnection.php;
-        session_regenerate_id(true);    
+        session_regenerate_id(true);
 
         // get user data from login area
 
         $submittedEmail = $_POST['email'];
         $submittedPassword = $_POST['password'];
-        
+
         $db = DBConnection::getConnection();
-        $mysqli = $db->getConnection();        
-        
-        
+        $mysqli = $db->getConnection();
+
+
         // test mail function
         /*
-        echo "Methode aufgerufen";
-        EmailServiceClient::sendEmail("philipp.lehmann32@gmail.com", "SendGrid Test", "Das ist ein Test der Mail Funktion");
-        */
+          echo "Methode aufgerufen";
+          EmailServiceClient::sendEmail("philipp.lehmann32@gmail.com", "SendGrid Test", "Das ist ein Test der Mail Funktion");
+         */
 
         $stmt = $mysqli->prepare("SELECT * FROM institute WHERE Email = ?");
-        
+
         $stmt->bind_param('s', $email);
         $email = $submittedEmail;
         $stmt->execute();
         $institute = $stmt->get_result()->fetch_object("model\Institute");
         $stmt->close();
 
-        
-        if($institute){
+
+        if ($institute) {
             if (password_verify($submittedPassword, $institute->getPassword())) {
-            $_SESSION['userID'] = $institute->getId();
-            $_SESSION['instituteLogin'] = true;
-          
-            header("location: course/overview");
-            }else {
+                $_SESSION['userID'] = $institute->getId();
+                $_SESSION['instituteLogin'] = true;
+
+                header("location: course/overview");
+            } else {
                 echo "
                 <script type=\"text/javascript\">
                 alert('Password invalid');
@@ -134,44 +131,57 @@ class InstituteController {
                 </script>
                 ";
             }
-        }else{
+        } else {
             echo "
             <script type=\"text/javascript\">
             alert('Username invalid');
             window.location.replace('login');
             </script>
             ";
-        } 
+        }
     }
-    
+
     /**
-    * LOGOUT function
-    * 
-    * @author Philipp Lehmann
-    */
-    public static function logout(){
+     * $Author: Philipp Lehmann
+     * 
+     * logout() logs the user out
+     * parameter: -
+     * return: -
+     */
+    public static function logout() {
         session_destroy();
     }
-    
+
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * edit($course) edits an institute.
+     * parameter: an institute-object
+     * return: -
+     */
     public static function edit($instituteId) {
-        $contentView = new TemplateView(instituteEdit.php);
+        $contentView = new TemplateView(instituteEdit . php);
         $instituteDAO = new InstituteDAO();
-        $contentView->institute = $instituteDAO->readInstitute($instituteId);
+        $contentView->institute = $instituteDAO->update($institute);
         $LayoutRendering::basicLayout($contentView);
     }
-    
-    /*
-     * Author: Bodo Grütter
+
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * updateAccount() updates the actual account (institute) in database.
+     * parameter: -
+     * return: -
      */
-    public static function updateAccount(){
+    public static function updateAccount() {
         $db = DBConnection::getConnection();
-        $mysqli = $db->getConnection();     
-        
+        $mysqli = $db->getConnection();
+
         if ($_POST) {
             $myPassword = $_POST['password'];
             $myPassword2 = $_POST['password2'];
-            
-            if (!$myPassword){
+
+            if (!$myPassword) {
                 // update institute
                 $stmt = $mysqli->prepare("UPDATE institute SET `Name` = ?, `Street` = ?, `HouseNumber` = ?,
                         `PostCode` = ?, `Place` = ?, `Email` = ?
@@ -185,10 +195,10 @@ class InstituteController {
                 $place = $_POST['place'];
                 $email = $_POST['email'];
                 $id = $_SESSION['userID'];
-                
+
                 $message = "Update successfull";
-            }else{
-                if($myPassword == $myPassword2){
+            } else {
+                if ($myPassword == $myPassword2) {
                     // update institute
                     $stmt = $mysqli->prepare("UPDATE institute SET `Name` = ?, `Street` = ?, `HouseNumber` = ?,
                             `PostCode` = ?, `Place` = ?, `Email` = ?, `Password` = ?
@@ -203,9 +213,9 @@ class InstituteController {
                     $email = $_POST['email'];
                     $encryption = $encryption = password_hash($myPassword, PASSWORD_DEFAULT);
                     $id = $_SESSION['userID'];
-                    
+
                     $message = "Update successfull";
-                }else{
+                } else {
                     // update institute
                     $stmt = $mysqli->prepare("UPDATE institute SET `Name` = ?, `Street` = ?, `HouseNumber` = ?,
                             `PostCode` = ?, `Place` = ?, `Email` = ?
@@ -219,18 +229,18 @@ class InstituteController {
                     $place = $_POST['place'];
                     $email = $_POST['email'];
                     $id = $_SESSION['userID'];
-                    
+
                     $message = "Passwords do not match";
-                } 
+                }
             }
-            
+
             $stmt->execute();
-            
+
             if ($stmt) {
                 echo "
                     <script type=\"text/javascript\">
-                    alert('". $message ."');
-                    window.location.replace('". $GLOBALS['ROOT_URL']."/institute');    
+                    alert('" . $message . "');
+                    window.location.replace('" . $GLOBALS['ROOT_URL'] . "/institute');    
                     </script>
                     ";
             } else {
@@ -238,13 +248,20 @@ class InstituteController {
             }
         }
     }
-    
-    public static function deleteAccount(){
+
+    /**
+     * $Author: Bodo Grütter
+     * 
+     * deleteAccount() deletes the actual account (institute) in database.
+     * parameter: -
+     * return: -
+     */
+    public static function deleteAccount() {
         $db = DBConnection::getConnection();
         $mysqli = $db->getConnection();
-        
+
         $id = $_SESSION['userID'];
-        
+
         // delete all course
         $stmt = $mysqli->prepare("DELETE FROM course WHERE InstituteID = ?");
         $stmt->bind_param('i', $userID);
@@ -252,22 +269,22 @@ class InstituteController {
 
         $stmt->execute();
 
-        if($stmt){
+        if ($stmt) {
             // delete account
             $stmt = $mysqli->prepare("DELETE FROM institute WHERE ID = ?");
             $stmt->bind_param('i', $userID);
             $userID = $id;
 
             $stmt->execute();
-            
+
             if ($stmt) {
                 echo "
                 <script type=\"text/javascript\">
                 alert('Profile and all courses deleted');
-                window.location.replace('". $GLOBALS['ROOT_URL']."/login');    
+                window.location.replace('" . $GLOBALS['ROOT_URL'] . "/login');    
                 </script>
                 ";
-                
+
                 InstituteController::logout();
             } else {
                 echo "Error: " . $update . "<br>" . mysqli_error($conn);
@@ -275,13 +292,6 @@ class InstituteController {
         } else {
             echo "Error: " . $update . "<br>" . mysqli_error($conn);
         }
-        
-        
-        /*
-        
-
-        
-         * 
-         */
     }
+
 }
