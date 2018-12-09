@@ -122,7 +122,7 @@ function addTotal( $total, $dateToday, $dateDue )
     $this->SetXY( $x1, $y1 + 10 );
     $this->Cell( 40, 6, "Rechnungsdatum:", 'TL' );
     $this->SetXY( $x1, $y1 + 16 );
-    $this->Cell( 40, 6, "Faelligkeitsdatum:", 'BL' );
+    $this->Cell( 40, 6, iconv('UTF-8', 'ISO-8859-2', 'Fälligkeitsdatum:'), 'BL' );
     $this->SetXY( $x1 + 40, $y1 + 10 );
     $this->Cell( 10,12,'','TB',1,'R',0);
     $this->SetXY( $x1 + 50, $y1 + 10 );
