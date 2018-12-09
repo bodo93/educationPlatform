@@ -2,6 +2,8 @@
 <?php 
 /*
  * Author: Philipp Lehmann
+ * 
+ * VIEW FOR LOGIN
  */
 
 include 'includes/header.inc.php';

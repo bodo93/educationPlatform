@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 /*
- * Author: Bodo Grütter
+ * Author: Bodo Grütter and Philipp Lehmann
  */
 
 use database\DBConnection;

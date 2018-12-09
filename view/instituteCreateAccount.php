@@ -1,6 +1,8 @@
 <?php
 /*
  * Author: Philipp Lehmann
+ * 
+ * VIEW FOR REGISTER
  */
 
 include 'includes/header.inc.php';
