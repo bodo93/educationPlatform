@@ -133,6 +133,10 @@ Router::route("POST", "/searchResult", function () {
     CourseController::checkDateOfDeletion(); // check if courses, if 3 months online -> delete and email notification
 });
 
+Router::route("GET", "/searchResult", function () {
+    require_once("view/searchResult.php");
+});
+
 Router::route_auth("POST", "/course/create", $authFunction, function () {
     CourseController::create();
 });
