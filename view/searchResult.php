@@ -100,25 +100,25 @@ include 'includes/header.inc.php';
                     <th><?php echo $lang['startDate'] ?></th>
                 </tr>
                 <?php
-                /*
+                
                 if(mysqli_fetch_array($search_Result) == NULL){
                     echo "<tr>"
                     . "<td colspan='7'>" . $lang['noData'] . "</td>"
                     . "</tr>";
-                }*/
-                
-                while ($row = mysqli_fetch_array($search_Result)) {
-                    //$id = $row["ID"];
-                    echo "<tr class='clickable-row' data-href='" . $row['Link'] . "'>"
-                    . "<td>" . $row['Name'] . "</td>"
-                    . "<td>" . $row['departmentName'] . "</td>"
-                    . "<td>" . $row['instituteName'] . "</td>"
-                    . "<td>" . $row['areaName'] . "</td>"
-                    . "<td>" . $row['Place'] . "</td>"
-                    . "<td>" . $row['courseTypeName'] . "</td>"
-                    . "<td>" . $row['Start'] . "</td>"
-                    . "</tr>";
-                }                
+                }else{
+                    while ($row = mysqli_fetch_array($search_Result)) {
+                        //$id = $row["ID"];
+                        echo "<tr class='clickable-row' data-href='" . $row['Link'] . "'>"
+                        . "<td>" . $row['Name'] . "</td>"
+                        . "<td>" . $row['departmentName'] . "</td>"
+                        . "<td>" . $row['instituteName'] . "</td>"
+                        . "<td>" . $row['areaName'] . "</td>"
+                        . "<td>" . $row['Place'] . "</td>"
+                        . "<td>" . $row['courseTypeName'] . "</td>"
+                        . "<td>" . $row['Start'] . "</td>"
+                        . "</tr>";
+                    }   
+                }
                 ?>
             </table>
         </div>
