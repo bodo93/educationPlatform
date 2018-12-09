@@ -79,10 +79,10 @@ $pdf->addDate('Herrliberg, ', $dateToday);
 $pdf->addPP("P.P 8704 Herrliberg");
 $pdf->addTotal($priceToPay, $dateToday, $dateToPay);
 $pdf->addTitle();
-$pdf->addNote("iconv('UTF-8', 'ISO-8859-2', 'Besten Dank für die Buchung und das Vertrauen in SWISSEDU.\n" .
-        "Wir bitten Sie die Rechnung fristgerecht zu begleichen. Besten Dank.')");
+$pdf->addNote("Besten Dank, dass Sie unser Angebot nutzen.\n"
+        . "Wir bitten Sie die Rechnung fristgerecht zu begleichen. Ihr SWISSEDU Team'");
 
-$courseName = iconv('UTF-8', 'ISO-8859-2', ". $course->getName() . ");
+$courseName = iconv('UTF-8', 'ISO-8859-2', $course->getName()) . "\n";
 
 $pdf->addDetails($dateToday, $courseName, $priceToPay);
 
