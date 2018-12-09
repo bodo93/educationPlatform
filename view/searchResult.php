@@ -89,7 +89,8 @@ include 'includes/header.inc.php';
             <div class="block-heading">
                 <h2 class="text-center text-info"><?php echo $lang['searchResults'] ?></h2>
             </div>
-            <table id="table-searchResult" style="width: 100%">
+            <div style="height:400px; overflow-y: scroll">
+            <table id="table-searchResult" style="width: 100%;">
                 <tr>
                     <th><?php echo $lang['name'] ?></th>
                     <th><?php echo $lang['department'] ?></th>
@@ -122,6 +123,7 @@ include 'includes/header.inc.php';
                 
                 ?>
             </table>
+            </div>
         </div>
     </section>
 </main>
