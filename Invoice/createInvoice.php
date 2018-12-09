@@ -54,7 +54,7 @@ $dateToPay = $dueDateFormat;
 
 $companyAddress = ( "Swissedu AG\n" .
         "8704 Herrliberg\n" .
-        "Tel.: 044 439 40 20\n" .
+        "Tel.: 0041 111 40 20\n" .
         "https://swissedu.herokuapp.com"
         );
 
@@ -79,10 +79,10 @@ $pdf->addDate('Herrliberg, ', $dateToday);
 $pdf->addPP("P.P 8704 Herrliberg");
 $pdf->addTotal($priceToPay, $dateToday, $dateToPay);
 $pdf->addTitle();
-$pdf->addNote("Besten Dank fuer die Buchung und das Vertrauen in SWISSEDU.\n" .
-        "Wir bitten Sie die Rechnung fristgerecht zu begleichen. Besten Dank.");
+$pdf->addNote("iconv('UTF-8', 'ISO-8859-2', 'Besten Dank für die Buchung und das Vertrauen in SWISSEDU.\n" .
+        "Wir bitten Sie die Rechnung fristgerecht zu begleichen. Besten Dank.')");
 
-$courseName = utf8_encode($course->getName());
+$courseName = iconv('UTF-8', 'ISO-8859-2', ". $course->getName() . ");
 
 $pdf->addDetails($dateToday, $courseName, $priceToPay);
 
