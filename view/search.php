@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 /*
- * Author: Philipp Lehmann
+ * Author: René Schwab
  */
 
 include 'includes/header.inc.php';
