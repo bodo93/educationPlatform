@@ -66,6 +66,7 @@ author: Philipp Lehmann
                         if(textLength<6){
                         alert('Password must have at least 6 characters');
                         password.value='';
+                        if (document.activeElement != document.body) document.activeElement.blur();
                         }
                     }
                     </script>
