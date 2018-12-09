@@ -52,6 +52,9 @@ while ($row = mysqli_fetch_assoc($result)) {
     $dueDateFormat = date('d.m.Y', $dueDateTimestamp);
 }
 
+$name = utf8_encode($name );
+
+
 //$dateToday = date("d.m.Y");
 //$dateToPay = date('d.m.Y', strtotime($dateToday . ' + 30 days'));
 
@@ -85,9 +88,14 @@ $pdf->addDate('Herrliberg, ', $dateToday);
 $pdf->addPP("P.P 8704 Herrliberg");
 $pdf->addTotal($priceToPay, $dateToday, $dateToPay);
 $pdf->addTitle();
-$pdf->addNote("Besten Dank fuer die Benuetzung unserer Dienstleistung.\n" .
-        "Bitte pruefen Sie diese Rechnung bevor Sie die Zahlung vornehmen.");
-$pdf->addDetails($dateToday, $course->getName(), $priceToPay);
+$pdf->addNote("Besten Dank fuer die Buchung und das Vertrauen in SWISSEDU.\n" .
+        "Wir bitten Sie die Rechnung fristgerecht zu begleichen. Besten Dank.");
+
+$courseName = utf8_encode($course->getName());
+
+$pdf->addDetails($dateToday, $courseName, $priceToPay);
+
+//$pdf->addDetails($dateToday, $course->getName(), $priceToPay);
 
 // add Bill to Invoice 
 $pdf->Image('Invoice/bill.png', 0, 195, 210, 0, 'PNG');
@@ -100,7 +108,7 @@ $pdf->addAccountToBill();
 $pdf->addReferenceToBill();
 
 // $file = $pdf->Output("I");
-$file = $pdf->Output('D', "Invoice_" . $dateToday . ".pdf",TRUE);
+$file = $pdf->Output('D', "Invoice_" . $dateToday . ".pdf");
 
 ob_end_flush();
 ?>
