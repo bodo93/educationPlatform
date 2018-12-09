@@ -6,6 +6,8 @@ $db = DBConnection::getConnection();
 
         $select = "SELECT ID, Name, CreationDate FROM course where ID =" . $id;
         $result = $mysqli->query($select);
+        
+        echo "OKYX";
 
         while ($row = mysqli_fetch_assoc($result)) {
             $id = $row["ID"];
