@@ -47,7 +47,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     if ($dateOfDeletionTimestamp <= time()) {
         $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
 
-        echo "Abgelaufen2";
         if ($result = $mysqli->query($selectMail)) {
             $row = mysqli_fetch_assoc($result);
             $mail = $row["Email"];
