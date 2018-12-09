@@ -33,7 +33,7 @@ use database\DBConnection;
 
                     $toEmail = "$mail";
                     $subject = "SWISSEDU Notification";
-                    $htmlData = "Your published course " . $name . " has started. Under my courses the course data can be modified as required.";
+                    $htmlData = "Your published course " . $name . " will be deleted from SWISSEDU on " . $dateOfDeletionFormat;
                     EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
 
                     $update = $mysqli->prepare("Update course SET `ControlNumber` = ? WHERE `ID` = ?");
@@ -42,6 +42,22 @@ use database\DBConnection;
                     $update->execute();
                 } elseif($dateOfDeletionTimestamp <= time()){
                     
+                    $selectMail = "SELECT institute.Email from institute JOIN course on institute.ID = course.InstituteID WHERE course.ID = " . $id;
+
+                    if ($result = $mysqli->query($selectMail)) {
+                        $row = mysqli_fetch_assoc($result);
+                        $mail = $row["Email"];
+                    }
+
+                    $toEmail = "$mail";
+                    $subject = "SWISSEDU Notification";
+                    $htmlData = "Your published course " . $name . " has been deleted from SWISSEDU.";
+                    EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+                    
+                // delete data
+                $stmt = $mysqli->prepare("DELETE FROM course WHERE ID = ?");
+                $stmt->bind_param('i', $id);
+                $stmt->execute();
                 } else {
                     echo "OK";
                 }
