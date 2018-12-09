@@ -33,11 +33,13 @@ $db = DBConnection::getConnection();
                 $subject = "SWISSEDU Notification";
                 $htmlData = "Your published course " . $name . " will be deleted from SWISSEDU on " . $dateOfDeletionFormat;
                 EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+                echo "Mail1 sended";
             } elseif ($dateOfDeletionTimestamp <= time()) {
                 $toEmail = "$mail";
                 $subject = "SWISSEDU Notification";
                 $htmlData = "Your published course " . $name . " has been deleted from SWISSEDU.";
                 EmailServiceClient::sendEmail($toEmail, $subject, $htmlData);
+                echo "Mail2 sended";
 
                 // delete data
                 $stmt = $mysqli->prepare("DELETE FROM course WHERE ID = ?");
