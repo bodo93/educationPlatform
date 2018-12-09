@@ -1,13 +1,10 @@
 <?php
+/*
+ * Author: Philipp Lehmann
+ */
 
 ob_start();
 
-//
-// exemple de facture avec mysqli
-// gere le multi-page
-// Ver 1.0 THONGSOUME Jean-Paul
-//
-//use controller\CourseController;
 use database\DBConnection;
 
 require('PDF_Invoice.php');
@@ -52,12 +49,6 @@ while ($row = mysqli_fetch_assoc($result)) {
     $dueDateFormat = date('d.m.Y', $dueDateTimestamp);
 }
 
-$name = utf8_encode($name );
-
-
-//$dateToday = date("d.m.Y");
-//$dateToPay = date('d.m.Y', strtotime($dateToday . ' + 30 days'));
-
 $dateToday = $dateOfInvoiceFormat;
 $dateToPay = $dueDateFormat;
 
@@ -94,8 +85,6 @@ $pdf->addNote("Besten Dank fuer die Buchung und das Vertrauen in SWISSEDU.\n" .
 $courseName = utf8_encode($course->getName());
 
 $pdf->addDetails($dateToday, $courseName, $priceToPay);
-
-//$pdf->addDetails($dateToday, $course->getName(), $priceToPay);
 
 // add Bill to Invoice 
 $pdf->Image('Invoice/bill.png', 0, 195, 210, 0, 'PNG');
