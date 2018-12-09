@@ -1,8 +1,0 @@
-
--------------------
-1. SendGrid System
-2. Form Setup
-3. Testing
-
--------------------
-https://app.sendgrid.com/settings/api_keys
