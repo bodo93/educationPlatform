@@ -192,13 +192,11 @@ class CourseController {
             $stmt->bind_param('ii', $id, $userID);
             $id = $_POST['id'];
             $userID = $_SESSION['userID'];
-
             $stmt->execute();
-
+            
             if ($stmt) {
                 echo "
                 <script type=\"text/javascript\">
-                alert('Course was deleted');
                 window.location.replace('overview');
                 </script>
                 ";
