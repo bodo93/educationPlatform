@@ -8,8 +8,8 @@ $mysqli = $db->getConnection();
 //DATE
 $selectCreationDate = "SELECT ID, Name, CreationDate FROM course where ID =" . $courseID;
 $result = $mysqli->query($selectCreationDate);
-
-echo "OK1";
+$row = mysqli_fetch_assoc($result);
+echo $row["ID"];
 
 while ($row = mysqli_fetch_assoc($result)) {
     $id = $row["ID"];
