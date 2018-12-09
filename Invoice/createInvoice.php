@@ -3,7 +3,7 @@
  * Author: Philipp Lehmann
  */
 
-ob_start();
+ob_clean();
 
 use database\DBConnection;
 

@@ -83,7 +83,7 @@ $mysqli = $db->getConnection();
                                     //generates links "edit" and "delete" with image
                                     . "<td><a class='update' href='" . $GLOBALS['ROOT_URL']. "/course/edit?id=" . $id . "'><img border='0' alt='edit' src='view/assets/img/edit.png' height='20' width='20' align='top'></a> "
                                     . "<a class='delete' href='" . $GLOBALS['ROOT_URL']. "/course/delete?id=" . $id . "'><img border='0' alt='delete' src='view/assets/img/delete.png' height='20' width='20' align='top'></a> "
-                                    . "<a class='delete' href='html_entity_decode(" . $GLOBALS['ROOT_URL']. "/Invoice?id=" . $id . ")'><img border='0' alt='delete' src='view/assets/img/download.png' height='20' width='20' align='top'></a></td>"
+                                    . "<a class='delete' href='" . $GLOBALS['ROOT_URL']. "/Invoice?id=" . $id . "'><img border='0' alt='delete' src='view/assets/img/download.png' height='20' width='20' align='top'></a></td>"
                                     . "</tr>";
                                 }
  
