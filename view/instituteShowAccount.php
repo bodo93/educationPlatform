@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <?php
-/*
- * Author: René Schwab
+
+/**
+ * $Author: René Schwab
+ *
+ * view to display account and related data in a non editable form
+ * parameter: -
+ * return: -
  */
 
 use database\DBConnection;
@@ -64,17 +69,6 @@ $institute = $stmt->get_result()->fetch_object("model\Institute");
                             <div class="col" style="margin-right: 40px;min-width: 130px;height: 40px;"></div>
                         </div>
                     </form>
-
-                    <script>
-                        function checkURL (abc) {
-                        var string = abc.value;
-                        if (!~string.indexOf("http")) {
-                            string = "http://" + string;
-                        }
-                        abc.value = string;
-                        return abc
-                        }
-                    </script>
                 </div>
             </section>
         </main>

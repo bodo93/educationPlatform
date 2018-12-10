@@ -1,10 +1,18 @@
-<!DOCTYPE html>
 <?php
+
+/**
+ * $Author: René Schwab
+ *
+ * header..inc.php creates the header area with logo and navigation, contains noscript tag
+ * parameter: -
+ * return: -
+ */
+
 include 'view/includes/config.inc.php';
 include 'view/includes/translator.inc.php';
 
+// checks if current user has an active session 
 $sessionActive = false;
-
 if(isset($_SESSION['userID']) && isset($_SESSION['instituteLogin']))
     $sessionActive = true;
 else
@@ -71,8 +79,7 @@ else
             </nav>
         </header>
         
-         
-        <!--assets-->
+        <!--assets(bootstrap)-->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>

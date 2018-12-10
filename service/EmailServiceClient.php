@@ -7,8 +7,15 @@ use database\config;
  * @author Andreas Martin adapted by René Schwab
  */
 class EmailServiceClient {
-
-    // send Email with subject and text content 
+    
+    /**
+     * $Author: René Schwab
+     *
+     * sendEmail() is used to send email to user
+     * parameter: email adress, subject and content of email (3x string)
+     * return: -
+     */
+    
     public static function sendEmail($toEmail, $subject, $htmlData) {
         $jsonObj = self::createEmailJSONObj();
         $jsonObj->personalizations[0]->to[0]->email = $toEmail;
@@ -27,6 +34,14 @@ class EmailServiceClient {
             return true;
         return false;
     }
+    
+    /**
+     * $Author: René Schwab
+     *
+     * sendEmail() is used to send email to user after adding a course 
+     * parameter: email adress, subject and content of email (3x string)
+     * return: -
+     */
     
     // send Email with subject, text content and attachment
     public static function sendInvoiceEmail($toEmail, $subject, $htmlData) {
@@ -48,7 +63,7 @@ class EmailServiceClient {
         return false;
     }
         
-    
+    // create email with personalisation parameters 
     protected static function createEmailJSONObj() {
         return json_decode('{
           "personalizations": [

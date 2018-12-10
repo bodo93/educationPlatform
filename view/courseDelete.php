@@ -1,6 +1,11 @@
 <?php
-/*
- * Author: René Schwab
+
+/**
+ * $Author: René Schwab
+ *
+ * view to confirm if a course will be deleted
+ * parameter: -
+ * return: -
  */
 
 include 'includes/header.inc.php';

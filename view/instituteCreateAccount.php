@@ -1,8 +1,11 @@
 <?php
-/*
- * Author: Philipp Lehmann
- * 
- * VIEW FOR REGISTER
+
+/**
+ * $Author: René Schwab
+ *
+ * courseCreate: view to register a new institute
+ * parameter: -
+ * return: -
  */
 
 include 'includes/header.inc.php';

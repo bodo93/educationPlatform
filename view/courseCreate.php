@@ -1,6 +1,11 @@
 <?php
-/*
- * Author: René Schwab
+
+/**
+ * $Author: René Schwab
+ *
+ * view for creating a new course using a form incl. form validation
+ * parameter: -
+ * return: -
  */
 
 include 'includes/header.inc.php';

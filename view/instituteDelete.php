@@ -1,8 +1,13 @@
 <?php
-/*
- * Author: René Schwab
+
+/**
+ * $Author: René Schwab
+ *
+ * courseCreate: view to confirm deletion of a institute
+ * parameter: -
+ * return: -
  */
-    
+
 include 'includes/header.inc.php';
 ?>
 

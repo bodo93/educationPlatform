@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <?php
-/*
- * Author: René Schwab
+
+/**
+ * $Author: René Schwab
+ *
+ * view to display informations about our offer 
+ * parameter: -
+ * return: -
  */
 
 include 'includes/header.inc.php';

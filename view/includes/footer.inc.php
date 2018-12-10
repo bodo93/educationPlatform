@@ -1,18 +1,21 @@
 <?php
-$sessionActive = false;
 
+/**
+ * $Author: René Schwab
+ *
+ * footer..inc.php creates the footer area with contact information and links 
+ * parameter: -
+ * return: -
+ */
+
+// checks if current user has an active session 
+$sessionActive = false;
 if(isset($_SESSION['userID']) && isset($_SESSION['instituteLogin']))
     $sessionActive = true;
 else
     $sessionActive = false;
 ?>
-<!--
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    </head>
-    <body> -->              
+
         <footer class="page-footer dark">
             <div class="container">
                 <div class="row">

@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <?php 
-/*
- * Author: Philipp Lehmann
- * 
- * VIEW FOR LOGIN
+
+/**
+ * $Author: René Schwab
+ *
+ * view to display login page
+ * parameter: -
+ * return: -
  */
 
 include 'includes/header.inc.php';

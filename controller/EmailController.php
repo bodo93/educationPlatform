@@ -1,21 +1,26 @@
 <?php
 
-namespace controller;
+/*
+ * Author: René Schwab
+ */
 
+namespace controller;
 include 'includes/translator.inc.php';
 
 use database\DBConnection;
 use service\EmailServiceClient;
 
-/*
- * Author: René Schwab
- */
+
 class EmailController {
     
-    /* checks if entered email in "institutForgotPassword" is in database
-     * creates new password and sends it per email and update in database
+    /**
+     * $Author: René Schwab
+     *
+     * resetPw() creates new password and sends it per email and update in database
+     * parameter: -
+     * return: -
      */
-     public static function resetPw() {
+    public static function resetPw() {
         
         try {
             $db = DBConnection::getConnection();
@@ -31,7 +36,7 @@ class EmailController {
             // creates random pw with 8 caracters containing a-z, 0-9 
             $newPassword = bin2hex(openssl_random_pseudo_bytes(4));
 
-            // check if email exists in DB 
+            // checks if entered email in "institutForgotPassword" is in database 
             if ($institute) {
 
                 $subject = "SWISSEDU Support";

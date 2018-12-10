@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <?php 
-/*
- * Author: René Schwab
+
+/**
+ * $Author: René Schwab
+ *
+ * view to reset the password 
+ * parameter: -
+ * return: -
  */
 
 include 'includes/header.inc.php';

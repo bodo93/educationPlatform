@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <?php
-/*
- * Author: René Schwab
+
+/**
+ * $Author: René Schwab
+ *
+ * view for editing a course using a form incl. form validation
+ * parameter: -
+ * return: -
  */
 
 include 'includes/translator.inc.php';
@@ -16,7 +21,7 @@ use database\DBConnection;
 
         include 'includes/header.inc.php';
         
-        //Query
+        // query to get all informations to fill in form 
         $stmt = $mysqli->prepare("Select * from course where ID = ?");
         $stmt->bind_param('i', $id);
         $id = $_GET['id'];
@@ -220,8 +225,6 @@ use database\DBConnection;
                         }
                     }    
                     </script>
-                    
-                    
                 </div>
             </section>
         </main>

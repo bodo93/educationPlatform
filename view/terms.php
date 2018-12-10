@@ -1,9 +1,14 @@
-<!--
-author: René Schwab
--->
 <!DOCTYPE html>
-
 <?php 
+
+/**
+ * $Author: René Schwab
+ *
+ * view to display informations about our terms (placeholder text) 
+ * parameter: -
+ * return: -
+ */
+
     include 'includes/translator.inc.php';
     include 'includes/header.inc.php';
 ?>

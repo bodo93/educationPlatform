@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <?php
-/*
- * Author: René Schwab
+
+/**
+ * $Author: René Schwab
+ *
+ * view to display the homepage with search functions incl. drop-down menus and free text search field 
+ * parameter: -
+ * return: -
  */
 
 include 'includes/header.inc.php';
