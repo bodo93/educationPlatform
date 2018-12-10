@@ -4,6 +4,7 @@
  * Author: Bodo Grütter, Phillip Lehmann, René Schwab
  * 
  * The index is the central switch that routes through all the pages.
+ * 
  */
 
 require_once("config/Autoloader.php");
