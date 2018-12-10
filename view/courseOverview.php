@@ -85,7 +85,8 @@ $mysqli = $db->getConnection();
                                     . "<td><a href='" . $row['Link'] . "' target='_blank'>" . $row['Name'] . "</td>" //open course link in a new tab
                                     . "<td>" . $row['departmentName'] . "</td>"
                                     . "<td>" . $row['Place'] . "</td>"
-                                    . "<td>" . $row['courseTypeName'] . "</td>"
+                                    //. "<td>" . $row['courseTypeName'] . "</td>"
+                                    . "<td>" . date(m.d.Y, $row['courseTypeName']) . "</td>"       
                                     . "<td>" . $row['Start'] . "</td>"
 
                                     //generates links "edit" and "delete" with image
