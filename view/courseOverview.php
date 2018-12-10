@@ -86,7 +86,7 @@ $mysqli = $db->getConnection();
                                     . "<td>" . $row['departmentName'] . "</td>"
                                     . "<td>" . $row['Place'] . "</td>"
                                     . "<td>" . $row['courseTypeName'] . "</td>"   
-                                    . "<td>" . $row['Start'] . "</td>"
+                                    . "<td>" . date('d.m.Y', strtotime($row['Start'])) . "</td>"
 
                                     //generates links "edit" and "delete" with image
                                     . "<td><a class='update' href='" . $GLOBALS['ROOT_URL']. "/course/edit?id=" . $id . "'><img border='0' alt='edit' src='view/assets/img/edit.png' height='20' width='20' align='top'></a>&nbsp&nbsp"

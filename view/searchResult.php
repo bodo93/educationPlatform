@@ -131,7 +131,7 @@ include 'includes/header.inc.php';
                         <td><?php echo $row['areaName'] ?></td>
                         <td><?php echo $row['Place'] ?></td>
                         <td><?php echo $row['courseTypeName'] ?></td>
-                        <td><?php echo $row['Start'] ?></td>
+                        <td><?php echo date('d.m.Y', strtotime($row['Start'])) ?></td>
                     </tr>
                     <?php
                     }
