@@ -86,7 +86,7 @@ $mysqli = $db->getConnection();
                                     . "<td>" . $row['departmentName'] . "</td>"
                                     . "<td>" . $row['Place'] . "</td>"
                                     //. "<td>" . $row['courseTypeName'] . "</td>"
-                                    . "<td>" . date(m.d.Y, $row['courseTypeName']) . "</td>"       
+                                    . "<td>" . date_format($row['courseTypeName'],"d/m/Y") . "</td>"     
                                     . "<td>" . $row['Start'] . "</td>"
 
                                     //generates links "edit" and "delete" with image
