@@ -90,7 +90,7 @@ include 'includes/header.inc.php';
                     
                     <script>
                     function checkPlace(place){
-                        if (!isNaN(place.value) ){
+                        if (!isNaN(place.value || /^([^0-9]*)$.test(place)) ){
                         alert('Please enter a valid value');
                         place.value='';
                         if (document.activeElement != document.body) document.activeElement.blur();
